@@ -1,7 +1,131 @@
+/* GENERAL STYLES */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Ensures consistent box-sizing across the site */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(50, 0, 150); /* Dark Purple Transparent */
+  display: flex;
+  justify-content: center; /* 🔥 Center navbar contents */
+  align-items: center;
+  padding: 20px 60px;
+  z-index: 1000;
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between; /* Keeps logo left, links center */
+}
+
+/* Logo */
+.navbar h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Navbar Links */
+.navbar ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure Links Stay Visible */
+.navbar ul li {
+  display: inline-block;
+}
+
+/* Links Styling */
+.navbar a, .dropdown-toggle {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover, .dropdown-toggle:hover {
+  text-decoration: underline;
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgb(50, 0, 150);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 200px;
+  border-radius: 5px;
+}
+
+.dropdown-menu li {
+  padding: 0px 6px;
+}
+
+.dropdown-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #8a46f8a6;
+}
+
+/* 🔥 Fix Content Below Navbar */
+.page-container {
+  margin-top: 0px; /* Push content down so it’s not inside navbar */
+}
+
+/* Responsive: Adjust Navbar for Smaller Screens */
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
   }
-  
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 10px;
+  }
+
+  .navbar h1 {
+    font-size: 22px;
+  }
+}
