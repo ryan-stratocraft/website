@@ -9,37 +9,37 @@
 .about-text {
     flex: 1;
     max-width: 45%; /* 🔥 Set a max width so it's not too stretched */
-    padding: 70px 90px; /* 🔥 Add more horizontal padding to bring text closer to the image */
-    background-color: rgba(255, 255, 255, 0.13);
+    padding: 70px 35px; /* 🔥 Add more horizontal padding to bring text closer to the image */
+    background-color: rgba(50, 1, 165, 0.993);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-
 .about-text h1 {
     font-size: 2.8rem;
-    color: #333;
+    color: #00ff37a9;
     margin-bottom: 20px;
 }
 
 .about-text h2 {
     font-size: 1.8rem;
-    color: #7f00ff;
-    margin-top: 30px;
+    color: #ff008caf;
+    margin-top: 32px;
+    margin-bottom: 0px;
 }
 
 .about-text p {
     font-size: 1.2rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0px;
 }
 
 /* Right Side - Image */
 .about-image {
     flex: 1;
-    width: 50%; /* 🔥 Reduce width slightly to balance the layout */
+    width: 50%;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -49,25 +49,44 @@
     overflow: hidden;
 }
 
-
 /* Full-height Image */
 .about-image img {
-    height: 100vh; /* Full height */
-    width: 90%;
+    height: 100%; /* Full height */
+    width: 100%;
     object-fit: cover;
 }
 
 /* Blurred Transition Overlay */
 .image-overlay {
     position: absolute;
-    left: 140px; /* 🔥 Reduce this to bring blur transition closer */
+    left: 0px; /* 🔥 Reduce this to bring blur transition closer */
     width: 150px; /* 🔥 Adjust fade width */
     height: 100%;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(to left, rgba(28, 2, 255, 0) 0%, rgb(38, 1, 139) 100%);
 }
 
+/* 🔥 Fix: Move App Store & Google Play Store Buttons to Bottom Right of Screen */
+.app-download-links {
+    position: fixed; /* 🔥 Fix position at the bottom right */
+    bottom: 30px; /* 🔥 Position near the bottom */
+    right: 120px; /* 🔥 Align to the right */
+    display: flex;
+    gap: 10px;
+    z-index: 1000; /* Ensure it's always visible */
+}
 
-/* Responsive */
+/* Smaller App Store & Play Store Buttons */
+.app-store-button {
+    width: 300px; /* 🔥 Reduce size */
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.app-store-button:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* 🔥 Responsive - Move Buttons to Bottom Center on Mobile */
 @media (max-width: 900px) {
     .oh-i-about-container {
         flex-direction: column;
@@ -83,10 +102,13 @@
     .about-image {
         width: 100%;
         height: 400px; /* Reduce height for mobile */
+        position: relative;
     }
 
-    .image-overlay {
-        width: 50px;
-        left: -25px;
+    .app-download-links {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%); /* 🔥 Center buttons on smaller screens */
     }
 }

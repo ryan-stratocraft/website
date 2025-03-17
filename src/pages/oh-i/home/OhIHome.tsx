@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./OhIHome.css";
+import profileCustomization from "../../../assets/images/profileCustomization.png"; // Adjust path as needed
+import datePlanning from "../../../assets/images/datePlanning.png"; // Adjust path as needed
+import matchingSystem from "../../../assets/images/matchingSystem.png"; // Adjust path as needed
+
+
+
 
 const OhIHome: React.FC = () => {
   return (
@@ -19,23 +25,25 @@ const OhIHome: React.FC = () => {
         <div className="preview-container">
           {/* App Screenshot 1 */}
           <div className="preview-box">
-            <img src="/images/app-screenshot1.png" alt="Matching System" />
-            <h3>Smart Matching</h3>
-            <p>Get matched based on personality compatibility and shared interests.</p>
+          <h3>Smart Matching</h3>
+          <p>Get matched based on personality compatibility and shared interests.</p>
+            <img src={matchingSystem} alt="Matching System" />
+            
           </div>
 
           {/* App Screenshot 2 */}
           <div className="preview-box">
-            <img src="/images/app-screenshot2.png" alt="Date Planning" />
+            <img src={datePlanning} alt="Date Planning" />
             <h3>Date Planning</h3>
             <p>Choose fun date spots and see who else is interested in the same places.</p>
           </div>
 
           {/* App Screenshot 3 */}
           <div className="preview-box">
-            <img src="/images/app-screenshot3.png" alt="Profile Customization" />
-            <h3>Personalized Profiles</h3>
-            <p>Customize your profile with unique interests and personality insights.</p>
+          <h3>Personalized Profiles</h3>
+          <p>Customize your profile with unique interests and personality insights.</p>
+          <img src={profileCustomization} alt="Profile Customization" />
+          
           </div>
         </div>
       </div>

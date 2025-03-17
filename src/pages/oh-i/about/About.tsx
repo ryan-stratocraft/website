@@ -1,6 +1,8 @@
 import React from "react";
 import "./OhIAbout.css";
 import coffeeCouple from "../../../assets/images/coffee_couple.jpeg"; // ✅ Import the image
+import googlePlay from "../../../assets/images/google-play.png"; // ✅ Import Google Play Store button
+import appStore from "../../../assets/images/app-store.png"; // ✅ Import Apple App Store button
 
 const OhIAbout: React.FC = () => {
   return (
@@ -12,7 +14,7 @@ const OhIAbout: React.FC = () => {
           Oh-i makes dating <strong>exciting again</strong> by blending our <strong>Smart Matching Algorithm</strong> with real-world places to create <strong>genuine</strong> connections.
         </p>
         <p>
-          Instead of endless repetitive swiping like <em>certain</em> apps (👀), Oh-i lets you <strong>match in multiple ways</strong>, keeping dating fresh and fun!
+          Instead of endless repetitive swiping like <em>certain</em> apps (👀🔥🐝), Oh-i lets you <strong>match in multiple ways</strong>, keeping dating fresh and fun!
         </p>
 
         <h2>🚀 Match Based on Places</h2>
@@ -34,7 +36,6 @@ const OhIAbout: React.FC = () => {
         <p>
           See the <strong>most active spots</strong> in town where Oh-i users are, so you know where the action is happening.
         </p>
-
         <h2>🧠 Daily Personality Insights</h2>
         <p>
           Knowing <strong>yourself</strong> is a game-changer in dating. Get <strong>daily personality insights</strong>, detailed breakdowns of your matches' personalities, and <strong>expert dating advice</strong> tailored to their personality type.
@@ -55,6 +56,16 @@ const OhIAbout: React.FC = () => {
       <div className="about-image">
         <div className="image-overlay"></div>
         <img src={coffeeCouple} alt="Couple at Coffee Shop" />
+      </div>
+
+      {/* 🚀 App Store & Play Store Buttons (Bottom Right of Screen) */}
+      <div className="app-download-links">
+        <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer">
+          <img src={googlePlay} alt="Download on Google Play" className="app-store-button" />
+        </a>
+        <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
+          <img src={appStore} alt="Download on App Store" className="app-store-button" />
+        </a>
       </div>
     </div>
   );

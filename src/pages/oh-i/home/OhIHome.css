@@ -4,17 +4,38 @@
   }
   
   /* Hero Section */
-  .ohihero {
+.ohihero {
     background: linear-gradient(135deg, #7f00ff, #4c00fffa);
     color: white;
-    height: 50vh;
+    width: 100%; /* Ensure full width */
+    height: 60vh; /* Increase height for better visibility */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
-  }
+    padding: 40px 20px;
+}
+
+/* Hero Text */
+.ohihero h1 {
+    font-size: 3rem; /* Bigger for impact */
+    font-weight: bold;
+    margin-bottom: 10px;
+    max-width: 900px;
+    line-height: 1.2;
+    color: white; /* 🔥 Ensure it's white */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Optional: Adds visibility */
+}
+
+
+.ohihero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.644);
+}
+
   
   /* About Section */
   .about-section {
@@ -30,27 +51,30 @@
   
   .about-section p {
     font-size: 1.2rem;
-    color: #555;
+    color: #c71e1e;
     max-width: 800px;
     margin: 10px auto;
   }
   
-  .about-button {
+  /* Learn More Button */
+.about-button {
     display: inline-block;
     margin-top: 20px;
-    padding: 12px 24px;
-    background-color: #7f00ff;
+    padding: 14px 28px;
+    background-color: #ff008caf;
     color: white;
     text-decoration: none;
     border-radius: 25px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    transition: background 0.3s ease;
-  }
+    transition: background 0.3s ease, transform 0.2s ease;
+}
   
-  .about-button:hover {
-    background-color: #6200ea;
-  }
+.about-button:hover {
+    background-color: #ff0062;
+    transform: scale(1.05); /* Slight hover effect */
+}
+
   
   /* App Preview Section */
   .app-preview {
@@ -140,6 +164,24 @@
   
     .preview-box {
       width: 80%;
+    }
+
+    .ohihero {
+        height: 50vh; /* Slightly reduce for mobile */
+        padding: 30px;
+    }
+
+    .ohihero h1 {
+        font-size: 2.2rem; /* Adjust for mobile */
+    }
+
+    .ohihero p {
+        font-size: 1.1rem;
+    }
+
+    .about-button {
+        font-size: 16px;
+        padding: 12px 24px;
     }
   }
   

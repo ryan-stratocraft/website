@@ -1,0 +1,57 @@
+.terms-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 20px;
+    background-color: white;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #7f00ff;
+    margin-top: 30px;
+}
+
+p, ul {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+a {
+    color: #7f00ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terms-container {
+        padding: 40px 15px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    p, ul {
+        font-size: 1rem;
+    }
+}

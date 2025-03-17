@@ -18,8 +18,11 @@ import TermsAndConditions from "./pages/oh-i/terms/TermsAndConditions";
 import VerifyBusiness from "./pages/oh-i/verifybusiness/VerifyBusiness";
 
 // B2B VR Product
-import IacVrHome from "./pages/iac-vr/IacVrHome";
+import IacVrHome from "./pages/iac-vr/home/IacVrHome";
 import IacVrAbout from "./pages/iac-vr/About";
+
+import CookieConsent from "./components/CookieConsent";
+
 
 const App: React.FC = () => {
   return (
@@ -51,6 +54,8 @@ const App: React.FC = () => {
           {/* 404 Page */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieConsent />
+
       </div>
     </>
   );
