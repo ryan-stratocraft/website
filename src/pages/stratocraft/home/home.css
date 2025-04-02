@@ -1,94 +1,185 @@
 .home-container {
-    padding: 0px 0px; /* Prevents navbar overlap */
-  }
-  
-  .hero {
-    background: linear-gradient(135deg, #7f00ff, #e100ff);
-    color: white;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    color: rgba(255, 255, 255, 0.822);
-  }
-  
-    /* FEATURE SECTION */
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  color: white;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Products Section */
+.products-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.products-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.products-description {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Product Cards */
+.product-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #f9f9f9;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  gap: 2rem;
+  max-width: 1000px;
+}
+
+.product-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+  max-width: 500px;
+  text-align: left;
+}
+
+.product-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-info p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.coming-soon {
+  font-size: 0.9rem;
+  color: #e91e63;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.app-button {
+  background-color: #0077ff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.app-button:hover {
+  background-color: #005fcc;
+}
+
+/* Features Section */
 .features {
-  background: white;
-  padding: 80px 20px; /* Ensure spacing on smaller screens */
+  background: #fff;
+  padding: 4rem 2rem;
   text-align: center;
 }
 
 .features h3 {
-  font-size: 2.5rem; /* Adjust size */
+  font-size: 2.2rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
 }
 
 .features p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #666;
-  margin-bottom: 40px;
+  margin-bottom: 3rem;
 }
 
-/* 🔥 Ensures feature boxes stay aligned */
+/* Feature Grid */
 .feature-container {
   display: flex;
   justify-content: center;
   gap: 40px;
   max-width: 1000px;
   margin: auto;
-  flex-wrap: wrap; /* Ensures responsiveness */
+  flex-wrap: wrap;
 }
 
-/* Individual Feature Boxes */
 .feature-box {
   background: white;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.06);
   text-align: center;
   width: 30%;
-  min-width: 250px; /* Prevents shrinking too much */
+  min-width: 250px;
 }
 
-/* Feature Box Number Styling */
 .feature-box span {
   font-size: 2rem;
   font-weight: bold;
   color: #6200ea;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* Feature Box Title */
 .feature-box h4 {
-  font-size: 1.5rem; /* Increased size */
-  margin-top: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #222;
 }
 
-/* Ensure Consistent Spacing */
 .feature-box p {
   font-size: 1rem;
   color: #555;
 }
 
-/* Responsive Fix */
+/* Responsive */
 @media (max-width: 900px) {
+  .product-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-info {
+    text-align: center;
+  }
+
   .feature-container {
     flex-direction: column;
     gap: 20px;
@@ -96,7 +187,14 @@
   }
 
   .feature-box {
-    width: 80%;
+    width: 90%;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 }
-

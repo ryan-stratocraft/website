@@ -55,6 +55,8 @@ const OhIHome: React.FC = () => {
           <li><Link to="/oh-i/privacy-policy">Privacy Policy</Link></li>
           <li><Link to="/oh-i/terms-and-conditions">Terms & Conditions</Link></li>
           <li><Link to="/oh-i/delete-data">Delete My Data</Link></li>
+          <li><Link to="/oh-i/child-safety">Child Safety Policy</Link></li>
+
         </ul>
       </footer>
     </div>

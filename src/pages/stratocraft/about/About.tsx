@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <div className="about-container">
       <h1 className="about-title">About Strato-Craft</h1>
       <p className="about-text">
-        We are a company focused on building innovative solutions.
+        We are a company focused on building innovative Applications.
       </p>
     </div>
   );

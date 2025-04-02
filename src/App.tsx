@@ -16,6 +16,8 @@ import Subscription from "./pages/oh-i/subscription/Subscription";
 import PersonalityQuiz from "./pages/oh-i/quiz/PersonalityQuiz";
 import TermsAndConditions from "./pages/oh-i/terms/TermsAndConditions";
 import VerifyBusiness from "./pages/oh-i/verifybusiness/VerifyBusiness";
+import ChildSafetyPolicy from "./pages/oh-i/childsafety/ChildSafetyPolicy";
+
 
 // B2B VR Product
 import IacVrHome from "./pages/iac-vr/home/IacVrHome";
@@ -46,6 +48,8 @@ const App: React.FC = () => {
           <Route path="/oh-i/personality-quiz" element={<PersonalityQuiz />} />
           <Route path="/oh-i/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/oh-i/verify-business" element={<VerifyBusiness />} />
+          <Route path="/oh-i/child-safety" element={<ChildSafetyPolicy />} />
+
 
           {/* B2B VR Tool */}
           <Route path="/iac-vr" element={<IacVrHome />} />

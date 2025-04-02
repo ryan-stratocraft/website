@@ -27,9 +27,7 @@
     "pubsub": {
       "port": 8085
     },
-    "storage": {
-      "port": 9199
-    },
+    
     "eventarc": {
       "port": 9299
     },
@@ -41,9 +39,7 @@
     },
     "singleProjectMode": true
   },
-  "dataconnect": {
-    "source": "dataconnect"
-  },
+  
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
@@ -73,7 +69,7 @@
     }
   ],
   "hosting": {
-    "public": "public",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -86,12 +82,8 @@
       }
     ]
   },
-  "storage": {
-    "rules": "storage.rules"
-  },
-  "remoteconfig": {
-    "template": "remoteconfig.template.json"
-  },
+  
+  
   "extensions": {},
   "database": {
     "rules": "database.rules.json"
