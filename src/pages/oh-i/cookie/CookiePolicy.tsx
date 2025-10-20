@@ -9,7 +9,7 @@ const CookiePolicy: React.FC = () => {
       <p><strong>Company Name:</strong> Strato-Craft Ltd</p>
       <p><strong>Company Number:</strong> 15619171</p>
       <p><strong>Registered Address:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS</p>
-      <p><strong>Contact Email:</strong> <a href="mailto:ryan@strato-craft.com">ryan@strato-craft.com</a></p>
+      <p><strong>Contact Email:</strong> <a href="mailto:support@strato-craft.com">support@strato-craft.com</a></p>
 
       <h2>1. Introduction</h2>
       <p>
@@ -123,7 +123,7 @@ The specific types of first- and third-party cookies served through our Website 
 
       <h2>10. Contact Us</h2>
       <p>For any questions regarding this Cookie Policy, please contact us at:</p>
-      <p><strong>Email:</strong> <a href="mailto:ryan@strato-craft.com">ryan@strato-craft.com</a></p>
+      <p><strong>Email:</strong> <a href="mailto:support@strato-craft.com">support@strato-craft.com</a></p>
       <p><strong>Address:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS</p>
     </div>
   );

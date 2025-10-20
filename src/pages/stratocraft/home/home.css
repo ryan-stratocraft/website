@@ -7,7 +7,7 @@
 .hero {
   background: linear-gradient(135deg, #7f00ff, #e100ff);
   color: white;
-  height: 50vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +20,7 @@
   font-size: 3.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .hero p {
@@ -31,7 +32,7 @@
 /* Products Section */
 .products-section {
   padding: 4rem 2rem;
-  background-color: #fff;
+  background-color: #000000;
   text-align: center;
 }
 
@@ -39,13 +40,14 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  
 }
 
 .products-description {
   max-width: 800px;
   margin: 0 auto 3rem;
   font-size: 1.15rem;
-  color: #555;
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -55,7 +57,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background: #f9f9f9;
+  background: #8a8a8a71;
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 16px;
@@ -80,12 +82,13 @@
 .product-info h3 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  color: white;
 }
 
 .product-info p {
   font-size: 1.05rem;
   margin-bottom: 1rem;
-  color: #333;
+  color: #f7f7f7;
 }
 
 .coming-soon {

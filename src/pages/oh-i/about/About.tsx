@@ -60,7 +60,7 @@ const OhIAbout: React.FC = () => {
 
       {/* 🚀 App Store & Play Store Buttons (Bottom Right of Screen) */}
       <div className="app-download-links">
-        <a href="https://play.google.com/store/apps" target="_blank" rel="noopener noreferrer">
+        <a href="https://play.google.com/store/apps/details?id=com.stratocraft.oh_i" target="_blank" rel="noopener noreferrer">
           <img src={googlePlay} alt="Download on Google Play" className="app-store-button" />
         </a>
         <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">

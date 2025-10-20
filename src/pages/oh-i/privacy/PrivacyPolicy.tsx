@@ -5,11 +5,11 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <div className="privacy-policy-container">
       <h1>Privacy Policy</h1>
-      <p><strong>Effective Date:</strong> (Insert Date)</p>
+      <p><strong>Effective Date:</strong> (02/03/2025)</p>
 
       <h2>1. Introduction</h2>
       <p>
-        Welcome to <strong>Oh-i</strong>, a personality-driven and place-based dating app operated by <strong>Strato-Craft Ltd</strong> ("Company", "we", "us", "our").
+        Welcome to <strong>Oh-i</strong>, a personality-driven and place-based dating app operated by <strong>Strato-Craft Ltd 15619171</strong> ("Company", "we", "us", "our").
       </p>
       <p>
         This Privacy Policy explains how we collect, use, store, and protect your data when you use our website (<a href="https://strato-craft.com" target="_blank" rel="noopener noreferrer">strato-craft.com</a>) and the Oh-i app.
@@ -62,7 +62,7 @@ const PrivacyPolicy: React.FC = () => {
 
       <h2>5. Data Retention & Deletion</h2>
       <p><strong>Deleted Accounts:</strong> Your data is removed within 30 days.</p>
-      <p><strong>Request Deletion:</strong> Contact us at <a href="mailto:ryan@strato-craft.com">ryan@strato-craft.com</a>.</p>
+      <p><strong>Request Deletion:</strong> Contact us at <a href="mailto:support@strato-craft.com">support@strato-craft.com</a>.</p>
 
       <h2>6. User Controls & Privacy Settings</h2>
       <ul>
@@ -88,7 +88,7 @@ const PrivacyPolicy: React.FC = () => {
       <p>We may update this policy periodically. Updates will be posted here.</p>
 
       <h2>11. Contact Information</h2>
-      <p><strong>Email:</strong> <a href="mailto:ryan@strato-craft.com">ryan@strato-craft.com</a></p>
+      <p><strong>Email:</strong> <a href="mailto:support@strato-craft.com">support@strato-craft.com</a></p>
       <p><strong>Address:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS</p>
     </div>
   );

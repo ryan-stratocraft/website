@@ -64,7 +64,7 @@ app.get("/api/confirm-delete/:token", async (req, res) => {
     // Forward request to Admin
     const adminMailOptions = {
         from: "no-reply@strato-craft.com",
-        to: "ryan@strato-craft.com",
+        to: "support@strato-craft.com",
         subject: "🚨 Confirmed Oh-i Account Deletion Request",
         text: `The following user has confirmed their account deletion request:\n\nName: ${name}\nEmail: ${email}\n\nPlease verify and process manually in Firebase.`,
     };
