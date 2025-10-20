@@ -30,6 +30,23 @@
   pointer-events: none;
 }
 
+/* App Logo */
+.oneura-hero .app-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 4px 20px rgba(59, 130, 246, 0.4));
+  animation: float 3s ease-in-out infinite;
+  z-index: 1;
+  border-radius: 24px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
 /* Hero Text */
 .oneura-hero h1 {
   font-size: 3.5rem;
@@ -147,10 +164,28 @@
   box-shadow: 0px 12px 32px rgba(59, 130, 246, 0.3);
 }
 
+/* Image Loading Optimization */
 .preview-box img {
   max-width: 100%;
   border-radius: 12px;
   margin-bottom: 20px;
+  background: linear-gradient(90deg, #1E293B 0%, #334155 50%, #1E293B 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+/* Shimmer effect while loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Remove shimmer once loaded */
+.preview-box img[loading="lazy"]:not([src=""]) {
+  animation: none;
+  background: transparent;
 }
 
 .preview-box h3 {

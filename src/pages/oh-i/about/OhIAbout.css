@@ -31,6 +31,18 @@
   pointer-events: none;
 }
 
+/* About Logo */
+.about-text .about-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 4px 20px rgba(255, 0, 110, 0.5));
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+}
+
 .about-text h1 {
   font-size: 3.2rem;
   color: white;

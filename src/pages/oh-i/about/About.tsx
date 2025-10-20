@@ -3,12 +3,14 @@ import "./OhIAbout.css";
 import coffeeCouple from "../../../assets/images/coffee_couple.jpeg"; // ✅ Import the image
 import googlePlay from "../../../assets/images/google-play.png"; // ✅ Import Google Play Store button
 import appStore from "../../../assets/images/app-store.png"; // ✅ Import Apple App Store button
+import ohiLogo from "../../../assets/images/ohilogo.jpg"; // ✅ Import Oh-i Logo
 
 const OhIAbout: React.FC = () => {
   return (
     <div className="oh-i-about-container">
       {/* Left Side - Text Content */}
       <div className="about-text">
+        <img src={ohiLogo} alt="Oh-i Logo" className="about-logo" />
         <h1>Dating Reimagined with Oh-i</h1>
         <p>
           Oh-i makes dating <strong>exciting again</strong> by blending our <strong>Smart Matching Algorithm</strong> with real-world places to create <strong>genuine</strong> connections.
