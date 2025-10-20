@@ -1,114 +1,231 @@
+/* Oh-i About Container */
 .oh-i-about-container {
-    display: flex;
-    align-items: stretch;
-    height: 100vh; /* Full height */
-    width: 100%;
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+  width: 100%;
+  background: #0A0118;
 }
 
 /* Left Side - Text */
 .about-text {
-    flex: 1;
-    max-width: 45%; /* 🔥 Set a max width so it's not too stretched */
-    padding: 70px 35px; /* 🔥 Add more horizontal padding to bring text closer to the image */
-    background-color: rgba(50, 1, 165, 0.993);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex: 1;
+  max-width: 50%;
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #7f00ff 0%, #e100ff55 50%, #ff006f73 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(106, 0, 255, 0.977), transparent 60%);
+  pointer-events: none;
 }
 
 .about-text h1 {
-    font-size: 2.8rem;
-    color: #00ff37a9;
-    margin-bottom: 20px;
+  font-size: 3.2rem;
+  color: white;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 .about-text h2 {
-    font-size: 1.8rem;
-    color: #ff008caf;
-    margin-top: 32px;
-    margin-bottom: 0px;
+  font-size: 2rem;
+  color: #eee7ff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
 }
 
 .about-text p {
-    font-size: 1.2rem;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 0px;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.8;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-text strong {
+  color: white;
+  font-weight: 600;
+}
+
+.about-text em {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Right Side - Image */
 .about-image {
-    flex: 1;
-    width: 50%;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    overflow: hidden;
+  flex: 1;
+  width: 50%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
 }
 
 /* Full-height Image */
 .about-image img {
-    height: 100%; /* Full height */
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.9);
 }
 
 /* Blurred Transition Overlay */
 .image-overlay {
-    position: absolute;
-    left: 0px; /* 🔥 Reduce this to bring blur transition closer */
-    width: 150px; /* 🔥 Adjust fade width */
-    height: 100%;
-    background: linear-gradient(to left, rgba(28, 2, 255, 0) 0%, rgb(38, 1, 139) 100%);
+  position: absolute;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(127, 0, 255, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* 🔥 Fix: Move App Store & Google Play Store Buttons to Bottom Right of Screen */
+/* App Store & Google Play Store Buttons */
 .app-download-links {
-    position: fixed; /* 🔥 Fix position at the bottom right */
-    bottom: 30px; /* 🔥 Position near the bottom */
-    right: 120px; /* 🔥 Align to the right */
-    display: flex;
-    gap: 10px;
-    z-index: 1000; /* Ensure it's always visible */
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
 }
 
-/* Smaller App Store & Play Store Buttons */
+/* App Store Buttons */
 .app-store-button {
-    width: 300px; /* 🔥 Reduce size */
-    height: auto;
-    transition: transform 0.2s ease-in-out;
+  width: 200px;
+  height: auto;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
 .app-store-button:hover {
-    transform: scale(1.05); /* Slight zoom effect */
+  transform: scale(1.08) translateY(-3px);
+  filter: drop-shadow(0 8px 20px rgba(255, 0, 110, 0.4));
 }
 
-/* 🔥 Responsive - Move Buttons to Bottom Center on Mobile */
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-text {
+    padding: 60px 40px;
+  }
+
+  .about-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+  }
+
+  .app-download-links {
+    right: 30px;
+    bottom: 30px;
+  }
+
+  .app-store-button {
+    width: 180px;
+  }
+}
+
 @media (max-width: 900px) {
-    .oh-i-about-container {
-        flex-direction: column;
-        height: auto;
-    }
+  .oh-i-about-container {
+    flex-direction: column;
+    min-height: auto;
+  }
 
-    .about-text {
-        max-width: 100%;
-        text-align: center;
-        padding: 40px;
-    }
+  .about-text {
+    max-width: 100%;
+    padding: 60px 30px;
+  }
 
-    .about-image {
-        width: 100%;
-        height: 400px; /* Reduce height for mobile */
-        position: relative;
-    }
+  .about-text h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
 
-    .app-download-links {
-        position: fixed;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%); /* 🔥 Center buttons on smaller screens */
-    }
+  .about-text h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-image {
+    width: 100%;
+    height: 400px;
+    position: relative;
+  }
+
+  .image-overlay {
+    width: 100%;
+    height: 150px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(127, 0, 255, 0.6) 0%, transparent 100%);
+  }
+
+  .app-download-links {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 40px 0;
+    align-items: center;
+  }
+
+  .app-store-button {
+    width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text {
+    padding: 40px 20px;
+  }
+
+  .about-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .about-image {
+    height: 300px;
+  }
+
+  .app-store-button {
+    width: 180px;
+  }
 }

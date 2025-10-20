@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./OhIHome.css";
-import profileCustomization from "../../../assets/images/profileCustomization.png"; // Adjust path as needed
-import datePlanning from "../../../assets/images/datePlanning.png"; // Adjust path as needed
-import matchingSystem from "../../../assets/images/matchingSystem.png"; // Adjust path as needed
+import profileCustomization from "../../../assets/images/profileCustomization.png";
+import datePlanning from "../../../assets/images/datePlanning.png";
+import matchingSystem from "../../../assets/images/matchingSystem.png";
+import googlePlay from "../../../assets/images/google-play.png";
+import appStore from "../../../assets/images/app-store.png";
 
 
 
@@ -16,6 +18,24 @@ const OhIHome: React.FC = () => {
         <h1>Oh-i: Personality & Place-Based Dating</h1>
         <p>Discover a new way to match beyond traditional swiping.</p>
       
+        {/* Store Buttons */}
+        <div className="store-buttons">
+          <a 
+            href="https://play.google.com/store/apps/details?id=com.stratocraft.oh_i" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <img src={googlePlay} alt="Get it on Google Play" className="store-badge" />
+          </a>
+          <a 
+            href="https://apps.apple.com/app/oh-i" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <img src={appStore} alt="Download on the App Store" className="store-badge" />
+          </a>
+        </div>
+
         <Link to="/oh-i/about" className="about-button">Learn More</Link>
       </div>
 

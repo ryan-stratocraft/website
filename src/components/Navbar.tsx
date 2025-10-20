@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
           <span className="dropdown-toggle">Apps ▼</span>
           {isDropdownOpen && (
             <ul className="dropdown-menu">
+              <li><Link to="/oneura">Oneura</Link></li>
               <li><Link to="/oh-i">Oh-i</Link></li>
               <li><Link to="/iac-vr">IAC VR</Link></li>
             </ul>

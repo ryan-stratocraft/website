@@ -1,0 +1,248 @@
+/* About Container */
+.oneura-about-container {
+  background: #0B132B;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.about-hero {
+  background: linear-gradient(135deg, #1E293B 0%, #3B82F6 100%);
+  padding: 80px 20px 60px;
+  text-align: center;
+  position: relative;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(168, 85, 247, 0.2), transparent 60%);
+  pointer-events: none;
+}
+
+.about-logo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  z-index: 1;
+  position: relative;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: relative;
+}
+
+.tagline {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* About Content */
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.about-section {
+  margin-bottom: 60px;
+  padding: 40px;
+  background: #1E293B;
+  border-radius: 16px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  color: #3B82F6;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #94A3B8;
+  margin-bottom: 15px;
+}
+
+.about-section strong {
+  color: #A855F7;
+  font-weight: 600;
+}
+
+/* Feature Lists */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.feature-list li {
+  padding: 12px 0 12px 30px;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #94A3B8;
+}
+
+.feature-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3B82F6;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.feature-list li strong {
+  color: white;
+}
+
+/* Download Section */
+.download-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #3B82F6, #A855F7);
+  border-radius: 20px;
+  margin-top: 40px;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
+
+.download-section h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.download-section p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+}
+
+.app-download-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.store-button {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.store-button:hover {
+  transform: scale(1.05);
+}
+
+.store-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.store-button-disabled:hover {
+  transform: scale(1);
+}
+
+.coming-soon-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 60px 20px 40px;
+  }
+
+  .about-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .about-logo {
+    max-width: 120px;
+  }
+
+  .about-content {
+    padding: 40px 15px;
+  }
+
+  .about-section {
+    padding: 30px 20px;
+    margin-bottom: 40px;
+  }
+
+  .about-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-section p,
+  .feature-list li {
+    font-size: 1rem;
+  }
+
+  .download-section {
+    padding: 40px 20px;
+  }
+
+  .download-section h2 {
+    font-size: 2rem;
+  }
+
+  .app-download-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .about-section {
+    padding: 25px 15px;
+  }
+
+  .about-section h2 {
+    font-size: 1.4rem;
+  }
+}
+

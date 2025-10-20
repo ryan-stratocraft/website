@@ -1,66 +1,272 @@
+/* About Container */
 .strato-about-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 4rem 0rem;
-  background-color: white;
+  background: #0B132B;
+  min-height: 100vh;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #222;
-  line-height: 1.7;
-  box-sizing: border-box;
+  color: white;
 }
 
-.strato-about-title {
-  font-size: 2.8rem;
+/* Hero Section */
+.about-hero {
+  background: linear-gradient(135deg, #1E293B 0%, #6366F1 50%, #8B5CF6 100%);
+  padding: 100px 20px 80px;
   text-align: center;
-  color: #6200ea;
-  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.strato-about-intro {
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(139, 92, 246, 0.2), transparent 60%);
+  pointer-events: none;
+}
+
+.about-hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: relative;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* About Sections */
+.about-section {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 50px 40px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.4));
+  border-radius: 20px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+  border-color: #8B5CF6;
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
+}
+
+.section-icon {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 25px;
+  text-align: center;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-section h3 {
+  font-size: 1.8rem;
+  color: #8B5CF6;
+  margin-bottom: 12px;
+}
+
+.about-section p {
   font-size: 1.15rem;
-  margin: 0 auto 2rem auto;
-
-  width: 100%;
-  border: 1px solid #fffcfc00; /* thin gray border */
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-sizing: border-box;
-  background: none !important;
-  color: #444;
-  border-radius: 8px; /* optional: soften corners */
+  line-height: 1.8;
+  color: #94A3B8;
+  margin-bottom: 20px;
 }
 
-/* ✅ Paragraph in its own full-width box */
-.strato-about-text {
-  font-size: 1.15rem;
-  margin: 1 auto 2rem auto;
-
-  width: 100%;
-  border: 1px solid #ccc; /* thin gray border */
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-sizing: border-box;
-  background: none !important;
-  color: #444;
-  border-radius: 8px; /* optional: soften corners */
-}
-
-.strato-about-text strong {
-  color: #6200ea;
+.about-section strong {
+  color: white;
   font-weight: 600;
 }
 
+/* Special Section Styles */
+.mission-section {
+  margin-top: 60px;
+}
+
+.story-section {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(30, 41, 59, 0.6));
+}
+
+.philosophy-section {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(30, 41, 59, 0.6));
+}
+
+.collaboration-section {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(30, 41, 59, 0.6));
+  border-color: #EC4899;
+}
+
+.closing-section {
+  text-align: center;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  border: none;
+  margin-bottom: 80px;
+}
+
+.closing-section h2 {
+  color: white;
+  background: none;
+  -webkit-text-fill-color: white;
+}
+
+.closing-section p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.2rem;
+}
+
+/* Products Section */
+.products-section h2 {
+  margin-bottom: 40px;
+}
+
+.product-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 30px;
+  background: rgba(11, 19, 43, 0.6);
+  border-radius: 16px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.product-highlight:hover {
+  background: rgba(11, 19, 43, 0.8);
+  border-color: #8B5CF6;
+  transform: translateX(10px);
+}
+
+.product-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.product-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.product-content p {
+  margin-bottom: 0;
+}
+
+/* Contact CTA */
+.contact-cta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.contact-button:hover {
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .about-container {
-    padding: 2rem 1rem;
+  .about-hero {
+    padding: 80px 20px 60px;
   }
 
-  .about-title {
-    font-size: 2.2rem;
+  .about-hero h1 {
+    font-size: 2.5rem;
   }
 
-  .about-text {
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .about-section {
+    padding: 35px 25px;
+    margin: 0 20px 40px;
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-section p {
+    font-size: 1.05rem;
+  }
+
+  .section-icon {
+    font-size: 2.5rem;
+  }
+
+  .product-highlight {
+    flex-direction: column;
+    padding: 25px 20px;
+    text-align: center;
+  }
+
+  .product-icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .tagline {
     font-size: 1rem;
-    padding: 1rem;
+  }
+
+  .about-section {
+    padding: 25px 20px;
+    margin: 0 15px 30px;
+  }
+
+  .about-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+  }
+
+  .contact-button {
+    padding: 14px 32px;
+    font-size: 1rem;
   }
 }

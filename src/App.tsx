@@ -23,6 +23,15 @@ import ChildSafetyPolicy from "./pages/oh-i/childsafety/ChildSafetyPolicy";
 import IacVrHome from "./pages/iac-vr/home/IacVrHome";
 import IacVrAbout from "./pages/iac-vr/About";
 
+// Oneura pages
+import OneuraHome from "./pages/oneura/home/OneuraHome";
+import OneuraAbout from "./pages/oneura/about/About";
+import OneuraCookiePolicy from "./pages/oneura/cookie/CookiePolicy";
+import OneuraPrivacyPolicy from "./pages/oneura/privacy/PrivacyPolicy";
+import OneuraDeleteData from "./pages/oneura/delete/DeleteData";
+import OneuraSubscription from "./pages/oneura/subscription/Subscription";
+import OneuraTermsAndConditions from "./pages/oneura/terms/TermsAndConditions";
+
 import CookieConsent from "./components/CookieConsent";
 
 
@@ -54,6 +63,15 @@ const App: React.FC = () => {
           {/* B2B VR Tool */}
           <Route path="/iac-vr" element={<IacVrHome />} />
           <Route path="/iac-vr/about" element={<IacVrAbout />} />
+
+          {/* Oneura Product */}
+          <Route path="/oneura" element={<OneuraHome />} />
+          <Route path="/oneura/about" element={<OneuraAbout />} />
+          <Route path="/oneura/subscription" element={<OneuraSubscription />} />
+          <Route path="/oneura/privacy-policy" element={<OneuraPrivacyPolicy />} />
+          <Route path="/oneura/terms-and-conditions" element={<OneuraTermsAndConditions />} />
+          <Route path="/oneura/cookie-policy" element={<OneuraCookiePolicy />} />
+          <Route path="/oneura/delete-data" element={<OneuraDeleteData />} />
 
           {/* 404 Page */}
           <Route path="*" element={<NotFound />} />

@@ -2,7 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 import ohiPreview from "../../../assets/images/icon.jpg"; 
-import iacPreview from "../../../assets/images/iac-preview.jpg"
+import iacPreview from "../../../assets/images/iac-preview.jpg";
+import oneuraPreview from "../../../assets/images/oneura/oneura512.png";
 
 
 const Home: React.FC = () => {
@@ -24,6 +25,15 @@ const Home: React.FC = () => {
         </p>
 
         {/* Product Cards */}
+        <div className="product-card">
+          <img src={oneuraPreview} alt="Oneura App" className="product-image" />
+          <div className="product-info">
+            <h3>Oneura - Relax, Sleep & Focus</h3>
+            <p>Your all-in-one app for better sleep, stress relief, and relaxation through immersive soundscapes.</p>
+            <button onClick={() => navigate("/oneura")} className="app-button">View App</button>
+          </div>
+        </div>
+
         <div className="product-card">
           <img src={ohiPreview} alt="Oh-i App" className="product-image" />
           <div className="product-info">
