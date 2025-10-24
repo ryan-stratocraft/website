@@ -33,7 +33,40 @@ body {
   position: relative;
 }
 
-/* Logo */
+/* Logo Link Container */
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: absolute;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+
+.navbar-logo-link:hover {
+  transform: scale(1.02);
+}
+
+.navbar-logo-link::before {
+  display: none !important; /* Remove underline effect from logo */
+}
+
+/* Logo Image */
+.navbar-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.navbar-logo-link:hover .navbar-logo {
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.5);
+}
+
+/* Logo Text */
 .navbar h1 {
   background: linear-gradient(135deg, #ffffff, #e0d4ff);
   -webkit-background-clip: text;
@@ -44,14 +77,7 @@ body {
   margin: 0;
   white-space: nowrap;
   letter-spacing: 0.5px;
-  cursor: pointer;
   transition: all 0.3s ease;
-  position: absolute;
-  left: 60px;
-}
-
-.navbar h1:hover {
-  transform: scale(1.02);
 }
 
 /* Navbar Links */
@@ -165,10 +191,31 @@ body {
   white-space: nowrap;
 }
 
+/* Dropdown items with icons */
+.dropdown-item-with-icon {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+}
+
+.dropdown-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
 .dropdown-menu a:hover {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3));
   color: white;
   transform: translateX(4px);
+}
+
+.dropdown-menu a:hover .dropdown-icon {
+  box-shadow: 0 3px 10px rgba(139, 92, 246, 0.5);
+  transform: scale(1.05);
 }
 
 /* 🔥 Fix Content Below Navbar */
@@ -186,10 +233,18 @@ body {
     gap: 15px;
   }
 
-  .navbar h1 {
+  .navbar-logo-link {
     position: static;
-    font-size: 24px;
     margin-bottom: 5px;
+  }
+
+  .navbar h1 {
+    font-size: 24px;
+  }
+
+  .navbar-logo {
+    width: 35px;
+    height: 35px;
   }
 
   .navbar ul {

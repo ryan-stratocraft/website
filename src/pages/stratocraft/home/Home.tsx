@@ -4,6 +4,7 @@ import "./home.css";
 import ohiPreview from "../../../assets/images/ohilogo.jpg"; 
 import iacPreview from "../../../assets/images/iac-preview.jpg";
 import oneuraPreview from "../../../assets/images/oneura/logo-color.png";
+import stratocraftLogo from "../../../assets/images/strato-craft/stratocraftlogo.jpg";
 
 
 const Home: React.FC = () => {
@@ -20,6 +21,7 @@ const Home: React.FC = () => {
       
       {/* Hero Section */}
       <div className="hero">
+        <img src={stratocraftLogo} alt="Strato-Craft Logo" className="hero-logo" />
         <h1>Strato-Craft Ltd</h1>
         <p>We build digital products that merge AI with everyday life.</p>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/stratocraft/home/Home"; 
 import About from "./pages/stratocraft/about/About";
+import Support from "./pages/stratocraft/support/Support";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar"; // Import Navbar
 import "./styles/global.css";
@@ -46,6 +47,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/support" element={<Support />} />
 
           {/* Oh-i Product */}
           <Route path="/oh-i" element={<OhIHome />} />
