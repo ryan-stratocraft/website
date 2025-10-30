@@ -128,6 +128,11 @@ body {
   transform: scaleX(1);
 }
 
+/* Active/current page state for navbar links */
+.navbar a[aria-current="page"]::before {
+  transform: scaleX(1);
+}
+
 /* DROPDOWN MENU */
 .dropdown {
   position: relative;
@@ -163,6 +168,7 @@ body {
   min-width: 260px;
   border-radius: 12px;
   animation: dropdownFadeIn 0.2s ease;
+  overflow: visible;
 }
 
 @keyframes dropdownFadeIn {
@@ -177,34 +183,71 @@ body {
 }
 
 .dropdown-menu li {
-  padding: 4px 8px;
+  padding: 0;
+  margin: 4px 8px;
+  display: block;
+  text-align: left;
 }
 
 .dropdown-menu a {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 12px 20px;
   border-radius: 8px;
   transition: all 0.3s ease;
   font-weight: 500;
   white-space: nowrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Dropdown items with icons */
 .dropdown-item-with-icon {
   display: flex !important;
-  align-items: center;
-  gap: 12px;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 12px 20px !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+}
+
+/* Force all dropdown icons to align in the same vertical line */
+.dropdown-menu .dropdown-item-with-icon > img {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.dropdown-menu li .dropdown-item-with-icon {
+  justify-content: flex-start;
+}
+
+/* Text starts at a fixed distance from the left edge */
+.dropdown-item-with-icon span {
+  display: inline-block;
+  vertical-align: middle;
+  flex: 1;
 }
 
 .dropdown-icon {
-  width: 50px;
-  height: 50px;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  max-width: 50px !important;
+  max-height: 50px !important;
   border-radius: 6px;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .dropdown-menu a:hover {
@@ -216,6 +259,12 @@ body {
 .dropdown-menu a:hover .dropdown-icon {
   box-shadow: 0 3px 10px rgba(139, 92, 246, 0.5);
   transform: scale(1.05);
+}
+
+/* Active/current page indicator in dropdown - just background highlight, no vertical bar */
+.dropdown-menu a.active,
+.dropdown-menu a[aria-current="page"] {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
 }
 
 /* 🔥 Fix Content Below Navbar */
@@ -259,6 +308,13 @@ body {
     padding: 8px 12px;
     font-size: 14px;
   }
+
+  /* Mobile: Fix underline spacing and width */
+  .navbar a::before, .dropdown-toggle::before {
+    bottom: 4px;
+    left: 12px;
+    right: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -269,5 +325,11 @@ body {
   .navbar a, .dropdown-toggle {
     padding: 6px 10px;
     font-size: 13px;
+  }
+
+  /* Smaller mobile: Adjust underline to match padding */
+  .navbar a::before, .dropdown-toggle::before {
+    left: 10px;
+    right: 10px;
   }
 }
