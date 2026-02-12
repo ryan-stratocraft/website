@@ -34,11 +34,11 @@ const OneuraHome: React.FC = () => {
             <img src={googlePlay} alt="Get it on Google Play" className="store-badge" />
           </a>
           <a 
-            href="#" 
-            className="coming-soon-link"
-            onClick={(e) => { e.preventDefault(); alert('Coming soon to the App Store!'); }}
+            href="https://apps.apple.com/app/oneura/id6754253306" 
+            target="_blank" 
+            rel="noopener noreferrer"
           >
-            <img src={appStore} alt="Download on the App Store" className="store-badge store-badge-disabled" />
+            <img src={appStore} alt="Download on the App Store" className="store-badge" />
           </a>
         </div>
         
