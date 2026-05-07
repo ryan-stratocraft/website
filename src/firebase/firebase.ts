@@ -1,22 +1,42 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics, logEvent } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
+// Import the functions you need from the Firebase SDKs you need
 // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "firebase/app";
+import { getAnalytics, isSupported, logEvent } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase project: strato-craft-6c348 · Web app "Strato-Craft Website"
+// (Public client config — security is enforced with Storage/Rules/IAM/API key restrictions.)
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY, //"AIzaSyDjLSl2dKg3IAZ0GQg4fx6NsMRcPdMuvms",
-  authDomain: "strato-craft.firebaseapp.com",
-  projectId: "strato-craft",
-  storageBucket: "strato-craft.firebasestorage.app",
-  messagingSenderId: "1078258918920",
-  appId: "1:1078258918920:web:70afe90102e9792d8c53bd",
-  measurementId: "G-1WM79E0XNF"
+  apiKey: "AIzaSyCVsQpS08cYd2wXR_MbOStcoBDEDRg-dCs",
+  authDomain: "strato-craft-6c348.firebaseapp.com",
+  projectId: "strato-craft-6c348",
+  storageBucket: "strato-craft-6c348.firebasestorage.app",
+  messagingSenderId: "310764074898",
+  appId: "1:310764074898:web:9384a4ed1131ec3421334b",
+  measurementId: "G-W0J3P4QZCM",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-logEvent(analytics, "app_started");
+export const firebaseApp = app;
+export const firebaseAuth = getAuth(app);
+export const firebaseStorage = getStorage(app);
+
+void (async (): Promise<void> => {
+  try {
+    if (
+      !firebaseConfig.measurementId ||
+      typeof window === "undefined" ||
+      import.meta.env.DEV
+    ) {
+      return;
+    }
+    if (!(await isSupported())) {
+      return;
+    }
+    const analytics = getAnalytics(app);
+    logEvent(analytics, "app_started");
+  } catch {
+    // Ignore analytics failures (ad blockers, unsupported environments)
+  }
+})();

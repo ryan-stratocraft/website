@@ -27,11 +27,11 @@ const OneuraSubscription: React.FC = () => {
               <span className="period">/forever</span>
             </div>
             <ul className="features">
-              <li>✓ 20 minutes daily listening</li>
-              <li>✓ 5-minute ambience previews</li>
-              <li>✓ Access to core sound library</li>
-              <li>✓ Basic sleep timer</li>
-              <li>✓ Unlock sounds via ads</li>
+              <li>✓ Listening allowance &amp; cool-down refreshes (see app for today&apos;s quota)</li>
+              <li>✓ Rewarded-video bonus time where offered</li>
+              <li>✓ Ambience previews and core soundscapes</li>
+              <li>✓ Mood, calendar &amp; many insight surfaces</li>
+              <li>✓ Stories &amp; sounds marked Free in catalogue</li>
             </ul>
             <div className="plan-description">
               Perfect for trying out Oneura and experiencing the basics
@@ -50,10 +50,10 @@ const OneuraSubscription: React.FC = () => {
               <li>✓ Unlimited listening time</li>
               <li>✓ Full ambience sessions</li>
               <li>✓ Ad-free experience</li>
-              <li>✓ Exclusive premium sounds</li>
+              <li>✓ Exclusive premium sounds &amp; narrative stories</li>
               <li>✓ Advanced playlists</li>
-              <li>✓ Sleep timer & loops</li>
-              <li>✓ Offline downloads</li>
+              <li>✓ Sleep timer &amp; looping where available</li>
+              <li>✓ Layers &amp; floating player uninterrupted</li>
             </ul>
             <div className="plan-description">
               Flexible monthly access, cancel anytime
@@ -126,9 +126,9 @@ const OneuraSubscription: React.FC = () => {
             <p>Enjoy uninterrupted relaxation without ads breaking your peaceful state.</p>
           </div>
           <div className="comparison-item">
-            <div className="comparison-icon">📱</div>
-            <h3>Offline Mode</h3>
-            <p>Download your favorite sounds and listen anywhere, even without internet.</p>
+            <div className="comparison-icon">📚</div>
+            <h3>Premium stories & narratives</h3>
+            <p>Binge sleep stories and narratives marked Plus—including extended listens not available on the metered tier.</p>
           </div>
           <div className="comparison-item">
             <div className="comparison-icon">🎨</div>
@@ -137,8 +137,10 @@ const OneuraSubscription: React.FC = () => {
           </div>
           <div className="comparison-item">
             <div className="comparison-icon">🌟</div>
-            <h3>Future Features</h3>
-            <p>Get access to upcoming guided meditations, stories, affirmations, and AI journaling.</p>
+            <h3>What&apos;s next</h3>
+            <p>
+              Guided packs, sharper sleep/mood correlations, and deeper personalisation—the Plus tier is where we unlock the biggest new experiences first.
+            </p>
           </div>
         </div>
       </div>
@@ -176,8 +178,7 @@ const OneuraSubscription: React.FC = () => {
         <div className="faq-item">
           <h3>What happens if I cancel?</h3>
           <p>
-            You'll return to the free tier with 20 minutes of daily listening. Your playlists and preferences 
-            are saved, so you can resubscribe anytime.
+            You'll return to the free tier listening allowance (metering &amp; cool-down refreshes as shown in-app). Your preferences stay on device so you can resubscribe anytime.
           </p>
         </div>
         <div className="faq-item">

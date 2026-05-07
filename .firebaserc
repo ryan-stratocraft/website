@@ -1,11 +1,7 @@
 {
   "projects": {
-    "default": "strato-craft"
+    "default": "strato-craft-6c348"
   },
   "targets": {},
-  "etags": {
-    "strato-craft": {
-      "extensionInstances": {}
-    }
-  }
+  "etags": {}
 }

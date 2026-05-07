@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# Strato-Craft website (Vite + React + Firebase)
+
+Ops and migration checklist (org project, `oneura.app`, email signature MVP): [`docs/STRATO_PLATFORM_MIGRATION_AND_SIGNATURE_MVP.md`](./docs/STRATO_PLATFORM_MIGRATION_AND_SIGNATURE_MVP.md).
+
+---
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

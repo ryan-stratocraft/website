@@ -65,7 +65,11 @@
     }
   ],
   "hosting": {
+    "site": "strato-craft-6c348",
     "public": "dist",
+    "predeploy": [
+      "npm run build"
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -77,6 +81,9 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   },
   
   

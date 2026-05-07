@@ -1,8 +1,9 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/stratocraft/home/Home"; 
 import About from "./pages/stratocraft/about/About";
 import Support from "./pages/stratocraft/support/Support";
+import SignatureGenerator from "./pages/stratocraft/signature/SignatureGenerator";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar"; // Import Navbar
 import "./styles/global.css";
@@ -34,7 +35,15 @@ import OneuraSubscription from "./pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "./pages/oneura/terms/TermsAndConditions";
 
 import CookieConsent from "./components/CookieConsent";
+import { isOneuraHostname } from "./host";
 
+/** Same Hosting site serves strato-craft.com and oneura.app; product domain lands on `/oneura`. */
+function RootLanding(): React.ReactElement {
+  if (typeof window !== "undefined" && isOneuraHostname(window.location.hostname)) {
+    return <Navigate to="/oneura" replace />;
+  }
+  return <Home />;
+}
 
 const App: React.FC = () => {
   return (
@@ -45,9 +54,10 @@ const App: React.FC = () => {
       {/* 🔥 Wrap content to ensure pages appear below navbar */}
       <div className="page-container">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<RootLanding />} />
           <Route path="/about" element={<About />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/signature" element={<SignatureGenerator />} />
 
           {/* Oh-i Product */}
           <Route path="/oh-i" element={<OhIHome />} />

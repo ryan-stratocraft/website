@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
               </li>
               <li>
                 <Link 
-                  to="/oh-i   " 
+                  to="/oh-i" 
                   className={`dropdown-item-with-icon ${isActive("/oh-i") ? "active" : ""}`}
                   aria-current={isActive("/oh-i") ? "page" : undefined}
                 >

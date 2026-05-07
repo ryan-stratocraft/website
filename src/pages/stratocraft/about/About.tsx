@@ -43,7 +43,7 @@ const About: React.FC = () => {
         <h2>What We're Building</h2>
         
         <div className="product-highlight">
-          <div className="product-icon">💕</div>
+          <div className="product-icon" aria-hidden="true">🌙</div>
           <div className="product-content">
             <h3>Oneura - Relax, Sleep & Focus</h3>
             <p>
