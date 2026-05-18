@@ -1,6 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./home.css";
+import { ONEURA_APP_ORIGIN } from "../../../constants/origins";
 import ohiPreview from "../../../assets/images/ohilogo.jpg"; 
 import iacPreview from "../../../assets/images/iac-preview.jpg";
 import oneuraPreview from "../../../assets/images/oneura/logo-color.png";
@@ -8,8 +9,6 @@ import stratocraftLogo from "../../../assets/images/strato-craft/stratocraftlogo
 
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="home-container">
       {/* SEO Hidden Content for Search Engines */}
@@ -39,7 +38,9 @@ const Home: React.FC = () => {
           <div className="product-info">
             <h3>Oneura - Relax, Sleep & Focus</h3>
             <p>Your all-in-one app for better sleep, stress relief, and relaxation through immersive soundscapes.</p>
-            <button onClick={() => navigate("/oneura")} className="app-button">View App</button>
+            <a href={ONEURA_APP_ORIGIN} className="app-button">
+              View App
+            </a>
           </div>
         </div>
 
@@ -48,7 +49,9 @@ const Home: React.FC = () => {
           <div className="product-info">
             <h3>Oh-i</h3>
             <p>A next-gen dating app based on personality and location data.</p>
-            <button onClick={() => navigate("/oh-i")} className="app-button">View App</button>
+            <Link to="/oh-i" className="app-button">
+              View App
+            </Link>
           </div>
         </div>
 
@@ -59,7 +62,9 @@ const Home: React.FC = () => {
             <p>
               A visual, intuitive way to understand cloud infrastructure — ideal for developers, teams, and curious learners.
             </p>
-            <button onClick={() => navigate("/iac-vr")} className="app-button">View App</button>
+            <Link to="/iac-vr" className="app-button">
+              View App
+            </Link>
 
           </div>
         </div>

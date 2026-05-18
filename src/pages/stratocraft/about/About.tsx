@@ -1,5 +1,6 @@
 import React from "react";
 import "./about.css";
+import { ONEURA_APP_ORIGIN } from "../../../constants/origins";
 
 const About: React.FC = () => {
   return (
@@ -49,6 +50,11 @@ const About: React.FC = () => {
             <p>
               Your all-in-one app for better sleep, stress relief, and relaxation through immersive 
               soundscapes. Available now on Google Play.
+            </p>
+            <p>
+              <a href={ONEURA_APP_ORIGIN} rel="noopener noreferrer">
+                Visit oneura.app — Oneura product site
+              </a>
             </p>
           </div>
         </div>

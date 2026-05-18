@@ -62,6 +62,16 @@
   margin-bottom: 50px;
 }
 
+.pricing-footnote {
+  margin-top: 2rem;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .pricing-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,12 +116,45 @@
 }
 
 .lifetime-card {
-  border-color: #3B82F6;
-  background: linear-gradient(135deg, #1E293B 0%, rgba(59, 130, 246, 0.1) 100%);
+  border-color: #A855F7;
+  background: linear-gradient(160deg, #6D28D9 0%, #5B21B6 45%, #4C1D95 100%);
 }
 
 .lifetime-card:hover {
-  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.45);
+}
+
+.lifetime-card .price .amount {
+  color: #fff;
+}
+
+.lifetime-card .plan-description,
+.lifetime-card .plan-tagline {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lifetime-card .features li {
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.lifetime-card h3 {
+  color: #fff;
+}
+
+/* Annual “equivalent per month” helper */
+.plan-tagline {
+  font-size: 1rem;
+  color: #94A3B8;
+  margin: -8px 0 12px;
+  font-weight: 500;
+}
+
+.price-footnote {
+  font-size: 1rem;
+  color: #60a5fa;
+  margin: -4px 0 12px;
+  font-weight: 600;
 }
 
 /* Plan Badge */
@@ -132,6 +175,13 @@
 .popular-badge {
   background: linear-gradient(135deg, #A855F7, #9333EA);
   box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+}
+
+/* Gold “BEST VALUE” badge (matches in-app Lifetime emphasis) */
+.best-value-badge {
+  background: linear-gradient(135deg, #EAB308, #CA8A04);
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.35);
 }
 
 .lifetime-badge {

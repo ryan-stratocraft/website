@@ -248,8 +248,8 @@ ${formData.message}
           <div className="faq-item">
             <h4>How do I request a refund?</h4>
             <p>
-              Refunds are processed by Apple or Google. Contact their support directly
-              through your app store account to request a refund.
+              If Applicable Refunds are processed by Apple or Google. Contact their support directly
+              through your app store account to request a refund. Please not that refunds are not available as standard policy, but may be available in certain cases.
             </p>
           </div>
 

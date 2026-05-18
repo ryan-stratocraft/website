@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { oneuraPagePath } from "../../../routes/oneuraPaths";
 import "./About.css";
 import logoColor from "../../../assets/images/oneura/logo-color.png";
 import googlePlay from "../../../assets/images/google-play.png";
@@ -156,7 +157,7 @@ const OneuraAbout: React.FC = () => {
           </ul>
           <p>
             Compare plans, trials, and pricing anytime on the{" "}
-            <Link to="/oneura/subscription">subscription page</Link>.
+            <Link to={oneuraPagePath("subscription")}>subscription page</Link>.
           </p>
         </section>
 

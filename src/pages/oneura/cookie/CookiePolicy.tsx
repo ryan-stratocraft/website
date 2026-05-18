@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/PolicyPages.css";
+import { oneuraPagePath } from "../../../routes/oneuraPaths";
 
 const OneuraCookiePolicy: React.FC = () => {
   return (
@@ -149,8 +150,8 @@ const OneuraCookiePolicy: React.FC = () => {
           <h2>More Information</h2>
           <p>For more details about how we handle your data, please see our:</p>
           <ul>
-            <li><a href="/oneura/privacy-policy">Privacy Policy</a></li>
-            <li><a href="/oneura/terms-and-conditions">Terms & Conditions</a></li>
+            <li><a href={oneuraPagePath("privacy-policy")}>Privacy Policy</a></li>
+            <li><a href={oneuraPagePath("terms-and-conditions")}>Terms & Conditions</a></li>
           </ul>
         </section>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { oneuraPagePath } from "../../../routes/oneuraPaths";
 import "./OneuraHome.css";
 import previewCafe from "../../../assets/images/oneura/preview-cafe-optimized.png";
 import previewForest from "../../../assets/images/oneura/preview-forest-optimized.png";
@@ -42,7 +43,9 @@ const OneuraHome: React.FC = () => {
           </a>
         </div>
         
-        <Link to="/oneura/about" className="about-button">Learn More</Link>
+        <Link to={oneuraPagePath("about")} className="about-button">
+          Learn More
+        </Link>
       </div>
 
       {/* App Preview Section */}
@@ -120,12 +123,12 @@ const OneuraHome: React.FC = () => {
       {/* Footer Section */}
       <footer className="footer">
         <ul>
-          <li><Link to="/oneura/about">About</Link></li>
-          <li><Link to="/oneura/subscription">Subscription</Link></li>
-          <li><Link to="/oneura/privacy-policy">Privacy Policy</Link></li>
-          <li><Link to="/oneura/terms-and-conditions">Terms & Conditions</Link></li>
-          <li><Link to="/oneura/cookie-policy">Cookie Policy</Link></li>
-          <li><Link to="/oneura/delete-data">Delete My Data</Link></li>
+          <li><Link to={oneuraPagePath("about")}>About</Link></li>
+          <li><Link to={oneuraPagePath("subscription")}>Subscription</Link></li>
+          <li><Link to={oneuraPagePath("privacy-policy")}>Privacy Policy</Link></li>
+          <li><Link to={oneuraPagePath("terms-and-conditions")}>Terms & Conditions</Link></li>
+          <li><Link to={oneuraPagePath("cookie-policy")}>Cookie Policy</Link></li>
+          <li><Link to={oneuraPagePath("delete-data")}>Delete My Data</Link></li>
         </ul>
       </footer>
     </div>

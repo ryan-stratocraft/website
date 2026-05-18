@@ -29,6 +29,13 @@ Tick boxes as you complete each step.
 
 **CLI default project** is `strato-craft-6c348` (see [`.firebaserc`](../.firebaserc)).
 
+**Hosting sites** in this project:
+
+| Site ID | Purpose |
+|--------|---------|
+| `strato-craft-6c348` | Main Strato-Craft site (`dist/`) |
+| `oneura-web` | Dedicated Oneura product site (`dist-oneura/`) |
+
 **Common mistake:** pasting a Web snippet from the **legacy** project `strato-craft`. If `messagingSenderId` / the middle segment of **`appId`** is **`1078258918920`**, that is wrong — this repo uses **`310764074898`** / **`1:310764074898:web:…`**.
 
 Avoid sharing keys in public channels. The Web `apiKey` is shipped in the frontend bundle; tighten [API key restrictions](https://firebase.google.com/docs/projects/api-keys) (HTTP referrers) and keep **Storage rules** strict.

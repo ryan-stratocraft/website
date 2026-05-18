@@ -15,7 +15,10 @@ const OneuraSubscription: React.FC = () => {
       {/* Pricing Plans */}
       <div className="pricing-section">
         <h2>Choose Your Plan</h2>
-        <p className="pricing-subtitle">All plans include a free trial to experience Oneura Plus</p>
+        <p className="pricing-subtitle">
+          Monthly and annual plans include a 7-day free trial (see app). Prices below match the UK store listing in
+          GBP—your app store may show an equivalent in your local currency.
+        </p>
 
         <div className="pricing-cards">
           {/* Free Plan */}
@@ -23,87 +26,88 @@ const OneuraSubscription: React.FC = () => {
             <div className="plan-badge">FREE</div>
             <h3>Free Tier</h3>
             <div className="price">
-              <span className="amount">$0</span>
-              <span className="period">/forever</span>
+              <span className="amount">£0</span>
+              <span className="period">forever</span>
             </div>
             <ul className="features">
-              <li>✓ Listening allowance &amp; cool-down refreshes (see app for today&apos;s quota)</li>
+              <li>✓ Listening allowance &amp; cool-down refreshes (quota shown in app)</li>
               <li>✓ Rewarded-video bonus time where offered</li>
-              <li>✓ Ambience previews and core soundscapes</li>
-              <li>✓ Mood, calendar &amp; many insight surfaces</li>
-              <li>✓ Stories &amp; sounds marked Free in catalogue</li>
+              <li>✓ Core ambiences and previews</li>
+              <li>✓ Mood, calendar &amp; insight surfaces that stay on the free tier</li>
+              <li>✓ Stories &amp; sounds marked Free in the catalogue</li>
+            </ul>
+            <div className="plan-description">Try Oneura before you upgrade</div>
+          </div>
+
+          {/* Annual Plan — matches in-app “POPULAR” */}
+          <div className="pricing-card popular-card">
+            <div className="plan-badge popular-badge">POPULAR</div>
+            <h3>Annual</h3>
+            <p className="plan-tagline">Best value · Save 33% vs monthly</p>
+            <div className="price">
+              <span className="amount">£2.00</span>
+              <span className="period">/month</span>
+            </div>
+            <p className="price-footnote">£23.99 billed annually</p>
+            <div className="trial-badge">7-day free trial</div>
+            <ul className="features">
+              <li>✓ Unlimited listening</li>
+              <li>✓ Full ambience sessions &amp; layered mixes</li>
+              <li>✓ Ad-free experience</li>
+              <li>✓ Premium catalogue: sounds &amp; sleep stories marked Plus</li>
+              <li>✓ Sleep timers, looping &amp; uninterrupted floating player</li>
+              <li>✓ Advanced playlists &amp; premium personalization where available</li>
             </ul>
             <div className="plan-description">
-              Perfect for trying out Oneura and experiencing the basics
+              7-day free trial, then £23.99 per year. Auto-renews until cancelled.
             </div>
           </div>
 
           {/* Monthly Plan */}
           <div className="pricing-card">
             <h3>Monthly</h3>
+            <p className="plan-tagline">Perfect for trying out</p>
             <div className="price">
-              <span className="amount">$4.99</span>
+              <span className="amount">£2.99</span>
               <span className="period">/month</span>
             </div>
-            <div className="trial-badge">7-Day Free Trial</div>
+            <div className="trial-badge">7-day free trial</div>
             <ul className="features">
-              <li>✓ Unlimited listening time</li>
-              <li>✓ Full ambience sessions</li>
+              <li>✓ Unlimited listening</li>
+              <li>✓ Full ambience sessions &amp; layered mixes</li>
               <li>✓ Ad-free experience</li>
-              <li>✓ Exclusive premium sounds &amp; narrative stories</li>
-              <li>✓ Advanced playlists</li>
-              <li>✓ Sleep timer &amp; looping where available</li>
-              <li>✓ Layers &amp; floating player uninterrupted</li>
+              <li>✓ Premium catalogue: sounds &amp; sleep stories marked Plus</li>
+              <li>✓ Sleep timers, looping &amp; uninterrupted floating player</li>
+              <li>✓ Advanced playlists &amp; premium personalization where available</li>
             </ul>
             <div className="plan-description">
-              Flexible monthly access, cancel anytime
+              7-day free trial, then £2.99 per month. Auto-renews until cancelled.
             </div>
           </div>
 
-          {/* Annual Plan */}
-          <div className="pricing-card popular-card">
-            <div className="plan-badge popular-badge">BEST VALUE</div>
-            <h3>Annual</h3>
-            <div className="price">
-              <span className="amount">$29.99</span>
-              <span className="period">/year</span>
-            </div>
-            <div className="savings">Save 50% vs Monthly</div>
-            <div className="trial-badge">7-Day Free Trial</div>
-            <ul className="features">
-              <li>✓ Everything in Monthly</li>
-              <li>✓ Best value per month</li>
-              <li>✓ Priority support</li>
-              <li>✓ Early access to new features</li>
-              <li>✓ Exclusive annual-only sounds</li>
-            </ul>
-            <div className="plan-description">
-              Most popular choice - best for committed users
-            </div>
-          </div>
-
-          {/* Lifetime Plan */}
+          {/* Lifetime — matches in-app “BEST VALUE” */}
           <div className="pricing-card lifetime-card">
-            <div className="plan-badge lifetime-badge">LIFETIME ACCESS</div>
-            <h3>Lifetime</h3>
+            <div className="plan-badge best-value-badge">BEST VALUE</div>
+            <h3>Lifetime Access</h3>
+            <p className="plan-tagline">Pay once, enjoy forever</p>
             <div className="price">
-              <span className="amount">$79.99</span>
+              <span className="amount">£179.99</span>
               <span className="period">one-time</span>
             </div>
-            <div className="savings">Pay once, own forever</div>
             <ul className="features">
-              <li>✓ Lifetime unlimited access</li>
-              <li>✓ All current & future features</li>
-              <li>✓ No recurring payments</li>
-              <li>✓ Priority support forever</li>
-              <li>✓ Exclusive lifetime sounds</li>
-              <li>✓ Support future development</li>
+              <li>✓ Everything in Oneura Plus, with no subscription</li>
+              <li>✓ Same premium catalogue and features as paying members</li>
+              <li>✓ One-time purchase—no renewals</li>
+              <li>✓ Keep access for the life of the product / your account</li>
             </ul>
-            <div className="plan-description">
-              One payment, lifetime of relaxation and peace
-            </div>
+            <div className="plan-description">One-time purchase. No subscription.</div>
           </div>
         </div>
+
+        <p className="pricing-footnote">
+          After installing the app, use <strong>Restore Purchases</strong> on the Membership screen if you reinstall
+          or change device.
+        </p>
       </div>
 
       {/* Features Comparison */}
@@ -153,8 +157,9 @@ const OneuraSubscription: React.FC = () => {
           and all the features that make Oneura the perfect companion for sleep, relaxation, and focus.
         </p>
         <p>
-          Cancel anytime during your trial and you won't be charged. If you love it (and we think you will), 
-          your subscription continues automatically.
+          Cancel anytime during your trial and you won&apos;t be charged. Subscriptions auto-renew unless you
+          cancel at least <strong>24 hours</strong> before the trial or billing period ends (manage in Google Play
+          or the App Store).
         </p>
       </div>
 
@@ -182,10 +187,10 @@ const OneuraSubscription: React.FC = () => {
           </p>
         </div>
         <div className="faq-item">
-          <h3>How does the lifetime plan work?</h3>
+          <h3>How does Lifetime Access work?</h3>
           <p>
-            Pay once and get lifetime access to all current and future Oneura Plus features. No recurring 
-            payments, no expiration. Own it forever.
+            Pay once (£179.99 in the UK listing) for the same Plus benefits as subscribers, with no renewals.
+            Availability and price may vary slightly by storefront region. Use Restore Purchases if you reinstall the app.
           </p>
         </div>
         <div className="faq-item">

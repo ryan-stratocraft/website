@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import stratocraftLogo from "../assets/images/strato-craft/stratocraftlogo.jpg";
 import oneuraLogo from "../assets/images/oneura/splashlogocolor.png";
 import ohiLogo from "../assets/images/ohilogo.jpg";
+import { ONEURA_APP_ORIGIN } from "../constants/origins";
 
 const Navbar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -38,14 +39,14 @@ const Navbar: React.FC = () => {
           {isDropdownOpen && (
             <ul className="dropdown-menu">
               <li>
-                <Link 
-                  to="/oneura" 
-                  className={`dropdown-item-with-icon ${isActive("/oneura") ? "active" : ""}`}
-                  aria-current={isActive("/oneura") ? "page" : undefined}
+                <a
+                  href={ONEURA_APP_ORIGIN}
+                  className="dropdown-item-with-icon"
+                  rel="noopener noreferrer"
                 >
                   <img src={oneuraLogo} alt="Oneura" className="dropdown-icon" />
                   <span>Oneura</span>
-                </Link>
+                </a>
               </li>
               <li>
                 <Link 
