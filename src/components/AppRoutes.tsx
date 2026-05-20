@@ -27,6 +27,7 @@ import OneuraPrivacyPolicy from "../pages/oneura/privacy/PrivacyPolicy";
 import OneuraDeleteData from "../pages/oneura/delete/DeleteData";
 import OneuraSubscription from "../pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "../pages/oneura/terms/TermsAndConditions";
+import PartnerLanding from "../pages/oneura/partner/PartnerLanding";
 
 /** Strato-Craft.com & legacy paths: /oneura/* stays for bookmarks. */
 export const StratoSiteRoutes: React.FC = () => (
@@ -57,6 +58,12 @@ export const StratoSiteRoutes: React.FC = () => (
     <Route path="/oneura/terms-and-conditions" element={<OneuraTermsAndConditions />} />
     <Route path="/oneura/cookie-policy" element={<OneuraCookiePolicy />} />
     <Route path="/oneura/delete-data" element={<OneuraDeleteData />} />
+    {/* Partner landing — same component as oneura.app; localhost dev
+        and legacy bookmarks hit these. Universal/App Link domain
+        association only applies to oneura.app, so the canonical URL
+        for QRs / emails is always oneura.app/c/<code>. */}
+    <Route path="/oneura/c/:code" element={<PartnerLanding />} />
+    <Route path="/oneura/partner/:campaignId" element={<PartnerLanding />} />
 
     <Route path="*" element={<NotFound />} />
   </Routes>
@@ -72,6 +79,11 @@ export const OneuraProductSiteRoutes: React.FC = () => (
     <Route path="/terms-and-conditions" element={<OneuraTermsAndConditions />} />
     <Route path="/cookie-policy" element={<OneuraCookiePolicy />} />
     <Route path="/delete-data" element={<OneuraDeleteData />} />
+    {/* Partner campaign landing pages. QR codes / partner links point
+        here; Universal Links / App Links intercept the same URLs and
+        open the installed app instead of this page. */}
+    <Route path="/c/:code" element={<PartnerLanding />} />
+    <Route path="/partner/:campaignId" element={<PartnerLanding />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["Q3X39A9N2Q.com.stratocraft.oneura"],
+        "components": [
+          { "/": "/c/*" },
+          { "/": "/partner/*" }
+        ]
+      }
+    ]
+  }
+}
