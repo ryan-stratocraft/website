@@ -31,28 +31,32 @@ export function oneuraHomePath(): string {
 }
 
 /**
- * Universal Link / App Link for a partner code. Always anchored at
- * oneura.app so that iOS / Android can match the domain association
+ * Universal Link / App Link for a partner-offer slug. Always anchored
+ * at oneura.app so that iOS / Android can match the domain association
  * regardless of the page the user is currently viewing.
  */
-export function universalCodeLink(code: string): string {
-  return `https://oneura.app/c/${encodeURIComponent(code)}`;
-}
-
-/** Same idea but for a campaign id rather than a raw code. */
-export function universalCampaignLink(campaignId: string): string {
-  return `https://oneura.app/partner/${encodeURIComponent(campaignId)}`;
+export function universalOfferLink(slug: string): string {
+  return `https://oneura.app/c/${encodeURIComponent(slug)}`;
 }
 
 /**
  * In-website route for the partner landing page. Local navigation only
  * (e.g. from the home page to the landing); for deep linking into the
- * mobile app use {@link universalCodeLink} / {@link universalCampaignLink}.
+ * mobile app use {@link universalOfferLink}.
  */
-export function partnerCodeWebPath(code: string): string {
-  return `/c/${encodeURIComponent(code)}`;
+export function partnerOfferWebPath(slug: string): string {
+  return `/c/${encodeURIComponent(slug)}`;
 }
 
-export function partnerCampaignWebPath(campaignId: string): string {
-  return `/partner/${encodeURIComponent(campaignId)}`;
+/** Admin section paths — same on both hostnames. */
+export function adminOffersListPath(): string {
+  return "/admin/offers";
+}
+
+export function adminOfferDetailPath(slug: string): string {
+  return `/admin/offers/${encodeURIComponent(slug)}`;
+}
+
+export function adminOfferCreatePath(): string {
+  return "/admin/offers/new";
 }

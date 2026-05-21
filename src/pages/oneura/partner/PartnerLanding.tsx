@@ -1,41 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
-  getCampaignByCode,
-  type PublicCampaignView,
+  getOffer,
+  type PublicOfferView,
 } from "../../../firebase/oneuraFunctions";
 import googlePlay from "../../../assets/images/google-play.png";
 import appStore from "../../../assets/images/app-store.png";
-import PartnerLeadForm from "./PartnerLeadForm";
+import OfferRegistrationForm from "./OfferRegistrationForm";
 
 const APP_STORE_URL = "https://apps.apple.com/app/oneura/id6754253306";
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.stratocraft.oneura";
 
 /**
- * Renders a partner campaign landing page. The component is fully
- * generic — branding (logo, headline, body, CTA label, fine print,
- * accent colour, hero image) is fetched from Firestore via the
- * `getCampaignByCode` Cloud Function. Adding a new partner is a
- * Firestore-only operation; no code change required.
+ * Renders a partner-offer landing page. Slug comes from the URL
+ * (`/c/:slug`). Branding (logo, headline, body, accent colour, hero
+ * image) is fetched from `getOffer` at runtime — adding a new partner
+ * is purely a Firestore-doc operation.
  *
- * Routes:
- *   /c/:code             — user followed a QR with a code in the URL
- *   /partner/:campaignId — user followed a branded campaign link
- *
- * Both render the same component; the param shape just differs.
+ * Stage 2 flow:
+ *   1. Read offer by slug → render branding.
+ *   2. User submits email via OfferRegistrationForm.
+ *   3. registerForOffer writes /offer_registrations.
+ *   4. Page transitions to a "thanks — opening the store" view that
+ *      shows both store buttons and, on iOS/Android, auto-redirects to
+ *      the appropriate store.
+ *   5. Universal Link / App Link domain association on oneura.app
+ *      intercepts /c/:slug when the app is already installed, so this
+ *      page rarely appears for returning users.
  */
 const PartnerLanding: React.FC = () => {
-  const { code, campaignId } = useParams<{ code?: string; campaignId?: string }>();
-  const [view, setView] = useState<PublicCampaignView | null | "loading" | "error">(
-    "loading",
-  );
+  const { slug: rawSlug } = useParams<{ slug: string }>();
+  const slug = rawSlug?.trim() ?? "";
+  const [view, setView] = useState<
+    PublicOfferView | null | "loading" | "error"
+  >("loading");
+  const [registered, setRegistered] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
+    if (!slug) {
+      setView("error");
+      return;
+    }
     (async () => {
       try {
-        const result = await getCampaignByCode({ code, campaignId });
+        const result = await getOffer(slug);
         if (!cancelled) setView(result);
       } catch {
         if (!cancelled) setView("error");
@@ -44,7 +54,7 @@ const PartnerLanding: React.FC = () => {
     return () => {
       cancelled = true;
     };
-  }, [code, campaignId]);
+  }, [slug]);
 
   if (view === "loading") {
     return (
@@ -64,8 +74,8 @@ const PartnerLanding: React.FC = () => {
             Offer not available
           </h2>
           <p style={{ color: "#94a3b8", marginBottom: 24 }}>
-            This partner offer is no longer active, or the code couldn't be
-            recognised. Try the original link or QR code from the partner.
+            This partner offer is no longer active, or the link couldn't be
+            recognised. Try the original QR / link from the partner.
           </p>
           <a
             href="https://oneura.app"
@@ -127,18 +137,97 @@ const PartnerLanding: React.FC = () => {
         )}
       </div>
 
-      {/* Store buttons link to the actual app stores. Universal Links /
-          App Links handle the "open installed app" case automatically
-          when someone first navigates to /c/<code> from a QR or email —
-          a click within oneura.app cannot re-trigger that interception,
-          so we always send the user to the store from this surface. */}
+      {registered ? (
+        <RegisteredView accent={accent} />
+      ) : (
+        <OfferRegistrationForm
+          offerSlug={view.slug}
+          primaryColorHex={view.branding.primaryColorHex}
+          source={`web-${view.slug}`}
+          onRegistered={() => setRegistered(true)}
+        />
+      )}
+
+      {view.branding.finePrint && (
+        <p
+          style={{
+            color: "#64748b",
+            fontSize: 12,
+            textAlign: "center",
+            maxWidth: 480,
+            margin: "24px auto 0",
+          }}
+        >
+          {view.branding.finePrint}
+        </p>
+      )}
+    </Layout>
+  );
+};
+
+/** Best-effort UA sniff to pick the right store. Falls back to desktop. */
+function detectStoreUrl(): { url: string | null; platform: "ios" | "android" | "desktop" } {
+  if (typeof navigator === "undefined") return { url: null, platform: "desktop" };
+  const ua = navigator.userAgent ?? "";
+  if (/iPad|iPhone|iPod/.test(ua)) {
+    return { url: APP_STORE_URL, platform: "ios" };
+  }
+  if (/android/i.test(ua)) {
+    return { url: PLAY_STORE_URL, platform: "android" };
+  }
+  return { url: null, platform: "desktop" };
+}
+
+interface RegisteredViewProps {
+  accent: string;
+}
+
+const RegisteredView: React.FC<RegisteredViewProps> = ({ accent }) => {
+  const { url, platform } = detectStoreUrl();
+
+  useEffect(() => {
+    if (!url) return;
+    // Small delay so the user can see the confirmation message + the
+    // 3-step roadmap before the store opens. On iOS Safari this also
+    // gives the page time to finish painting before the navigation.
+    const t = window.setTimeout(() => {
+      window.location.href = url;
+    }, 2200);
+    return () => window.clearTimeout(t);
+  }, [url]);
+
+  return (
+    <div style={{ textAlign: "center" }}>
+      <div
+        style={{
+          padding: "20px 24px",
+          borderRadius: 12,
+          background: "rgba(255,255,255,0.06)",
+          border: `1px solid ${accent}55`,
+          marginBottom: 20,
+          color: "#fff",
+        }}
+      >
+        <div style={{ fontSize: 18, fontWeight: 600, marginBottom: 6 }}>
+          You're registered.
+        </div>
+        <div style={{ color: "#cbd5e1", fontSize: 14, lineHeight: 1.5 }}>
+          {platform === "desktop"
+            ? "Open this page on your phone to install Oneura, or use the buttons below."
+            : "Opening the app store in a moment so you can install Oneura."}
+        </div>
+      </div>
+
+      <NextStepsCard accent={accent} />
+
       <div
         style={{
           display: "flex",
           gap: 12,
           justifyContent: "center",
           flexWrap: "wrap",
-          marginBottom: 24,
+          marginTop: 20,
+          marginBottom: 8,
         }}
       >
         <a
@@ -166,52 +255,107 @@ const PartnerLanding: React.FC = () => {
           />
         </a>
       </div>
+    </div>
+  );
+};
 
-      {code && (
+/**
+ * Explicit "what happens next" roadmap shown right after registration.
+ *
+ * The previous one-liner was too easy to skim past, leaving users
+ * stranded on the home screen wondering where their offer went. This
+ * walks them through the exact sequence the backend expects:
+ *   1. install + open the app (link-out below)
+ *   2. sign up with THIS email (we match on it)
+ *   3. open Subscriptions inside the app → branded offer card appears
+ *      with a personal code → tap Activate offer.
+ */
+const NextStepsCard: React.FC<{ accent: string }> = ({ accent }) => {
+  const steps: { n: number; title: string; body: string }[] = [
+    {
+      n: 1,
+      title: "Install Oneura",
+      body: "Use the App Store or Google Play buttons below to download.",
+    },
+    {
+      n: 2,
+      title: "Sign up with this same email",
+      body: "We match your offer to the email you just registered with — anything different won't attach.",
+    },
+    {
+      n: 3,
+      title: "Open Subscriptions in the app",
+      body: "Your branded offer card appears at the top with a personal code. Tap Activate offer to redeem at the discounted price.",
+    },
+  ];
+
+  return (
+    <div
+      style={{
+        textAlign: "left",
+        background: "rgba(255,255,255,0.04)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        borderRadius: 12,
+        padding: "16px 18px",
+      }}
+    >
+      <div
+        style={{
+          color: "#cbd5e1",
+          fontSize: 11,
+          letterSpacing: 1.4,
+          fontWeight: 600,
+          textTransform: "uppercase",
+          marginBottom: 12,
+        }}
+      >
+        What happens next
+      </div>
+      {steps.map((s) => (
         <div
+          key={s.n}
           style={{
-            textAlign: "center",
-            color: "#cbd5e1",
-            fontSize: 14,
-            marginBottom: 24,
+            display: "flex",
+            gap: 12,
+            marginBottom: s.n === steps.length ? 0 : 12,
+            alignItems: "flex-start",
           }}
         >
-          Your code:{" "}
-          <span
+          <div
             style={{
-              fontFamily: "monospace",
-              fontSize: 16,
+              flex: "0 0 28px",
+              width: 28,
+              height: 28,
+              borderRadius: 999,
+              background: accent,
               color: "#fff",
-              letterSpacing: 1.5,
-              padding: "2px 8px",
-              borderRadius: 4,
-              background: "rgba(255,255,255,0.08)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: 700,
+              fontSize: 14,
             }}
           >
-            {code.toUpperCase()}
-          </span>
+            {s.n}
+          </div>
+          <div style={{ flex: "1 1 auto" }}>
+            <div
+              style={{
+                color: "#fff",
+                fontSize: 14,
+                fontWeight: 600,
+                marginBottom: 2,
+              }}
+            >
+              {s.title}
+            </div>
+            <div style={{ color: "#94a3b8", fontSize: 13, lineHeight: 1.45 }}>
+              {s.body}
+            </div>
+          </div>
         </div>
-      )}
-
-      {view.branding.finePrint && (
-        <p
-          style={{
-            color: "#64748b",
-            fontSize: 12,
-            textAlign: "center",
-            maxWidth: 480,
-            margin: "0 auto 24px",
-          }}
-        >
-          {view.branding.finePrint}
-        </p>
-      )}
-
-      <PartnerLeadForm
-        campaignId={view.campaignId}
-        primaryColorHex={view.branding.primaryColorHex}
-      />
-    </Layout>
+      ))}
+    </div>
   );
 };
 

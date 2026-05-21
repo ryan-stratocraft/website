@@ -28,6 +28,16 @@ import OneuraDeleteData from "../pages/oneura/delete/DeleteData";
 import OneuraSubscription from "../pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "../pages/oneura/terms/TermsAndConditions";
 import PartnerLanding from "../pages/oneura/partner/PartnerLanding";
+import AdminGate from "./AdminGate";
+import AdminOffersList from "../pages/oneura/admin/AdminOffersList";
+import AdminOfferDetail from "../pages/oneura/admin/AdminOfferDetail";
+import AdminOfferCreate from "../pages/oneura/admin/AdminOfferCreate";
+import AdminOfferEdit from "../pages/oneura/admin/AdminOfferEdit";
+
+/** Wraps the admin section so children render only for the operator. */
+const AdminSection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <AdminGate>{children}</AdminGate>
+);
 
 /** Strato-Craft.com & legacy paths: /oneura/* stays for bookmarks. */
 export const StratoSiteRoutes: React.FC = () => (
@@ -58,12 +68,47 @@ export const StratoSiteRoutes: React.FC = () => (
     <Route path="/oneura/terms-and-conditions" element={<OneuraTermsAndConditions />} />
     <Route path="/oneura/cookie-policy" element={<OneuraCookiePolicy />} />
     <Route path="/oneura/delete-data" element={<OneuraDeleteData />} />
-    {/* Partner landing — same component as oneura.app; localhost dev
-        and legacy bookmarks hit these. Universal/App Link domain
-        association only applies to oneura.app, so the canonical URL
-        for QRs / emails is always oneura.app/c/<code>. */}
-    <Route path="/oneura/c/:code" element={<PartnerLanding />} />
-    <Route path="/oneura/partner/:campaignId" element={<PartnerLanding />} />
+    {/* Partner-offer landing page. Universal/App Link domain association
+        only applies to oneura.app, so the canonical URL for QRs / emails
+        is always oneura.app/c/<slug>; this nested mount only exists for
+        localhost dev. */}
+    <Route path="/oneura/c/:slug" element={<PartnerLanding />} />
+
+    {/* Admin lives on Strato too, but admin work always happens on the
+        canonical oneura.app domain (Google sign-in popup is bound to
+        that origin). The Strato copy is just so dev/localhost works. */}
+    <Route
+      path="/admin/offers"
+      element={
+        <AdminSection>
+          <AdminOffersList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/new"
+      element={
+        <AdminSection>
+          <AdminOfferCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug"
+      element={
+        <AdminSection>
+          <AdminOfferDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminOfferEdit />
+        </AdminSection>
+      }
+    />
 
     <Route path="*" element={<NotFound />} />
   </Routes>
@@ -79,11 +124,45 @@ export const OneuraProductSiteRoutes: React.FC = () => (
     <Route path="/terms-and-conditions" element={<OneuraTermsAndConditions />} />
     <Route path="/cookie-policy" element={<OneuraCookiePolicy />} />
     <Route path="/delete-data" element={<OneuraDeleteData />} />
-    {/* Partner campaign landing pages. QR codes / partner links point
+    {/* Partner-offer landing page. QR codes / partner links point
         here; Universal Links / App Links intercept the same URLs and
         open the installed app instead of this page. */}
-    <Route path="/c/:code" element={<PartnerLanding />} />
-    <Route path="/partner/:campaignId" element={<PartnerLanding />} />
+    <Route path="/c/:slug" element={<PartnerLanding />} />
+
+    {/* Admin section — gated to the operator email. */}
+    <Route
+      path="/admin/offers"
+      element={
+        <AdminSection>
+          <AdminOffersList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/new"
+      element={
+        <AdminSection>
+          <AdminOfferCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug"
+      element={
+        <AdminSection>
+          <AdminOfferDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminOfferEdit />
+        </AdminSection>
+      }
+    />
+
     <Route path="*" element={<NotFound />} />
   </Routes>
 );
