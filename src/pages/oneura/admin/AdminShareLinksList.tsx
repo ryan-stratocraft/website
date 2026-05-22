@@ -8,25 +8,25 @@ import {
   Timestamp,
 } from "firebase/firestore";
 import { oneuraDb } from "../../../firebase/oneuraFirestore";
+import { PageShell } from "./AdminOffersList";
 import AdminSectionNav from "./AdminSectionNav";
 
-interface CampaignRow {
+interface ShareLinkRow {
   slug: string;
+  name: string;
   status: string;
-  partnerName: string | null;
-  displayName: string | null;
-  redemptionCount: number;
-  redemptionCap: number | null;
+  totalClicks: number;
+  sourcesCount: number;
   updatedAt: Date | null;
 }
 
 /**
- * `/admin/offers` — table of every campaign in /campaigns. Rule change:
- * isAdmin() can read regardless of `status`, so paused / draft offers
- * appear here too. Click a row to drill into AdminOfferDetail.
+ * `/admin/links` — table of every share link in /share_links. Sister
+ * page to AdminOffersList; shares the PageShell + AdminSectionNav so
+ * the operator can swap between the two sections.
  */
-const AdminOffersList: React.FC = () => {
-  const [rows, setRows] = useState<CampaignRow[] | "loading" | "error">(
+const AdminShareLinksList: React.FC = () => {
+  const [rows, setRows] = useState<ShareLinkRow[] | "loading" | "error">(
     "loading",
   );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -36,27 +36,22 @@ const AdminOffersList: React.FC = () => {
     (async () => {
       try {
         const q = query(
-          collection(oneuraDb, "campaigns"),
+          collection(oneuraDb, "share_links"),
           orderBy("updatedAt", "desc"),
         );
         const snap = await getDocs(q);
-        const out: CampaignRow[] = snap.docs.map((d) => {
+        const out: ShareLinkRow[] = snap.docs.map((d) => {
           const data = d.data() as Record<string, unknown>;
+          const sources = Array.isArray(data.sources)
+            ? (data.sources as unknown[]).filter((s) => typeof s === "string")
+            : [];
           return {
             slug: d.id,
+            name: typeof data.name === "string" ? data.name : d.id,
             status: typeof data.status === "string" ? data.status : "unknown",
-            partnerName:
-              typeof data.partnerName === "string" ? data.partnerName : null,
-            displayName:
-              typeof data.displayName === "string" ? data.displayName : null,
-            redemptionCount:
-              typeof data.redemptionCount === "number"
-                ? data.redemptionCount
-                : 0,
-            redemptionCap:
-              typeof data.redemptionCap === "number"
-                ? data.redemptionCap
-                : null,
+            totalClicks:
+              typeof data.totalClicks === "number" ? data.totalClicks : 0,
+            sourcesCount: sources.length,
             updatedAt:
               data.updatedAt instanceof Timestamp
                 ? data.updatedAt.toDate()
@@ -79,12 +74,21 @@ const AdminOffersList: React.FC = () => {
   return (
     <PageShell>
       <AdminSectionNav />
-      <Header>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 24,
+          flexWrap: "wrap",
+          gap: 12,
+        }}
+      >
         <h1 style={{ margin: 0, color: "#fff", fontSize: 24 }}>
-          Partner offers
+          Share links
         </h1>
         <Link
-          to="/admin/offers/new"
+          to="/admin/links/new"
           style={{
             background: "#A855F7",
             color: "#fff",
@@ -95,24 +99,25 @@ const AdminOffersList: React.FC = () => {
             fontSize: 14,
           }}
         >
-          New offer
+          New share link
         </Link>
-      </Header>
+      </div>
 
       {rows === "loading" && (
-        <div style={loaderStyle}>Loading campaigns…</div>
+        <div style={loaderStyle}>Loading share links…</div>
       )}
 
       {rows === "error" && (
         <div style={errorStyle}>
-          Couldn't load campaigns: {errorMessage ?? "unknown error"}
+          Couldn't load share links: {errorMessage ?? "unknown error"}
         </div>
       )}
 
       {Array.isArray(rows) && rows.length === 0 && (
         <div style={loaderStyle}>
-          No campaigns yet. Click <strong>New offer</strong> to create the
-          first one.
+          No share links yet. Click <strong>New share link</strong> to
+          create the first one — they're the simplest way to share Oneura
+          on social, in ads, or in a QR code.
         </div>
       )}
 
@@ -122,18 +127,19 @@ const AdminOffersList: React.FC = () => {
             <thead>
               <tr>
                 <th style={thStyle}>Slug</th>
-                <th style={thStyle}>Partner</th>
+                <th style={thStyle}>Name</th>
                 <th style={thStyle}>Status</th>
-                <th style={thStyle}>Redemptions</th>
+                <th style={thStyle}>Total clicks</th>
+                <th style={thStyle}>Sources</th>
                 <th style={thStyle}>Last updated</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
-                <tr key={r.slug} style={trStyle}>
+                <tr key={r.slug}>
                   <td style={tdStyle}>
                     <Link
-                      to={`/admin/offers/${encodeURIComponent(r.slug)}`}
+                      to={`/admin/links/${encodeURIComponent(r.slug)}`}
                       style={{
                         color: "#A855F7",
                         textDecoration: "none",
@@ -143,14 +149,12 @@ const AdminOffersList: React.FC = () => {
                       {r.slug}
                     </Link>
                   </td>
-                  <td style={tdStyle}>{r.displayName ?? r.partnerName ?? "—"}</td>
+                  <td style={tdStyle}>{r.name}</td>
                   <td style={tdStyle}>
                     <StatusPill status={r.status} />
                   </td>
-                  <td style={tdStyle}>
-                    {r.redemptionCount}
-                    {r.redemptionCap != null ? ` / ${r.redemptionCap}` : ""}
-                  </td>
+                  <td style={tdStyle}>{r.totalClicks.toLocaleString()}</td>
+                  <td style={tdStyle}>{r.sourcesCount}</td>
                   <td style={{ ...tdStyle, color: "#94a3b8", fontSize: 13 }}>
                     {r.updatedAt ? r.updatedAt.toLocaleString() : "—"}
                   </td>
@@ -189,36 +193,6 @@ const StatusPill: React.FC<{ status: string }> = ({ status }) => {
     </span>
   );
 };
-
-export const PageShell: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => (
-  <div
-    style={{
-      minHeight: "calc(100vh - 53px)",
-      background: "#0B132B",
-      color: "#fff",
-      padding: "32px 20px",
-    }}
-  >
-    <div style={{ maxWidth: 1024, margin: "0 auto" }}>{children}</div>
-  </div>
-);
-
-const Header: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: 24,
-      flexWrap: "wrap",
-      gap: 12,
-    }}
-  >
-    {children}
-  </div>
-);
 
 const loaderStyle: React.CSSProperties = {
   textAlign: "center",
@@ -260,14 +234,10 @@ const thStyle: React.CSSProperties = {
   letterSpacing: 0.8,
 };
 
-const trStyle: React.CSSProperties = {
-  transition: "background 120ms",
-};
-
 const tdStyle: React.CSSProperties = {
   padding: "14px 16px",
   borderBottom: "1px solid rgba(255,255,255,0.05)",
   color: "#cbd5e1",
 };
 
-export default AdminOffersList;
+export default AdminShareLinksList;

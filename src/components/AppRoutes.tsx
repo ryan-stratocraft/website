@@ -28,11 +28,16 @@ import OneuraDeleteData from "../pages/oneura/delete/DeleteData";
 import OneuraSubscription from "../pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "../pages/oneura/terms/TermsAndConditions";
 import PartnerLanding from "../pages/oneura/partner/PartnerLanding";
+import ShareLinkRedirect from "../pages/oneura/share/ShareLinkRedirect";
 import AdminGate from "./AdminGate";
 import AdminOffersList from "../pages/oneura/admin/AdminOffersList";
 import AdminOfferDetail from "../pages/oneura/admin/AdminOfferDetail";
 import AdminOfferCreate from "../pages/oneura/admin/AdminOfferCreate";
 import AdminOfferEdit from "../pages/oneura/admin/AdminOfferEdit";
+import AdminShareLinksList from "../pages/oneura/admin/AdminShareLinksList";
+import AdminShareLinkCreate from "../pages/oneura/admin/AdminShareLinkCreate";
+import AdminShareLinkDetail from "../pages/oneura/admin/AdminShareLinkDetail";
+import AdminShareLinkEdit from "../pages/oneura/admin/AdminShareLinkEdit";
 
 /** Wraps the admin section so children render only for the operator. */
 const AdminSection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -74,6 +79,9 @@ export const StratoSiteRoutes: React.FC = () => (
         localhost dev. */}
     <Route path="/oneura/c/:slug" element={<PartnerLanding />} />
 
+    {/* Share-link redirect. Same dev-only nesting story as /c/. */}
+    <Route path="/oneura/d/:slug" element={<ShareLinkRedirect />} />
+
     {/* Admin lives on Strato too, but admin work always happens on the
         canonical oneura.app domain (Google sign-in popup is bound to
         that origin). The Strato copy is just so dev/localhost works. */}
@@ -109,6 +117,38 @@ export const StratoSiteRoutes: React.FC = () => (
         </AdminSection>
       }
     />
+    <Route
+      path="/admin/links"
+      element={
+        <AdminSection>
+          <AdminShareLinksList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/new"
+      element={
+        <AdminSection>
+          <AdminShareLinkCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug"
+      element={
+        <AdminSection>
+          <AdminShareLinkDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminShareLinkEdit />
+        </AdminSection>
+      }
+    />
 
     <Route path="*" element={<NotFound />} />
   </Routes>
@@ -128,6 +168,11 @@ export const OneuraProductSiteRoutes: React.FC = () => (
         here; Universal Links / App Links intercept the same URLs and
         open the installed app instead of this page. */}
     <Route path="/c/:slug" element={<PartnerLanding />} />
+
+    {/* Share-link redirect. UA-sniff → App Store / Play Store; the
+        installed app intercepts via App Link instead and opens to
+        home (DeepLinkService). Click metrics recorded server-side. */}
+    <Route path="/d/:slug" element={<ShareLinkRedirect />} />
 
     {/* Admin section — gated to the operator email. */}
     <Route
@@ -159,6 +204,38 @@ export const OneuraProductSiteRoutes: React.FC = () => (
       element={
         <AdminSection>
           <AdminOfferEdit />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links"
+      element={
+        <AdminSection>
+          <AdminShareLinksList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/new"
+      element={
+        <AdminSection>
+          <AdminShareLinkCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug"
+      element={
+        <AdminSection>
+          <AdminShareLinkDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminShareLinkEdit />
         </AdminSection>
       }
     />

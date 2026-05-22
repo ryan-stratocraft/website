@@ -60,3 +60,31 @@ export function adminOfferDetailPath(slug: string): string {
 export function adminOfferCreatePath(): string {
   return "/admin/offers/new";
 }
+
+/**
+ * Universal Link / App Link for a share link slug. Always anchored at
+ * oneura.app so iOS / Android can match the domain association. The
+ * optional `source` is appended as `?src=` so the recordShareClick
+ * Cloud Function can attribute the click to a predefined source.
+ */
+export function universalShareLink(slug: string, source?: string): string {
+  const base = `https://oneura.app/d/${encodeURIComponent(slug)}`;
+  if (!source) return base;
+  return `${base}?src=${encodeURIComponent(source)}`;
+}
+
+export function adminShareLinksListPath(): string {
+  return "/admin/links";
+}
+
+export function adminShareLinkDetailPath(slug: string): string {
+  return `/admin/links/${encodeURIComponent(slug)}`;
+}
+
+export function adminShareLinkCreatePath(): string {
+  return "/admin/links/new";
+}
+
+export function adminShareLinkEditPath(slug: string): string {
+  return `/admin/links/${encodeURIComponent(slug)}/edit`;
+}
