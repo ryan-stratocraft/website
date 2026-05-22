@@ -13,10 +13,18 @@ const isOneuraProductSite =
   typeof window !== "undefined" &&
   isOneuraHostname(window.location.hostname);
 
+/** True for any /admin/... route — used to hide the marketing navbar
+ *  and cookie banner so the operator UI gets the full viewport. */
+function isAdminRoute(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.location.pathname.startsWith("/admin/");
+}
+
 const App: React.FC = () => {
+  const onAdmin = isAdminRoute();
   return (
     <>
-      {isOneuraProductSite ? <OneuraNavbar /> : <Navbar />}
+      {!onAdmin && (isOneuraProductSite ? <OneuraNavbar /> : <Navbar />)}
 
       <div className="page-container">
         {isOneuraProductSite ? (
@@ -26,7 +34,7 @@ const App: React.FC = () => {
         )}
       </div>
 
-      {isOneuraProductSite ? <CookieConsent /> : null}
+      {isOneuraProductSite && !onAdmin ? <CookieConsent /> : null}
     </>
   );
 };

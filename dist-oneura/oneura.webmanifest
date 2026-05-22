@@ -1,0 +1,13 @@
+{
+  "name": "Oneura",
+  "short_name": "Oneura",
+  "description": "Calming soundscapes and ambience for sleep, stress relief, and focus.",
+  "icons": [
+    { "src": "/oneura-touch-icon.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/oneura-touch-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "theme_color": "#0B132B",
+  "background_color": "#0B132B",
+  "display": "standalone",
+  "start_url": "/"
+}
