@@ -1,4 +1,8 @@
 /* GENERAL STYLES */
+:root {
+  --oneura-font-family: "Comfortaa", Arial, sans-serif;
+}
+
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
@@ -12,6 +16,22 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.oneura-site,
+.oneura-home-container,
+.oneura-about-container,
+.oneura-subscription-container,
+.policy-container {
+  font-family: var(--oneura-font-family);
+}
+
+.oneura-site button,
+.oneura-site input,
+.oneura-site textarea,
+.oneura-site select,
+.oneura-site .dropdown-toggle {
+  font-family: inherit;
 }
 
 /* NAVBAR */

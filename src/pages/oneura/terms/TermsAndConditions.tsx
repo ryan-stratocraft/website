@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { oneuraPagePath } from "../../../routes/oneuraPaths";
 import "../styles/PolicyPages.css";
 
-const privacyHref = oneuraPagePath("privacy-policy");
-const cookieHref = oneuraPagePath("cookie-policy");
-const deleteDataHref = oneuraPagePath("delete-data");
-
 const OneuraTermsAndConditions: React.FC = () => {
+  const privacyHref = oneuraPagePath("privacy-policy");
+  const cookieHref = oneuraPagePath("cookie-policy");
+  const deleteDataHref = oneuraPagePath("delete-data");
+
   return (
     <div className="policy-container">
       <div className="policy-hero">

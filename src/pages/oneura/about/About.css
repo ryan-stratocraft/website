@@ -74,13 +74,33 @@
   box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
 }
 
-.about-section h2 {
+.oneura-about-container .about-section h2 {
   font-size: 2rem;
   color: #3B82F6;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: #3B82F6;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.about-section-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.14);
+  color: initial;
+  -webkit-text-fill-color: initial;
+  font-size: 1.45rem;
+  line-height: 1;
+  filter: none;
 }
 
 .about-section p {

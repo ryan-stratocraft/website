@@ -17,7 +17,10 @@ const OneuraAbout: React.FC = () => {
 
       <div className="about-content">
         <section className="about-section">
-          <h2>🌙 Better Sleep &amp; Deep Relaxation</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">🌙</span>
+            Better Sleep &amp; Deep Relaxation
+          </h2>
           <p>
             Drift into restorative rest with a broad palette of{" "}
             <strong>calming soundscapes</strong> - ocean, rain, forests, gentle fans,
@@ -34,7 +37,10 @@ const OneuraAbout: React.FC = () => {
         </section>
 
         <section className="about-section">
-          <h2>📊 Smart sleep insights &amp; wearables - guidance you steer</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">📊</span>
+            Smart sleep insights &amp; wearables - guidance you steer
+          </h2>
           <p>
             When you choose to link <strong>supported health and wearable apps</strong>{" "}
             (permissions vary by device), Oneura can combine your listening habits with
@@ -59,7 +65,10 @@ const OneuraAbout: React.FC = () => {
         </section>
 
         <section className="about-section">
-          <h2>🎵 Immersive Sound Library</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">🎵</span>
+            Immersive Sound Library
+          </h2>
           <p>Explore high-quality ambience and tones, including:</p>
           <ul className="feature-list">
             <li>
@@ -96,7 +105,10 @@ const OneuraAbout: React.FC = () => {
         </section>
 
         <section className="about-section">
-          <h2>🧘 Mindfulness &amp; Enhanced Focus</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">🧘</span>
+            Mindfulness &amp; Enhanced Focus
+          </h2>
           <p>
             Oneura isn&apos;t only a sleep aid - it&apos;s a companion when you{" "}
             <strong>study</strong>, <strong>read</strong>, <strong>breathe</strong>, or{" "}
@@ -130,7 +142,10 @@ const OneuraAbout: React.FC = () => {
         </section>
 
         <section className="about-section">
-          <h2>✨ Premium Features</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">✨</span>
+            Premium Features
+          </h2>
           <p>
             Ready to make Oneura your nightly ritual? Elevate the experience with{" "}
             <strong>Oneura Plus</strong>:
@@ -162,7 +177,10 @@ const OneuraAbout: React.FC = () => {
         </section>
 
         <section className="about-section">
-          <h2>🆓 Free Tier</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">🆓</span>
+            Free Tier
+          </h2>
           <p>
             Start your journey with <strong>no credit card</strong>. The free experience
             includes a generous <strong>listening allowance</strong> that comes back after
@@ -182,7 +200,10 @@ const OneuraAbout: React.FC = () => {
         </section>
 
         <section className="about-section">
-          <h2>🎯 Our Mission</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">🎯</span>
+            Our Mission
+          </h2>
           <p>
             In a loud, always-on world, everyone deserves tools that help them rest,
             focus, and feel a little more human. Oneura brings together{" "}
@@ -198,7 +219,10 @@ const OneuraAbout: React.FC = () => {
         </section>
 
         <section className="about-section">
-          <h2>🚀 What&apos;s Coming Next</h2>
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">🚀</span>
+            What&apos;s Coming Next
+          </h2>
           <p>
             We ship updates often. On the horizon you&apos;ll see more of what you
             already love - just richer:

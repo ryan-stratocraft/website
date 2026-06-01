@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:all": "tsc -b && vite build && node scripts/prep-oneura-dist.mjs",
+    "build:all": "tsc -b && vite build && vite build --ssr src/oneuraPrerender.tsx --outDir dist-prerender --emptyOutDir && node scripts/prep-oneura-dist.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

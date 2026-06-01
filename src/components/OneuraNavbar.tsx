@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import oneuraLogo from "../assets/images/oneura/logo-color.png";
-import { STRATO_CRAFT_ORIGIN } from "../constants/origins";
+import {
+  STRATO_CRAFT_ORIGIN,
+  STRATO_CRAFT_SUPPORT_URL,
+} from "../constants/origins";
 import { oneuraHomePath, oneuraPagePath } from "../routes/oneuraPaths";
 
 /**
@@ -24,6 +27,15 @@ const OneuraNavbar: React.FC = () => {
         </li>
         <li>
           <Link to={oneuraPagePath("subscription")}>Subscription</Link>
+        </li>
+        <li>
+          <a
+            href={STRATO_CRAFT_SUPPORT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Support
+          </a>
         </li>
         <li>
           <a

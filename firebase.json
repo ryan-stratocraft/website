@@ -84,6 +84,7 @@
     {
       "site": "oneura-web",
       "public": "dist-oneura",
+      "cleanUrls": true,
       "ignore": [
         "firebase.json",
         "**/.*",

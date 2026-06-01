@@ -3,3 +3,6 @@ export const ONEURA_APP_ORIGIN = "https://oneura.app";
 
 /** Company / portfolio site. */
 export const STRATO_CRAFT_ORIGIN = "https://strato-craft.com";
+
+/** Shared support form hosted on Strato-Craft. */
+export const STRATO_CRAFT_SUPPORT_URL = `${STRATO_CRAFT_ORIGIN}/support`;

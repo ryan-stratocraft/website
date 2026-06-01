@@ -1,10 +1,11 @@
-import { isOneuraHostname } from "../host";
+import { isOneuraProductSite } from "../host";
 
 function onProductSite(): boolean {
-  return (
-    typeof window !== "undefined" &&
-    isOneuraHostname(window.location.hostname)
-  );
+  if (typeof window === "undefined") {
+    return isOneuraProductSite("");
+  }
+
+  return isOneuraProductSite(window.location.hostname);
 }
 
 /**
@@ -18,7 +19,13 @@ export function oneuraPagePath(
     | "privacy-policy"
     | "terms-and-conditions"
     | "cookie-policy"
-    | "delete-data",
+    | "delete-data"
+    | "sleep-sounds-white-noise"
+    | "sensory-relaxation-app"
+    | "sleep-app-for-busy-minds"
+    | "neuro-friendly-sleep-app"
+    | "mood-tracking-sleep-app"
+    | "sleep-sounds-for-focus",
 ): string {
   if (onProductSite()) return `/${slug}`;
   return `/oneura/${slug}`;

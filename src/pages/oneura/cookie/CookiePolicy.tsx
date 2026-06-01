@@ -116,7 +116,7 @@ const OneuraCookiePolicy: React.FC = () => {
             </li>
             <li>
               <strong>Opt Out of Targeted Ads:</strong> While Oneura doesn't use targeted ads, you can disable 
-              ad personalization system-wide on your device in Settings → Privacy → Advertising
+              ad personalisation system-wide on your device in Settings → Privacy → Advertising
             </li>
           </ul>
         </section>
@@ -170,4 +170,3 @@ const OneuraCookiePolicy: React.FC = () => {
 };
 
 export default OneuraCookiePolicy;
-

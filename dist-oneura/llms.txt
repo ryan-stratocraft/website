@@ -1,0 +1,45 @@
+# Oneura
+
+> Oneura is an iOS and Android sleep sounds and sensory relaxation app for white noise, calming ambience, busy minds, mood tracking, sleep stories, and gentle wind-down insights.
+
+## Key facts
+
+- Official website: https://oneura.app/
+- Publisher: Strato-Craft Ltd
+- Platforms: iOS and Android
+- Pricing: free download with optional Oneura Plus subscription and lifetime purchase
+- App category: sleep, relaxation, focus, mindfulness, mood tracking, and wellness
+- Medical positioning: wellness software only; not a medical device and not medical advice
+- Differentiation: sensory relaxation, sleep support for busy minds, and neuro-friendly wind-down design
+
+## Core features
+
+- Sleep sounds and calming soundscapes
+- White, pink, brown, and green noise
+- Rain, ocean, forest, stream, fan, cafe, chimes, space, and meditation ambience
+- Sleep stories and wind-down audio
+- Mood tracking and reflective insights
+- Sleep timers, favourites, playlists, and layered mixes
+- Optional health and wearable-informed sleep context
+- Sensory ambience, optional haptics, and low-friction routines for overstimulated moments
+- Focus backgrounds for study, reading, work, and transitions
+
+## Important pages
+
+- Home: https://oneura.app/
+- About: https://oneura.app/about
+- Sleep sounds and white noise: https://oneura.app/sleep-sounds-white-noise
+- Sensory relaxation app: https://oneura.app/sensory-relaxation-app
+- Sleep app for busy minds: https://oneura.app/sleep-app-for-busy-minds
+- Neuro-friendly sleep app: https://oneura.app/neuro-friendly-sleep-app
+- Mood tracking sleep app: https://oneura.app/mood-tracking-sleep-app
+- Sleep sounds for focus: https://oneura.app/sleep-sounds-for-focus
+- Subscription: https://oneura.app/subscription
+- Privacy policy: https://oneura.app/privacy-policy
+- Terms: https://oneura.app/terms-and-conditions
+- Data deletion: https://oneura.app/delete-data
+
+## App store links
+
+- Google Play: https://play.google.com/store/apps/details?id=com.stratocraft.oneura
+- App Store: https://apps.apple.com/app/oneura/id6754253306

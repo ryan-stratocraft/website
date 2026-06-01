@@ -81,7 +81,7 @@
 
 /* Pricing Card */
 .pricing-card {
-  background: #1E293B;
+  background: #1e293b;
   border: 2px solid rgba(59, 130, 246, 0.3);
   border-radius: 20px;
   padding: 40px 30px;
@@ -241,9 +241,14 @@
 /* Features List */
 .features {
   list-style: none;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
   padding: 0;
   margin: 25px 0;
   text-align: left;
+  width: auto;
 }
 
 .features li {
@@ -499,4 +504,3 @@
     font-size: 1.5rem;
   }
 }
-

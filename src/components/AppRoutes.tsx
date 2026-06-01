@@ -27,6 +27,14 @@ import OneuraPrivacyPolicy from "../pages/oneura/privacy/PrivacyPolicy";
 import OneuraDeleteData from "../pages/oneura/delete/DeleteData";
 import OneuraSubscription from "../pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "../pages/oneura/terms/TermsAndConditions";
+import {
+  MoodTrackingSleepAppPage,
+  NeuroFriendlySleepAppPage,
+  SensoryRelaxationAppPage,
+  SleepSoundsForFocusPage,
+  SleepAppForBusyMindsPage,
+  SleepSoundsWhiteNoisePage,
+} from "../pages/oneura/topics/TopicLandingPage";
 
 /** Strato-Craft.com & legacy paths: /oneura/* stays for bookmarks. */
 export const StratoSiteRoutes: React.FC = () => (
@@ -57,6 +65,12 @@ export const StratoSiteRoutes: React.FC = () => (
     <Route path="/oneura/terms-and-conditions" element={<OneuraTermsAndConditions />} />
     <Route path="/oneura/cookie-policy" element={<OneuraCookiePolicy />} />
     <Route path="/oneura/delete-data" element={<OneuraDeleteData />} />
+    <Route path="/oneura/sleep-sounds-white-noise" element={<SleepSoundsWhiteNoisePage />} />
+    <Route path="/oneura/sensory-relaxation-app" element={<SensoryRelaxationAppPage />} />
+    <Route path="/oneura/sleep-app-for-busy-minds" element={<SleepAppForBusyMindsPage />} />
+    <Route path="/oneura/neuro-friendly-sleep-app" element={<NeuroFriendlySleepAppPage />} />
+    <Route path="/oneura/mood-tracking-sleep-app" element={<MoodTrackingSleepAppPage />} />
+    <Route path="/oneura/sleep-sounds-for-focus" element={<SleepSoundsForFocusPage />} />
 
     <Route path="*" element={<NotFound />} />
   </Routes>
@@ -72,6 +86,12 @@ export const OneuraProductSiteRoutes: React.FC = () => (
     <Route path="/terms-and-conditions" element={<OneuraTermsAndConditions />} />
     <Route path="/cookie-policy" element={<OneuraCookiePolicy />} />
     <Route path="/delete-data" element={<OneuraDeleteData />} />
+    <Route path="/sleep-sounds-white-noise" element={<SleepSoundsWhiteNoisePage />} />
+    <Route path="/sensory-relaxation-app" element={<SensoryRelaxationAppPage />} />
+    <Route path="/sleep-app-for-busy-minds" element={<SleepAppForBusyMindsPage />} />
+    <Route path="/neuro-friendly-sleep-app" element={<NeuroFriendlySleepAppPage />} />
+    <Route path="/mood-tracking-sleep-app" element={<MoodTrackingSleepAppPage />} />
+    <Route path="/sleep-sounds-for-focus" element={<SleepSoundsForFocusPage />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

@@ -56,7 +56,7 @@ const OneuraSubscription: React.FC = () => {
               <li>✓ Ad-free experience</li>
               <li>✓ Premium catalogue: sounds &amp; sleep stories marked Plus</li>
               <li>✓ Sleep timers, looping &amp; uninterrupted floating player</li>
-              <li>✓ Advanced playlists &amp; premium personalization where available</li>
+              <li>✓ Advanced playlists &amp; premium personalisation where available</li>
             </ul>
             <div className="plan-description">
               7-day free trial, then £23.99 per year. Auto-renews until cancelled.
@@ -78,7 +78,7 @@ const OneuraSubscription: React.FC = () => {
               <li>✓ Ad-free experience</li>
               <li>✓ Premium catalogue: sounds &amp; sleep stories marked Plus</li>
               <li>✓ Sleep timers, looping &amp; uninterrupted floating player</li>
-              <li>✓ Advanced playlists &amp; premium personalization where available</li>
+              <li>✓ Advanced playlists &amp; premium personalisation where available</li>
             </ul>
             <div className="plan-description">
               7-day free trial, then £2.99 per month. Auto-renews until cancelled.
@@ -91,7 +91,7 @@ const OneuraSubscription: React.FC = () => {
             <h3>Lifetime Access</h3>
             <p className="plan-tagline">Pay once, enjoy forever</p>
             <div className="price">
-              <span className="amount">£179.99</span>
+              <span className="amount">£149.99</span>
               <span className="period">one-time</span>
             </div>
             <ul className="features">
@@ -189,7 +189,7 @@ const OneuraSubscription: React.FC = () => {
         <div className="faq-item">
           <h3>How does Lifetime Access work?</h3>
           <p>
-            Pay once (£179.99 in the UK listing) for the same Plus benefits as subscribers, with no renewals.
+            Pay once (£149.99 in the UK listing) for the same Plus benefits as subscribers, with no renewals.
             Availability and price may vary slightly by storefront region. Use Restore Purchases if you reinstall the app.
           </p>
         </div>
@@ -228,4 +228,3 @@ const OneuraSubscription: React.FC = () => {
 };
 
 export default OneuraSubscription;
-

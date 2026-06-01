@@ -1,0 +1,285 @@
+.oneura-topic-container {
+  background: #0b132b;
+  color: #f8fafc;
+  min-height: 100vh;
+}
+
+.oneura-topic-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 48px;
+  align-items: center;
+  padding: 78px 7vw 70px;
+  background:
+    radial-gradient(circle at 78% 16%, rgba(94, 234, 212, 0.18), transparent 30%),
+    radial-gradient(circle at 18% 26%, rgba(168, 85, 247, 0.18), transparent 34%),
+    linear-gradient(135deg, #0b132b 0%, #132238 48%, #123232 100%);
+}
+
+.oneura-topic-hero-copy {
+  max-width: 760px;
+}
+
+.oneura-topic-hero h1,
+.oneura-topic-answer h2,
+.oneura-topic-section-card h2,
+.oneura-topic-faq h2,
+.oneura-topic-related h2 {
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.12;
+}
+
+.oneura-topic-hero h1 {
+  font-size: clamp(2.25rem, 5vw, 4.6rem);
+  font-weight: 800;
+  max-width: 900px;
+}
+
+.oneura-topic-hero-copy > p:not(.section-eyebrow) {
+  margin: 22px 0 0;
+  color: #dbeafe;
+  font-size: 1.18rem;
+  line-height: 1.75;
+}
+
+.oneura-topic-actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.oneura-topic-hero-media {
+  position: relative;
+}
+
+.oneura-topic-hero-media img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  border: 1px solid rgba(94, 234, 212, 0.28);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
+}
+
+.oneura-topic-answer,
+.oneura-topic-sections,
+.oneura-topic-faq,
+.oneura-topic-related {
+  padding: 68px 20px;
+}
+
+.oneura-topic-answer {
+  background:
+    radial-gradient(circle at 14% 22%, rgba(59, 130, 246, 0.16), transparent 32%),
+    #101c31;
+}
+
+.oneura-topic-narrow,
+.oneura-topic-facts,
+.oneura-topic-sections,
+.oneura-topic-faq-grid,
+.oneura-topic-related-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.oneura-topic-narrow {
+  max-width: 900px;
+}
+
+.oneura-topic-answer h2,
+.oneura-topic-faq h2,
+.oneura-topic-related h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+}
+
+.oneura-topic-answer p,
+.oneura-topic-section-card p,
+.oneura-topic-faq-item p,
+.oneura-topic-related-card p {
+  color: #cbd5e1;
+  line-height: 1.75;
+}
+
+.oneura-topic-answer p {
+  font-size: 1.1rem;
+}
+
+.oneura-topic-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.oneura-topic-facts div,
+.oneura-topic-section-card,
+.oneura-topic-faq-item,
+.oneura-topic-related-card {
+  border-radius: 8px;
+  border: 1px solid rgba(94, 234, 212, 0.2);
+  background: rgba(30, 41, 59, 0.78);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+}
+
+.oneura-topic-facts div {
+  min-height: 136px;
+  padding: 20px;
+}
+
+.oneura-topic-facts dt {
+  margin-bottom: 8px;
+  color: #5eead4;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.oneura-topic-facts dd {
+  margin: 0;
+  color: #f8fafc;
+  line-height: 1.55;
+}
+
+.oneura-topic-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  background: #0b132b;
+}
+
+.oneura-topic-section-card {
+  padding: 28px;
+}
+
+.oneura-topic-section-card h2 {
+  font-size: 1.45rem;
+}
+
+.oneura-topic-section-card p {
+  margin: 16px 0 18px;
+}
+
+.oneura-topic-section-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oneura-topic-section-card li {
+  position: relative;
+  padding-left: 24px;
+  color: #dbeafe;
+  line-height: 1.6;
+}
+
+.oneura-topic-section-card li::before {
+  content: "";
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #f8d27a;
+  box-shadow: 0 0 0 4px rgba(248, 210, 122, 0.12);
+}
+
+.oneura-topic-faq {
+  background: #132238;
+}
+
+.oneura-topic-faq-grid,
+.oneura-topic-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.oneura-topic-faq-item,
+.oneura-topic-related-card {
+  padding: 24px;
+}
+
+.oneura-topic-faq-item h3,
+.oneura-topic-related-card h3 {
+  margin: 0 0 12px;
+  color: #60a5fa;
+  font-size: 1.12rem;
+}
+
+.oneura-topic-faq-item p,
+.oneura-topic-related-card p {
+  margin: 0;
+}
+
+.oneura-topic-related {
+  background:
+    radial-gradient(circle at 86% 12%, rgba(248, 210, 122, 0.14), transparent 28%),
+    #0b132b;
+}
+
+.oneura-topic-related-card {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.oneura-topic-related-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(248, 210, 122, 0.5);
+}
+
+@media (max-width: 980px) {
+  .oneura-topic-hero {
+    grid-template-columns: 1fr;
+    padding: 62px 24px;
+  }
+
+  .oneura-topic-hero-media {
+    max-width: 540px;
+  }
+
+  .oneura-topic-facts,
+  .oneura-topic-sections,
+  .oneura-topic-faq-grid,
+  .oneura-topic-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .oneura-topic-hero {
+    padding: 52px 18px 48px;
+  }
+
+  .oneura-topic-hero-copy > p:not(.section-eyebrow) {
+    font-size: 1.05rem;
+  }
+
+  .oneura-topic-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .oneura-topic-answer,
+  .oneura-topic-sections,
+  .oneura-topic-faq,
+  .oneura-topic-related {
+    padding: 58px 16px;
+  }
+
+  .oneura-topic-facts,
+  .oneura-topic-sections,
+  .oneura-topic-faq-grid,
+  .oneura-topic-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
