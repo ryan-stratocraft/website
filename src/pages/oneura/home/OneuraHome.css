@@ -369,17 +369,23 @@
 .app-preview {
   text-align: center;
   background: #1e293b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-preview h2 {
   color: #ffffff;
   margin-bottom: 46px;
+  width: 100%;
+  max-width: 1180px;
 }
 
 .preview-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+  width: 100%;
 }
 
 .preview-box {
@@ -389,6 +395,8 @@
   text-align: center;
   border: 1px solid rgba(59, 130, 246, 0.26);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .preview-box:hover {
@@ -396,13 +404,17 @@
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26);
 }
 
-.preview-box img {
+.preview-box img,
+.preview-box .preview-image {
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   object-fit: cover;
+  object-position: center;
   background: #1e293b;
+  display: block;
 }
 
 .preview-box h3,
@@ -479,6 +491,39 @@
   color: #ffffff;
 }
 
+.download-cta-section {
+  padding: 52px 20px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.2), transparent 42%),
+    #0b132b;
+  color: #ffffff;
+  border-top: 1px solid rgba(94, 234, 212, 0.16);
+}
+
+.download-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.download-cta-inner h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.download-cta-inner > p:not(.section-eyebrow) {
+  margin: 0 0 26px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.download-cta-section .store-buttons {
+  justify-content: center;
+}
+
 .faq-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -547,7 +592,20 @@
 
   .preview-container {
     grid-template-columns: 1fr;
-    max-width: 520px;
+    max-width: 400px;
+    margin-inline: auto;
+    justify-items: center;
+  }
+
+  .preview-box {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
+  .preview-box img,
+  .preview-box .preview-image {
+    display: block;
+    margin-inline: auto;
   }
 }
 
@@ -578,18 +636,178 @@
   .sound-category-section,
   .app-preview,
   .features-section,
-  .oneura-faq {
-    padding: 58px 16px;
+  .oneura-faq,
+  .download-cta-section {
+    padding: 44px 16px;
   }
 
+  .answer-summary-inner > p:not(.section-eyebrow),
+  .section-heading > p:not(.section-eyebrow),
+  .positioning-inner p:not(.section-eyebrow) {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* Compact 2×2 fact / stat tiles instead of a tall single column */
   .answer-facts,
-  .proof-stat-grid,
-  .sound-category-list,
-  .topic-link-grid,
-  .features-grid,
-  .review-grid,
+  .proof-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .answer-facts div,
+  .proof-stat-grid div {
+    min-height: 0;
+    padding: 14px 12px;
+  }
+
+  .answer-facts dt {
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+  }
+
+  .answer-facts dd {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .proof-stat-grid dt {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 4px;
+  }
+
+  .proof-stat-grid dd {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  /* Sound chips: 2 columns, shorter rows */
+  .sound-category-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .sound-category-list li {
+    min-height: 0;
+    padding: 10px 10px;
+    font-size: 0.82rem;
+    line-height: 1.3;
+  }
+
+  /* Topic guides: swipe row instead of 6 stacked cards */
+  .topic-link-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin-top: 24px;
+    max-width: none;
+    margin-inline: -16px;
+    padding-inline: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16px;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+  }
+
+  .topic-link-card {
+    flex: 0 0 min(82vw, 280px);
+    min-height: 0;
+    padding: 18px 16px;
+    scroll-snap-align: start;
+  }
+
+  .topic-link-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .topic-link-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Reviews: horizontal swipe */
+  .review-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin-top: 14px;
+    max-width: none;
+    margin-inline: -16px;
+    padding-inline: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16px;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+  }
+
+  .review-card {
+    flex: 0 0 min(88vw, 320px);
+    padding: 18px 16px;
+    scroll-snap-align: start;
+  }
+
+  .review-card blockquote {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  /* Features: 2×2 */
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .feature-item {
+    padding: 18px 14px;
+  }
+
+  .feature-item h3 {
+    font-size: 1.05rem;
+  }
+
+  .feature-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 28px;
+    margin-bottom: 12px;
+    font-size: 0.7rem;
+  }
+
+  /* FAQ: tighter stack (readable, less vertical padding) */
   .faq-list {
     grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .faq-item {
+    padding: 16px 14px;
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+  }
+
+  .faq-item p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .app-preview h2,
+  .features-section h2 {
+    margin-bottom: 28px;
   }
 
   .footer ul {

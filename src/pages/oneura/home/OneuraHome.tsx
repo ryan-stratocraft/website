@@ -36,7 +36,7 @@ const proofStats = [
   },
   {
     value: "5.0",
-    label: "App Store rating from 4 ratings",
+    label: "App Store rating",
   },
   {
     value: "iOS + Android",
@@ -103,6 +103,35 @@ const topicLinks = [
   },
 ];
 
+const StoreDownloadButtons: React.FC = () => (
+  <div className="store-buttons" aria-label="Download Oneura">
+    <a
+      href={googlePlayUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Download Oneura on Google Play"
+    >
+      <img
+        src={googlePlay}
+        alt="Get it on Google Play"
+        className="store-badge"
+      />
+    </a>
+    <a
+      href={appStoreUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Download Oneura on the App Store"
+    >
+      <img
+        src={appStore}
+        alt="Download on the App Store"
+        className="store-badge"
+      />
+    </a>
+  </div>
+);
+
 const faqs = [
   {
     question: "What is Oneura?",
@@ -146,32 +175,7 @@ const OneuraHome: React.FC = () => {
           for busy minds, overstimulation, and your own wind-down routine.
         </p>
 
-        <div className="store-buttons" aria-label="Download Oneura">
-          <a
-            href={googlePlayUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download Oneura on Google Play"
-          >
-            <img
-              src={googlePlay}
-              alt="Get it on Google Play"
-              className="store-badge"
-            />
-          </a>
-          <a
-            href={appStoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download Oneura on the App Store"
-          >
-            <img
-              src={appStore}
-              alt="Download on the App Store"
-              className="store-badge"
-            />
-          </a>
-        </div>
+        <StoreDownloadButtons />
 
         <Link to={oneuraPagePath("about")} className="about-button">
           Explore Oneura
@@ -180,8 +184,8 @@ const OneuraHome: React.FC = () => {
 
       <section className="answer-summary" aria-labelledby="what-is-oneura">
         <div className="answer-summary-inner">
-          <p className="section-eyebrow">Quick answer</p>
           <h2 id="what-is-oneura">What is Oneura?</h2>
+          <p className="section-eyebrow">Quick answer</p>
           <p>
             Oneura is a mobile sleep sounds and sensory relaxation app from
             Strato-Craft Ltd. It helps people relax, sleep, focus, and reflect
@@ -210,42 +214,6 @@ const OneuraHome: React.FC = () => {
               <dd>Strato-Craft Ltd</dd>
             </div>
           </dl>
-        </div>
-      </section>
-
-      <section className="proof-section" aria-labelledby="proof-title">
-        <div className="section-heading">
-          <p className="section-eyebrow">Early proof</p>
-          <h2 id="proof-title">Trusted by people building calmer routines</h2>
-          <p>
-            Oneura is already helping users bring sounds, meditation, mood
-            logs, and gentle insights together without making the app feel
-            overwhelming.
-          </p>
-        </div>
-
-        <dl className="proof-stat-grid" aria-label="Oneura proof points">
-          {proofStats.map((stat) => (
-            <div key={stat.label}>
-              <dt>{stat.value}</dt>
-              <dd>{stat.label}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <div className="review-grid">
-          {userReviews.map((review) => (
-            <figure className="review-card" key={review.name}>
-              <div className="review-rating" aria-label="5 out of 5 stars">
-                5.0 stars
-              </div>
-              <blockquote>{review.quote}</blockquote>
-              <figcaption>
-                <strong>{review.name}</strong>
-                <span>{review.meta}</span>
-              </figcaption>
-            </figure>
-          ))}
         </div>
       </section>
 
@@ -393,6 +361,42 @@ const OneuraHome: React.FC = () => {
         </div>
       </section>
 
+      <section className="proof-section" aria-labelledby="proof-title">
+        <div className="section-heading">
+          <p className="section-eyebrow">Early proof</p>
+          <h2 id="proof-title">Trusted by people building calmer routines</h2>
+          <p>
+            Oneura is already helping users bring sounds, meditation, mood
+            logs, and gentle insights together without making the app feel
+            overwhelming.
+          </p>
+        </div>
+
+        <dl className="proof-stat-grid" aria-label="Oneura proof points">
+          {proofStats.map((stat) => (
+            <div key={stat.label}>
+              <dt>{stat.value}</dt>
+              <dd>{stat.label}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="review-grid">
+          {userReviews.map((review) => (
+            <figure className="review-card" key={review.name}>
+              <div className="review-rating" aria-label="5 out of 5 stars">
+                5.0 stars
+              </div>
+              <blockquote>{review.quote}</blockquote>
+              <figcaption>
+                <strong>{review.name}</strong>
+                <span>{review.meta}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="oneura-faq" aria-labelledby="oneura-faq-title">
         <div className="section-heading">
           <p className="section-eyebrow">FAQ</p>
@@ -406,6 +410,21 @@ const OneuraHome: React.FC = () => {
               <p>{faq.answer}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section
+        className="download-cta-section"
+        aria-labelledby="download-cta-title"
+      >
+        <div className="download-cta-inner">
+          <p className="section-eyebrow">Get the app</p>
+          <h2 id="download-cta-title">Download Oneura free on iOS and Android</h2>
+          <p>
+            Start with calming soundscapes, sleep stories, and mood-aware
+            wind-downs. Upgrade to Plus anytime for unlimited listening.
+          </p>
+          <StoreDownloadButtons />
         </div>
       </section>
 
