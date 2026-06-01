@@ -16,6 +16,51 @@ const OneuraAbout: React.FC = () => {
       </div>
 
       <div className="about-content">
+        <section className="about-section about-founder">
+          <h2>
+            <span className="about-section-icon" aria-hidden="true">✨</span>
+            Why we built Oneura
+          </h2>
+          <p>
+            Oneura began at home. My wife and I had used well-known meditation
+            and sleep apps, but for her - <strong>AuDHD</strong> - the structure
+            often felt overwhelming: busy screens, too many paths, and pressure
+            to subscribe. Evenings turned into decision fatigue and scrolling,
+            then the same few &ldquo;safe&rdquo; sounds on repeat. We stayed on
+            free tiers because premium plans were out of reach, and the choice
+            never quite matched what she needed.
+          </p>
+          <p>
+            I&apos;m <strong>autistic</strong> as well, but I built Oneura for her
+            first - calmer layout, real variety, and less noise so she could pick
+            something quickly, sleep more easily, and use it when she felt
+            overloaded. Our children loved it too. She was the one who said
+            others must feel the same: in a world where calmness shouldn&apos;t depend
+            on an expensive subscription, more people deserve a gentle escape.
+            She encouraged me to release it publicly; <strong>Strato-Craft Ltd</strong>{" "}
+            is how we ship and support it properly.
+          </p>
+          <p>
+            We still measure pricing against what we can afford ourselves, and we
+            aim to stay below the big apps - even if, one day, Oneura grows to
+            sit alongside them. The product stays simple: choose an atmosphere,
+            set a timer, and let the app stay out of the way.
+          </p>
+          <p>
+            Oneura is <strong>wellness software only</strong>. It does not
+            diagnose conditions, provide therapy, or replace advice from a
+            qualified professional. Questions? Use{" "}
+            <a
+              href="https://strato-craft.com/support"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Strato-Craft support
+            </a>
+            .
+          </p>
+        </section>
+
         <section className="about-section">
           <h2>
             <span className="about-section-icon" aria-hidden="true">🌙</span>

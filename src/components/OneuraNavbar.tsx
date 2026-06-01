@@ -15,7 +15,7 @@ const OneuraNavbar: React.FC = () => {
     <nav className="navbar oneura-navbar">
       <Link to={oneuraHomePath()} className="navbar-logo-link">
         <img src={oneuraLogo} alt="Oneura" className="navbar-logo" />
-        <h1>Oneura</h1>
+        <span className="brand-name">Oneura</span>
       </Link>
 
       <ul>

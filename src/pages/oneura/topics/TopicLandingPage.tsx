@@ -517,12 +517,13 @@ const contentBySlug: Record<string, TopicPageContent> = {
         value: "Busy minds, sensory needs, overstimulation, and gentler sleep routines",
       },
       {
-        label: "Designed around",
-        value: "Sound, visual ambience, simple flows, timers, and reflective mood tools",
+        label: "Neurodivergent features",
+        value:
+          "Low-stimulation layouts, sensory-safe ambience, optional haptics, no heavy sleep-scoring pressure",
       },
       {
-        label: "Language",
-        value: "Supportive and non-medical, with user control at the centre",
+        label: "Designed around",
+        value: "Sound, visual ambience, simple flows, timers, and reflective mood tools",
       },
       {
         label: "Important note",

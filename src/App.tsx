@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import OneuraNavbar from "./components/OneuraNavbar";
+import OneuraFooter from "./components/OneuraFooter";
 import {
   OneuraProductSiteRoutes,
   StratoSiteRoutes,
@@ -73,6 +74,7 @@ const App: React.FC = () => {
         )}
       </div>
 
+      {onOneuraProductSite ? <OneuraFooter /> : null}
       {onOneuraProductSite ? <CookieConsent /> : null}
     </div>
   );

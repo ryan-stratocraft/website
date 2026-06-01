@@ -8,8 +8,6 @@ import previewOcean from "../../../assets/images/oneura/preview-ocean-optimized.
 import googlePlay from "../../../assets/images/google-play.png";
 import appStore from "../../../assets/images/app-store.png";
 import oneuraLogo from "../../../assets/images/oneura/logo-color.png";
-import { STRATO_CRAFT_SUPPORT_URL } from "../../../constants/origins";
-
 const googlePlayUrl =
   "https://play.google.com/store/apps/details?id=com.stratocraft.oneura";
 const appStoreUrl = "https://apps.apple.com/app/oneura/id6754253306";
@@ -427,70 +425,6 @@ const OneuraHome: React.FC = () => {
           <StoreDownloadButtons />
         </div>
       </section>
-
-      <footer className="footer">
-        <ul>
-          <li>
-            <Link to={oneuraPagePath("about")}>About</Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("subscription")}>Subscription</Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("sleep-sounds-white-noise")}>
-              Sleep Sounds
-            </Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("sensory-relaxation-app")}>
-              Sensory Relaxation
-            </Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("sleep-app-for-busy-minds")}>
-              Busy Minds
-            </Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("neuro-friendly-sleep-app")}>
-              Neuro-Friendly Sleep
-            </Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("mood-tracking-sleep-app")}>
-              Mood Tracking
-            </Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("sleep-sounds-for-focus")}>
-              Focus Sounds
-            </Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("privacy-policy")}>Privacy Policy</Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("terms-and-conditions")}>
-              Terms & Conditions
-            </Link>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("cookie-policy")}>Cookie Policy</Link>
-          </li>
-          <li>
-            <a
-              href={STRATO_CRAFT_SUPPORT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Support
-            </a>
-          </li>
-          <li>
-            <Link to={oneuraPagePath("delete-data")}>Delete My Data</Link>
-          </li>
-        </ul>
-      </footer>
     </main>
   );
 };

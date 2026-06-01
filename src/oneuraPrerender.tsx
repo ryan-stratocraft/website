@@ -2,6 +2,7 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { MemoryRouter } from "react-router-dom";
 import OneuraNavbar from "./components/OneuraNavbar";
+import OneuraFooter from "./components/OneuraFooter";
 import CookieConsent from "./components/CookieConsent";
 import { OneuraProductSiteRoutes } from "./components/AppRoutes";
 
@@ -20,6 +21,7 @@ export function renderOneuraRoute(pathname: string): string {
           <div className="page-container">
             <OneuraProductSiteRoutes />
           </div>
+          <OneuraFooter />
           <CookieConsent />
         </div>
       </MemoryRouter>

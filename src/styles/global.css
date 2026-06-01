@@ -87,6 +87,7 @@ body {
 }
 
 /* Logo Text */
+.navbar .brand-name,
 .navbar h1 {
   background: linear-gradient(135deg, #ffffff, #e0d4ff);
   -webkit-background-clip: text;
@@ -307,7 +308,8 @@ body {
     margin-bottom: 5px;
   }
 
-  .navbar h1 {
+  .navbar .brand-name,
+.navbar h1 {
     font-size: 24px;
   }
 
@@ -338,7 +340,8 @@ body {
 }
 
 @media (max-width: 480px) {
-  .navbar h1 {
+  .navbar .brand-name,
+.navbar h1 {
     font-size: 20px;
   }
 

@@ -1,3 +1,18 @@
+.about-founder {
+  border: 1px solid rgba(94, 234, 212, 0.22);
+  background: rgba(30, 41, 59, 0.45);
+}
+
+.about-founder a {
+  color: #5eead4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.about-founder a:hover {
+  color: #99f6e4;
+}
+
 /* About Container */
 .oneura-about-container {
   background: #0B132B;

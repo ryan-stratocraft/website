@@ -1,0 +1,71 @@
+.oneura-site .oneura-footer {
+  background: #0b132b;
+  padding: 36px 20px 44px;
+  text-align: center;
+  border-top: 1px solid rgba(94, 234, 212, 0.2);
+  margin-top: auto;
+}
+
+.oneura-site .oneura-footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.oneura-site .oneura-footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  color: #cbd5e1;
+  background: rgba(15, 23, 42, 0.6);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.oneura-site .oneura-footer-social a:hover {
+  color: #5eead4;
+  border-color: rgba(94, 234, 212, 0.75);
+  background: rgba(30, 41, 59, 0.85);
+  transform: translateY(-1px);
+}
+
+.oneura-site .oneura-footer-social svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.oneura-site .oneura-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px 26px;
+}
+
+.oneura-site .oneura-footer-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.2s ease;
+}
+
+.oneura-site .oneura-footer-links a:hover {
+  color: #60a5fa;
+}
+
+@media (max-width: 700px) {
+  .oneura-site .oneura-footer-links {
+    gap: 16px 20px;
+  }
+}

@@ -7,6 +7,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+import {
+  ONEURA_SOCIAL,
+  STORE_URLS,
+  buildSchemaGraph,
+} from './oneura-schema-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -239,8 +244,13 @@ const llmsTxt = `# Oneura
 
 ## App store links
 
-- Google Play: https://play.google.com/store/apps/details?id=com.stratocraft.oneura
-- App Store: https://apps.apple.com/app/oneura/id6754253306
+- Google Play: ${STORE_URLS.play}
+- App Store: ${STORE_URLS.appStore}
+
+## Social
+
+- Facebook: ${ONEURA_SOCIAL.facebook}
+- Instagram: ${ONEURA_SOCIAL.instagram}
 `;
 
 fs.writeFileSync(path.join(out, 'robots.txt'), robots);
@@ -266,13 +276,31 @@ function routeOutputFiles(routePath) {
   return [path.join(out, slug, 'index.html'), path.join(out, `${slug}.html`)];
 }
 
+function applyRouteSchema(html, route) {
+  const url = routeUrl(route.path);
+  const graph = buildSchemaGraph({
+    pageUrl: url,
+    pageTitle: route.title,
+    routePath: route.path,
+  });
+  const json = JSON.stringify(
+    { '@context': 'https://schema.org', '@graph': graph },
+    null,
+    2,
+  );
+  return html.replace(
+    /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+    `<script type="application/ld+json">\n${json}\n    </script>`,
+  );
+}
+
 function applyRouteMetadata(html, route) {
   const url = routeUrl(route.path);
   const title = escapeHtmlAttribute(route.title);
   const description = escapeHtmlAttribute(route.description);
   const ogTitle = escapeHtmlAttribute(route.title.replace(' | ', ' - '));
 
-  return html
+  return applyRouteSchema(html, route)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${route.title}</title>`)
     .replace(
       /<meta\s+name="title"\s+content="[^"]*"\s*\/>/,
