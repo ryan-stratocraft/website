@@ -1,7 +1,6 @@
 import React from "react";
+import OneuraStoreButtons from "../../../components/OneuraStoreButtons";
 import "./Subscription.css";
-import googlePlay from "../../../assets/images/google-play.png";
-import appStore from "../../../assets/images/app-store.png";
 
 const OneuraSubscription: React.FC = () => {
   return (
@@ -37,6 +36,12 @@ const OneuraSubscription: React.FC = () => {
               <li>✓ Stories &amp; sounds marked Free in the catalogue</li>
             </ul>
             <div className="plan-description">Try Oneura before you upgrade</div>
+            <OneuraStoreButtons
+              analyticsPlacement="subscription_plan"
+              analyticsPlan="free"
+              ctaLabel="Download free"
+              compact
+            />
           </div>
 
           {/* Annual Plan — matches in-app “POPULAR” */}
@@ -61,6 +66,12 @@ const OneuraSubscription: React.FC = () => {
             <div className="plan-description">
               7-day free trial, then £23.99 per year. Auto-renews until cancelled.
             </div>
+            <OneuraStoreButtons
+              analyticsPlacement="subscription_plan"
+              analyticsPlan="annual"
+              ctaLabel="Start your 7-day free trial in the app"
+              compact
+            />
           </div>
 
           {/* Monthly Plan */}
@@ -83,6 +94,12 @@ const OneuraSubscription: React.FC = () => {
             <div className="plan-description">
               7-day free trial, then £2.99 per month. Auto-renews until cancelled.
             </div>
+            <OneuraStoreButtons
+              analyticsPlacement="subscription_plan"
+              analyticsPlan="monthly"
+              ctaLabel="Start your 7-day free trial in the app"
+              compact
+            />
           </div>
 
           {/* Lifetime — matches in-app “BEST VALUE” */}
@@ -101,6 +118,12 @@ const OneuraSubscription: React.FC = () => {
               <li>✓ Keep access for the life of the product / your account</li>
             </ul>
             <div className="plan-description">One-time purchase. No subscription.</div>
+            <OneuraStoreButtons
+              analyticsPlacement="subscription_plan"
+              analyticsPlan="lifetime"
+              ctaLabel="Get lifetime access in the app"
+              compact
+            />
           </div>
         </div>
 
@@ -206,22 +229,7 @@ const OneuraSubscription: React.FC = () => {
       <div className="download-cta">
         <h2>Ready to Get Started?</h2>
         <p>Download Oneura and start your free trial today</p>
-        <div className="store-buttons">
-          <a 
-            href="https://play.google.com/store/apps/details?id=com.stratocraft.oneura&pli=1" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <img src={googlePlay} alt="Get it on Google Play" className="store-badge" />
-          </a>
-          <a 
-            href="https://apps.apple.com/app/oneura/id6754253306" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <img src={appStore} alt="Download on the App Store" className="store-badge" />
-          </a>
-        </div>
+        <OneuraStoreButtons analyticsPlacement="subscription_footer" />
       </div>
     </div>
   );

@@ -5,12 +5,8 @@ import "./OneuraHome.css";
 import previewCafe from "../../../assets/images/oneura/preview-cafe-optimized.png";
 import previewForest from "../../../assets/images/oneura/preview-forest-optimized.png";
 import previewOcean from "../../../assets/images/oneura/preview-ocean-optimized.png";
-import googlePlay from "../../../assets/images/google-play.png";
-import appStore from "../../../assets/images/app-store.png";
+import OneuraStoreButtons from "../../../components/OneuraStoreButtons";
 import oneuraLogo from "../../../assets/images/oneura/logo-color.png";
-const googlePlayUrl =
-  "https://play.google.com/store/apps/details?id=com.stratocraft.oneura";
-const appStoreUrl = "https://apps.apple.com/app/oneura/id6754253306";
 
 const soundCategories = [
   "Rain and storms",
@@ -101,35 +97,6 @@ const topicLinks = [
   },
 ];
 
-const StoreDownloadButtons: React.FC = () => (
-  <div className="store-buttons" aria-label="Download Oneura">
-    <a
-      href={googlePlayUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Download Oneura on Google Play"
-    >
-      <img
-        src={googlePlay}
-        alt="Get it on Google Play"
-        className="store-badge"
-      />
-    </a>
-    <a
-      href={appStoreUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Download Oneura on the App Store"
-    >
-      <img
-        src={appStore}
-        alt="Download on the App Store"
-        className="store-badge"
-      />
-    </a>
-  </div>
-);
-
 const faqs = [
   {
     question: "What is Oneura?",
@@ -173,7 +140,7 @@ const OneuraHome: React.FC = () => {
           for busy minds, overstimulation, and your own wind-down routine.
         </p>
 
-        <StoreDownloadButtons />
+        <OneuraStoreButtons analyticsPlacement="hero" />
 
         <Link to={oneuraPagePath("about")} className="about-button">
           Explore Oneura
@@ -422,7 +389,7 @@ const OneuraHome: React.FC = () => {
             Start with calming soundscapes, sleep stories, and mood-aware
             wind-downs. Upgrade to Plus anytime for unlimited listening.
           </p>
-          <StoreDownloadButtons />
+          <OneuraStoreButtons analyticsPlacement="home_download_cta" />
         </div>
       </section>
     </main>

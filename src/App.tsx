@@ -8,6 +8,7 @@ import {
   StratoSiteRoutes,
 } from "./components/AppRoutes";
 import CookieConsent from "./components/CookieConsent";
+import { useOneuraWebAnalytics } from "./hooks/useOneuraWebAnalytics";
 import { isOneuraProductSite } from "./host";
 import "./styles/global.css";
 
@@ -57,6 +58,7 @@ const App: React.FC = () => {
   const isOneuraRoute =
     location.pathname === "/oneura" || location.pathname.startsWith("/oneura/");
   useOneuraFont(onOneuraProductSite || isOneuraRoute);
+  useOneuraWebAnalytics(onOneuraProductSite);
 
   const shellClassName = onOneuraProductSite
     ? "site-shell oneura-site"

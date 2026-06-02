@@ -272,6 +272,60 @@
   font-style: italic;
 }
 
+.pricing-card .oneura-store-cta {
+  text-align: center;
+}
+
+.pricing-card .oneura-store-cta .store-buttons {
+  justify-content: center;
+}
+
+/* Desktop: equal card height; store badges aligned to bottom */
+@media (min-width: 1024px) {
+  .pricing-cards {
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .pricing-card .features {
+    flex: 1 1 auto;
+  }
+
+  .pricing-card .plan-description {
+    flex-shrink: 0;
+  }
+
+  .pricing-card .oneura-store-cta {
+    margin-top: auto;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 8.75rem;
+    padding-top: 1.25rem;
+  }
+
+  .pricing-card .oneura-store-cta .store-buttons {
+    margin-top: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .popular-card {
+    transform: none;
+  }
+
+  .popular-card:hover {
+    transform: translateY(-10px);
+  }
+}
+
 /* Comparison Section */
 .comparison-section {
   max-width: 1200px;

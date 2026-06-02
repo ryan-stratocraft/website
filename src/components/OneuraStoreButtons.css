@@ -1,0 +1,27 @@
+.oneura-store-cta {
+  margin-top: 1.25rem;
+}
+
+.oneura-store-cta-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  font-style: normal;
+}
+
+.oneura-store-cta--compact .oneura-store-cta-label {
+  font-size: 0.9rem;
+}
+
+.oneura-store-cta--compact .store-buttons {
+  gap: 12px;
+}
+
+.oneura-store-cta--compact .store-badge {
+  height: 44px;
+}
+
+.lifetime-card .oneura-store-cta-label {
+  color: rgba(255, 255, 255, 0.95);
+}

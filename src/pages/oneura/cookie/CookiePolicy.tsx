@@ -62,12 +62,15 @@ const OneuraCookiePolicy: React.FC = () => {
         <section className="policy-section">
           <h2>Website Cookies</h2>
           <p>
-            Our website (strato-craft.com) may use minimal cookies to:
+            Our websites (oneura.app and strato-craft.com) may use minimal cookies to:
           </p>
           <ul>
             <li>Remember your cookie consent preferences</li>
-            <li>Keep you logged in if you have an account</li>
-            <li>Understand basic website traffic (via Google Analytics)</li>
+            <li>Keep you logged in if you have an account (where applicable)</li>
+            <li>
+              Understand basic website traffic on oneura.app (via Firebase Analytics, only
+              after you accept cookies in the banner)
+            </li>
           </ul>
           <p>
             We do <strong>NOT</strong> use cookies for:

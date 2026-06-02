@@ -1,7 +1,6 @@
 // Import the functions you need from the Firebase SDKs you need
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from "firebase/app";
-import { getAnalytics, isSupported, logEvent } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
@@ -21,22 +20,3 @@ const app = initializeApp(firebaseConfig);
 export const firebaseApp = app;
 export const firebaseAuth = getAuth(app);
 export const firebaseStorage = getStorage(app);
-
-void (async (): Promise<void> => {
-  try {
-    if (
-      !firebaseConfig.measurementId ||
-      typeof window === "undefined" ||
-      import.meta.env.DEV
-    ) {
-      return;
-    }
-    if (!(await isSupported())) {
-      return;
-    }
-    const analytics = getAnalytics(app);
-    logEvent(analytics, "app_started");
-  } catch {
-    // Ignore analytics failures (ad blockers, unsupported environments)
-  }
-})();

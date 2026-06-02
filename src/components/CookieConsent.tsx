@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { grantOneuraAnalyticsConsent } from "../firebase/oneuraAnalytics";
 import "./CookieConsent.css";
 
 const CookieConsent: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(!localStorage.getItem("cookieConsent"));
+    const consent = localStorage.getItem("cookieConsent");
+    setIsVisible(consent !== "true" && consent !== "rejected");
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem("cookieConsent", "true");
+    void grantOneuraAnalyticsConsent();
+    setIsVisible(false);
+  };
+
+  const handleReject = () => {
+    localStorage.setItem("cookieConsent", "rejected");
     setIsVisible(false);
   };
 
@@ -17,10 +24,15 @@ const CookieConsent: React.FC = () => {
     isVisible && (
       <div className="cookie-banner">
         <p>
-          We use cookies to enhance your experience. By using our site, you agree to our 
-          <a href="/cookie-policy"> Cookie Policy</a>.
+          We use cookies for basic analytics to improve the site. See our{" "}
+          <a href="/cookie-policy">Cookie Policy</a>.
         </p>
-        <button onClick={handleAccept}>Accept</button>
+        <button type="button" onClick={handleReject}>
+          Essential only
+        </button>
+        <button type="button" onClick={handleAccept}>
+          Accept
+        </button>
       </div>
     )
   );
