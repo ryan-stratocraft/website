@@ -46,25 +46,38 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Strato-Craft Ltd",
-      "url": "https://strato-craft.com",
-      "logo": "https://strato-craft.com/android-chrome-512x512.png",
-      "description": "UK-based mobile app development company building consumer apps including Oneura.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "GB",
-        "addressRegion": "England"
-      },
-      "sameAs": [
-        "https://play.google.com/store/apps/dev?id=6109497756704463260",
-        "https://apps.apple.com/developer/strato-craft-ltd/id-placeholder"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "support@strato-craft.com",
-        "contactType": "Customer Support"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://strato-craft.com/#organization",
+          "name": "Strato-Craft Ltd",
+          "url": "https://strato-craft.com",
+          "logo": "https://strato-craft.com/android-chrome-512x512.png",
+          "description": "UK-based mobile app development company building consumer apps including Oneura.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "GB",
+            "addressRegion": "England"
+          },
+          "sameAs": [
+            "https://play.google.com/store/apps/dev?id=6109497756704463260",
+            "https://apps.apple.com/developer/strato-craft-ltd/id-placeholder"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "support@strato-craft.com",
+            "contactType": "Customer Support"
+          }
+        },
+        {
+          "@type": "MobileApplication",
+          "name": "Oneura",
+          "url": "https://oneura.app/",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Android, iOS",
+          "publisher": { "@id": "https://strato-craft.com/#organization" }
+        }
+      ]
     }
     </script>
   </head>

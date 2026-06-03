@@ -36,7 +36,11 @@ import {
   SleepSoundsWhiteNoisePage,
 } from "../pages/oneura/topics/TopicLandingPage";
 
-/** Strato-Craft.com & legacy paths: /oneura/* stays for bookmarks. */
+/**
+ * Strato-Craft.com (company site). Oneura lives on its own canonical domain
+ * (oneura.app); legacy /oneura/* paths are 301-redirected there at the hosting
+ * layer (see firebase.json), so they are intentionally not routed here.
+ */
 export const StratoSiteRoutes: React.FC = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -57,20 +61,6 @@ export const StratoSiteRoutes: React.FC = () => (
 
     <Route path="/iac-vr" element={<IacVrHome />} />
     <Route path="/iac-vr/about" element={<IacVrAbout />} />
-
-    <Route path="/oneura" element={<OneuraHome />} />
-    <Route path="/oneura/about" element={<OneuraAbout />} />
-    <Route path="/oneura/subscription" element={<OneuraSubscription />} />
-    <Route path="/oneura/privacy-policy" element={<OneuraPrivacyPolicy />} />
-    <Route path="/oneura/terms-and-conditions" element={<OneuraTermsAndConditions />} />
-    <Route path="/oneura/cookie-policy" element={<OneuraCookiePolicy />} />
-    <Route path="/oneura/delete-data" element={<OneuraDeleteData />} />
-    <Route path="/oneura/sleep-sounds-white-noise" element={<SleepSoundsWhiteNoisePage />} />
-    <Route path="/oneura/sensory-relaxation-app" element={<SensoryRelaxationAppPage />} />
-    <Route path="/oneura/sleep-app-for-busy-minds" element={<SleepAppForBusyMindsPage />} />
-    <Route path="/oneura/neuro-friendly-sleep-app" element={<NeuroFriendlySleepAppPage />} />
-    <Route path="/oneura/mood-tracking-sleep-app" element={<MoodTrackingSleepAppPage />} />
-    <Route path="/oneura/sleep-sounds-for-focus" element={<SleepSoundsForFocusPage />} />
 
     <Route path="*" element={<NotFound />} />
   </Routes>

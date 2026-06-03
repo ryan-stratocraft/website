@@ -74,6 +74,18 @@
         "**/.*",
         "**/node_modules/**"
       ],
+      "redirects": [
+        {
+          "source": "/oneura",
+          "destination": "https://oneura.app/",
+          "type": 301
+        },
+        {
+          "regex": "^/oneura/(?P<rest>.*)$",
+          "destination": "https://oneura.app/:rest",
+          "type": 301
+        }
+      ],
       "rewrites": [
         {
           "source": "**",
