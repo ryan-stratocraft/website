@@ -29,6 +29,9 @@ const OneuraNavbar: React.FC = () => {
           <Link to={oneuraPagePath("subscription")}>Subscription</Link>
         </li>
         <li>
+          <Link to={oneuraPagePath("faq")}>FAQ</Link>
+        </li>
+        <li>
           <a
             href={STRATO_CRAFT_SUPPORT_URL}
             target="_blank"

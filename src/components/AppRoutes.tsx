@@ -27,6 +27,7 @@ import OneuraPrivacyPolicy from "../pages/oneura/privacy/PrivacyPolicy";
 import OneuraDeleteData from "../pages/oneura/delete/DeleteData";
 import OneuraSubscription from "../pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "../pages/oneura/terms/TermsAndConditions";
+import OneuraFaqPage from "../pages/oneura/faq/FaqPage";
 import {
   MoodTrackingSleepAppPage,
   NeuroFriendlySleepAppPage,
@@ -71,6 +72,7 @@ export const OneuraProductSiteRoutes: React.FC = () => (
   <Routes>
     <Route path="/" element={<OneuraHome />} />
     <Route path="/about" element={<OneuraAbout />} />
+    <Route path="/faq" element={<OneuraFaqPage />} />
     <Route path="/subscription" element={<OneuraSubscription />} />
     <Route path="/privacy-policy" element={<OneuraPrivacyPolicy />} />
     <Route path="/terms-and-conditions" element={<OneuraTermsAndConditions />} />

@@ -47,6 +47,14 @@ const oneuraRoutes = [
       'Learn how Oneura supports relaxation, sleep, focus, mood tracking, sleep stories, and optional wearable-informed wellness insights.',
   },
   {
+    path: '/faq',
+    priority: '0.8',
+    changefreq: 'monthly',
+    title: 'Oneura FAQ | Sleep Sounds, Noise Colours, ADHD & Focus',
+    description:
+      'Answers about Oneura sleep sounds, white, pink, brown, and green noise, sensory relaxation for busy and neurodivergent minds (including ADHD and AuDHD), focus audio, mood tracking, and the Oneura Plus subscription.',
+  },
+  {
     path: '/sleep-sounds-white-noise',
     priority: '0.8',
     changefreq: 'monthly',
@@ -231,6 +239,7 @@ const llmsTxt = `# Oneura
 
 - Home: https://oneura.app/
 - About: https://oneura.app/about
+- FAQ (sleep sounds, noise colours, focus, mood, subscription): https://oneura.app/faq
 - Sleep sounds and white noise: https://oneura.app/sleep-sounds-white-noise
 - Sensory relaxation app: https://oneura.app/sensory-relaxation-app
 - Sleep app for busy minds: https://oneura.app/sleep-app-for-busy-minds

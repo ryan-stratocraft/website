@@ -376,6 +376,10 @@ const OneuraHome: React.FC = () => {
             </article>
           ))}
         </div>
+
+        <Link to={oneuraPagePath("faq")} className="faq-see-all-link">
+          See all frequently asked questions →
+        </Link>
       </section>
 
       <section

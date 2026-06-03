@@ -1,5 +1,27 @@
 /** Shared JSON-LD inputs for Oneura prerender (keep in sync with visible UI copy). */
 
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const schemaDir = path.dirname(fileURLToPath(import.meta.url));
+
+/**
+ * Single source of truth for the /faq page. The same JSON is imported by the
+ * React FAQ page (src/pages/oneura/faq/FaqPage.tsx), so on-page content and the
+ * FAQPage schema cannot drift apart.
+ */
+const faqData = JSON.parse(
+  fs.readFileSync(
+    path.join(schemaDir, '..', 'src', 'pages', 'oneura', 'faq', 'faqData.json'),
+    'utf8',
+  ),
+);
+
+export const FAQ_PAGE_FAQS = faqData.categories.flatMap(
+  (category) => category.questions,
+);
+
 export const ONEURA_SOCIAL = {
   facebook: 'https://www.facebook.com/profile.php?id=61578493060994',
   instagram: 'https://www.instagram.com/oneura.sleep/',
@@ -176,6 +198,23 @@ export const APP_REVIEWS = [
   },
 ];
 
+/**
+ * Derived from APP_REVIEWS so the aggregate stays honest and in sync. These are
+ * currently the only ratings Oneura has; replace with the real store aggregate
+ * (average + total count across Google Play and the App Store) once it accrues.
+ */
+const ratingValues = APP_REVIEWS.map((r) => Number(r.reviewRating.ratingValue));
+export const APP_AGGREGATE_RATING = {
+  '@type': 'AggregateRating',
+  ratingValue: (
+    ratingValues.reduce((sum, value) => sum + value, 0) / ratingValues.length
+  ).toFixed(1),
+  ratingCount: String(APP_REVIEWS.length),
+  reviewCount: String(APP_REVIEWS.length),
+  bestRating: '5',
+  worstRating: '1',
+};
+
 export function faqPageEntity(pageUrl, faqs, idSuffix = 'faq') {
   return {
     '@type': 'FAQPage',
@@ -263,12 +302,15 @@ export function buildSchemaGraph({ pageUrl, pageTitle, routePath }) {
       ],
       downloadUrl: [STORE_URLS.play, STORE_URLS.appStore],
       sameAs: SAME_AS_PROFILES,
+      aggregateRating: APP_AGGREGATE_RATING,
       review: APP_REVIEWS,
     },
   ];
 
   if (routePath === '/') {
     graph.push(faqPageEntity(pageUrl, HOME_FAQS));
+  } else if (routePath === '/faq') {
+    graph.push(faqPageEntity(pageUrl, FAQ_PAGE_FAQS));
   } else if (topicFaqs) {
     graph.push(faqPageEntity(pageUrl, topicFaqs));
   }

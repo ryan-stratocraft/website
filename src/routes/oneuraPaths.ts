@@ -15,6 +15,7 @@ function onProductSite(): boolean {
 export function oneuraPagePath(
   slug:
     | "about"
+    | "faq"
     | "subscription"
     | "privacy-policy"
     | "terms-and-conditions"

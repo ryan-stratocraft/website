@@ -1,0 +1,132 @@
+{
+  "categories": [
+    {
+      "id": "general",
+      "title": "General",
+      "questions": [
+        {
+          "question": "What is Oneura?",
+          "answer": "Oneura is a sleep sounds and sensory relaxation app for iOS and Android. It brings together calming soundscapes, white and coloured noise, ambient sounds, sleep stories, focus-friendly audio, and mood tracking so you can build your own wind-down routine. It is designed especially for busy minds and people who feel easily overstimulated."
+        },
+        {
+          "question": "Is Oneura free?",
+          "answer": "Yes. Oneura is free to download and includes a free listening tier so you can try it without paying. Oneura Plus is an optional subscription that unlocks unlimited listening, premium sounds and stories, ad-free use, and advanced playlists."
+        },
+        {
+          "question": "What's included in Oneura Plus?",
+          "answer": "Oneura Plus unlocks unlimited listening, the full library of premium sounds and sleep stories, ad-free use, and advanced playlists and layered mixes. You can see current plans, including any lifetime option, on the subscription page."
+        },
+        {
+          "question": "What devices does Oneura work on?",
+          "answer": "Oneura is available on iPhone and iPad (iOS) and on Android phones and tablets. It can also optionally use health and wearable data, such as from a connected watch, to add context to your sleep."
+        },
+        {
+          "question": "How do I cancel my Oneura Plus subscription?",
+          "answer": "Oneura Plus is billed through the App Store or Google Play, so you cancel it in your device's subscription settings rather than inside Oneura. On iOS, open Settings, tap your name, then Subscriptions; on Android, open the Play Store and tap Subscriptions. Cancelling stops future renewals while keeping your access until the end of the current period."
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "title": "Sleep",
+      "questions": [
+        {
+          "question": "Why can't I sleep when my mind is racing at night?",
+          "answer": "A racing mind at night is often your nervous system staying in an alert, switched-on state when you want it to wind down. Common contributors include stress, irregular bedtimes, screens late in the evening, and an environment that keeps your attention engaged. Giving your brain a steady, low-demand thing to focus on, like consistent sound, can make it easier to stop following each thought. Oneura is built around this idea, with calming soundscapes, white and coloured noise, and gentle wind-down audio you can use as a repeatable bedtime cue."
+        },
+        {
+          "question": "How do sleep sounds and white noise help you fall asleep?",
+          "answer": "Steady background sound works in two ways. It masks sudden noises, such as a passing car or a creaking house, that would otherwise pull you back to alertness, and it gives your attention something simple and unchanging to rest on instead of racing thoughts. Playing the same sound each night can also become a cue that tells your body it is time to wind down. In Oneura you can choose a sound, set a sleep timer, and let it fade as you drift off."
+        },
+        {
+          "question": "What are sleep stories?",
+          "answer": "Sleep stories are calmly narrated audio designed to be listened to in bed. Rather than gripping you with tension, they hold just enough of your attention to quiet a busy mind so you can drift off. Oneura includes sleep stories and other wind-down audio alongside its soundscapes."
+        },
+        {
+          "question": "Why is it hard to sleep with ADHD, and can Oneura help?",
+          "answer": "People with ADHD often describe a mind that won't switch off at night, a later body clock, and difficulty shifting from a busy day into rest. Oneura can't change those patterns, but it can give you a consistent wind-down cue: the same calming soundscape, sleep story, or steady noise each night, with a timer that fades as you drift off. Used regularly, that kind of routine can make the transition to sleep feel a little smoother. Oneura is wellness software rather than a medical treatment, so persistent sleep difficulties are worth discussing with a qualified professional."
+        }
+      ]
+    },
+    {
+      "id": "sounds-and-noise",
+      "title": "Sounds & Noise",
+      "questions": [
+        {
+          "question": "What is the difference between white, pink, brown, and green noise?",
+          "answer": "They are all steady background sounds, but their energy sits at different parts of the frequency range, so they feel different:\n- White noise spreads energy evenly across all frequencies. It sounds bright, like radio static or a fan, and is good at masking other noises.\n- Pink noise has a little less energy at higher frequencies, so it sounds softer and fuller, closer to steady rain or wind.\n- Brown noise has more energy in the low frequencies, giving a deep, rumbling sound like heavy rainfall or distant thunder. Many people find it the most soothing.\n- Green noise sits in the middle of the range and feels the most natural, similar to gentle outdoor ambience.\nOneura includes white, pink, brown, and green noise, so you can try each one and keep whichever helps you settle."
+        },
+        {
+          "question": "What ambient sounds does Oneura include?",
+          "answer": "Oneura includes nature and environmental ambience such as rain, ocean waves, forest, streams, and a fan, along with atmospheres like a cafe and calming meditation-style audio. You can play them on their own or combine them."
+        },
+        {
+          "question": "What are layered mixes?",
+          "answer": "Layered mixes let you play more than one sound at the same time, for example rain over a fan, or ocean waves under soft ambience, and adjust each one to build a personal soundscape. You can save favourites and playlists so your preferred mix is ready each night."
+        }
+      ]
+    },
+    {
+      "id": "busy-minds-and-sensory",
+      "title": "Busy Minds & Sensory",
+      "questions": [
+        {
+          "question": "Is Oneura good for overstimulation or a busy, neurodivergent mind?",
+          "answer": "Oneura is designed with busy minds and sensory needs in mind. The interface is kept calm and uncluttered, and the focus is on simple, low-demand ways to decompress: choose a sound, soften the noise around you, and let your attention rest. It can be a helpful tool for overstimulated moments, but it is wellness software, not a medical treatment for any condition."
+        },
+        {
+          "question": "How is Oneura different from a guided-meditation app?",
+          "answer": "Many meditation apps centre on guided practices that ask you to follow instructions and actively meditate. Oneura takes a more sound-led, sensory approach: instead of requiring a practice, it helps you change the sound and feel of your environment so your body has a calmer place to land. That makes it useful if guided meditation has never quite worked for you, or when you simply want to de-stimulate rather than do an exercise."
+        },
+        {
+          "question": "Can Oneura help people with ADHD?",
+          "answer": "Many people with ADHD use sound to focus, block out distractions, or quiet a busy mind at bedtime, and Oneura suits that well: steady white and coloured noise, calm ambience, layered mixes you control, and an uncluttered interface that tries not to add to the noise. That said, Oneura is a self-directed wellness tool, not a medical treatment for ADHD. It does not diagnose or treat any condition, and if ADHD is significantly affecting your daily life, a qualified professional is the best place to start."
+        },
+        {
+          "question": "Is Oneura suitable for AuDHD or combined autistic and ADHD sensory needs?",
+          "answer": "AuDHD describes the overlap of autistic and ADHD traits, which can mean both craving sensory input and being easily overwhelmed by it. Oneura is built to be low-stimulation and adjustable, so you can shape it to the moment: choose calmer or richer soundscapes, layer and balance sounds, set timers, and rely on a simple, predictable layout. It is a flexible wellness tool you control, not a clinical or sensory-therapy programme."
+        },
+        {
+          "question": "Why do some people with ADHD find white or brown noise helpful?",
+          "answer": "A common experience is that steady noise, such as white or brown noise, gives the brain consistent background input that can make it easier to settle or focus instead of chasing every passing distraction. Interest in this is growing, but the research is still limited and what helps varies a lot from person to person. Oneura includes white, pink, brown, and green noise so you can experiment and keep whatever works for you, whether that's for focus during the day or winding down at night."
+        },
+        {
+          "question": "Can Oneura help with sensory overload?",
+          "answer": "Sensory overload happens when the sights, sounds, and other input around you become more than you can comfortably process, which can leave you frazzled, irritable, or needing to shut everything out. Oneura can be a simple way to take back some control of your sound environment: switch to steady, low-detail noise or calm ambience, turn down the volume of the world, and give yourself a softer place to reset. It is a self-directed wellness tool for those moments, not a medical treatment, so use it in whatever way feels supportive for you."
+        }
+      ]
+    },
+    {
+      "id": "focus",
+      "title": "Focus",
+      "questions": [
+        {
+          "question": "Can I use Oneura for focus, work, or study?",
+          "answer": "Yes. The same steady sounds that help at night, including white and coloured noise, cafe ambience, a fan, and nature backgrounds, can help mask distractions during the day and give you something consistent to focus against while you read, study, or do deep work. Many people use Oneura for focus sessions and then switch to softer sounds or sleep stories at night."
+        },
+        {
+          "question": "Can Oneura help during hyperfocus or deep work?",
+          "answer": "Many people focus better with consistent background sound that masks interruptions and gives the brain something steady to work against. Whether you're settling into deep work or riding a wave of hyperfocus, Oneura's white and coloured noise, cafe ambience, and nature backgrounds can help hold the session without pulling your attention. You can set a timer so a long stretch doesn't run away from you, then switch to calmer sounds afterwards to wind back down."
+        }
+      ]
+    },
+    {
+      "id": "mood-and-wellness",
+      "title": "Mood & Wellness",
+      "questions": [
+        {
+          "question": "How does mood tracking work in Oneura?",
+          "answer": "Oneura lets you check in on how you are feeling and keep a simple record over time. Rather than scoring you, it reflects gentle patterns back to you so you can notice what helps. Mood check-ins sit alongside the sounds and wind-down audio, so reflection and relaxation live in one place."
+        },
+        {
+          "question": "Does Oneura use my watch or health data?",
+          "answer": "Optionally, yes. If you choose to connect it, Oneura can use health and wearable data, such as from a watch, to add context to your sleep and wind-down. This is entirely optional, and Oneura works fully without it."
+        },
+        {
+          "question": "Does Oneura give medical advice?",
+          "answer": "No. Oneura is wellness software, not a medical device, and it does not diagnose, treat, or give medical advice. Any mood or sleep insights are informational and reflective only. If you have serious or persistent sleep, mood, or health concerns, please speak with a qualified professional."
+        }
+      ]
+    }
+  ]
+}

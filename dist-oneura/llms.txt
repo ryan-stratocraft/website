@@ -28,6 +28,7 @@
 
 - Home: https://oneura.app/
 - About: https://oneura.app/about
+- FAQ (sleep sounds, noise colours, focus, mood, subscription): https://oneura.app/faq
 - Sleep sounds and white noise: https://oneura.app/sleep-sounds-white-noise
 - Sensory relaxation app: https://oneura.app/sensory-relaxation-app
 - Sleep app for busy minds: https://oneura.app/sleep-app-for-busy-minds

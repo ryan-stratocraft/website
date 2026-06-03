@@ -53,6 +53,9 @@ const OneuraFooter: React.FC = () => {
           <Link to={oneuraPagePath("subscription")}>Subscription</Link>
         </li>
         <li>
+          <Link to={oneuraPagePath("faq")}>FAQ</Link>
+        </li>
+        <li>
           <Link to={oneuraPagePath("sleep-sounds-white-noise")}>Sleep Sounds</Link>
         </li>
         <li>
