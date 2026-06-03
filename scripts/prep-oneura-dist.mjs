@@ -42,9 +42,9 @@ const oneuraRoutes = [
     path: '/about',
     priority: '0.8',
     changefreq: 'monthly',
-    title: 'About Oneura | Sleep Sounds, Mood Tracking & Wellness App',
+    title: 'About Oneura | Neuro-Friendly Sleep Sounds & Wind-Down App',
     description:
-      'Learn how Oneura supports relaxation, sleep, focus, mood tracking, sleep stories, and optional wearable-informed wellness insights.',
+      'The story behind Oneura: a neuro-friendly sleep sounds and sensory wind-down app built from lived experience for busy and AuDHD minds, with mood tracking and optional wearable-informed insights.',
   },
   {
     path: '/faq',
