@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.stratocraft.oh_i",
+      "sha256_cert_fingerprints": [
+        "E7:43:BB:56:F6:DF:E5:55:98:F0:E6:FC:16:97:D7:62:30:88:E8:01:79:FC:3A:B6:6B:6F:13:8E:80:92:4B:F0"
+      ]
+    }
+  }
+]

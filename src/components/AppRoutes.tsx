@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 import Home from "../pages/stratocraft/home/Home";
 import About from "../pages/stratocraft/about/About";
 import Support from "../pages/stratocraft/support/Support";
@@ -85,6 +85,7 @@ export const StratoSiteRoutes: React.FC = () => (
     {/* Admin lives on Strato too, but admin work always happens on the
         canonical oneura.app domain (Google sign-in popup is bound to
         that origin). The Strato copy is just so dev/localhost works. */}
+    <Route path="/admin" element={<Navigate to="/admin/offers" replace />} />
     <Route
       path="/admin/offers"
       element={
@@ -175,6 +176,7 @@ export const OneuraProductSiteRoutes: React.FC = () => (
     <Route path="/d/:slug" element={<ShareLinkRedirect />} />
 
     {/* Admin section — gated to the operator email. */}
+    <Route path="/admin" element={<Navigate to="/admin/offers" replace />} />
     <Route
       path="/admin/offers"
       element={

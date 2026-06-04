@@ -1,0 +1,10 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://strato-craft.com/sitemap.xml
+
+# Block specific paths if needed (none for now)
+# Disallow: /admin/
+
