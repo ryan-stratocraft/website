@@ -22,6 +22,16 @@ function normalizedPathname(pathname: string): string {
 }
 
 function isOneuraOnlyCleanPath(pathname: string): boolean {
+  const normalized = normalizedPathname(pathname);
+  if (
+    normalized === "/admin" ||
+    normalized.startsWith("/admin/") ||
+    normalized.startsWith("/c/") ||
+    normalized.startsWith("/d/")
+  ) {
+    return true;
+  }
+
   return new Set([
     "/subscription",
     "/privacy-policy",
@@ -34,7 +44,7 @@ function isOneuraOnlyCleanPath(pathname: string): boolean {
     "/neuro-friendly-sleep-app",
     "/mood-tracking-sleep-app",
     "/sleep-sounds-for-focus",
-  ]).has(normalizedPathname(pathname));
+  ]).has(normalized);
 }
 
 function hasOneuraLocalPreviewOverride(hostname: string): boolean {

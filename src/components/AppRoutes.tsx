@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 import Home from "../pages/stratocraft/home/Home";
 import About from "../pages/stratocraft/about/About";
 import Support from "../pages/stratocraft/support/Support";
@@ -36,6 +36,22 @@ import {
   SleepAppForBusyMindsPage,
   SleepSoundsWhiteNoisePage,
 } from "../pages/oneura/topics/TopicLandingPage";
+import PartnerLanding from "../pages/oneura/partner/PartnerLanding";
+import ShareLinkRedirect from "../pages/oneura/share/ShareLinkRedirect";
+import AdminGate from "./AdminGate";
+import AdminOffersList from "../pages/oneura/admin/AdminOffersList";
+import AdminOfferDetail from "../pages/oneura/admin/AdminOfferDetail";
+import AdminOfferCreate from "../pages/oneura/admin/AdminOfferCreate";
+import AdminOfferEdit from "../pages/oneura/admin/AdminOfferEdit";
+import AdminShareLinksList from "../pages/oneura/admin/AdminShareLinksList";
+import AdminShareLinkCreate from "../pages/oneura/admin/AdminShareLinkCreate";
+import AdminShareLinkDetail from "../pages/oneura/admin/AdminShareLinkDetail";
+import AdminShareLinkEdit from "../pages/oneura/admin/AdminShareLinkEdit";
+
+/** Wraps the admin section so children render only for the operator. */
+const AdminSection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <AdminGate>{children}</AdminGate>
+);
 
 /**
  * Strato-Craft.com (company site). Oneura lives on its own canonical domain
@@ -63,6 +79,77 @@ export const StratoSiteRoutes: React.FC = () => (
     <Route path="/iac-vr" element={<IacVrHome />} />
     <Route path="/iac-vr/about" element={<IacVrAbout />} />
 
+    {/* Dev/local access for the Oneura product-only routes. Production
+        strato-craft.com /oneura/* requests are redirected in firebase.json. */}
+    <Route path="/oneura/c/:slug" element={<PartnerLanding />} />
+    <Route path="/oneura/d/:slug" element={<ShareLinkRedirect />} />
+
+    <Route path="/admin" element={<Navigate to="/admin/offers" replace />} />
+    <Route
+      path="/admin/offers"
+      element={
+        <AdminSection>
+          <AdminOffersList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/new"
+      element={
+        <AdminSection>
+          <AdminOfferCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug"
+      element={
+        <AdminSection>
+          <AdminOfferDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminOfferEdit />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links"
+      element={
+        <AdminSection>
+          <AdminShareLinksList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/new"
+      element={
+        <AdminSection>
+          <AdminShareLinkCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug"
+      element={
+        <AdminSection>
+          <AdminShareLinkDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminShareLinkEdit />
+        </AdminSection>
+      }
+    />
+
     <Route path="*" element={<NotFound />} />
   </Routes>
 );
@@ -84,6 +171,73 @@ export const OneuraProductSiteRoutes: React.FC = () => (
     <Route path="/neuro-friendly-sleep-app" element={<NeuroFriendlySleepAppPage />} />
     <Route path="/mood-tracking-sleep-app" element={<MoodTrackingSleepAppPage />} />
     <Route path="/sleep-sounds-for-focus" element={<SleepSoundsForFocusPage />} />
+    <Route path="/c/:slug" element={<PartnerLanding />} />
+    <Route path="/d/:slug" element={<ShareLinkRedirect />} />
+    <Route path="/admin" element={<Navigate to="/admin/offers" replace />} />
+    <Route
+      path="/admin/offers"
+      element={
+        <AdminSection>
+          <AdminOffersList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/new"
+      element={
+        <AdminSection>
+          <AdminOfferCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug"
+      element={
+        <AdminSection>
+          <AdminOfferDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/offers/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminOfferEdit />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links"
+      element={
+        <AdminSection>
+          <AdminShareLinksList />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/new"
+      element={
+        <AdminSection>
+          <AdminShareLinkCreate />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug"
+      element={
+        <AdminSection>
+          <AdminShareLinkDetail />
+        </AdminSection>
+      }
+    />
+    <Route
+      path="/admin/links/:slug/edit"
+      element={
+        <AdminSection>
+          <AdminShareLinkEdit />
+        </AdminSection>
+      }
+    />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

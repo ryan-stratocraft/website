@@ -52,6 +52,8 @@ function useOneuraFont(shouldLoad: boolean): void {
 
 const App: React.FC = () => {
   const location = useLocation();
+  const onAdminRoute =
+    location.pathname === "/admin" || location.pathname.startsWith("/admin/");
   const onOneuraProductSite =
     typeof window !== "undefined" &&
     isOneuraProductSite(window.location.hostname, location.pathname);
@@ -66,7 +68,7 @@ const App: React.FC = () => {
 
   return (
     <div className={shellClassName}>
-      {onOneuraProductSite ? <OneuraNavbar /> : <Navbar />}
+      {!onAdminRoute && (onOneuraProductSite ? <OneuraNavbar /> : <Navbar />)}
 
       <div className="page-container">
         {onOneuraProductSite ? (
@@ -76,8 +78,8 @@ const App: React.FC = () => {
         )}
       </div>
 
-      {onOneuraProductSite ? <OneuraFooter /> : null}
-      {onOneuraProductSite ? <CookieConsent /> : null}
+      {onOneuraProductSite && !onAdminRoute ? <OneuraFooter /> : null}
+      {onOneuraProductSite && !onAdminRoute ? <CookieConsent /> : null}
     </div>
   );
 };
