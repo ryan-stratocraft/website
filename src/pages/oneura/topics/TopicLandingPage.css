@@ -105,6 +105,22 @@
   line-height: 1.75;
 }
 
+.oneura-topic-text-link {
+  color: #5eead4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.oneura-topic-text-link:hover,
+.oneura-topic-text-link:focus-visible {
+  color: #99f6e4;
+}
+
+.oneura-topic-facts dd .oneura-topic-text-link,
+.oneura-topic-section-card li .oneura-topic-text-link {
+  color: #5eead4;
+}
+
 .oneura-topic-answer p {
   font-size: 1.1rem;
 }

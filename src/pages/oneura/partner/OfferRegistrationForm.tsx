@@ -55,7 +55,7 @@ const OfferRegistrationForm: React.FC<Props> = ({
           setError("Couldn't read the offer details. Try refreshing the page.");
           break;
         default:
-          setError("Couldn't register — please try again in a moment.");
+          setError("Couldn't register - please try again in a moment.");
       }
     } finally {
       setBusy(false);
@@ -120,7 +120,7 @@ const OfferRegistrationForm: React.FC<Props> = ({
           lineHeight: 1.5,
         }}
       >
-        Use this email when you sign up in the Oneura app — that's how the
+        Use this email when you sign up in the Oneura app - that's how the
         offer attaches to your account. Guest / anonymous accounts can't
         redeem partner offers.
       </p>

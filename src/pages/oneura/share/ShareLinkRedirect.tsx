@@ -5,7 +5,7 @@ import appStore from "../../../assets/images/app-store.png";
 import oneuraLogo from "../../../assets/images/oneura/logo-color.png";
 
 /**
- * `/d/:slug` — share / acquisition redirect page. Sibling of the
+ * `/d/:slug` - share / acquisition redirect page. Sibling of the
  * partner-offer landing (`/c/:slug`), but stripped down: no Firestore
  * read, no branding payload, no email form. The page:
  *
@@ -17,7 +17,7 @@ import oneuraLogo from "../../../assets/images/oneura/logo-color.png";
  *      shows both store buttons (desktop).
  *
  * Universal Links / App Links intercept this URL on installed devices
- * and route to the in-app DeepLinkService instead — that's the
+ * and route to the in-app DeepLinkService instead - that's the
  * acquisition / re-engagement loop we're tracking.
  */
 const APP_STORE_URL = "https://apps.apple.com/app/oneura/id6754253306";
@@ -137,7 +137,7 @@ const ShareLinkRedirect: React.FC = () => {
 /**
  * Best-effort UA sniff. Mirrors the buckets the recordShareClick
  * Cloud Function accepts (ios / android / desktop / other). Falls
- * back to desktop on weird/missing UAs — these users still see the
+ * back to desktop on weird/missing UAs - these users still see the
  * page and can tap a store button manually, so the analytics bucket
  * for them is harmless.
  */
@@ -160,7 +160,7 @@ function detectStoreUrl(): {
  * Fire-and-forget click record. Uses `sendBeacon` when available so
  * the request survives an immediate window.location.replace, falls
  * back to a `fetch(..., keepalive: true)` for browsers without it.
- * Always swallows errors — the user's redirect must never block on
+ * Always swallows errors - the user's redirect must never block on
  * an analytics path.
  */
 function recordClick({
@@ -189,7 +189,7 @@ function recordClick({
       const ok = navigator.sendBeacon(RECORD_URL, blob);
       if (ok) return;
     }
-    // Fallback path — keepalive lets fetch outlive the page navigation.
+    // Fallback path - keepalive lets fetch outlive the page navigation.
     void fetch(RECORD_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

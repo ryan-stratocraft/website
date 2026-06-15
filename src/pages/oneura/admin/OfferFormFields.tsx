@@ -128,7 +128,7 @@ const OfferFormFields: React.FC<Props> = ({
 
       <Section
         title="Store products"
-        subtitle="Point this campaign at one of the shared partner SKUs in App Store Connect / Play Console. The discount is baked into the SKU itself — multiple campaigns can reuse the same SKU and differ only by branding. Leave blank if the SKU isn't ready yet; the landing page still works."
+        subtitle="Point this campaign at one of the shared partner SKUs in App Store Connect / Play Console. The discount is baked into the SKU itself - multiple campaigns can reuse the same SKU and differ only by branding. Leave blank if the SKU isn't ready yet; the landing page still works."
       >
         <Field
           label="iOS App Store product id"
@@ -177,7 +177,7 @@ const OfferFormFields: React.FC<Props> = ({
           <input
             value={value.headline}
             onChange={(e) => onChange({ headline: e.target.value })}
-            placeholder="Williams Racing × Oneura — 50% off your first year"
+            placeholder="Williams Racing × Oneura - 50% off your first year"
             style={inputStyle}
           />
         </Field>
@@ -391,7 +391,7 @@ export function validateOfferForm(
 
 /**
  * Translates the form values into the Firestore-shaped doc body
- * (without server timestamps / createdAt — caller adds those).
+ * (without server timestamps / createdAt - caller adds those).
  */
 export function offerFormToDoc(value: OfferFormValue): {
   slug: string;

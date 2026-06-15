@@ -3,14 +3,14 @@ import QRCodeStyling from "qr-code-styling";
 // Transparent-background ring (no built-in navy padding, no "Oneura"
 // wordmark). Using the padded `logo-color.png` would force imageSize
 // down to ~0.28 to avoid the navy square spilling outside the cleared
-// QR centre — most of that 28% allocation is then wasted on padding,
+// QR centre - most of that 28% allocation is then wasted on padding,
 // leaving the visible ring uncomfortably small at small print sizes.
 import oneuraLogo from "../assets/images/oneura/logo-no-background.png";
 
 /**
  * Branded QR with two preset variants:
- *   - Branded — QR + Oneura logo in centre + gradient ring around the outside
- *   - Plain   — same gradient ring + navy fill, no centre logo (use when
+ *   - Branded - QR + Oneura logo in centre + gradient ring around the outside
+ *   - Plain   - same gradient ring + navy fill, no centre logo (use when
  *               you want a cleaner scan-target / partner co-brand sticker)
  *
  * Both variants paint the QR on top of a filled navy disc whose radius
@@ -113,14 +113,14 @@ const BrandedQrPanel: React.FC<BrandedQrPanelProps> = ({
         />
         <QrVariant
           title="Plain"
-          subtitle="Cleaner scan target — no centre logo."
+          subtitle="Cleaner scan target - no centre logo."
           dataUrl={plain}
           onDownload={() => download(plain, "plain")}
         />
       </div>
       <div style={hintStyle}>
         QR is rendered at 720×720 with error-correction level H (≈30% damage
-        tolerance) — print at any size. Downloads are transparent-background
+        tolerance) - print at any size. Downloads are transparent-background
         PNG so they sit cleanly on light or dark backgrounds.
       </div>
     </div>
@@ -207,7 +207,7 @@ const QrVariant: React.FC<QrVariantProps> = ({
 
 /* ─── QR composition helpers ──────────────────────────────────── */
 
-const QR_BG = "#0B132B"; // navy — matches in-app branded card surface
+const QR_BG = "#0B132B"; // navy - matches in-app branded card surface
 const QR_PURPLE = "#A855F7";
 const QR_BLUE = "#3B82F6";
 
@@ -222,13 +222,13 @@ const QR_BLUE = "#3B82F6";
  *     │  ╰───────────────────────╯  │   the outer ring; centre
  *     └──────────────────────────────┘   ⊙ = the big inner logo
  *
- *   discR        = 0.46  — radius of the filled navy disc
- *   ringWidth    = 0.030 — gradient ring stroke width
+ *   discR        = 0.46  - radius of the filled navy disc
+ *   ringWidth    = 0.030 - gradient ring stroke width
  *   qrSide       = discR · √2 · 0.96 (inscribed square, slight breathing)
- *   logoFraction = 0.55  — inner logo as a fraction of qrSide
+ *   logoFraction = 0.55  - inner logo as a fraction of qrSide
  *
  * Note that we NO LONGER use qr-code-styling's `image` + `imageOptions`
- * overlay — that mechanic clears a SQUARE area in the centre (imageSize²
+ * overlay - that mechanic clears a SQUARE area in the centre (imageSize²
  * of total QR area). With EC level H tolerating ~30% damage, that capped
  * the logo at ~0.5·qrSide. Doing the compositing ourselves lets us draw
  * the transparent ring at 0.55·qrSide while only sacrificing the modules
@@ -246,7 +246,7 @@ async function buildBrandedQrDataUrl(opts: {
   const ringWidth = size * 0.03;
   const qrSide = Math.floor(discR * Math.SQRT2 * 0.96); // small breathing room
 
-  // Plain QR (no image overlay) — every module is intact, so EC H has
+  // Plain QR (no image overlay) - every module is intact, so EC H has
   // its full 30% damage budget available for whatever we composite
   // on top.
   const qrImage = await renderInnerQrImage({
@@ -260,7 +260,7 @@ async function buildBrandedQrDataUrl(opts: {
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("Canvas 2D context unavailable.");
 
-  // 1. Navy disc — fills the area inside the ring so QR corners blend in.
+  // 1. Navy disc - fills the area inside the ring so QR corners blend in.
   ctx.beginPath();
   ctx.arc(cx, cy, discR, 0, Math.PI * 2);
   ctx.fillStyle = QR_BG;
@@ -270,7 +270,7 @@ async function buildBrandedQrDataUrl(opts: {
   ctx.drawImage(qrImage, cx - qrSide / 2, cy - qrSide / 2, qrSide, qrSide);
 
   // 3. Big centre logo (Branded variant only). We draw the
-  // transparent ring directly on top of the QR — only the ring's
+  // transparent ring directly on top of the QR - only the ring's
   // visible stroke obscures modules.
   //
   // We additionally clear a small navy disc behind the ring's
@@ -295,7 +295,7 @@ async function buildBrandedQrDataUrl(opts: {
     );
   }
 
-  // 4. Outer gradient ring — purple top-left → blue bottom-right,
+  // 4. Outer gradient ring - purple top-left → blue bottom-right,
   // matches oneura_circular_no_name.png without inheriting its
   // white border.
   const gradient = ctx.createLinearGradient(
@@ -319,14 +319,14 @@ async function buildBrandedQrDataUrl(opts: {
  * Renders a transparent-background QR to an HTMLImageElement so it
  * can be drawn onto the composite canvas. Uses qr-code-styling
  * directly (rather than `.append(...)` to a hidden div) and parses
- * its PNG output back into an image — both `getRawData('png')` and
+ * its PNG output back into an image - both `getRawData('png')` and
  * `Image.decode()` are widely supported in the browsers we ship to.
  */
 async function renderInnerQrImage(opts: {
   url: string;
   size: number;
 }): Promise<HTMLImageElement> {
-  // NOTE: `imageOptions` must ALWAYS be a populated object — see the
+  // NOTE: `imageOptions` must ALWAYS be a populated object - see the
   // qr-code-styling crash we hit previously. We don't ask the lib
   // to render a logo any more (we composite our own), so all the
   // image-related fields stay at their no-op defaults.
@@ -365,7 +365,7 @@ async function renderInnerQrImage(opts: {
     });
   }
   // Hold the object URL until after the image is drawn to canvas in
-  // the caller — Safari sometimes invalidates the decoded image's
+  // the caller - Safari sometimes invalidates the decoded image's
   // pixels when its source URL is revoked synchronously, so we let
   // GC clean up after the drawImage() call completes.
   return img;

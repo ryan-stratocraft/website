@@ -17,7 +17,7 @@ import OfferFormFields, {
 } from "./OfferFormFields";
 
 /**
- * `/admin/offers/new` — creates a new campaign doc at
+ * `/admin/offers/new` - creates a new campaign doc at
  * `/campaigns/{slug}`. Writes the full Stage 2 schema (status,
  * branding, store product ids, visibility mode, etc.) plus
  * server-set createdAt + updatedAt and an initial redemptionCount of
@@ -25,7 +25,7 @@ import OfferFormFields, {
  *
  * Slug uniqueness is enforced via a pre-write `getDoc` check
  * (Firestore rules permit admin writes regardless, so a race-y
- * duplicate would silently overwrite — the pre-check avoids that
+ * duplicate would silently overwrite - the pre-check avoids that
  * footgun).
  */
 const AdminOfferCreate: React.FC = () => {

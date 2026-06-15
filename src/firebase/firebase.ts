@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 // Firebase project: strato-craft-6c348 · Web app "Strato-Craft Website"
-// (Public client config — security is enforced with Storage/Rules/IAM/API key restrictions.)
+// (Public client config - security is enforced with Storage/Rules/IAM/API key restrictions.)
 const firebaseConfig = {
   apiKey: "AIzaSyCVsQpS08cYd2wXR_MbOStcoBDEDRg-dCs",
   authDomain: "strato-craft-6c348.firebaseapp.com",

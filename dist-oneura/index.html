@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="facebook-domain-verification" content="ku4iddp7fvfz3vfj17yae9cybvnqjv" />
 
     <title>Oneura | Sleep Sounds, Sensory Relaxation & Wind-Down App</title>
     <meta name="title" content="Oneura | Sleep Sounds, Sensory Relaxation &amp; Wind-Down App" />
@@ -24,6 +25,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" title="Sitemap" />
     <link id="oneura-font-preconnect-google" rel="preconnect" href="https://fonts.googleapis.com" />
     <link id="oneura-font-preconnect-gstatic" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -89,16 +92,25 @@
       "@id": "https://oneura.app/#webpage",
       "url": "https://oneura.app/",
       "name": "Oneura | Sleep Sounds, Sensory Relaxation & Wind-Down App",
+      "description": "Oneura is an iOS and Android sleep sounds and sensory relaxation app for white noise, calming ambience, busy minds, mood tracking, and wind-down routines.",
       "isPartOf": {
         "@id": "https://oneura.app/#website"
       },
-      "about": {
-        "@id": "https://oneura.app/#app"
-      },
+      "about": [
+        {
+          "@id": "https://oneura.app/#app"
+        },
+        {
+          "@id": "https://oneura.app/#product"
+        }
+      ],
       "inLanguage": "en-GB"
     },
     {
-      "@type": "MobileApplication",
+      "@type": [
+        "MobileApplication",
+        "SoftwareApplication"
+      ],
       "@id": "https://oneura.app/#app",
       "name": "Oneura",
       "alternateName": "Oneura - Relax, Sleep & Focus",
@@ -203,6 +215,138 @@
       ]
     },
     {
+      "@type": "Product",
+      "@id": "https://oneura.app/#product",
+      "name": "Oneura",
+      "description": "Sleep sounds and sensory relaxation app for iOS and Android - white noise, rain sounds, calming ambience, mood tracking, sleep stories, and wind-down support.",
+      "url": "https://oneura.app/",
+      "image": "https://oneura.app/oneura-og.png",
+      "category": "Sleep and sensory relaxation mobile app",
+      "brand": {
+        "@type": "Brand",
+        "name": "Oneura"
+      },
+      "manufacturer": {
+        "@id": "https://strato-craft.com/#organization"
+      },
+      "isRelatedTo": {
+        "@id": "https://oneura.app/#app"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "ratingCount": "3",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Ana L."
+          },
+          "datePublished": "2026-05-20",
+          "reviewBody": "Great app! It's nice to have all of my mindfulness stuff in one place (sounds, meditation, mood logs and more). It connects to my watch to give me insights, and I've been sleeping better since using both combined.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Google Play"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Jessica F."
+          },
+          "datePublished": "2026-05-10",
+          "reviewBody": "Finally an app that isn't too busy like all other ones. The layout is not overwhelming and can use it easily. There's a huge variety of sounds and meditations - the free features are better than all other apps I've tried.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Google Play"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Vika S."
+          },
+          "datePublished": "2026-02-17",
+          "reviewBody": "Real relaxation. Thanks for the app.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "App Store"
+          }
+        }
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Oneura free download",
+          "price": "0",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock",
+          "url": "https://play.google.com/store/apps/details?id=com.stratocraft.oneura",
+          "seller": {
+            "@id": "https://strato-craft.com/#organization"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Oneura Plus monthly (UK listing)",
+          "price": "2.99",
+          "priceCurrency": "GBP",
+          "description": "7-day free trial, then £2.99 per month. UK store listing; app store may show local currency.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://oneura.app/subscription",
+          "seller": {
+            "@id": "https://strato-craft.com/#organization"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Oneura Plus annual (UK listing)",
+          "price": "23.99",
+          "priceCurrency": "GBP",
+          "description": "7-day free trial, then £23.99 per year (£2.00/month equivalent). UK store listing.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://oneura.app/subscription",
+          "seller": {
+            "@id": "https://strato-craft.com/#organization"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Oneura Plus lifetime (UK listing)",
+          "price": "149.99",
+          "priceCurrency": "GBP",
+          "description": "One-time purchase. UK store listing; availability may vary by region.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://oneura.app/subscription",
+          "seller": {
+            "@id": "https://strato-craft.com/#organization"
+          }
+        }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "@id": "https://oneura.app/#faq",
       "mainEntity": [
@@ -239,14 +383,40 @@
           }
         }
       ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://oneura.app/#comparison-guides",
+      "name": "Oneura app comparison guides",
+      "description": "Official Oneura comparison pages for Calm, BetterSleep, and Headspace.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Oneura vs Calm",
+          "url": "https://oneura.app/oneura-vs-calm"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Oneura vs BetterSleep",
+          "url": "https://oneura.app/oneura-vs-bettersleep"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Oneura vs Headspace",
+          "url": "https://oneura.app/oneura-vs-headspace"
+        }
+      ]
     }
   ]
 }
     </script>
-    <script type="module" crossorigin src="/assets/main-Cj3e6mqK.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-CpaMElFT.css">
+    <script type="module" crossorigin src="/assets/main-Dptd4-3w.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-C_D3j-Zg.css">
   </head>
   <body>
-    <div id="root"><link rel="preload" as="image" href="/assets/logo-color-GtukZSPE.png"/><link rel="preload" as="image" href="/assets/google-play-BRwodeCL.png"/><link rel="preload" as="image" href="/assets/app-store-Bex_ljrS.png"/><div class="site-shell oneura-site"><nav class="navbar oneura-navbar"><a class="navbar-logo-link" href="/" data-discover="true"><img src="/assets/logo-color-GtukZSPE.png" alt="Oneura" class="navbar-logo"/><span class="brand-name">Oneura</span></a><ul><li><a href="/" data-discover="true">Home</a></li><li><a href="/about" data-discover="true">About</a></li><li><a href="/subscription" data-discover="true">Subscription</a></li><li><a href="/faq" data-discover="true">FAQ</a></li><li><a href="https://strato-craft.com/support" target="_blank" rel="noopener noreferrer">Support</a></li><li><a href="https://strato-craft.com" target="_blank" rel="noopener noreferrer" class="oneura-studio-link">Strato-Craft ↗</a></li></ul></nav><div class="page-container"><main class="oneura-home-container"><section class="oneura-hero" aria-labelledby="oneura-home-title"><img src="/assets/logo-color-GtukZSPE.png" alt="Oneura app icon" class="app-logo" fetchPriority="high"/><p class="hero-kicker">Sleep sounds app for iOS and Android</p><h1 id="oneura-home-title">Oneura sleep sounds, sensory relaxation, and mood-aware wind-downs</h1><p>Build calmer evenings with relaxing soundscapes, sleep stories, focus-friendly ambience, mood tracking, and sensory support designed for busy minds, overstimulation, and your own wind-down routine.</p><div class="oneura-store-cta"><div class="store-buttons " aria-label="Download Oneura"><a href="https://play.google.com/store/apps/details?id=com.stratocraft.oneura" target="_blank" rel="noopener noreferrer" data-analytics-placement="hero" data-analytics-link="google_play" aria-label="Download Oneura on Google Play"><img src="/assets/google-play-BRwodeCL.png" alt="Get it on Google Play" class="store-badge"/></a><a href="https://apps.apple.com/app/oneura/id6754253306" target="_blank" rel="noopener noreferrer" data-analytics-placement="hero" data-analytics-link="app_store" aria-label="Download Oneura on the App Store"><img src="/assets/app-store-Bex_ljrS.png" alt="Download on the App Store" class="store-badge"/></a></div></div><a class="about-button" href="/about" data-discover="true">Explore Oneura</a></section><section class="answer-summary" aria-labelledby="what-is-oneura"><div class="answer-summary-inner"><h2 id="what-is-oneura">What is Oneura?</h2><p class="section-eyebrow">Quick answer</p><p>Oneura is a mobile sleep sounds and sensory relaxation app from Strato-Craft Ltd. It helps people relax, sleep, focus, and reflect with ambient audio, mood tracking, optional health-connected context, and a simple subscription called Oneura Plus.</p><dl class="answer-facts"><div><dt>Best for</dt><dd>Sleep, sensory relaxation, focus, overstimulation, and wind-down routines</dd></div><div><dt>Platforms</dt><dd>iOS and Android</dd></div><div><dt>Price</dt><dd>Free download with optional Plus upgrade</dd></div><div><dt>Publisher</dt><dd>Strato-Craft Ltd</dd></div></dl></div></section><section class="positioning-section" aria-labelledby="busy-minds-title"><div class="positioning-inner"><p class="section-eyebrow">Built for busy, overstimulated minds</p><h2 id="busy-minds-title">Sleep support when switching off does not feel simple</h2><p>Oneura is designed for people who struggle to settle after noisy, high-input days. Whether that means racing thoughts, sensory overload, focus fatigue, or needing a calmer evening routine, the app gives you sound, ambience, and reflection without turning relaxation into another performance.</p></div></section><section class="topic-cluster-section" aria-labelledby="topic-cluster-title"><div class="section-heading"><p class="section-eyebrow">Built for the moments people search for</p><h2 id="topic-cluster-title">Sleep sounds, sensory calm, and neuro-friendly wind-downs</h2><p>Oneura is still a sleep app, but its sharper lane is calmer sensory support for busy, overstimulated minds that need a softer way into sleep, focus, or decompression.</p></div><div class="topic-link-grid"><a class="topic-link-card" href="/sleep-sounds-white-noise" data-discover="true"><h3>Sleep sounds and white noise</h3><p>A focused guide to Oneura as a sleep sounds app with white noise, brown noise, rain, ocean, fans, and timers.</p></a><a class="topic-link-card" href="/sensory-relaxation-app" data-discover="true"><h3>Sensory relaxation app</h3><p>How Oneura uses sound, ambience, optional haptics, and simple routines for overstimulated moments.</p></a><a class="topic-link-card" href="/sleep-app-for-busy-minds" data-discover="true"><h3>Sleep app for busy minds</h3><p>A calmer way to settle racing thoughts with soundscapes, sleep stories, and low-friction wind-downs.</p></a><a class="topic-link-card" href="/neuro-friendly-sleep-app" data-discover="true"><h3>Neuro-friendly sleep app</h3><p>Careful, non-medical language around sensory needs, busy minds, and flexible sleep support.</p></a><a class="topic-link-card" href="/mood-tracking-sleep-app" data-discover="true"><h3>Mood tracking sleep app</h3><p>How Oneura connects mood check-ins, sleep sounds, and gentle insight without heavy scoring.</p></a><a class="topic-link-card" href="/sleep-sounds-for-focus" data-discover="true"><h3>Sleep sounds for focus</h3><p>Use cafe ambience, fans, steady noise, and nature soundscapes for study, work, and transitions.</p></a></div></section><section class="sound-category-section" aria-labelledby="sound-library"><div class="section-heading"><p class="section-eyebrow">Sound library</p><h2 id="sound-library">Calming sounds for sleep, focus, and rest</h2><p>Mix natural ambience, steady masking sounds, and gentle audio beds into a routine that fits the way you actually unwind.</p></div><ul class="sound-category-list" aria-label="Oneura sound categories"><li>Rain and storms</li><li>Ocean waves</li><li>Forest ambience</li><li>Streams and water</li><li>White, pink, brown, and green noise</li><li>Fans and steady air</li><li>Cafe atmosphere</li><li>Meditation and tonal beds</li></ul></section><section class="app-preview" aria-labelledby="preview-title"><h2 id="preview-title">Immersive soundscapes and visual moments</h2><div class="preview-container"><article class="preview-box"><img src="/assets/preview-ocean-optimized-BkWCt4xX.png" alt="Oneura ocean waves soundscape for sleep and relaxation" loading="lazy" decoding="async" class="preview-image"/><h3>Sleep and relaxation</h3><p>Drift into rest with ocean waves, rain, and soothing soundscapes that make night routines easier to repeat.</p></article><article class="preview-box"><img src="/assets/preview-forest-optimized-UKu42thK.png" alt="Oneura sound library with forest ambience and nature sounds" loading="lazy" decoding="async" class="preview-image"/><h3>Sound library and ambience</h3><p>Choose from nature ambience, noise colours, and curated soundscapes. Save favourites and build mixes around your mood.</p></article><article class="preview-box"><img src="/assets/preview-cafe-optimized-g6L42Ndw.png" alt="Oneura cafe atmosphere and focus sounds for productivity" loading="lazy" decoding="async" class="preview-image"/><h3>Mindfulness and focus</h3><p>Create a calmer background for reading, journaling, study, breathwork, or quiet productivity.</p></article></div></section><section class="features-section" aria-labelledby="features-title"><h2 id="features-title">Key features</h2><div class="features-grid"><article class="feature-item"><div class="feature-icon" aria-hidden="true">Timer</div><h3>Sleep timer</h3><p>Set a timer and let your soundscape fade into the background.</p></article><article class="feature-item"><div class="feature-icon" aria-hidden="true">Mix</div><h3>Layered playlists</h3><p>Blend favourite sounds together for a personal ambience.</p></article><article class="feature-item"><div class="feature-icon" aria-hidden="true">Mood</div><h3>Mood tracking</h3><p>Log simple reflections and notice patterns over time.</p></article><article class="feature-item"><div class="feature-icon" aria-hidden="true">Plus</div><h3>Oneura Plus</h3><p>Unlock unlimited listening, premium audio, and ad-free use.</p></article></div></section><section class="proof-section" aria-labelledby="proof-title"><div class="section-heading"><p class="section-eyebrow">Early proof</p><h2 id="proof-title">Trusted by people building calmer routines</h2><p>Oneura is already helping users bring sounds, meditation, mood logs, and gentle insights together without making the app feel overwhelming.</p></div><dl class="proof-stat-grid" aria-label="Oneura proof points"><div><dt>5,000+</dt><dd>total installs</dd></div><div><dt>5.0</dt><dd>recent Google Play rating</dd></div><div><dt>5.0</dt><dd>App Store rating</dd></div><div><dt>iOS + Android</dt><dd>available platforms</dd></div></dl><div class="review-grid"><figure class="review-card"><div class="review-rating" aria-label="5 out of 5 stars">5.0 stars</div><blockquote>Great app! It&#x27;s nice to have all of my mindfulness stuff in one place (sounds, meditation, mood logs and more). It connects to my watch to give me insights, and I&#x27;ve been sleeping better since using both combined.</blockquote><figcaption><strong>Ana L.</strong><span>Google Play review, May 2026</span></figcaption></figure><figure class="review-card"><div class="review-rating" aria-label="5 out of 5 stars">5.0 stars</div><blockquote>Finally an app that isn&#x27;t too &#x27;busy&#x27; like all other ones. The layout is not overwhelming and can use it easily. There&#x27;s a huge variety of sounds and meditations - the free features are better than all other apps I&#x27;ve tried.</blockquote><figcaption><strong>Jessica F.</strong><span>Google Play review, May 2026</span></figcaption></figure><figure class="review-card"><div class="review-rating" aria-label="5 out of 5 stars">5.0 stars</div><blockquote>Real relaxation. Thanks for the app.</blockquote><figcaption><strong>Vika S.</strong><span>App Store review, February 2026</span></figcaption></figure></div></section><section class="oneura-faq" aria-labelledby="oneura-faq-title"><div class="section-heading"><p class="section-eyebrow">FAQ</p><h2 id="oneura-faq-title">Questions people ask about Oneura</h2></div><div class="faq-list"><article class="faq-item"><h3>What is Oneura?</h3><p>Oneura is a sleep sounds and sensory relaxation app for iOS and Android. It combines calming soundscapes, white noise, sleep stories, mood tracking, and gentle wind-down insights for busy minds.</p></article><article class="faq-item"><h3>Is Oneura a free sleep app?</h3><p>Oneura is free to download and includes a free listening tier. Oneura Plus adds unlimited listening, premium sounds, premium stories, ad-free use, and advanced playlists.</p></article><article class="faq-item"><h3>Can Oneura help with focus as well as sleep?</h3><p>Yes. Oneura includes steady noise, cafe ambience, nature sounds, and layered mixes that can support reading, studying, deep work, and calmer transitions between tasks.</p></article><article class="faq-item"><h3>Does Oneura give medical advice?</h3><p>No. Oneura is wellness software, not a medical device. Any mood or sleep insights are informational and reflective, and serious or persistent concerns should be discussed with a qualified professional.</p></article></div><a class="faq-see-all-link" href="/faq" data-discover="true">See all frequently asked questions →</a></section><section class="download-cta-section" aria-labelledby="download-cta-title"><div class="download-cta-inner"><p class="section-eyebrow">Get the app</p><h2 id="download-cta-title">Download Oneura free on iOS and Android</h2><p>Start with calming soundscapes, sleep stories, and mood-aware wind-downs. Upgrade to Plus anytime for unlimited listening.</p><div class="oneura-store-cta"><div class="store-buttons " aria-label="Download Oneura"><a href="https://play.google.com/store/apps/details?id=com.stratocraft.oneura" target="_blank" rel="noopener noreferrer" data-analytics-placement="home_download_cta" data-analytics-link="google_play" aria-label="Download Oneura on Google Play"><img src="/assets/google-play-BRwodeCL.png" alt="Get it on Google Play" class="store-badge"/></a><a href="https://apps.apple.com/app/oneura/id6754253306" target="_blank" rel="noopener noreferrer" data-analytics-placement="home_download_cta" data-analytics-link="app_store" aria-label="Download Oneura on the App Store"><img src="/assets/app-store-Bex_ljrS.png" alt="Download on the App Store" class="store-badge"/></a></div></div></div></section></main></div><footer class="oneura-footer"><div class="oneura-footer-social"><a href="https://www.facebook.com/profile.php?id=61578493060994" target="_blank" rel="noopener noreferrer" aria-label="Follow Oneura on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2.5l-.5 3H14v9h-3.5v-9H9v-3h1.5V7.2c0-2.2 1.3-3.7 3.6-3.7H16v3h-1.8c-.9 0-1.2.5-1.2 1.2V8.5z"></path></svg></a><a href="https://www.instagram.com/oneura.sleep/" target="_blank" rel="noopener noreferrer" aria-label="Follow Oneura on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 5.2 8v8A2.8 2.8 0 0 0 8 18.8h8a2.8 2.8 0 0 0 2.8-2.8V8A2.8 2.8 0 0 0 16 5.2H8zm9.2 1.3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 8.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm0 2.2A1.3 1.3 0 1 0 13.3 12 1.3 1.3 0 0 0 12 10.7z"></path></svg></a></div><ul class="oneura-footer-links"><li><a href="/about" data-discover="true">About</a></li><li><a href="/subscription" data-discover="true">Subscription</a></li><li><a href="/faq" data-discover="true">FAQ</a></li><li><a href="/sleep-sounds-white-noise" data-discover="true">Sleep Sounds</a></li><li><a href="/sensory-relaxation-app" data-discover="true">Sensory Relaxation</a></li><li><a href="/sleep-app-for-busy-minds" data-discover="true">Busy Minds</a></li><li><a href="/neuro-friendly-sleep-app" data-discover="true">Neuro-Friendly Sleep</a></li><li><a href="/mood-tracking-sleep-app" data-discover="true">Mood Tracking</a></li><li><a href="/sleep-sounds-for-focus" data-discover="true">Focus Sounds</a></li><li><a href="/privacy-policy" data-discover="true">Privacy Policy</a></li><li><a href="/terms-and-conditions" data-discover="true">Terms &amp; Conditions</a></li><li><a href="/cookie-policy" data-discover="true">Cookie Policy</a></li><li><a href="https://strato-craft.com/support" target="_blank" rel="noopener noreferrer">Support</a></li><li><a href="/delete-data" data-discover="true">Delete My Data</a></li></ul></footer></div></div>
+    <div id="root"><link rel="preload" as="image" href="/assets/logo-color-GtukZSPE.png"/><link rel="preload" as="image" href="/assets/google-play-BRwodeCL.png"/><link rel="preload" as="image" href="/assets/app-store-Bex_ljrS.png"/><div class="site-shell oneura-site"><nav class="navbar oneura-navbar"><a class="navbar-logo-link" href="/" data-discover="true"><img src="/assets/logo-color-GtukZSPE.png" alt="Oneura" class="navbar-logo"/><span class="brand-name">Oneura</span></a><ul><li><a href="/" data-discover="true">Home</a></li><li class="guides-nav-item"><nav aria-label="Guides" class="guides-nav-crawl"><ul><li><a href="/sleep-sounds-white-noise" data-discover="true">Sleep sounds and white noise</a></li><li><a href="/sensory-relaxation-app" data-discover="true">Sensory relaxation app</a></li><li><a href="/sleep-app-for-busy-minds" data-discover="true">Sleep app for busy minds</a></li><li><a href="/neuro-friendly-sleep-app" data-discover="true">Neuro-friendly sleep app</a></li><li><a href="/mood-tracking-sleep-app" data-discover="true">Mood tracking sleep app</a></li><li><a href="/sleep-sounds-for-focus" data-discover="true">Sleep sounds for focus</a></li><li><a href="/best-sleep-app-for-busy-minds" data-discover="true">Best sleep app for busy minds</a></li><li><a href="/white-noise-pink-noise-rain-sounds" data-discover="true">White noise, pink noise and rain sounds</a></li><li><a href="/sleep-app-adhd-neurodivergent" data-discover="true">Sleep app for ADHD and neurodivergent minds</a></li><li><a href="/best-free-sleep-sounds-app" data-discover="true">Best free sleep sounds app</a></li><li><a href="/sleep-sounds-sensory-overload" data-discover="true">Sleep sounds for sensory overload</a></li><li><a href="/oneura-vs-calm" data-discover="true">Oneura vs Calm</a></li><li><a href="/oneura-vs-bettersleep" data-discover="true">Oneura vs BetterSleep</a></li><li><a href="/oneura-vs-headspace" data-discover="true">Oneura vs Headspace</a></li></ul></nav><button type="button" class="dropdown-toggle guides-nav-trigger" aria-haspopup="dialog" aria-expanded="false">Guides<!-- --> ▼</button></li><li><a href="/about" data-discover="true">About</a></li><li><a href="/subscription" data-discover="true">Subscription</a></li><li><a href="/faq" data-discover="true">FAQ</a></li><li><a href="https://strato-craft.com/support" target="_blank" rel="noopener noreferrer">Support</a></li><li><a href="https://strato-craft.com" target="_blank" rel="noopener noreferrer" class="oneura-studio-link">Strato-Craft ↗</a></li><li class="language-switcher-item"><button type="button" class="dropdown-toggle language-switcher-trigger" aria-haspopup="dialog" aria-expanded="false" aria-label="Language: English (UK)"><svg class="language-switcher-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.18a15.6 15.6 0 0 0-1.07-4.36A8.02 8.02 0 0 1 19.93 11ZM12 4c.95 1.2 1.72 2.86 2.08 5H9.92C10.28 6.86 11.05 5.2 12 4ZM4.25 13h3.18c.14 1.48.48 2.88 1.01 4.07A8.02 8.02 0 0 1 4.25 13Zm3.18-2H4.25a8.02 8.02 0 0 1 4.19-3.93C7.73 8.12 7.39 9.52 7.25 11Zm2.67 7h4.16c-.36 2.14-1.13 3.8-2.08 5-1.2-1.52-1.87-3.18-2.08-5Zm4.16-2H9.92c.21-1.82.88-3.48 2.08-5 .95 1.52 1.72 3.18 2.08 5Zm2.49 2.07c.53-1.19.87-2.59 1.01-4.07h3.18a8.02 8.02 0 0 1-4.19 3.93Z"></path></svg><span class="language-switcher-label">English (UK)</span></button></li></ul></nav><div class="page-container"><main class="oneura-home-container"><section class="oneura-hero" aria-labelledby="oneura-home-title"><img src="/assets/logo-color-GtukZSPE.png" alt="Oneura app icon" class="app-logo" fetchPriority="high"/><p class="hero-kicker">Sleep sounds app for iOS and Android</p><h1 id="oneura-home-title">Oneura sleep sounds, sensory relaxation, and mood-aware wind-downs</h1><p>Build calmer evenings with relaxing soundscapes, sleep stories, focus-friendly ambience, mood tracking, and sensory support designed for busy minds, overstimulation, and your own wind-down routine.</p><div class="oneura-store-cta"><div class="store-buttons " aria-label="Download Oneura"><a href="https://play.google.com/store/apps/details?id=com.stratocraft.oneura" target="_blank" rel="noopener noreferrer" data-analytics-placement="hero" data-analytics-link="google_play" aria-label="Download Oneura on Google Play"><img src="/assets/google-play-BRwodeCL.png" alt="Get it on Google Play" class="store-badge"/></a><a href="https://apps.apple.com/app/oneura/id6754253306" target="_blank" rel="noopener noreferrer" data-analytics-placement="hero" data-analytics-link="app_store" aria-label="Download Oneura on the App Store"><img src="/assets/app-store-Bex_ljrS.png" alt="Download on the App Store" class="store-badge"/></a></div></div><a class="about-button" href="/about" data-discover="true">Explore Oneura</a></section><section class="answer-summary" aria-labelledby="what-is-oneura"><div class="answer-summary-inner"><h2 id="what-is-oneura">What is Oneura?</h2><p class="section-eyebrow">Quick answer</p><p>Oneura is a mobile sleep sounds and sensory relaxation app from Strato-Craft Ltd. It helps people relax, sleep, focus, and reflect with ambient audio, mood tracking, optional health-connected context, and a simple subscription called Oneura Plus.</p><dl class="answer-facts"><div><dt>Best for</dt><dd>Sleep, sensory relaxation, focus, overstimulation, and wind-down routines</dd></div><div><dt>Platforms</dt><dd>iOS and Android</dd></div><div><dt>Price</dt><dd>Free download with optional Plus upgrade</dd></div><div><dt>Publisher</dt><dd>Strato-Craft Ltd</dd></div></dl></div></section><section class="positioning-section" aria-labelledby="busy-minds-title"><div class="positioning-inner"><p class="section-eyebrow">Built for busy, overstimulated minds</p><h2 id="busy-minds-title">Sleep support when switching off does not feel simple</h2><p>Oneura is designed for people who struggle to settle after noisy, high-input days. Whether that means racing thoughts, sensory overload, focus fatigue, or needing a calmer evening routine, the app gives you sound, ambience, and reflection without turning relaxation into another performance.</p></div></section><section class="topic-cluster-section" aria-labelledby="topic-cluster-title"><div class="section-heading"><p class="section-eyebrow">Built for the moments people search for</p><h2 id="topic-cluster-title">Sleep sounds, sensory calm, and neuro-friendly wind-downs</h2><p>Oneura is still a sleep app, but its sharper lane is calmer sensory support for busy, overstimulated minds that need a softer way into sleep, focus, or decompression.</p></div><div class="topic-link-grid"><a class="topic-link-card" href="/sleep-sounds-white-noise" data-discover="true"><h3>Sleep sounds and white noise</h3><p>A focused guide to Oneura as a sleep sounds app with white noise, brown noise, rain, ocean, fans, and timers.</p></a><a class="topic-link-card" href="/sensory-relaxation-app" data-discover="true"><h3>Sensory relaxation app</h3><p>How Oneura uses sound, ambience, optional haptics, and simple routines for overstimulated moments.</p></a><a class="topic-link-card" href="/sleep-app-for-busy-minds" data-discover="true"><h3>Sleep app for busy minds</h3><p>A calmer way to settle racing thoughts with soundscapes, sleep stories, and low-friction wind-downs.</p></a><a class="topic-link-card" href="/neuro-friendly-sleep-app" data-discover="true"><h3>Neuro-friendly sleep app</h3><p>Careful, non-medical language around sensory needs, busy minds, and flexible sleep support.</p></a><a class="topic-link-card" href="/mood-tracking-sleep-app" data-discover="true"><h3>Mood tracking sleep app</h3><p>How Oneura connects mood check-ins, sleep sounds, and gentle insight without heavy scoring.</p></a><a class="topic-link-card" href="/sleep-sounds-for-focus" data-discover="true"><h3>Sleep sounds for focus</h3><p>Use cafe ambience, fans, steady noise, and nature soundscapes for study, work, and transitions.</p></a><a class="topic-link-card" href="/best-sleep-app-for-busy-minds" data-discover="true"><h3>Best sleep app for busy minds</h3><p>Racing thoughts, ADHD, AuDHD, and overthinking - with sleep sounds, stories, and low-friction wind-downs.</p></a><a class="topic-link-card" href="/white-noise-pink-noise-rain-sounds" data-discover="true"><h3>White noise, pink noise and rain sounds</h3><p>Noise colours, rain, ocean, fans, cafe ambience, and layered mixing for sleep and focus.</p></a><a class="topic-link-card" href="/sleep-app-adhd-neurodivergent" data-discover="true"><h3>Sleep app for ADHD and neurodivergent minds</h3><p>Wind-down, focus regulation, and sensory calm for ADHD, autism, and AuDHD - wellness support only.</p></a><a class="topic-link-card" href="/best-free-sleep-sounds-app" data-discover="true"><h3>Best free sleep sounds app</h3><p>Free white noise, rain, and core sleep sounds - plus what Oneura Plus unlocks.</p></a><a class="topic-link-card" href="/sleep-sounds-sensory-overload" data-discover="true"><h3>Sleep sounds for sensory overload</h3><p>Calming audio for autism sensory overload, ADHD overstimulation, and AuDHD wind-down.</p></a></div></section><section class="topic-cluster-section compare-cluster-section" aria-labelledby="compare-cluster-title"><div class="section-heading"><p class="section-eyebrow">Compare apps</p><h2 id="compare-cluster-title">Oneura vs other sleep and wellness apps</h2><p>Honest comparisons for people searching Calm or BetterSleep alternatives - and why Oneura focuses on softer, sensory-first sleep support.</p></div><div class="topic-link-grid compare-link-grid"><a class="topic-link-card compare-link-card" href="/oneura-vs-calm" data-discover="true"><h3>Oneura vs Calm</h3><p>Calm has a huge meditation library. Oneura is simpler, softer, and sensory-friendly for busy neurodivergent minds.</p></a><a class="topic-link-card compare-link-card" href="/oneura-vs-bettersleep" data-discover="true"><h3>Oneura vs BetterSleep</h3><p>BetterSleep has a large catalogue. Oneura prioritises simplicity, haptics, and neurodivergent-friendly design.</p></a><a class="topic-link-card compare-link-card" href="/oneura-vs-headspace" data-discover="true"><h3>Oneura vs Headspace</h3><p>Headspace leads on guided meditation. Oneura leads on sleep sounds, sensory calm, and low-friction wind-down.</p></a></div></section><section class="sound-category-section" aria-labelledby="sound-library"><div class="section-heading"><p class="section-eyebrow">Sound library</p><h2 id="sound-library">Calming sounds for sleep, focus, and rest</h2><p>Mix natural ambience, steady masking sounds, and gentle audio beds into a routine that fits the way you actually unwind.</p></div><ul class="sound-category-list" aria-label="Oneura sound categories"><li>Rain and storms</li><li>Ocean waves</li><li>Forest ambience</li><li>Streams and water</li><li>White, pink, brown, and green noise</li><li>Fans and steady air</li><li>Cafe atmosphere</li><li>Meditation and tonal beds</li></ul></section><section class="app-preview" aria-labelledby="preview-title"><h2 id="preview-title">Immersive soundscapes and visual moments</h2><div class="preview-container"><article class="preview-box"><img src="/assets/preview-ocean-optimized-BkWCt4xX.png" alt="Oneura ocean waves soundscape for sleep and relaxation" loading="lazy" decoding="async" class="preview-image"/><h3>Sleep and relaxation</h3><p>Drift into rest with ocean waves, rain, and soothing soundscapes that make night routines easier to repeat.</p></article><article class="preview-box"><img src="/assets/preview-forest-optimized-UKu42thK.png" alt="Oneura sound library with forest ambience and nature sounds" loading="lazy" decoding="async" class="preview-image"/><h3>Sound library and ambience</h3><p>Choose from nature ambience, noise colours, and curated soundscapes. Save favourites and build mixes around your mood.</p></article><article class="preview-box"><img src="/assets/preview-cafe-optimized-g6L42Ndw.png" alt="Oneura cafe atmosphere and focus sounds for productivity" loading="lazy" decoding="async" class="preview-image"/><h3>Mindfulness and focus</h3><p>Create a calmer background for reading, journaling, study, breathwork, or quiet productivity.</p></article></div></section><section class="features-section" aria-labelledby="features-title"><h2 id="features-title">Key features</h2><div class="features-grid"><article class="feature-item"><div class="feature-icon" aria-hidden="true">Timer</div><h3>Sleep timer</h3><p>Set a timer and let your soundscape fade into the background.</p></article><article class="feature-item"><div class="feature-icon" aria-hidden="true">Mix</div><h3>Layered playlists</h3><p>Blend favourite sounds together for a personal ambience.</p></article><article class="feature-item"><div class="feature-icon" aria-hidden="true">Mood</div><h3>Mood tracking</h3><p>Log simple reflections and notice patterns over time.</p></article><article class="feature-item"><div class="feature-icon" aria-hidden="true">Plus</div><h3>Oneura Plus</h3><p>Unlock unlimited listening, premium audio, and ad-free use.</p></article></div></section><section class="proof-section" aria-labelledby="proof-title"><div class="section-heading"><p class="section-eyebrow">Early proof</p><h2 id="proof-title">Trusted by people building calmer routines</h2><p>Oneura is already helping users bring sounds, meditation, mood logs, and gentle insights together without making the app feel overwhelming.</p></div><dl class="proof-stat-grid" aria-label="Oneura proof points"><div><dt>5,000+</dt><dd>total installs</dd></div><div><dt>5.0</dt><dd>recent Google Play rating</dd></div><div><dt>5.0</dt><dd>App Store rating</dd></div><div><dt>iOS + Android</dt><dd>available platforms</dd></div></dl><div class="review-grid"><figure class="review-card"><div class="review-rating" aria-label="5.0 stars">5.0 stars</div><blockquote>Great app! It&#x27;s nice to have all of my mindfulness stuff in one place (sounds, meditation, mood logs and more). It connects to my watch to give me insights, and I&#x27;ve been sleeping better since using both combined.</blockquote><figcaption><strong>Ana L.</strong><span>Google Play review, May 2026</span></figcaption></figure><figure class="review-card"><div class="review-rating" aria-label="5.0 stars">5.0 stars</div><blockquote>Finally an app that isn&#x27;t too &#x27;busy&#x27; like all other ones. The layout is not overwhelming and can use it easily. There&#x27;s a huge variety of sounds and meditations - the free features are better than all other apps I&#x27;ve tried.</blockquote><figcaption><strong>Jessica F.</strong><span>Google Play review, May 2026</span></figcaption></figure><figure class="review-card"><div class="review-rating" aria-label="5.0 stars">5.0 stars</div><blockquote>Real relaxation. Thanks for the app.</blockquote><figcaption><strong>Vika S.</strong><span>App Store review, February 2026</span></figcaption></figure></div></section><section class="oneura-faq" aria-labelledby="oneura-faq-title"><div class="section-heading"><p class="section-eyebrow">FAQ</p><h2 id="oneura-faq-title">Questions people ask about Oneura</h2></div><div class="faq-list"><article class="faq-item"><h3>What is Oneura?</h3><p>Oneura is a sleep sounds and sensory relaxation app for iOS and Android. It combines calming soundscapes, white noise, sleep stories, mood tracking, and gentle wind-down insights for busy minds.</p></article><article class="faq-item"><h3>Is Oneura a free sleep app?</h3><p>Oneura is free to download and includes a free listening tier. Oneura Plus adds unlimited listening, premium sounds, premium stories, ad-free use, and advanced playlists.</p></article><article class="faq-item"><h3>Can Oneura help with focus as well as sleep?</h3><p>Yes. Oneura includes steady noise, cafe ambience, nature sounds, and layered mixes that can support reading, studying, deep work, and calmer transitions between tasks.</p></article><article class="faq-item"><h3>Does Oneura give medical advice?</h3><p>No. Oneura is wellness software, not a medical device. Any mood or sleep insights are informational and reflective, and serious or persistent concerns should be discussed with a qualified professional.</p></article></div><a class="faq-see-all-link" href="/faq" data-discover="true">See all frequently asked questions →</a></section><section class="download-cta-section" aria-labelledby="download-cta-title"><div class="download-cta-inner"><p class="section-eyebrow">Get the app</p><h2 id="download-cta-title">Download Oneura free on iOS and Android</h2><p>Start with calming soundscapes, sleep stories, and mood-aware wind-downs. Upgrade to Plus anytime for unlimited listening.</p><div class="oneura-store-cta"><div class="store-buttons " aria-label="Download Oneura"><a href="https://play.google.com/store/apps/details?id=com.stratocraft.oneura" target="_blank" rel="noopener noreferrer" data-analytics-placement="home_download_cta" data-analytics-link="google_play" aria-label="Download Oneura on Google Play"><img src="/assets/google-play-BRwodeCL.png" alt="Get it on Google Play" class="store-badge"/></a><a href="https://apps.apple.com/app/oneura/id6754253306" target="_blank" rel="noopener noreferrer" data-analytics-placement="home_download_cta" data-analytics-link="app_store" aria-label="Download Oneura on the App Store"><img src="/assets/app-store-Bex_ljrS.png" alt="Download on the App Store" class="store-badge"/></a></div></div></div></section></main></div><footer class="oneura-footer"><div class="oneura-footer-social"><a href="https://www.facebook.com/profile.php?id=61578493060994" target="_blank" rel="noopener noreferrer" aria-label="Follow Oneura on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2.5l-.5 3H14v9h-3.5v-9H9v-3h1.5V7.2c0-2.2 1.3-3.7 3.6-3.7H16v3h-1.8c-.9 0-1.2.5-1.2 1.2V8.5z"></path></svg></a><a href="https://www.instagram.com/oneura.sleep/" target="_blank" rel="noopener noreferrer" aria-label="Follow Oneura on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 5.2 8v8A2.8 2.8 0 0 0 8 18.8h8a2.8 2.8 0 0 0 2.8-2.8V8A2.8 2.8 0 0 0 16 5.2H8zm9.2 1.3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 8.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm0 2.2A1.3 1.3 0 1 0 13.3 12 1.3 1.3 0 0 0 12 10.7z"></path></svg></a></div><ul class="oneura-footer-links"><li><a href="/about" data-discover="true">About</a></li><li><a href="/subscription" data-discover="true">Subscription</a></li><li><a href="/faq" data-discover="true">FAQ</a></li><li><a href="/sleep-sounds-white-noise" data-discover="true">Sleep sounds and white noise</a></li><li><a href="/sensory-relaxation-app" data-discover="true">Sensory relaxation app</a></li><li><a href="/sleep-app-for-busy-minds" data-discover="true">Sleep app for busy minds</a></li><li><a href="/neuro-friendly-sleep-app" data-discover="true">Neuro-friendly sleep app</a></li><li><a href="/mood-tracking-sleep-app" data-discover="true">Mood tracking sleep app</a></li><li><a href="/sleep-sounds-for-focus" data-discover="true">Sleep sounds for focus</a></li><li><a href="/best-sleep-app-for-busy-minds" data-discover="true">Best sleep app for busy minds</a></li><li><a href="/white-noise-pink-noise-rain-sounds" data-discover="true">White noise, pink noise and rain sounds</a></li><li><a href="/sleep-app-adhd-neurodivergent" data-discover="true">Sleep app for ADHD and neurodivergent minds</a></li><li><a href="/best-free-sleep-sounds-app" data-discover="true">Best free sleep sounds app</a></li><li><a href="/sleep-sounds-sensory-overload" data-discover="true">Sleep sounds for sensory overload</a></li><li><a href="/oneura-vs-calm" data-discover="true">Oneura vs Calm</a></li><li><a href="/oneura-vs-bettersleep" data-discover="true">Oneura vs BetterSleep</a></li><li><a href="/oneura-vs-headspace" data-discover="true">Oneura vs Headspace</a></li><li><a href="/privacy-policy" data-discover="true">Privacy Policy</a></li><li><a href="/terms-and-conditions" data-discover="true">Terms &amp; Conditions</a></li><li><a href="/cookie-policy" data-discover="true">Cookie Policy</a></li><li><a href="https://strato-craft.com/support" target="_blank" rel="noopener noreferrer">Support</a></li><li><a href="/delete-data" data-discover="true">Delete My Data</a></li></ul></footer></div></div>
   </body>
 </html>

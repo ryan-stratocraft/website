@@ -37,7 +37,7 @@ const OneuraTermsAndConditions: React.FC = () => {
           </p>
           <p>
             <strong>Arbitration notice for U.S. residents.</strong> If you reside in the United States, Section
-            18 (Dispute resolution — United States) contains a binding arbitration provision and class-action
+            18 (Dispute resolution - United States) contains a binding arbitration provision and class-action
             waiver that affect your legal rights. Please read it carefully.
           </p>
         </section>
@@ -48,8 +48,8 @@ const OneuraTermsAndConditions: React.FC = () => {
             Oneura is a consumer wellness and lifestyle application that offers ambient audio, routines,
             stories, mood and reflection tools, optional insights, and related features intended to support
             relaxation, focus, and personal wellbeing. The Service may also allow you to connect optional device
-            or platform integrations — for example, optional health or wearable data where you grant permission
-            — solely to display information and correlations within the app as described in our{" "}
+            or platform integrations - for example, optional health or wearable data where you grant permission
+            - solely to display information and correlations within the app as described in our{" "}
             <Link to={privacyHref}>Privacy Policy</Link>.
           </p>
           <p className="highlight">
@@ -126,7 +126,7 @@ const OneuraTermsAndConditions: React.FC = () => {
           <p>
             We may suspend or limit access to fee-based features if payments fail. We are not responsible for
             losses arising from suspension, account deletion by a store, or failed renewals where your payment
-            method is invalid — subject to applicable consumer rights that cannot be waived.
+            method is invalid - subject to applicable consumer rights that cannot be waived.
           </p>
 
           <h3>4.5 Cancellation</h3>
@@ -208,7 +208,7 @@ const OneuraTermsAndConditions: React.FC = () => {
         <section className="policy-section">
           <h2>8. Third-party services</h2>
           <p>
-            The Service relies on or links to third parties — including app stores, hosting and analytics
+            The Service relies on or links to third parties - including app stores, hosting and analytics
             providers, authentication services, and optional integrations you enable. Those third parties have
             their own terms and privacy practices. We are not responsible for third-party services. Where you
             direct data to a third party or connect an integration, your relationship is with that third party.
@@ -402,7 +402,7 @@ const OneuraTermsAndConditions: React.FC = () => {
         </section>
 
         <section className="policy-section">
-          <h2>19. Dispute resolution — United States</h2>
+          <h2>19. Dispute resolution - United States</h2>
           <p>
             <strong>This Section 19 applies only if you reside in the United States.</strong> It does not apply
             where prohibited by law. Nothing in this Section limits non-waivable rights you may have under federal,

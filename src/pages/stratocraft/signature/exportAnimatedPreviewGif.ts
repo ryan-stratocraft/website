@@ -7,7 +7,7 @@ export type RecordGifOptions = {
   /** Cap CSS width before capture (helps email-safe file sizes). */
   maxCssWidthPx: number;
   /**
-   * Limit longest canvas side (pixels) after scale — keeps quantize/GIF encode
+   * Limit longest canvas side (pixels) after scale - keeps quantize/GIF encode
    * from freezing the tab when the preview is tall/wide.
    */
   maxCaptureSidePx?: number;
@@ -37,7 +37,7 @@ function withTimeout<T>(
 ): Promise<T> {
   return new Promise<T>((resolve, reject) => {
     const tid = window.setTimeout(() => {
-      reject(new Error(`${label} timed out after ${ms}ms — try lowering duration or FPS, or simplify the preview.`));
+      reject(new Error(`${label} timed out after ${ms}ms - try lowering duration or FPS, or simplify the preview.`));
     }, ms);
     promise.then(
       (v) => {

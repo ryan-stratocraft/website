@@ -1,0 +1,163 @@
+.language-switcher-item {
+  position: relative;
+}
+
+.language-switcher-trigger {
+  background: none;
+  border: none;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.oneura-navbar .language-switcher-trigger:hover {
+  color: #fff;
+}
+
+.language-switcher-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.language-switcher-label {
+  max-width: 7.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.language-switcher-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5.5rem 1rem 1.5rem;
+  background: rgba(8, 4, 20, 0.55);
+  backdrop-filter: blur(4px);
+  font-family: var(--oneura-font-family, "Comfortaa", Arial, sans-serif);
+}
+
+.language-switcher-panel {
+  width: min(22rem, 100%);
+  max-height: min(28rem, calc(100vh - 7rem));
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 11, 46, 0.98) 0%,
+    rgba(50, 0, 150, 0.98) 100%
+  );
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  animation: languagePanelFadeIn 0.18s ease;
+}
+
+@keyframes languagePanelFadeIn {
+  from {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.language-switcher-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem 0.65rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.22);
+}
+
+.language-switcher-panel-header h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.language-switcher-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  font-size: 1.35rem;
+  line-height: 1;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+}
+
+.language-switcher-close:hover {
+  color: #fff;
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.language-switcher-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.45rem;
+  overflow-y: auto;
+}
+
+.language-switcher-list li {
+  display: block;
+  margin: 0;
+}
+
+.language-switcher-option {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+  width: 100%;
+}
+
+.language-switcher-option:hover,
+.language-switcher-option.is-active {
+  background: rgba(139, 92, 246, 0.22);
+  color: #fff;
+}
+
+.language-switcher-option.is-active {
+  background: rgba(139, 92, 246, 0.32);
+}
+
+@media (max-width: 900px) {
+  .language-switcher-trigger {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .language-switcher-label {
+    max-width: 5.5rem;
+  }
+
+  .language-switcher-overlay {
+    padding-top: 6.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .language-switcher-label {
+    display: none;
+  }
+}

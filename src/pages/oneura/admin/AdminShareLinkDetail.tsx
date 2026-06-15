@@ -28,7 +28,7 @@ interface ShareLinkDoc {
 }
 
 /**
- * `/admin/links/:slug` — detail view for a share link.
+ * `/admin/links/:slug` - detail view for a share link.
  *
  * Layout:
  *   ┌──────────────────────────┬─────────────────────────┐
@@ -248,11 +248,11 @@ const AdminShareLinkDetail: React.FC = () => {
             />
             <KV
               label="updated"
-              value={link.updatedAt ? link.updatedAt.toLocaleString() : "—"}
+              value={link.updatedAt ? link.updatedAt.toLocaleString() : "-"}
             />
             <KV
               label="created"
-              value={link.createdAt ? link.createdAt.toLocaleString() : "—"}
+              value={link.createdAt ? link.createdAt.toLocaleString() : "-"}
             />
           </Card>
 
@@ -445,7 +445,7 @@ const ClickBreakdown: React.FC<{
   if (entries.length === 0) {
     return (
       <div style={{ color: "#94a3b8", fontSize: 13 }}>
-        No data yet — clicks will populate this list as the link is used.
+        No data yet - clicks will populate this list as the link is used.
       </div>
     );
   }

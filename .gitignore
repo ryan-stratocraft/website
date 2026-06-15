@@ -27,5 +27,7 @@ dist-oneura
 *.sw?
 .env
 
+# IndexNow API key (copy .indexnow/key.txt.example if missing)
+.indexnow/key.txt
 
 apphosting.local.yaml

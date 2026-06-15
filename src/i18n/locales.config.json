@@ -1,0 +1,163 @@
+[
+  {
+    "id": "en-GB",
+    "urlPrefix": "",
+    "hreflang": "en-GB",
+    "ogLocale": "en_GB",
+    "label": "English (UK)"
+  },
+  {
+    "id": "en-US",
+    "urlPrefix": "en-us",
+    "hreflang": "en-US",
+    "ogLocale": "en_US",
+    "label": "English (US)"
+  },
+  {
+    "id": "en-SG",
+    "urlPrefix": "en-sg",
+    "hreflang": "en-SG",
+    "ogLocale": "en_SG",
+    "label": "English (Singapore)"
+  },
+  {
+    "id": "en-IN",
+    "urlPrefix": "en-in",
+    "hreflang": "en-IN",
+    "ogLocale": "en_IN",
+    "label": "English (India)"
+  },
+  {
+    "id": "fr",
+    "urlPrefix": "fr",
+    "hreflang": "fr",
+    "ogLocale": "fr_FR",
+    "label": "Français"
+  },
+  {
+    "id": "es",
+    "urlPrefix": "es",
+    "hreflang": "es",
+    "ogLocale": "es_ES",
+    "label": "Español"
+  },
+  {
+    "id": "pt",
+    "urlPrefix": "pt",
+    "hreflang": "pt-PT",
+    "ogLocale": "pt_PT",
+    "label": "Português (Portugal)"
+  },
+  {
+    "id": "pt-BR",
+    "urlPrefix": "pt-br",
+    "hreflang": "pt-BR",
+    "ogLocale": "pt_BR",
+    "label": "Português (Brasil)"
+  },
+  {
+    "id": "de",
+    "urlPrefix": "de",
+    "hreflang": "de",
+    "ogLocale": "de_DE",
+    "label": "Deutsch"
+  },
+  {
+    "id": "it",
+    "urlPrefix": "it",
+    "hreflang": "it",
+    "ogLocale": "it_IT",
+    "label": "Italiano"
+  },
+  {
+    "id": "nl",
+    "urlPrefix": "nl",
+    "hreflang": "nl",
+    "ogLocale": "nl_NL",
+    "label": "Nederlands"
+  },
+  {
+    "id": "da",
+    "urlPrefix": "da",
+    "hreflang": "da",
+    "ogLocale": "da_DK",
+    "label": "Dansk"
+  },
+  {
+    "id": "sv",
+    "urlPrefix": "sv",
+    "hreflang": "sv",
+    "ogLocale": "sv_SE",
+    "label": "Svenska"
+  },
+  {
+    "id": "nb",
+    "urlPrefix": "no",
+    "hreflang": "nb",
+    "ogLocale": "nb_NO",
+    "label": "Norsk"
+  },
+  {
+    "id": "pl",
+    "urlPrefix": "pl",
+    "hreflang": "pl",
+    "ogLocale": "pl_PL",
+    "label": "Polski"
+  },
+  {
+    "id": "uk",
+    "urlPrefix": "uk",
+    "hreflang": "uk",
+    "ogLocale": "uk_UA",
+    "label": "Українська"
+  },
+  {
+    "id": "ru",
+    "urlPrefix": "ru",
+    "hreflang": "ru",
+    "ogLocale": "ru_RU",
+    "label": "Русский"
+  },
+  {
+    "id": "ja",
+    "urlPrefix": "ja",
+    "hreflang": "ja",
+    "ogLocale": "ja_JP",
+    "label": "日本語"
+  },
+  {
+    "id": "zh",
+    "urlPrefix": "zh",
+    "hreflang": "zh-Hans",
+    "ogLocale": "zh_CN",
+    "label": "中文（简体）"
+  },
+  {
+    "id": "zh-TW",
+    "urlPrefix": "zh-tw",
+    "hreflang": "zh-Hant",
+    "ogLocale": "zh_TW",
+    "label": "中文（繁體）"
+  },
+  {
+    "id": "ko",
+    "urlPrefix": "ko",
+    "hreflang": "ko",
+    "ogLocale": "ko_KR",
+    "label": "한국어"
+  },
+  {
+    "id": "th",
+    "urlPrefix": "th",
+    "hreflang": "th",
+    "ogLocale": "th_TH",
+    "label": "ไทย"
+  },
+  {
+    "id": "hi",
+    "urlPrefix": "hi",
+    "hreflang": "hi",
+    "ogLocale": "hi_IN",
+    "label": "हिन्दी"
+  }
+]

@@ -5,9 +5,9 @@ rules_version = '2';
 //    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
 service firebase.storage {
   match /b/{bucket}/o {
-    // Email signature generator (strato-craft.com/signature) — MVP
+    // Email signature generator (strato-craft.com/signature) - MVP
     // Reads are public so mail clients can load images from returned URLs.
-    // Writes: request.auth.token.email must match — keep in sync with SignatureGenerator allowlist (.env VITE_SIGNATURE_ALLOWED_EMAILS duplicates must be listed here too).
+    // Writes: request.auth.token.email must match - keep in sync with SignatureGenerator allowlist (.env VITE_SIGNATURE_ALLOWED_EMAILS duplicates must be listed here too).
     match /signatures/{userId}/{allPaths=**} {
       allow read: if true;
       allow write: if request.auth != null

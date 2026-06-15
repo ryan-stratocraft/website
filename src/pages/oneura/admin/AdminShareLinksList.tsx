@@ -21,7 +21,7 @@ interface ShareLinkRow {
 }
 
 /**
- * `/admin/links` — table of every share link in /share_links. Sister
+ * `/admin/links` - table of every share link in /share_links. Sister
  * page to AdminOffersList; shares the PageShell + AdminSectionNav so
  * the operator can swap between the two sections.
  */
@@ -116,7 +116,7 @@ const AdminShareLinksList: React.FC = () => {
       {Array.isArray(rows) && rows.length === 0 && (
         <div style={loaderStyle}>
           No share links yet. Click <strong>New share link</strong> to
-          create the first one — they're the simplest way to share Oneura
+          create the first one - they're the simplest way to share Oneura
           on social, in ads, or in a QR code.
         </div>
       )}
@@ -156,7 +156,7 @@ const AdminShareLinksList: React.FC = () => {
                   <td style={tdStyle}>{r.totalClicks.toLocaleString()}</td>
                   <td style={tdStyle}>{r.sourcesCount}</td>
                   <td style={{ ...tdStyle, color: "#94a3b8", fontSize: 13 }}>
-                    {r.updatedAt ? r.updatedAt.toLocaleString() : "—"}
+                    {r.updatedAt ? r.updatedAt.toLocaleString() : "-"}
                   </td>
                 </tr>
               ))}

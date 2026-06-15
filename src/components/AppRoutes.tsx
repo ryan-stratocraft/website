@@ -29,12 +29,20 @@ import OneuraSubscription from "../pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "../pages/oneura/terms/TermsAndConditions";
 import OneuraFaqPage from "../pages/oneura/faq/FaqPage";
 import {
+  BestFreeSleepSoundsAppPage,
+  BestSleepAppForBusyMindsPage,
   MoodTrackingSleepAppPage,
   NeuroFriendlySleepAppPage,
+  OneuraVsBetterSleepPage,
+  OneuraVsCalmPage,
+  OneuraVsHeadspacePage,
   SensoryRelaxationAppPage,
+  SleepAppAdhdNeurodivergentPage,
   SleepSoundsForFocusPage,
   SleepAppForBusyMindsPage,
+  SleepSoundsSensoryOverloadPage,
   SleepSoundsWhiteNoisePage,
+  WhiteNoisePinkNoiseRainSoundsPage,
 } from "../pages/oneura/topics/TopicLandingPage";
 import PartnerLanding from "../pages/oneura/partner/PartnerLanding";
 import ShareLinkRedirect from "../pages/oneura/share/ShareLinkRedirect";
@@ -47,6 +55,7 @@ import AdminShareLinksList from "../pages/oneura/admin/AdminShareLinksList";
 import AdminShareLinkCreate from "../pages/oneura/admin/AdminShareLinkCreate";
 import AdminShareLinkDetail from "../pages/oneura/admin/AdminShareLinkDetail";
 import AdminShareLinkEdit from "../pages/oneura/admin/AdminShareLinkEdit";
+import { ONEURA_LOCALES } from "../i18n/localeConfig";
 
 /** Wraps the admin section so children render only for the operator. */
 const AdminSection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -83,6 +92,7 @@ export const StratoSiteRoutes: React.FC = () => (
         strato-craft.com /oneura/* requests are redirected in firebase.json. */}
     <Route path="/oneura/c/:slug" element={<PartnerLanding />} />
     <Route path="/oneura/d/:slug" element={<ShareLinkRedirect />} />
+    {oneuraLegacyPrefixedRedirects()}
 
     <Route path="/admin" element={<Navigate to="/admin/offers" replace />} />
     <Route
@@ -154,23 +164,85 @@ export const StratoSiteRoutes: React.FC = () => (
   </Routes>
 );
 
-/** oneura.app — clean URLs, no Oh-i / IAC routes. */
+/** oneura.app - clean URLs, no Oh-i / IAC routes. */
+const ONEURA_PUBLIC_PAGES: Array<{
+  path: string;
+  Component: React.ComponentType;
+}> = [
+  { path: "/", Component: OneuraHome },
+  { path: "/about", Component: OneuraAbout },
+  { path: "/faq", Component: OneuraFaqPage },
+  { path: "/subscription", Component: OneuraSubscription },
+  { path: "/privacy-policy", Component: OneuraPrivacyPolicy },
+  { path: "/terms-and-conditions", Component: OneuraTermsAndConditions },
+  { path: "/cookie-policy", Component: OneuraCookiePolicy },
+  { path: "/delete-data", Component: OneuraDeleteData },
+  { path: "/sleep-sounds-white-noise", Component: SleepSoundsWhiteNoisePage },
+  { path: "/sensory-relaxation-app", Component: SensoryRelaxationAppPage },
+  { path: "/sleep-app-for-busy-minds", Component: SleepAppForBusyMindsPage },
+  { path: "/neuro-friendly-sleep-app", Component: NeuroFriendlySleepAppPage },
+  { path: "/mood-tracking-sleep-app", Component: MoodTrackingSleepAppPage },
+  { path: "/sleep-sounds-for-focus", Component: SleepSoundsForFocusPage },
+  {
+    path: "/best-sleep-app-for-busy-minds",
+    Component: BestSleepAppForBusyMindsPage,
+  },
+  {
+    path: "/white-noise-pink-noise-rain-sounds",
+    Component: WhiteNoisePinkNoiseRainSoundsPage,
+  },
+  {
+    path: "/sleep-app-adhd-neurodivergent",
+    Component: SleepAppAdhdNeurodivergentPage,
+  },
+  { path: "/oneura-vs-calm", Component: OneuraVsCalmPage },
+  { path: "/oneura-vs-bettersleep", Component: OneuraVsBetterSleepPage },
+  { path: "/oneura-vs-headspace", Component: OneuraVsHeadspacePage },
+  {
+    path: "/best-free-sleep-sounds-app",
+    Component: BestFreeSleepSoundsAppPage,
+  },
+  {
+    path: "/sleep-sounds-sensory-overload",
+    Component: SleepSoundsSensoryOverloadPage,
+  },
+];
+
+/** Dev/strato legacy links use `/oneura/about`; product routes are `/about`. */
+function oneuraLegacyPrefixedRedirects() {
+  return ONEURA_PUBLIC_PAGES.filter(({ path }) => path !== "/").map(
+    ({ path }) => (
+      <Route
+        key={`legacy-oneura${path}`}
+        path={`/oneura${path}`}
+        element={<Navigate to={path} replace />}
+      />
+    ),
+  );
+}
+
+function oneuraLocalizedPublicRoutes() {
+  return ONEURA_PUBLIC_PAGES.flatMap(({ path, Component }) => {
+    const element = <Component />;
+    const paths = [path];
+
+    for (const locale of ONEURA_LOCALES) {
+      if (!locale.urlPrefix) continue;
+      paths.push(
+        path === "/" ? `/${locale.urlPrefix}` : `/${locale.urlPrefix}${path}`,
+      );
+    }
+
+    return paths.map((routePath) => (
+      <Route key={routePath} path={routePath} element={element} />
+    ));
+  });
+}
+
 export const OneuraProductSiteRoutes: React.FC = () => (
   <Routes>
-    <Route path="/" element={<OneuraHome />} />
-    <Route path="/about" element={<OneuraAbout />} />
-    <Route path="/faq" element={<OneuraFaqPage />} />
-    <Route path="/subscription" element={<OneuraSubscription />} />
-    <Route path="/privacy-policy" element={<OneuraPrivacyPolicy />} />
-    <Route path="/terms-and-conditions" element={<OneuraTermsAndConditions />} />
-    <Route path="/cookie-policy" element={<OneuraCookiePolicy />} />
-    <Route path="/delete-data" element={<OneuraDeleteData />} />
-    <Route path="/sleep-sounds-white-noise" element={<SleepSoundsWhiteNoisePage />} />
-    <Route path="/sensory-relaxation-app" element={<SensoryRelaxationAppPage />} />
-    <Route path="/sleep-app-for-busy-minds" element={<SleepAppForBusyMindsPage />} />
-    <Route path="/neuro-friendly-sleep-app" element={<NeuroFriendlySleepAppPage />} />
-    <Route path="/mood-tracking-sleep-app" element={<MoodTrackingSleepAppPage />} />
-    <Route path="/sleep-sounds-for-focus" element={<SleepSoundsForFocusPage />} />
+    {oneuraLocalizedPublicRoutes()}
+    {oneuraLegacyPrefixedRedirects()}
     <Route path="/c/:slug" element={<PartnerLanding />} />
     <Route path="/d/:slug" element={<ShareLinkRedirect />} />
     <Route path="/admin" element={<Navigate to="/admin/offers" replace />} />

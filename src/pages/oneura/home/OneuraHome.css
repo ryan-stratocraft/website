@@ -314,6 +314,28 @@
   line-height: 1.65;
 }
 
+.compare-cluster-section {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(248, 210, 122, 0.1), transparent 28%),
+    #101827;
+  border-top: 1px solid rgba(94, 234, 212, 0.1);
+}
+
+.compare-link-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.compare-link-card {
+  border-color: rgba(248, 210, 122, 0.28);
+}
+
+.compare-link-card:hover {
+  border-color: rgba(248, 210, 122, 0.48);
+}
+
 .answer-facts {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

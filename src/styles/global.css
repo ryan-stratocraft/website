@@ -101,8 +101,8 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Navbar Links */
-.navbar ul {
+/* Navbar Links - only the top-level list; not nested dropdown menus */
+.navbar > ul {
   display: flex;
   gap: 10px;
   list-style: none;
@@ -111,7 +111,7 @@ body {
   align-items: center;
 }
 
-.navbar ul li {
+.navbar > ul > li {
   display: inline-block;
 }
 
@@ -126,6 +126,13 @@ body {
   transition: all 0.3s ease;
   border-radius: 8px;
   position: relative;
+}
+
+.navbar button.dropdown-toggle {
+  font-family: inherit;
+  background: none;
+  border: none;
+  appearance: none;
 }
 
 .navbar a::before, .dropdown-toggle::before {
@@ -318,7 +325,7 @@ body {
     height: 35px;
   }
 
-  .navbar ul {
+  .navbar > ul {
     flex-direction: row;
     gap: 8px;
     padding: 0;

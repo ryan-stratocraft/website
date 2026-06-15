@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       <div className="products-section">
         <h2>Explore Our Products</h2>
         <p className="products-description">
-          We’re not a consultancy. At Strato-Craft, we build and maintain our own products designed for public use — focusing on AI-powered experiences that are meaningful, accessible, and future-ready.
+          We’re not a consultancy. At Strato-Craft, we build and maintain our own products designed for public use - focusing on AI-powered experiences that are meaningful, accessible, and future-ready.
         </p>
 
         {/* Product Cards */}
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
           <div className="product-info">
             <h3>IAC Platform <span className="coming-soon">Coming Soon</span></h3>
             <p>
-              A visual, intuitive way to understand cloud infrastructure — ideal for developers, teams, and curious learners.
+              A visual, intuitive way to understand cloud infrastructure - ideal for developers, teams, and curious learners.
             </p>
             <Link to="/iac-vr" className="app-button">
               View App

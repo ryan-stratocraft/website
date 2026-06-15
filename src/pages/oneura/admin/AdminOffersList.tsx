@@ -21,7 +21,7 @@ interface CampaignRow {
 }
 
 /**
- * `/admin/offers` — table of every campaign in /campaigns. Rule change:
+ * `/admin/offers` - table of every campaign in /campaigns. Rule change:
  * isAdmin() can read regardless of `status`, so paused / draft offers
  * appear here too. Click a row to drill into AdminOfferDetail.
  */
@@ -143,7 +143,7 @@ const AdminOffersList: React.FC = () => {
                       {r.slug}
                     </Link>
                   </td>
-                  <td style={tdStyle}>{r.displayName ?? r.partnerName ?? "—"}</td>
+                  <td style={tdStyle}>{r.displayName ?? r.partnerName ?? "-"}</td>
                   <td style={tdStyle}>
                     <StatusPill status={r.status} />
                   </td>
@@ -152,7 +152,7 @@ const AdminOffersList: React.FC = () => {
                     {r.redemptionCap != null ? ` / ${r.redemptionCap}` : ""}
                   </td>
                   <td style={{ ...tdStyle, color: "#94a3b8", fontSize: 13 }}>
-                    {r.updatedAt ? r.updatedAt.toLocaleString() : "—"}
+                    {r.updatedAt ? r.updatedAt.toLocaleString() : "-"}
                   </td>
                 </tr>
               ))}

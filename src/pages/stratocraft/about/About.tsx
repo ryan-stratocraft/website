@@ -17,11 +17,11 @@ const About: React.FC = () => {
         <h2>Our Mission</h2>
         <p>
           Strato-Craft is a digital product company focused on building applications that make life 
-          easier, more accessible, and more human—through AI. We develop innovative tools that help 
+          easier, more accessible, and more human-through AI. We develop innovative tools that help 
           people understand, connect, and interact with the world in new ways.
         </p>
         <p>
-          We don't build for profit margins or trends—we build with <strong>real people</strong> in mind.
+          We don't build for profit margins or trends-we build with <strong>real people</strong> in mind.
         </p>
       </section>
 
@@ -53,7 +53,7 @@ const About: React.FC = () => {
             </p>
             <p>
               <a href={ONEURA_APP_ORIGIN} rel="noopener noreferrer">
-                Visit oneura.app — Oneura product site
+                Visit oneura.app - Oneura product site
               </a>
             </p>
           </div>
@@ -76,7 +76,7 @@ const About: React.FC = () => {
             <h3>IAC VR - Visual Infrastructure</h3>
             <p>
               Our flagship project: a visual Infrastructure-as-Code platform designed to help people 
-              interact with complex systems in intuitive ways—especially for those who learn best by 
+              interact with complex systems in intuitive ways-especially for those who learn best by 
               seeing and doing.
             </p>
           </div>
@@ -88,7 +88,7 @@ const About: React.FC = () => {
         <div className="section-icon">🎯</div>
         <h2>Our Philosophy</h2>
         <p>
-          At our core, we're not a consultancy or a service provider. <strong>We're builders</strong>—creating 
+          At our core, we're not a consultancy or a service provider. <strong>We're builders</strong>-creating 
           useful, empathetic, and empowering apps. Our products are tools designed to help people experience 
           the world on their own terms.
         </p>
@@ -105,7 +105,7 @@ const About: React.FC = () => {
         <p>
           If we build something based on your idea, we'll recognize you publicly as a contributor and 
           offer a small stake in the app (subject to terms and conditions). We don't charge people for 
-          sharing ideas—they're what move us forward.
+          sharing ideas-they're what move us forward.
         </p>
         <div className="contact-cta">
           <a href="mailto:support@strato-craft.com" className="contact-button">
@@ -119,7 +119,7 @@ const About: React.FC = () => {
         <h2>For the Curious & Creative</h2>
         <p>
           Strato-Craft is here for the curious, the different, the creative, and the visionary. We're 
-          building apps for people who want the world to make a bit more sense—and maybe even be more fun.
+          building apps for people who want the world to make a bit more sense-and maybe even be more fun.
         </p>
       </section>
     </div>

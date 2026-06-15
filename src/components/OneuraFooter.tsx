@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { STRATO_CRAFT_SUPPORT_URL } from "../constants/origins";
 import {
   ONEURA_FACEBOOK_URL,
   ONEURA_INSTAGRAM_URL,
 } from "../constants/oneuraSocial";
-import { oneuraPagePath } from "../routes/oneuraPaths";
+import { useOneuraPaths } from "../routes/oneuraPaths";
+import {
+  ONEURA_GUIDE_LINKS,
+} from "../routes/oneuraGuideLinks";
 import "./OneuraFooter.css";
 
 function FacebookIcon() {
@@ -25,6 +29,9 @@ function InstagramIcon() {
 }
 
 const OneuraFooter: React.FC = () => {
+  const { t } = useTranslation();
+  const { pagePath } = useOneuraPaths();
+
   return (
     <footer className="oneura-footer">
       <div className="oneura-footer-social">
@@ -47,46 +54,29 @@ const OneuraFooter: React.FC = () => {
       </div>
       <ul className="oneura-footer-links">
         <li>
-          <Link to={oneuraPagePath("about")}>About</Link>
+          <Link to={pagePath("about")}>About</Link>
         </li>
         <li>
-          <Link to={oneuraPagePath("subscription")}>Subscription</Link>
+          <Link to={pagePath("subscription")}>Subscription</Link>
         </li>
         <li>
-          <Link to={oneuraPagePath("faq")}>FAQ</Link>
+          <Link to={pagePath("faq")}>FAQ</Link>
+        </li>
+        {ONEURA_GUIDE_LINKS.map((guide) => (
+          <li key={guide.slug}>
+            <Link to={pagePath(guide.slug)}>{t(guide.titleKey)}</Link>
+          </li>
+        ))}
+        <li>
+          <Link to={pagePath("privacy-policy")}>Privacy Policy</Link>
         </li>
         <li>
-          <Link to={oneuraPagePath("sleep-sounds-white-noise")}>Sleep Sounds</Link>
-        </li>
-        <li>
-          <Link to={oneuraPagePath("sensory-relaxation-app")}>
-            Sensory Relaxation
-          </Link>
-        </li>
-        <li>
-          <Link to={oneuraPagePath("sleep-app-for-busy-minds")}>Busy Minds</Link>
-        </li>
-        <li>
-          <Link to={oneuraPagePath("neuro-friendly-sleep-app")}>
-            Neuro-Friendly Sleep
-          </Link>
-        </li>
-        <li>
-          <Link to={oneuraPagePath("mood-tracking-sleep-app")}>Mood Tracking</Link>
-        </li>
-        <li>
-          <Link to={oneuraPagePath("sleep-sounds-for-focus")}>Focus Sounds</Link>
-        </li>
-        <li>
-          <Link to={oneuraPagePath("privacy-policy")}>Privacy Policy</Link>
-        </li>
-        <li>
-          <Link to={oneuraPagePath("terms-and-conditions")}>
+          <Link to={pagePath("terms-and-conditions")}>
             Terms &amp; Conditions
           </Link>
         </li>
         <li>
-          <Link to={oneuraPagePath("cookie-policy")}>Cookie Policy</Link>
+          <Link to={pagePath("cookie-policy")}>Cookie Policy</Link>
         </li>
         <li>
           <a
@@ -98,7 +88,7 @@ const OneuraFooter: React.FC = () => {
           </a>
         </li>
         <li>
-          <Link to={oneuraPagePath("delete-data")}>Delete My Data</Link>
+          <Link to={pagePath("delete-data")}>Delete My Data</Link>
         </li>
       </ul>
     </footer>

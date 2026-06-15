@@ -21,7 +21,7 @@ const OhIAbout: React.FC = () => {
 
         <h2>🚀 Match Based on Places</h2>
         <p>
-          Ever wanted to meet someone who shares your vibe? Search for places—<strong>coffee shops, restaurants, bars, events, or parks</strong>—and connect with people who also want to go there.
+          Ever wanted to meet someone who shares your vibe? Search for places-<strong>coffee shops, restaurants, bars, events, or parks</strong>-and connect with people who also want to go there.
         </p>
 
         <h2>✨ Mystery Swiping</h2>
@@ -31,7 +31,7 @@ const OhIAbout: React.FC = () => {
 
         <h2>🎭 Hide & Seek (Marco/Polo)</h2>
         <p>
-          A whole new way to meet people! <strong>As the hider, you're in full control</strong>—send quick <strong>clues</strong> (images & text) to seekers and watch them <strong>follow the breadcrumbs</strong> to win your heart!
+          A whole new way to meet people! <strong>As the hider, you're in full control</strong>-send quick <strong>clues</strong> (images & text) to seekers and watch them <strong>follow the breadcrumbs</strong> to win your heart!
         </p>
 
         <h2>🔥 Discover the Hotspots</h2>
@@ -45,7 +45,7 @@ const OhIAbout: React.FC = () => {
 
         <h2>🛡️ Safety First</h2>
         <p>
-          Modern dating can be unpredictable. Use <strong>our safety feature</strong> to notify your trusted contacts about your dates—if you forget to check in, they’ll get a gentle reminder to make sure you're okay.
+          Modern dating can be unpredictable. Use <strong>our safety feature</strong> to notify your trusted contacts about your dates-if you forget to check in, they’ll get a gentle reminder to make sure you're okay.
         </p>
 
         <h2>🌈 Inclusive for Everyone</h2>

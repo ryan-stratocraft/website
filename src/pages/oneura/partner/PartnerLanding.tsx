@@ -15,14 +15,14 @@ const PLAY_STORE_URL =
 /**
  * Renders a partner-offer landing page. Slug comes from the URL
  * (`/c/:slug`). Branding (logo, headline, body, accent colour, hero
- * image) is fetched from `getOffer` at runtime — adding a new partner
+ * image) is fetched from `getOffer` at runtime - adding a new partner
  * is purely a Firestore-doc operation.
  *
  * Stage 2 flow:
  *   1. Read offer by slug → render branding.
  *   2. User submits email via OfferRegistrationForm.
  *   3. registerForOffer writes /offer_registrations.
- *   4. Page transitions to a "thanks — opening the store" view that
+ *   4. Page transitions to a "thanks - opening the store" view that
  *      shows both store buttons and, on iOS/Android, auto-redirects to
  *      the appropriate store.
  *   5. Universal Link / App Link domain association on oneura.app
@@ -280,7 +280,7 @@ const NextStepsCard: React.FC<{ accent: string }> = ({ accent }) => {
     {
       n: 2,
       title: "Sign up with this same email",
-      body: "We match your offer to the email you just registered with — anything different won't attach.",
+      body: "We match your offer to the email you just registered with - anything different won't attach.",
     },
     {
       n: 3,

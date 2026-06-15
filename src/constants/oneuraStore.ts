@@ -1,4 +1,4 @@
-/** App store listings — keep in sync across Oneura marketing pages. */
+/** App store listings - keep in sync across Oneura marketing pages. */
 
 export const ONEURA_GOOGLE_PLAY_URL =
   "https://play.google.com/store/apps/details?id=com.stratocraft.oneura";

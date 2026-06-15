@@ -233,7 +233,7 @@ export function parseSources(raw: string): string[] {
 
 /**
  * Translates the form values into the Firestore-shaped doc body
- * (without server timestamps / createdAt / counters — caller adds
+ * (without server timestamps / createdAt / counters - caller adds
  * those).
  */
 export function shareLinkFormToDoc(value: ShareLinkFormValue): {

@@ -1,7 +1,7 @@
 /**
  * Shared metadata + JSON-LD inputs for the Strato-Craft company-site prerender.
  * Keep route copy in sync with the visible page content. Oneura is intentionally
- * represented only as a lightweight reference here — its rich schema lives on its
+ * represented only as a lightweight reference here - its rich schema lives on its
  * own canonical domain (oneura.app). See scripts/prep-strato-dist.mjs.
  */
 
@@ -18,7 +18,7 @@ export const STRATO_OG_IMAGE = `${STRATO_ORIGIN}/strato-craft-og.png`;
 /**
  * Routes that are prerendered for crawlers/AI. Interactive tool routes
  * (/support, /signature, /oh-i/personality-quiz, /oh-i/verify-business) and
- * boilerplate legal pages are intentionally excluded — they stay client-rendered.
+ * boilerplate legal pages are intentionally excluded - they stay client-rendered.
  */
 export const STRATO_ROUTES = [
   {
@@ -105,7 +105,7 @@ export const STRATO_ROUTES = [
       category: 'DeveloperApplication',
       operatingSystem: 'VR, Web',
       description:
-        'A visual, intuitive way to understand cloud infrastructure — for developers, teams, and curious learners.',
+        'A visual, intuitive way to understand cloud infrastructure - for developers, teams, and curious learners.',
     },
   },
   {

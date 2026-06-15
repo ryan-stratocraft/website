@@ -1,3 +1,5 @@
+import { parseOneuraPath } from "./i18n/localePath";
+
 /** Normalizes host for comparisons (drops leading `www.`). */
 export function canonicalHostname(hostname: string): string {
   return hostname.replace(/^www\./i, "").toLowerCase();
@@ -32,7 +34,12 @@ function isOneuraOnlyCleanPath(pathname: string): boolean {
     return true;
   }
 
+  const { path } = parseOneuraPath(normalized);
+
   return new Set([
+    "/",
+    "/about",
+    "/faq",
     "/subscription",
     "/privacy-policy",
     "/terms-and-conditions",
@@ -44,7 +51,15 @@ function isOneuraOnlyCleanPath(pathname: string): boolean {
     "/neuro-friendly-sleep-app",
     "/mood-tracking-sleep-app",
     "/sleep-sounds-for-focus",
-  ]).has(normalized);
+    "/best-sleep-app-for-busy-minds",
+    "/white-noise-pink-noise-rain-sounds",
+    "/sleep-app-adhd-neurodivergent",
+    "/oneura-vs-calm",
+    "/oneura-vs-bettersleep",
+    "/oneura-vs-headspace",
+    "/best-free-sleep-sounds-app",
+    "/sleep-sounds-sensory-overload",
+  ]).has(path);
 }
 
 function hasOneuraLocalPreviewOverride(hostname: string): boolean {

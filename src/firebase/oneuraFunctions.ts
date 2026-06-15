@@ -33,7 +33,7 @@ export interface OfferBranding {
  * (counts, caps, createdAt, …) are intentionally absent.
  *
  * `iosProductId` / `androidProductId` reference a shared pool of
- * reusable partner SKUs (e.g. `oneura_plus_half`) — many campaigns
+ * reusable partner SKUs (e.g. `oneura_plus_half`) - many campaigns
  * can map to the same SKU, with branding differing per slug. No RC
  * offering / package identifier is exposed; the app purchases the
  * StoreProduct directly via `Purchases.purchaseStoreProduct`.
@@ -52,7 +52,7 @@ export interface PublicOfferView {
 
 /**
  * Fetch the public branding payload for a partner-offer slug.
- * Returns `null` on 404 (unknown / paused / expired slug — never
+ * Returns `null` on 404 (unknown / paused / expired slug - never
  * disambiguates which).
  *
  * @param slug e.g. "williamsf1"

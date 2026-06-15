@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { oneuraPagePath } from "../../../routes/oneuraPaths";
+import OneuraStoreButtons from "../../../components/OneuraStoreButtons";
 import "./About.css";
 import logoColor from "../../../assets/images/oneura/logo-color.png";
 import googlePlay from "../../../assets/images/google-play.png";
@@ -13,6 +14,7 @@ const OneuraAbout: React.FC = () => {
         <img src={logoColor} alt="Oneura Logo" className="about-logo" />
         <h1>About Oneura: a sleep sounds and sensory wind-down app</h1>
         <p className="tagline">Your sanctuary for relaxation, sleep, and focus</p>
+        <OneuraStoreButtons analyticsPlacement="about-hero" />
       </div>
 
       <div className="about-content">

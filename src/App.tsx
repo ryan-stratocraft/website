@@ -8,7 +8,9 @@ import {
   StratoSiteRoutes,
 } from "./components/AppRoutes";
 import CookieConsent from "./components/CookieConsent";
+import OneuraHreflang from "./components/OneuraHreflang";
 import { useOneuraWebAnalytics } from "./hooks/useOneuraWebAnalytics";
+import { OneuraLocaleProvider } from "./i18n/OneuraLocaleProvider";
 import { isOneuraProductSite } from "./host";
 import "./styles/global.css";
 
@@ -72,7 +74,10 @@ const App: React.FC = () => {
 
       <div className="page-container">
         {onOneuraProductSite ? (
-          <OneuraProductSiteRoutes />
+          <OneuraLocaleProvider>
+            <OneuraHreflang />
+            <OneuraProductSiteRoutes />
+          </OneuraLocaleProvider>
         ) : (
           <StratoSiteRoutes />
         )}

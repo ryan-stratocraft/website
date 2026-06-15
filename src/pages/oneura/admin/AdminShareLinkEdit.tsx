@@ -16,12 +16,12 @@ import ShareLinkFormFields, {
 } from "./ShareLinkFormFields";
 
 /**
- * `/admin/links/:slug/edit` — same form AdminShareLinkCreate uses,
+ * `/admin/links/:slug/edit` - same form AdminShareLinkCreate uses,
  * but pre-filled from the existing doc and writing back via
  * updateDoc so the counter fields (`totalClicks`, `clicksBySource`,
  * `clicksByPlatform`, `createdAt`) are preserved.
  *
- * Slug is read-only — to "rename" a share link, delete and recreate.
+ * Slug is read-only - to "rename" a share link, delete and recreate.
  */
 const AdminShareLinkEdit: React.FC = () => {
   const { slug = "" } = useParams<{ slug: string }>();

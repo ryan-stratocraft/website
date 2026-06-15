@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# AI / LLM site summary (comparisons, guides, FAQs): https://oneura.app/llms.txt
+# Also at: https://oneura.app/.well-known/llms.txt
+
 Sitemap: https://oneura.app/sitemap.xml

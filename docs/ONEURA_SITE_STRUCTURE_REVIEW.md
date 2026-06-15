@@ -1,4 +1,4 @@
-# Oneura website — structure, schema & content review pack
+# Oneura website - structure, schema & content review pack
 
 **Domain:** https://oneura.app  
 **Publisher:** Strato-Craft Ltd  
@@ -14,7 +14,7 @@
 | Stack | React + Vite SPA, **prerendered** HTML per route for crawlers |
 | Primary locale | `en-GB` (`<html lang="en-GB">`) |
 | Hosting output | `dist-oneura/` → Firebase Hosting on `oneura.app` |
-| Crawl policy | `robots.txt` — `User-agent: *` / `Allow: /` (does **not** block AI bots) |
+| Crawl policy | `robots.txt` - `User-agent: *` / `Allow: /` (does **not** block AI bots) |
 | Sitemap | https://oneura.app/sitemap.xml (12 URLs) |
 | AEO helper | https://oneura.app/llms.txt (LLM-oriented site summary) |
 | Font | Comfortaa (Google Fonts) |
@@ -47,7 +47,7 @@
 | `/cookie-policy` | 0.3 | Oneura Cookie Policy \| Website Cookies & Analytics | Learn how Oneura uses cookies, analytics, and similar technologies on the website and in related services. |
 | `/delete-data` | 0.3 | Delete Oneura Data \| Account & Privacy Requests | Find out how to delete your Oneura account data, request privacy support, and cancel app store subscriptions separately. |
 
-Each route is emitted as both `/slug/index.html` and `/slug.html` (duplicate URL pattern — canonical tags point to clean paths).
+Each route is emitted as both `/slug/index.html` and `/slug.html` (duplicate URL pattern - canonical tags point to clean paths).
 
 ---
 
@@ -136,11 +136,11 @@ The same structured-data graph is embedded in `<head>` on all routes (from `oneu
     "https://play.google.com/store/apps/details?id=com.stratocraft.oneura",
     "https://apps.apple.com/app/oneura/id6754253306"
   ],
-  "review": [ /* 3 reviews — see §6 */ ]
+  "review": [ /* 3 reviews - see §6 */ ]
 }
 ```
 
-### 4.4 FAQPage (schema — home-oriented)
+### 4.4 FAQPage (schema - home-oriented)
 
 ```json
 {
@@ -205,7 +205,7 @@ The same structured-data graph is embedded in `<head>` on all routes (from `oneu
 
 - Logo → Home (`/`)
 - Links: Home, About, Subscription, Support (external), Strato-Craft ↗ (external)
-- **Note:** Navbar contains `<h1>Oneura</h1>` on every page — home also has its own `<h1 id="oneura-home-title">` (duplicate H1 on homepage).
+- **Note:** Navbar contains `<h1>Oneura</h1>` on every page - home also has its own `<h1 id="oneura-home-title">` (duplicate H1 on homepage).
 
 ---
 
@@ -345,16 +345,16 @@ Oneura Free vs Oneura Plus comparison, pricing positioning, feature lists, store
 
 ### Legal
 
-- `/privacy-policy` — Strato-Craft Ltd, data collection, health/wearable context, retention, rights  
-- `/terms-and-conditions` — wellness disclaimer, subscriptions, arbitration (UK-oriented)  
-- `/cookie-policy` — website cookies / analytics  
-- `/delete-data` — account deletion and privacy requests  
+- `/privacy-policy` - Strato-Craft Ltd, data collection, health/wearable context, retention, rights  
+- `/terms-and-conditions` - wellness disclaimer, subscriptions, arbitration (UK-oriented)  
+- `/cookie-policy` - website cookies / analytics  
+- `/delete-data` - account deletion and privacy requests  
 
 ---
 
 ## 9. llms.txt (AEO / GEO summary file)
 
-Published at https://oneura.app/llms.txt — markdown summary with key facts, features, important URLs, store links, and medical positioning (“wellness software only; not medical advice”).
+Published at https://oneura.app/llms.txt - markdown summary with key facts, features, important URLs, store links, and medical positioning (“wellness software only; not medical advice”).
 
 ---
 
@@ -371,10 +371,10 @@ Published at https://oneura.app/llms.txt — markdown summary with key facts, fe
 
 ## 11. Known gaps / review flags (updated after SEO pass)
 
-1. ~~**Duplicate H1**~~ — Navbar brand is now `<span class="brand-name">`; one H1 per page content.  
-2. ~~**FAQ schema vs visible FAQ**~~ — Home JSON-LD matches visible FAQ copy; topic pages get per-slug `FAQPage` at build time.  
-3. ~~**Global schema on all routes**~~ — `prep-oneura-dist.mjs` injects route-specific `FAQPage` + `WebPage`; shared `Organization` / `MobileApplication` only.  
-4. ~~**No founder story**~~ — “Why we built Oneura” section on `/about`.  
+1. ~~**Duplicate H1**~~ - Navbar brand is now `<span class="brand-name">`; one H1 per page content.  
+2. ~~**FAQ schema vs visible FAQ**~~ - Home JSON-LD matches visible FAQ copy; topic pages get per-slug `FAQPage` at build time.  
+3. ~~**Global schema on all routes**~~ - `prep-oneura-dist.mjs` injects route-specific `FAQPage` + `WebPage`; shared `Organization` / `MobileApplication` only.  
+4. ~~**No founder story**~~ - “Why we built Oneura” section on `/about`.  
 5. **Authority / backlinks:** External signal issue; not fixable in HTML alone.  
 6. **`sameAs`:** Facebook + Instagram + stores (+ Strato-Craft on Organization).  
 7. **Prerender + SPA:** Body HTML is in initial response; JS hydrates for interactions (cookie banner, routing).  

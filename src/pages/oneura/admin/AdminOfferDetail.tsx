@@ -38,7 +38,7 @@ interface OfferDoc {
   updatedAt: Date | null;
 }
 
-/** `/admin/offers/:slug` — detail view + branded QR + pause/activate + delete. */
+/** `/admin/offers/:slug` - detail view + branded QR + pause/activate + delete. */
 const AdminOfferDetail: React.FC = () => {
   const { slug = "" } = useParams<{ slug: string }>();
   const nav = useNavigate();
@@ -276,13 +276,13 @@ const AdminOfferDetail: React.FC = () => {
             <KV
               label="valid until"
               value={
-                offer.validUntil ? offer.validUntil.toLocaleString() : "—"
+                offer.validUntil ? offer.validUntil.toLocaleString() : "-"
               }
             />
             <KV label="visibility" value={offer.visibilityMode} />
             <KV
               label="updated"
-              value={offer.updatedAt ? offer.updatedAt.toLocaleString() : "—"}
+              value={offer.updatedAt ? offer.updatedAt.toLocaleString() : "-"}
             />
           </Card>
 
@@ -300,20 +300,20 @@ const AdminOfferDetail: React.FC = () => {
                 These point at one of the shared partner SKUs (the discount is
                 baked into the SKU itself, so the same product can power many
                 campaigns). Until both platforms are filled in, the in-app
-                purchase flow can't resolve a StoreProduct — but the landing
+                purchase flow can't resolve a StoreProduct - but the landing
                 page and email registration still work end-to-end.
               </div>
             )}
           </Card>
 
           <Card title="Branding">
-            <KV label="partner name" value={offer.partnerName ?? "—"} />
-            <KV label="display name" value={offer.displayName ?? "—"} />
-            <KV label="primary color" value={offer.branding.primaryColorHex ?? "—"} />
-            <KV label="headline" value={offer.branding.headline || "—"} />
-            <KV label="body" value={offer.branding.body || "—"} />
+            <KV label="partner name" value={offer.partnerName ?? "-"} />
+            <KV label="display name" value={offer.displayName ?? "-"} />
+            <KV label="primary color" value={offer.branding.primaryColorHex ?? "-"} />
+            <KV label="headline" value={offer.branding.headline || "-"} />
+            <KV label="body" value={offer.branding.body || "-"} />
             <KV label="CTA label" value={offer.branding.ctaLabel} />
-            <KV label="fine print" value={offer.branding.finePrint ?? "—"} />
+            <KV label="fine print" value={offer.branding.finePrint ?? "-"} />
           </Card>
         </div>
 

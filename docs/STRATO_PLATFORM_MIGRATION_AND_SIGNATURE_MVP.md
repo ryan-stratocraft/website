@@ -3,14 +3,14 @@
 This document aligns the [**Strato-Craft website**](../README.md) repo (Vite + React + Firebase Hosting in `dist/`) with:
 
 1. **Website migration**: move production from legacy owner (`raftherapies@gmail.com`) to **organisation-owned** infrastructure under **`ryan@strato-craft.com`** (recommended: **new** Firebase/GCP web project separate from **`oneura-app`** backend).
-2. **Oneura on web**: **`strato-craft.com`** and **`oneura.app`** — same UX where it matters, without unnecessary extra spend.
+2. **Oneura on web**: **`strato-craft.com`** and **`oneura.app`** - same UX where it matters, without unnecessary extra spend.
 3. **Email signature “service”**: internal tool at **`strato-craft.com/signature`** (React route in this repo; not a separate product site like Oneura).
 
 **Checklist convention**
 
 | Owner | Meaning |
 |--------|---------|
-| **You** | Console, DNS, billing, IAM — human steps outside this repo |
+| **You** | Console, DNS, billing, IAM - human steps outside this repo |
 | **Repo / agent** | Code, rules, commits in `website/` |
 
 Tick boxes as you complete each step.
@@ -25,7 +25,7 @@ Tick boxes as you complete each step.
 | **GCP parent** | `strato-craft.com` |
 | **Default Storage bucket** | `gs://strato-craft-6c348.firebasestorage.app` |
 
-**Web app config** is committed in **`src/firebase/firebase.ts`** (Firebase’s standard pattern — the Web `apiKey` is a public client identifier; lock down access with [API key restrictions](https://firebase.google.com/docs/projects/api-keys) and strict **Storage / Firestore / Auth** rules). App ID: `1:310764074898:web:9384a4ed1131ec3421334b` · GA4: `G-W0J3P4QZCM`.
+**Web app config** is committed in **`src/firebase/firebase.ts`** (Firebase’s standard pattern - the Web `apiKey` is a public client identifier; lock down access with [API key restrictions](https://firebase.google.com/docs/projects/api-keys) and strict **Storage / Firestore / Auth** rules). App ID: `1:310764074898:web:9384a4ed1131ec3421334b` · GA4: `G-W0J3P4QZCM`.
 
 **CLI default project** is `strato-craft-6c348` (see [`.firebaserc`](../.firebaserc)).
 
@@ -36,7 +36,7 @@ Tick boxes as you complete each step.
 | `strato-craft-6c348` | Main Strato-Craft site (`dist/`) |
 | `oneura-web` | Dedicated Oneura product site (`dist-oneura/`) |
 
-**Common mistake:** pasting a Web snippet from the **legacy** project `strato-craft`. If `messagingSenderId` / the middle segment of **`appId`** is **`1078258918920`**, that is wrong — this repo uses **`310764074898`** / **`1:310764074898:web:…`**.
+**Common mistake:** pasting a Web snippet from the **legacy** project `strato-craft`. If `messagingSenderId` / the middle segment of **`appId`** is **`1078258918920`**, that is wrong - this repo uses **`310764074898`** / **`1:310764074898:web:…`**.
 
 Avoid sharing keys in public channels. The Web `apiKey` is shipped in the frontend bundle; tighten [API key restrictions](https://firebase.google.com/docs/projects/api-keys) (HTTP referrers) and keep **Storage rules** strict.
 
@@ -44,11 +44,11 @@ Avoid sharing keys in public channels. The Web `apiKey` is shipped in the fronte
 
 ## How animated email signatures work (and spam risk)
 
-- **Recipients’ mail apps do not run your JavaScript.** The pasted signature is **static HTML**: tables + inline CSS + **URLs** pointing at hosted images (still GIF/PNG/JPG — animation only where the client supports animated GIF).
+- **Recipients’ mail apps do not run your JavaScript.** The pasted signature is **static HTML**: tables + inline CSS + **URLs** pointing at hosted images (still GIF/PNG/JPG - animation only where the client supports animated GIF).
 - **`customesignature.com`-style setups** optimize GIF size, layouts, and sometimes host assets on a CDN. Bulky signatures (huge GIFs, many images, dense HTML) can affect **trust** more than Firebase vs another host; keep **GIF under ~150–400 KB**, few links, honest text.
-- **This repo’s MVP**: Firebase is used **only** on the `/signature` page to **generate** signatures and optionally **upload** hero/logos to **Cloud Storage**. **Sending email** uses whatever you pasted into Gmail/Outlook — no backend at send time.
+- **This repo’s MVP**: Firebase is used **only** on the `/signature` page to **generate** signatures and optionally **upload** hero/logos to **Cloud Storage**. **Sending email** uses whatever you pasted into Gmail/Outlook - no backend at send time.
 
-**You are not copying a huge block of opaque JavaScript into email** — you copy **HTML**. If a client rejects rich paste, paste from “Raw HTML” or use plain signature.
+**You are not copying a huge block of opaque JavaScript into email** - you copy **HTML**. If a client rejects rich paste, paste from “Raw HTML” or use plain signature.
 
 ### GIF design rule (product default; Outlook-aware)
 
@@ -62,46 +62,46 @@ Timeline to teach in tooling: **1st frame → animation → … → match 1st fr
 
 ---
 
-## Part 1 — Website migration (new org project vs legacy)
+## Part 1 - Website migration (new org project vs legacy)
 
 ### Goals
 
 - **GCP/Firebase project** for the marketing site is owned/administered via **`ryan@strato-craft.com`** (organisation), not trapped on a legacy personal workspace.
 - **Keep `oneura-app` Firebase separate** unless you consciously merge (recommended: separate: web vs app backends).
 
-### You — prerequisites
+### You - prerequisites
 
 - [ ] **Google organisation** (Workspace or Cloud Identity) for Strato-Craft billing/IAM ([Resource Manager overview](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)).
 - [x] Project created under org: **`strato-craft-6c348`** (see table above).
 
-### You — finish Firebase setup for this project
+### You - finish Firebase setup for this project
 
 1. In [Firebase Console](https://console.firebase.google.com/) open project **Strato-craft** (`strato-craft-6c348`).
 2. **Build** → **Authentication** → enable **Email/Password**; add your Strato-Craft user (e.g. **ryan@strato-craft.com**). **Anonymous** is no longer required for `/signature` (you may disable it).
-3. **Build** → **Hosting** — first deploy from repo when ready.
-4. **Build** → **Storage** — rules deployed from this repo (`firebase deploy --only storage`).
+3. **Build** → **Hosting** - first deploy from repo when ready.
+4. **Build** → **Storage** - rules deployed from this repo (`firebase deploy --only storage`).
 
-### Repo — already pointed at `strato-craft-6c348`
+### Repo - already pointed at `strato-craft-6c348`
 
-- [x] **`src/firebase/firebase.ts`** — full Web SDK config for **`strato-craft-6c348`** (app `1:310764074898:web:9384a4ed1131ec3421334b`).
-- [x] **`.firebaserc`** — `default` is `strato-craft-6c348`.
+- [x] **`src/firebase/firebase.ts`** - full Web SDK config for **`strato-craft-6c348`** (app `1:310764074898:web:9384a4ed1131ec3421334b`).
+- [x] **`.firebaserc`** - `default` is `strato-craft-6c348`.
 - [ ] Run `firebase deploy --only hosting,storage` (add `firestore`, `functions` if you use them on this project).
 
-### You — migrate custom domains (`strato-craft.com`)
+### You - migrate custom domains (`strato-craft.com`)
 
 1. In **legacy** Hosting: remove **`strato-craft.com`** / **`www`** (avoid duplicate claims).
 2. In **new** project: Hosting → Connect domain → add DNS TXT + A records as instructed ([Firebase custom domain](https://firebase.google.com/docs/hosting/custom-domain)).
 3. Wait for SSL provisioning; verify redirects if any.
 
-### You — GCP org move (optional but ideal)
+### You - GCP org move (optional but ideal)
 
-Your console already shows **Parent org/folder: strato-craft.com** — you can treat this section as satisfied unless another project remains on a legacy personal parent.
+Your console already shows **Parent org/folder: strato-craft.com** - you can treat this section as satisfied unless another project remains on a legacy personal parent.
 
 Otherwise, if some project starts under personal and must join the organisation:
 
 - [ ] Follow Google’s checklist: [Migrate projects between organization resources](https://cloud.google.com/resource-manager/docs/project-migration) and [migration checklist](https://cloud.google.com/resource-manager/docs/project-migration-checklist).
 
-### Repo — regression checks after cutover
+### Repo - regression checks after cutover
 
 - [ ] `/`, `/about`, `/support`, **product routes**.
 - [ ] **`/signature`** uploads + clipboard (see Part 4).
@@ -113,7 +113,7 @@ Otherwise, if some project starts under personal and must join the organisation:
 
 ---
 
-## Part 2 — Oneura domains (`strato-craft.com` vs `oneura.app`)
+## Part 2 - Oneura domains (`strato-craft.com` vs `oneura.app`)
 
 Oneura remains **a product of Strato-Craft**. The Flutter app Firebase project (**`oneura-app`**) is unrelated to hosting this marketing site unless you deliberately integrate them.
 
@@ -123,7 +123,7 @@ Firebase Hosting billing is dominated by **egress/use**, not “number of domain
 
 ### Recommended staging path
 
-**A — Canonical product site on `oneura.app` (SEO clear)**  
+**A - Canonical product site on `oneura.app` (SEO clear)**  
 
 - **`oneura.app`** → connect to **same** Hosting site **or** a dedicated Hosting site that deploys only the `/oneura` SPA slice (advanced).
 - **`strato-craft.com/oneura`…** → **301 redirect** to the matching path on **`oneura.app`** (e.g. `/oneura` → `https://oneura.app/` or `/oneura/about` → `https://oneura.app/about` depending on routing you expose).
@@ -137,25 +137,25 @@ Firebase Hosting **`redirects`** are evaluated **before** SPA **`rewrites`**. Ex
 ]
 ```
 
-Add one rule per important path, or use a single catch‑all only if your Firebase Hosting version supports the exact pattern you need ([full Hosting config](https://firebase.google.com/docs/hosting/full-config)). External `destination` URLs do not always support the same `**` substitution as rewrites — verify on a **preview channel** before production.
+Add one rule per important path, or use a single catch‑all only if your Firebase Hosting version supports the exact pattern you need ([full Hosting config](https://firebase.google.com/docs/hosting/full-config)). External `destination` URLs do not always support the same `**` substitution as rewrites - verify on a **preview channel** before production.
 
-**B — Same bundle on both hosts (duplicate content)**
+**B - Same bundle on both hosts (duplicate content)**
 
-- Attach **`oneura.app`** and **`strato-craft.com`** to the **same** Hosting site and serve identical routes. Mitigate SEO duplication with **canonical** `<link rel="canonical" …>` in `index.html` or per-route meta (React Helmet or build-time) — document this before going live.
+- Attach **`oneura.app`** and **`strato-craft.com`** to the **same** Hosting site and serve identical routes. Mitigate SEO duplication with **canonical** `<link rel="canonical" …>` in `index.html` or per-route meta (React Helmet or build-time) - document this before going live.
 
 **Do not** commit destructive redirects until DNS and the new project are ready; until then the SPA continues to serve `/oneura` from this repo as today.
 
-### You — DNS for `oneura.app`
+### You - DNS for `oneura.app`
 
 - [ ] At registrar, point **`oneura.app`** to Firebase Hosting per console instructions (same as main domain flow).
 
 ---
 
-## Part 3 — Signature tool: monorepo vs separate repo
+## Part 3 - Signature tool: monorepo vs separate repo
 
 **Implemented in this repo (recommended for you):**
 
-- Route: **`/signature`** — **not linked in the navbar** (URL-only until you ship it as a product).
+- Route: **`/signature`** - **not linked in the navbar** (URL-only until you ship it as a product).
 - Code: `src/pages/stratocraft/signature/`
 
 **Separate repo** (`strato-signature-generator/`) only if you need independent release cadence or public open-source; then either:
@@ -167,7 +167,7 @@ For your stack, **one React route** is simplest.
 
 ---
 
-## Part 4 — Email signature MVP (implemented + your deploy steps)
+## Part 4 - Email signature MVP (implemented + your deploy steps)
 
 ### What was added in-repo
 
@@ -179,19 +179,19 @@ For your stack, **one React route** is simplest.
 | `storage.rules` | Public **read**; **writes** only for allowlisted email to `signatures/{uid}/…` |
 | `src/firebase/firebase.ts` | Exports `firebaseAuth`, `firebaseStorage` |
 
-### You — Firebase Console
+### You - Firebase Console
 
 - [ ] **Authentication** → **Sign-in method** → enable **Email/Password**; create the user you’ll use (e.g. **ryan@strato-craft.com**).
-- [ ] **Authentication** → you may **disable Anonymous** — it is no longer used for `/signature`.
+- [ ] **Authentication** → you may **disable Anonymous** - it is no longer used for `/signature`.
 - [ ] **Storage** → deploy rules from this repo (`firebase deploy --only storage`).
 - [ ] Optional: **budget alerts** for Storage egress.
 
 ### Access (not a public product yet)
 
-- No **navbar** link — only visitors who type **`/signature`** see the tool.
+- No **navbar** link - only visitors who type **`/signature`** see the tool.
 - **Sign-in gate:** only allowlisted emails (default **ryan@strato-craft.com** in `SignatureGenerator.tsx` and in **`storage.rules`**). To allow more people: set **`VITE_SIGNATURE_ALLOWED_EMAILS`** (comma-separated) **and** duplicate those addresses in **`storage.rules`** (rules cannot read Vite env).
 
-### Repo / agent — verify locally
+### Repo / agent - verify locally
 
 ```bash
 cd website
@@ -204,7 +204,7 @@ npm run build
 ### Behaviour
 
 1. Open **`/signature`** → sign in with an allowlisted email.
-2. Adjust fields (starts empty — no prefilled personal data for public visitors who might land on the route).
+2. Adjust fields (starts empty - no prefilled personal data for public visitors who might land on the route).
 3. Upload **GIF/PNG/JPG ≤ 400 KB** or paste image URLs.
 4. **Copy signature HTML** → paste into Gmail / Outlook / Apple Mail signature editor.
 5. **Raw HTML** panel is for debugging; prefer rich copy when the client supports it.
@@ -218,7 +218,7 @@ The JSON schema you drafted is a good **Phase 2** for multi-user templates; MVP 
 
 ---
 
-## Part 5 — Split you vs repo (quick reference)
+## Part 5 - Split you vs repo (quick reference)
 
 | Task | Owner |
 |------|--------|
@@ -232,7 +232,7 @@ The JSON schema you drafted is a good **Phase 2** for multi-user templates; MVP 
 
 ---
 
-## Appendix — Firestore shape (Phase 2, not implemented)
+## Appendix - Firestore shape (Phase 2, not implemented)
 
 ```json
 {

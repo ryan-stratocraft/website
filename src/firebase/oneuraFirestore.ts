@@ -5,15 +5,15 @@
  *
  * The website's primary Firebase init (`./firebase.ts`) is anchored at
  * `strato-craft-6c348` for site-level analytics + auth. Naming this
- * second app `'oneura-app-admin'` keeps the two SDKs isolated — calling
+ * second app `'oneura-app-admin'` keeps the two SDKs isolated - calling
  * `getAuth(oneuraApp)` returns a separate session distinct from the
  * marketing-site auth.
  *
  * Security note: the API key below is the same public web key issued
  * by Firebase. Real protection comes from:
- *   1. Firestore rules — `/campaigns/{slug}` writes require
+ *   1. Firestore rules - `/campaigns/{slug}` writes require
  *      `request.auth.token.email == 'raftherapies@gmail.com'`.
- *   2. The AdminGate component in `src/components/AdminGate.tsx` —
+ *   2. The AdminGate component in `src/components/AdminGate.tsx` -
  *      hides the UI from anyone signed in as a different user.
  */
 

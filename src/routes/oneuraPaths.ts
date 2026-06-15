@@ -1,43 +1,67 @@
+import { useOneuraLocale } from "../i18n/OneuraLocaleProvider";
+import { buildOneuraLocalizedPath } from "../i18n/localePath";
 import { isOneuraProductSite } from "../host";
 
-function onProductSite(): boolean {
-  if (typeof window === "undefined") {
-    return isOneuraProductSite("");
-  }
+export type OneuraPageSlug =
+  | "about"
+  | "faq"
+  | "subscription"
+  | "privacy-policy"
+  | "terms-and-conditions"
+  | "cookie-policy"
+  | "delete-data"
+  | "sleep-sounds-white-noise"
+  | "sensory-relaxation-app"
+  | "sleep-app-for-busy-minds"
+  | "neuro-friendly-sleep-app"
+  | "mood-tracking-sleep-app"
+  | "sleep-sounds-for-focus"
+  | "best-sleep-app-for-busy-minds"
+  | "white-noise-pink-noise-rain-sounds"
+  | "sleep-app-adhd-neurodivergent"
+  | "oneura-vs-calm"
+  | "oneura-vs-bettersleep"
+  | "oneura-vs-headspace"
+  | "best-free-sleep-sounds-app"
+  | "sleep-sounds-sensory-overload";
 
-  return isOneuraProductSite(
-    window.location.hostname,
-    window.location.pathname,
-  );
+function currentHostname(): string {
+  if (typeof window === "undefined") return "";
+  return window.location.hostname;
 }
 
-/**
- * On oneura.app: clean URLs (`/about`).
- * On strato-craft.com: nested under `/oneura` (`/oneura/about`).
- */
-export function oneuraPagePath(
-  slug:
-    | "about"
-    | "faq"
-    | "subscription"
-    | "privacy-policy"
-    | "terms-and-conditions"
-    | "cookie-policy"
-    | "delete-data"
-    | "sleep-sounds-white-noise"
-    | "sensory-relaxation-app"
-    | "sleep-app-for-busy-minds"
-    | "neuro-friendly-sleep-app"
-    | "mood-tracking-sleep-app"
-    | "sleep-sounds-for-focus",
-): string {
-  if (onProductSite()) return `/${slug}`;
+/** Whether a path should use clean oneura.app-style URLs (not /oneura/ prefix). */
+function usesCleanOneuraPath(pathname: string): boolean {
+  return isOneuraProductSite(currentHostname(), pathname);
+}
+
+export function useOneuraPaths() {
+  const { locale } = useOneuraLocale();
+
+  return {
+    homePath: () =>
+      usesCleanOneuraPath("/")
+        ? buildOneuraLocalizedPath("/", locale)
+        : "/oneura",
+    pagePath: (slug: OneuraPageSlug) => {
+      const cleanPath = `/${slug}`;
+      return usesCleanOneuraPath(cleanPath)
+        ? buildOneuraLocalizedPath(cleanPath, locale)
+        : `/oneura/${slug}`;
+    },
+  };
+}
+
+/** @deprecated Prefer {@link useOneuraPaths} for locale-aware links. */
+export function oneuraPagePath(slug: OneuraPageSlug): string {
+  const cleanPath = `/${slug}`;
+  if (usesCleanOneuraPath(cleanPath)) return cleanPath;
   return `/oneura/${slug}`;
 }
 
-/** Home: `/` on oneura.app, `/oneura` on Strato. */
+/** @deprecated Prefer {@link useOneuraPaths} for locale-aware links. */
 export function oneuraHomePath(): string {
-  if (onProductSite()) return "/";
+  if (usesCleanOneuraPath("/")) return "/";
   return "/oneura";
 }
 
@@ -59,7 +83,7 @@ export function partnerOfferWebPath(slug: string): string {
   return `/c/${encodeURIComponent(slug)}`;
 }
 
-/** Admin section paths — same on both hostnames. */
+/** Admin section paths - same on both hostnames. */
 export function adminOffersListPath(): string {
   return "/admin/offers";
 }

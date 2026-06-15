@@ -17,7 +17,7 @@ import OfferFormFields, {
 } from "./OfferFormFields";
 
 /**
- * `/admin/offers/:slug/edit` — pre-fills the same form
+ * `/admin/offers/:slug/edit` - pre-fills the same form
  * AdminOfferCreate uses, but writes back via `updateDoc` so
  * server-managed fields (createdAt, redemptionCount) are preserved.
  *

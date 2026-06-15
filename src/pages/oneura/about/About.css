@@ -63,9 +63,33 @@
   font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.85);
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 28px;
   z-index: 1;
   position: relative;
+}
+
+.about-hero .oneura-store-cta {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+}
+
+.about-hero .store-buttons {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-hero .store-badge {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.about-hero .store-badge:hover {
+  transform: scale(1.05);
 }
 
 /* About Content */

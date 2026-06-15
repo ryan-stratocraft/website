@@ -16,7 +16,7 @@ const OneuraSubscription: React.FC = () => {
         <h2>Choose Your Plan</h2>
         <p className="pricing-subtitle">
           Monthly and annual plans include a 7-day free trial (see app). Prices below match the UK store listing in
-          GBP—your app store may show an equivalent in your local currency.
+          GBP-your app store may show an equivalent in your local currency.
         </p>
 
         <div className="pricing-cards">
@@ -44,7 +44,7 @@ const OneuraSubscription: React.FC = () => {
             />
           </div>
 
-          {/* Annual Plan — matches in-app “POPULAR” */}
+          {/* Annual Plan - matches in-app “POPULAR” */}
           <div className="pricing-card popular-card">
             <div className="plan-badge popular-badge">POPULAR</div>
             <h3>Annual</h3>
@@ -102,7 +102,7 @@ const OneuraSubscription: React.FC = () => {
             />
           </div>
 
-          {/* Lifetime — matches in-app “BEST VALUE” */}
+          {/* Lifetime - matches in-app “BEST VALUE” */}
           <div className="pricing-card lifetime-card">
             <div className="plan-badge best-value-badge">BEST VALUE</div>
             <h3>Lifetime Access</h3>
@@ -114,7 +114,7 @@ const OneuraSubscription: React.FC = () => {
             <ul className="features">
               <li>✓ Everything in Oneura Plus, with no subscription</li>
               <li>✓ Same premium catalogue and features as paying members</li>
-              <li>✓ One-time purchase—no renewals</li>
+              <li>✓ One-time purchase-no renewals</li>
               <li>✓ Keep access for the life of the product / your account</li>
             </ul>
             <div className="plan-description">One-time purchase. No subscription.</div>
@@ -140,7 +140,7 @@ const OneuraSubscription: React.FC = () => {
           <div className="comparison-item">
             <div className="comparison-icon">⏰</div>
             <h3>Unlimited Listening</h3>
-            <p>Listen as long as you need—no daily limits, no restrictions. Fall asleep to 8+ hours of continuous sound.</p>
+            <p>Listen as long as you need-no daily limits, no restrictions. Fall asleep to 8+ hours of continuous sound.</p>
           </div>
           <div className="comparison-item">
             <div className="comparison-icon">🎵</div>
@@ -155,7 +155,7 @@ const OneuraSubscription: React.FC = () => {
           <div className="comparison-item">
             <div className="comparison-icon">📚</div>
             <h3>Premium stories & narratives</h3>
-            <p>Binge sleep stories and narratives marked Plus—including extended listens not available on the metered tier.</p>
+            <p>Binge sleep stories and narratives marked Plus-including extended listens not available on the metered tier.</p>
           </div>
           <div className="comparison-item">
             <div className="comparison-icon">🎨</div>
@@ -166,7 +166,7 @@ const OneuraSubscription: React.FC = () => {
             <div className="comparison-icon">🌟</div>
             <h3>What&apos;s next</h3>
             <p>
-              Guided packs, sharper sleep/mood correlations, and deeper personalisation—the Plus tier is where we unlock the biggest new experiences first.
+              Guided packs, sharper sleep/mood correlations, and deeper personalisation-the Plus tier is where we unlock the biggest new experiences first.
             </p>
           </div>
         </div>

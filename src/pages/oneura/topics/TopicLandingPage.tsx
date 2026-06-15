@@ -3,61 +3,31 @@ import { Link } from "react-router-dom";
 import { oneuraPagePath } from "../../../routes/oneuraPaths";
 import googlePlay from "../../../assets/images/google-play.png";
 import appStore from "../../../assets/images/app-store.png";
-import previewCafe from "../../../assets/images/oneura/preview-cafe-optimized.png";
-import previewForest from "../../../assets/images/oneura/preview-forest-optimized.png";
-import previewOcean from "../../../assets/images/oneura/preview-ocean-optimized.png";
+import {
+  topicAdhdBusyMindGirl,
+  topicBusyMindGirl,
+  topicSleepingMan,
+  topicSleepingWomanStars,
+  topicWorkingFocused,
+} from "./topicImages";
+import { agentTopicContent } from "./agentTopicContent";
+import type { TopicPageContent } from "./topicTypes";
+import { topicTextWithLinks } from "./topicTextWithLinks";
 import "./TopicLandingPage.css";
 
 const googlePlayUrl =
   "https://play.google.com/store/apps/details?id=com.stratocraft.oneura";
 const appStoreUrl = "https://apps.apple.com/app/oneura/id6754253306";
 
-type OneuraPageSlug = Parameters<typeof oneuraPagePath>[0];
-
-type TopicFact = {
-  label: string;
-  value: string;
-};
-
-type TopicSection = {
-  title: string;
-  body: string;
-  bullets: string[];
-};
-
-type TopicFaq = {
-  question: string;
-  answer: string;
-};
-
-type RelatedTopic = {
-  slug: OneuraPageSlug;
-  title: string;
-  description: string;
-};
-
-type TopicPageContent = {
-  kicker: string;
-  title: string;
-  intro: string;
-  image: string;
-  imageAlt: string;
-  answerTitle: string;
-  answer: string;
-  facts: TopicFact[];
-  sections: TopicSection[];
-  faqs: TopicFaq[];
-  related: RelatedTopic[];
-};
-
 const contentBySlug: Record<string, TopicPageContent> = {
   "sleep-sounds-white-noise": {
     kicker: "Sleep sounds and white noise",
-    title: "Oneura is a sleep sounds app for calmer nights",
+    title: "Oneura sleep sounds and white noise for ADHD, autism, and calmer nights",
     intro:
-      "Use white noise, brown noise, rain, ocean waves, forest ambience, cafe atmosphere, and gentle soundscapes to build a repeatable wind-down routine.",
-    image: previewOcean,
-    imageAlt: "Oneura ocean waves sleep soundscape for relaxation and rest",
+      "Use white noise, brown noise, rain, ocean waves, forest ambience, cafe atmosphere, and gentle soundscapes to build a repeatable wind-down routine - especially helpful for neurodivergent, ADHD, and AuDHD sensory masking at night.",
+    image: topicSleepingMan,
+    imageAlt:
+      "Man sleeping peacefully - Oneura sleep sounds and white noise for neurodivergent nights",
     answerTitle: "What makes Oneura useful as a sleep sounds app?",
     answer:
       "Oneura focuses on quick, low-friction audio support: choose a calming sound, layer ambience where available, set a timer, and let the session support your night routine without turning bedtime into another task.",
@@ -145,16 +115,17 @@ const contentBySlug: Record<string, TopicPageContent> = {
     kicker: "Sensory relaxation app",
     title: "A sensory relaxation app for overstimulated moments",
     intro:
-      "Oneura combines calming soundscapes, simple visual ambience, optional haptics, and gentle routines for people who need to decompress without making relaxation complicated.",
-    image: previewForest,
-    imageAlt: "Oneura forest ambience used for sensory relaxation and calm",
+      "Oneura combines calming soundscapes, simple visual ambience, optional haptics, and gentle routines for people who need to decompress - including many ADHD, autism, AuDHD, and neurodivergent users - without making relaxation complicated.",
+    image: topicSleepingWomanStars,
+    imageAlt:
+      "Peaceful sleep under stars - Oneura sensory relaxation app for autism, ADHD, and AuDHD overstimulation",
     answerTitle: "What is a sensory relaxation app?",
     answer:
       "A sensory relaxation app uses sound, visuals, rhythm, and simple interaction to create a calmer environment. Oneura is designed to help busy, overstimulated minds find a softer background for rest, focus, or a wind-down break.",
     facts: [
       {
         label: "Best for",
-        value: "Overstimulation, decompression, sleep preparation, and calm focus",
+        value: "Overstimulation, autism/ADHD/AuDHD decompression, sleep preparation, and calm focus",
       },
       {
         label: "Sensory tools",
@@ -233,18 +204,20 @@ const contentBySlug: Record<string, TopicPageContent> = {
   },
   "sleep-app-for-busy-minds": {
     kicker: "Sleep app for busy minds",
-    title: "A sleep app for busy minds that struggle to switch off",
+    title: "A sleep app for busy minds, ADHD, AuDHD, and racing thoughts",
     intro:
-      "Oneura helps restless evenings feel less crowded with soundscapes, white noise, sleep stories, mood-aware wind-downs, and calm sensory cues.",
-    image: previewCafe,
-    imageAlt: "Oneura cafe ambience and focus soundscape for busy minds",
+      "Oneura helps restless evenings feel less crowded with soundscapes, white noise, sleep stories, mood-aware wind-downs, and calm sensory cues - designed for busy, neurodivergent, ADHD, and AuDHD minds.",
+    image: topicBusyMindGirl,
+    imageAlt:
+      "Woman with racing thoughts - Oneura sleep app for busy minds, ADHD, and AuDHD overthinking",
     answerTitle: "How does Oneura support busy minds at bedtime?",
     answer:
       "Oneura gives busy minds something simple and repeatable to return to: choose a sound, lower the sensory load, set a timer, and use mood reflection to notice which wind-down patterns seem to help.",
     facts: [
       {
         label: "Best for",
-        value: "Racing thoughts, busy evenings, focus background, and bedtime routines",
+        value:
+          "Racing thoughts, ADHD, AuDHD, autism-friendly wind-downs, focus background, and bedtime routines",
       },
       {
         label: "Primary tools",
@@ -323,11 +296,12 @@ const contentBySlug: Record<string, TopicPageContent> = {
   },
   "mood-tracking-sleep-app": {
     kicker: "Mood tracking sleep app",
-    title: "A mood tracking sleep app for calmer wind-down routines",
+    title: "A mood tracking sleep app for ADHD, AuDHD, and neurodivergent wind-downs",
     intro:
-      "Oneura connects sleep sounds, gentle mood check-ins, and reflective insights so you can notice which evening routines feel easier to repeat.",
-    image: previewOcean,
-    imageAlt: "Oneura ocean ambience for sleep sounds and mood-aware wind-downs",
+      "Oneura connects sleep sounds, gentle mood check-ins, and reflective insights so ADHD, autism, AuDHD, and neurodivergent users can notice which evening routines feel easier to repeat.",
+    image: topicSleepingWomanStars,
+    imageAlt:
+      "Woman sleeping peacefully under stars - Oneura mood tracking sleep app for neurodivergent wind-down",
     answerTitle: "How does mood tracking fit into a sleep sounds app?",
     answer:
       "Mood tracking in Oneura is not about judging your night. It gives you a simple way to reflect on how you feel, what you listened to, and which wind-down habits may be worth repeating.",
@@ -413,11 +387,12 @@ const contentBySlug: Record<string, TopicPageContent> = {
   },
   "sleep-sounds-for-focus": {
     kicker: "Sleep sounds for focus",
-    title: "Focus sounds and calming ambience for busy work sessions",
+    title: "Focus sounds for ADHD, AuDHD, and neurodivergent study sessions",
     intro:
-      "Oneura is not only for bedtime. Use cafe ambience, fans, steady noise, nature sounds, and layered soundscapes as a softer background for reading, study, and deep work.",
-    image: previewCafe,
-    imageAlt: "Oneura cafe ambience and focus sounds for study and work",
+      "Oneura is not only for bedtime. Use cafe ambience, fans, steady noise, nature sounds, and layered soundscapes as a softer background for reading, study, and deep work - especially when ADHD, AuDHD, or autism-related sensory needs make open spaces feel abrasive.",
+    image: topicWorkingFocused,
+    imageAlt:
+      "Focused student with headphones - Oneura focus sounds for ADHD and neurodivergent work",
     answerTitle: "Can sleep sounds also help with focus?",
     answer:
       "Yes. Many calming sound textures also work as focus backgrounds. Oneura lets you use steady noise, cafe atmosphere, natural ambience, and gentle mixes when silence feels too empty or interruptions feel too sharp.",
@@ -503,18 +478,20 @@ const contentBySlug: Record<string, TopicPageContent> = {
   },
   "neuro-friendly-sleep-app": {
     kicker: "Neuro-friendly sleep app",
-    title: "A neuro-friendly sleep app for sensory needs and busy minds",
+    title: "A neuro-friendly sleep app for ADHD, autism, AuDHD, and sensory needs",
     intro:
-      "Oneura is designed with busy minds, sensory preferences, and gentle routines in mind, while staying careful: it supports wellness habits and does not claim to treat neurodevelopmental or medical conditions.",
-    image: previewForest,
-    imageAlt: "Oneura calming forest ambience for neuro-friendly wind-down routines",
+      "Oneura is designed with ADHD, autism, AuDHD, busy minds, and sensory preferences in mind, while staying careful: it supports wind-down, focus regulation, and sensory calm - not diagnosis, treatment, or medical claims.",
+    image: topicAdhdBusyMindGirl,
+    imageAlt:
+      "Child with a busy mind - Oneura neuro-friendly sleep app for ADHD, autism, and AuDHD",
     answerTitle: "What does neuro-friendly mean for Oneura?",
     answer:
       "For Oneura, neuro-friendly means low-friction choices, sensory-aware ambience, flexible routines, and clear language. It does not mean diagnosis, treatment, or a medical claim.",
     facts: [
       {
         label: "Best for",
-        value: "Busy minds, sensory needs, overstimulation, and gentler sleep routines",
+        value:
+          "ADHD, autism, AuDHD, busy minds, sensory needs, overstimulation, and gentler sleep routines",
       },
       {
         label: "Neurodivergent features",
@@ -552,9 +529,9 @@ const contentBySlug: Record<string, TopicPageContent> = {
         ],
       },
       {
-        title: "Careful about ADHD and neurodivergent language",
+        title: "Careful about ADHD, autism, AuDHD, and neurodivergent language",
         body:
-          "Oneura can be useful for people who identify with ADHD-style busy minds or sensory needs, but the app does not diagnose ADHD, treat sleep disorders, or replace professional support.",
+          "Oneura can be useful for people with ADHD, autism, AuDHD, or broader neurodivergent sensory and wind-down needs, but the app does not diagnose any condition, treat sleep disorders, or replace professional support.",
         bullets: [
           "Use Oneura as a wellness companion, not a treatment plan",
           "Speak to a qualified professional for persistent sleep or mental health concerns",
@@ -564,9 +541,9 @@ const contentBySlug: Record<string, TopicPageContent> = {
     ],
     faqs: [
       {
-        question: "Is Oneura an ADHD sleep app?",
+        question: "Is Oneura an ADHD, autism, or AuDHD sleep app?",
         answer:
-          "Oneura may be helpful for people with busy minds or ADHD-style focus and wind-down challenges, but it is not an ADHD treatment and does not provide medical advice.",
+          "Oneura is designed to support wind-down, focus regulation, and sensory calm for many neurodivergent users, including people with ADHD, autism, or AuDHD. It is not a treatment and does not provide medical advice.",
       },
       {
         question: "Why use the phrase neuro-friendly?",
@@ -592,6 +569,7 @@ const contentBySlug: Record<string, TopicPageContent> = {
       },
     ],
   },
+  ...agentTopicContent,
 };
 
 function TopicLandingPage({ content }: { content: TopicPageContent }) {
@@ -647,7 +625,7 @@ function TopicLandingPage({ content }: { content: TopicPageContent }) {
           {content.facts.map((fact) => (
             <div key={fact.label}>
               <dt>{fact.label}</dt>
-              <dd>{fact.value}</dd>
+              <dd>{topicTextWithLinks(fact.value)}</dd>
             </div>
           ))}
         </dl>
@@ -657,10 +635,10 @@ function TopicLandingPage({ content }: { content: TopicPageContent }) {
         {content.sections.map((section) => (
           <article className="oneura-topic-section-card" key={section.title}>
             <h2>{section.title}</h2>
-            <p>{section.body}</p>
+            <p>{topicTextWithLinks(section.body)}</p>
             <ul>
               {section.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
+                <li key={bullet}>{topicTextWithLinks(bullet)}</li>
               ))}
             </ul>
           </article>
@@ -677,7 +655,7 @@ function TopicLandingPage({ content }: { content: TopicPageContent }) {
           {content.faqs.map((faq) => (
             <article className="oneura-topic-faq-item" key={faq.question}>
               <h3>{faq.question}</h3>
-              <p>{faq.answer}</p>
+              <p>{topicTextWithLinks(faq.answer)}</p>
             </article>
           ))}
         </div>
@@ -728,4 +706,38 @@ export const MoodTrackingSleepAppPage: React.FC = () => (
 
 export const SleepSoundsForFocusPage: React.FC = () => (
   <TopicLandingPage content={contentBySlug["sleep-sounds-for-focus"]} />
+);
+
+export const BestSleepAppForBusyMindsPage: React.FC = () => (
+  <TopicLandingPage content={contentBySlug["best-sleep-app-for-busy-minds"]} />
+);
+
+export const WhiteNoisePinkNoiseRainSoundsPage: React.FC = () => (
+  <TopicLandingPage
+    content={contentBySlug["white-noise-pink-noise-rain-sounds"]}
+  />
+);
+
+export const SleepAppAdhdNeurodivergentPage: React.FC = () => (
+  <TopicLandingPage content={contentBySlug["sleep-app-adhd-neurodivergent"]} />
+);
+
+export const OneuraVsCalmPage: React.FC = () => (
+  <TopicLandingPage content={contentBySlug["oneura-vs-calm"]} />
+);
+
+export const OneuraVsBetterSleepPage: React.FC = () => (
+  <TopicLandingPage content={contentBySlug["oneura-vs-bettersleep"]} />
+);
+
+export const OneuraVsHeadspacePage: React.FC = () => (
+  <TopicLandingPage content={contentBySlug["oneura-vs-headspace"]} />
+);
+
+export const BestFreeSleepSoundsAppPage: React.FC = () => (
+  <TopicLandingPage content={contentBySlug["best-free-sleep-sounds-app"]} />
+);
+
+export const SleepSoundsSensoryOverloadPage: React.FC = () => (
+  <TopicLandingPage content={contentBySlug["sleep-sounds-sensory-overload"]} />
 );

@@ -131,7 +131,7 @@ function imageContentType(file: File): string {
   const inferred = byExt[base];
   if (inferred) return inferred;
   throw new Error(
-    "No image type detected — use a .png / .jpg / .gif / .webp file, or re-export from your design tool.",
+    "No image type detected - use a .png / .jpg / .gif / .webp file, or re-export from your design tool.",
   );
 }
 
@@ -164,7 +164,7 @@ const IMAGE_SHAPE_IDS = IMAGE_SHAPE_OPTIONS.map((o) => o.id);
 
 const IMAGE_SHAPE_SET = new Set<string>(IMAGE_SHAPE_IDS);
 
-/** clip-path polygons — Gmail/WebKit/mobile often OK; classic Outlook ignores (square crop fallback). */
+/** clip-path polygons - Gmail/WebKit/mobile often OK; classic Outlook ignores (square crop fallback). */
 const SHAPE_CLIP: Partial<
   Record<ImageShapeId, string>
 > = {
@@ -295,7 +295,7 @@ function framedImageMarkup(params: {
   if (clip) {
     wrapParts.push(`clip-path:${clip}`, `-webkit-clip-path:${clip}`);
   }
-  /* No fill behind "contain" — a solid plate (#f1f5f9) reads as white in mail and
+  /* No fill behind "contain" - a solid plate (#f1f5f9) reads as white in mail and
    * replaces transparent PNG alpha; leave transparent so logos match banner/body. */
   const wrapStyle = wrapParts.join(";");
   const imgParts = [
@@ -372,7 +372,7 @@ async function uploadSignatureAsset(file: File, label: string): Promise<string> 
 
 const SERVICE_LOGO_LIMIT = 8;
 
-/** One optional extra brand mark (app, subsidiary, partnership, etc.) — rendered in the text column after store links. */
+/** One optional extra brand mark (app, subsidiary, partnership, etc.) - rendered in the text column after store links. */
 type PersistedServiceLogo = {
   id: string;
   url: string;
@@ -1004,9 +1004,9 @@ function ImageFrameControls({
           value={fit}
           onChange={(e) => onFit(e.target.value as ImageFitId)}
         >
-          <option value="cover">Cover — fill frame (may crop edges)</option>
+          <option value="cover">Cover - fill frame (may crop edges)</option>
           <option value="contain">
-            Contain — show entire image (may letterbox inside frame)
+            Contain - show entire image (may letterbox inside frame)
           </option>
         </select>
       </label>
@@ -1453,7 +1453,7 @@ const SignatureGenerator: React.FC = () => {
 
       setCopyHint("");
     } catch {
-      // stale or corrupt draft — ignore
+      // stale or corrupt draft - ignore
     } finally {
       if (!cancelled) setSignatureDraftHydrated(true);
     }
@@ -1567,7 +1567,7 @@ const SignatureGenerator: React.FC = () => {
         JSON.stringify(payload),
       );
     } catch {
-      // quota / privacy mode — best-effort
+      // quota / privacy mode - best-effort
     }
   }, [
     allowedIn,
@@ -1576,7 +1576,7 @@ const SignatureGenerator: React.FC = () => {
     signatureFields,
   ]);
 
-  /** What gets copied — real &lt;img&gt; URLs only (broken headshot if empty). */
+  /** What gets copied - real &lt;img&gt; URLs only (broken headshot if empty). */
   const exportHtml = useMemo(
     () => buildSignatureHtml(signatureFields),
     [signatureFields],
@@ -1672,7 +1672,7 @@ const SignatureGenerator: React.FC = () => {
             rows.map((r, i) => (i === idx ? { ...r, url } : r)),
           );
         }
-        setCopyHint(`${label} uploaded — check the URL field below.`);
+        setCopyHint(`${label} uploaded - check the URL field below.`);
       } catch (err: unknown) {
         const msg = err instanceof Error ? err.message : "Upload failed";
         setCopyHint(`${label}: ${msg}`);
@@ -1705,7 +1705,7 @@ const SignatureGenerator: React.FC = () => {
   const copySignature = useCallback(async () => {
     if (!animatedHeroUrl.trim()) {
       setCopyHint(
-        "Add a headshot URL or upload a photo/GIF before copying — pasted mail needs that image.",
+        "Add a headshot URL or upload a photo/GIF before copying - pasted mail needs that image.",
       );
       return;
     }
@@ -1750,12 +1750,12 @@ const SignatureGenerator: React.FC = () => {
       });
       downloadUint8Gif(bytes, "signature-preview.gif");
       setCopyHint(
-        "GIF downloaded. Drop it into signatures as a normal image — it is a flat picture, so links are not clickable inside the GIF. Combine with the HTML copy if you need real links.",
+        "GIF downloaded. Drop it into signatures as a normal image - it is a flat picture, so links are not clickable inside the GIF. Combine with the HTML copy if you need real links.",
       );
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
       setCopyHint(
-        `GIF export failed (${msg}). Images must allow cross-origin use (CORS) for the browser to rasterise them — try your Firebase download URLs or re-host on a CDN.`,
+        `GIF export failed (${msg}). Images must allow cross-origin use (CORS) for the browser to rasterise them - try your Firebase download URLs or re-host on a CDN.`,
       );
     } finally {
       setGifExportBusy(null);
@@ -1834,7 +1834,7 @@ const SignatureGenerator: React.FC = () => {
           <p className="signature-lede signature-lede--small">
             Build a{' '}
             <strong>static HTML block</strong> for Gmail, Outlook, and Apple Mail
-            — no scripts in outbound mail.
+            - no scripts in outbound mail.
           </p>
           <p className="signature-lede signature-lede--small">
             Your fields are{' '}
@@ -1899,7 +1899,7 @@ const SignatureGenerator: React.FC = () => {
           </label>
 
           <label className="signature-field">
-            <span>Main site — display text</span>
+            <span>Main site - display text</span>
             <input
               value={websiteDisplay}
               onChange={(e) => setWebsiteDisplay(e.target.value)}
@@ -1907,7 +1907,7 @@ const SignatureGenerator: React.FC = () => {
             />
           </label>
           <label className="signature-field">
-            <span>Main site — URL</span>
+            <span>Main site - URL</span>
             <input
               value={websiteHref}
               onChange={(e) => setWebsiteHref(e.target.value)}
@@ -1916,7 +1916,7 @@ const SignatureGenerator: React.FC = () => {
           </label>
 
           <label className="signature-field">
-            <span>Primary offering link — label</span>
+            <span>Primary offering link - label</span>
             <input
               value={productCtaLabel}
               onChange={(e) => setProductCtaLabel(e.target.value)}
@@ -1924,7 +1924,7 @@ const SignatureGenerator: React.FC = () => {
             />
           </label>
           <label className="signature-field">
-            <span>Primary offering link — URL</span>
+            <span>Primary offering link - URL</span>
             <input
               value={productHref}
               onChange={(e) => setProductHref(e.target.value)}
@@ -1960,7 +1960,7 @@ const SignatureGenerator: React.FC = () => {
           </label>
           <p className="signature-note">
             Separate sentences or clauses with{' '}
-            <strong>Enter</strong>{' '}so they wrap more cleanly on narrow mail panes —
+            <strong>Enter</strong>{' '}so they wrap more cleanly on narrow mail panes -
             outbound HTML uses soft line breaks between those lines.
             Plain <code>https://</code>
             URLs in this box are turned into clickable links; copy stays editable for each customer.
@@ -1970,7 +1970,7 @@ const SignatureGenerator: React.FC = () => {
 
           <h3>Layout &amp; colours</h3>
           <p className="signature-note signature-note--layout">
-            <strong>Typography</strong>{' '}— use the colour pickers below for name,
+            <strong>Typography</strong>{' '}- use the colour pickers below for name,
             supporting text, legal line, and disclaimer wording.{' '}
             <strong>Links</strong>{' '}pick up the Links colour (
             applies to CTAs plus any <code>https://…</code> auto-linked inside the footer).
@@ -2027,7 +2027,7 @@ const SignatureGenerator: React.FC = () => {
           </label>
 
           <label className="signature-field">
-            <span>Headshot column — size (px, 48–160)</span>
+            <span>Headshot column - size (px, 48–160)</span>
             <input
               type="number"
               min={48}
@@ -2044,7 +2044,7 @@ const SignatureGenerator: React.FC = () => {
           </label>
 
           <label className="signature-field">
-            <span>Company logo — height (px, 24–160, under headshot)</span>
+            <span>Company logo - height (px, 24–160, under headshot)</span>
             <input
               type="number"
               min={24}
@@ -2104,7 +2104,7 @@ const SignatureGenerator: React.FC = () => {
             <ol>
               <li>
                 <strong>First frame is the guarantee.</strong> Older Outlook often shows{' '}
-                <em>only</em> frame&nbsp;1 — design it so your desired final look reads
+                <em>only</em> frame&nbsp;1 - design it so your desired final look reads
                 there (crop, brightness, branding if baked in).
               </li>
               <li>
@@ -2137,7 +2137,7 @@ const SignatureGenerator: React.FC = () => {
           </label>
 
           <ImageFrameControls
-            title="Profile image — mask & focal point"
+            title="Profile image - mask & focal point"
             shape={heroImageShape}
             onShape={setHeroImageShape}
             fit={heroImageFit}
@@ -2156,16 +2156,16 @@ const SignatureGenerator: React.FC = () => {
           <p className="signature-note">
             Custom masks use <code>clip-path</code> and sizing uses{' '}
             <code>object-fit</code> /{' '}
-            <code>object-position</code> — best in Gmail, Apple Mail, and most mobile clients.
+            <code>object-position</code> - best in Gmail, Apple Mail, and most mobile clients.
             Some Outlook builds show a simpler crop; send a real test message before rollout.
           </p>
 
-          <h3>Company logo — under headshot</h3>
+          <h3>Company logo - under headshot</h3>
           <p className="signature-note signature-note--tight-top">
             Sits directly below your profile image in the left column. Use Layout to set its pixel size (larger sizes read better for the main brand mark).
           </p>
           <label className="signature-field">
-            <span>Company logo — upload</span>
+            <span>Company logo - upload</span>
             <input
               type="file"
               accept="image/*"
@@ -2174,7 +2174,7 @@ const SignatureGenerator: React.FC = () => {
             />
           </label>
           <label className="signature-field">
-            <span>Company logo — URL</span>
+            <span>Company logo - URL</span>
             <input
               value={stratoLogoUrl}
               onChange={(e) => setStratoLogoUrl(e.target.value)}
@@ -2182,7 +2182,7 @@ const SignatureGenerator: React.FC = () => {
             />
           </label>
           <ImageFrameControls
-            title="Company logo — mask & focal point"
+            title="Company logo - mask & focal point"
             shape={companyLogoShape}
             onShape={setCompanyLogoShape}
             fit={companyLogoFit}
@@ -2201,9 +2201,9 @@ const SignatureGenerator: React.FC = () => {
 
           <h3>Additional products &amp; services (optional)</h3>
           <p className="signature-note signature-note--tight-top">
-            Extra logos appear in the right-hand text column — in a row after the
+            Extra logos appear in the right-hand text column - in a row after the
             app store links (same placement as before), not under the headshot.
-            Leave empty or remove rows you do not need — add up to{' '}
+            Leave empty or remove rows you do not need - add up to{' '}
             {SERVICE_LOGO_LIMIT} for apps, subsidiaries, partnerships, etc.
           </p>
           {serviceLogos.map((row, idx) => (
@@ -2331,11 +2331,11 @@ const SignatureGenerator: React.FC = () => {
         <section className="signature-preview-panel" aria-labelledby="sig-prev-heading">
           <h2 id="sig-prev-heading">Live preview</h2>
           <details className="signature-preview-motion-details">
-            <summary>Preview-only motion — profile, logos &amp; text blocks</summary>
+            <summary>Preview-only motion - profile, logos &amp; text blocks</summary>
             <p className="signature-note signature-note--tight-top">
               These CSS effects run inside this preview. Copied HTML stays static for
               Gmail / Outlook reliability. Below you can bake the{' '}
-              <strong>moving preview into a looping GIF</strong> — that GIF plays in almost
+              <strong>moving preview into a looping GIF</strong> - that GIF plays in almost
               any mail client because it&apos;s just an image file (same idea as embedding
               an animated emoji or banner GIF).
               Blur / fracture / slice presets are raster approximations, not pixel-perfect
@@ -2344,7 +2344,7 @@ const SignatureGenerator: React.FC = () => {
             <div className="signature-preview-motion-grid">
               <PreviewMotionGroupControls
                 title="Profile photo"
-                hint="Left column — headshot or placeholder only."
+                hint="Left column - headshot or placeholder only."
                 group={previewMotion.profile}
                 onPatch={(p) => patchPreviewMotion("profile", p)}
               />
@@ -2376,7 +2376,7 @@ const SignatureGenerator: React.FC = () => {
             <p className="signature-note signature-note--tight-top">
               Saves what you see moving in the preview as <code>.gif</code> (loops forever).
               Larger / longer captures take longer. Keep files small for inbox speed.
-              The GIF is flat pixels — URLs in the HTML copy aren&apos;t inside the GIF.
+              The GIF is flat pixels - URLs in the HTML copy aren&apos;t inside the GIF.
             </p>
             <div className="signature-field-grid-2">
               <label className="signature-field">
@@ -2402,11 +2402,11 @@ const SignatureGenerator: React.FC = () => {
                     setGifExportFps(Number.parseInt(e.target.value, 10))
                   }
                 >
-                  <option value={6}>6 fps — smaller file</option>
+                  <option value={6}>6 fps - smaller file</option>
                   <option value={8}>8 fps</option>
                   <option value={10}>10 fps</option>
                   <option value={12}>12 fps</option>
-                  <option value={15}>15 fps — heavier</option>
+                  <option value={15}>15 fps - heavier</option>
                 </select>
               </label>
             </div>
@@ -2432,7 +2432,7 @@ const SignatureGenerator: React.FC = () => {
           >
             {!showLivePreview ? (
               <p className="signature-preview-placeholder">
-                Start by filling name, title, phone, etc., or paste image URLs —
+                Start by filling name, title, phone, etc., or paste image URLs -
                 the preview appears as soon as there is something to render.
               </p>
             ) : (

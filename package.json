@@ -19,10 +19,12 @@
     "firebase": "^11.4.0",
     "gifenc": "^1.0.3",
     "html2canvas": "^1.4.1",
+    "i18next": "^26.3.1",
     "nodemailer": "^6.10.0",
     "qr-code-styling": "^1.9.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-i18next": "^17.0.8",
     "react-router-dom": "^7.3.0"
   },
   "devDependencies": {

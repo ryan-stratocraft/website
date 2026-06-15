@@ -147,7 +147,7 @@ function writeLlmsTxt() {
 
 - Official website: ${STRATO_ORIGIN}/
 - Type: UK mobile app development studio (builds its own products, not a consultancy)
-- Flagship product: Oneura (sleep sounds and sensory relaxation app) — ${ONEURA_ORIGIN}/
+- Flagship product: Oneura (sleep sounds and sensory relaxation app) - ${ONEURA_ORIGIN}/
 - Other products: Oh-i (personality- and location-based dating app); IAC Platform (cloud infrastructure visualisation, coming soon)
 - Platforms: iOS and Android
 
