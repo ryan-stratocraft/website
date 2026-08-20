@@ -386,7 +386,7 @@ export const APP_AGGREGATE_RATING = {
   worstRating: '1',
 };
 
-/** UK store listing prices — keep in sync with Subscription.tsx. */
+/** UK store listing prices - keep in sync with Subscription.tsx. */
 export const PRODUCT_OFFERS = [
   {
     '@type': 'Offer',

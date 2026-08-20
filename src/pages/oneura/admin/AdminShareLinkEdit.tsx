@@ -57,6 +57,9 @@ const AdminShareLinkEdit: React.FC = () => {
             description:
               typeof data.description === "string" ? data.description : "",
             sourcesStr: sources.join(", "),
+            promoEnabled: data.promoEnabled === true,
+            offerSlug:
+              typeof data.offerSlug === "string" ? data.offerSlug : "",
           });
         }
       } catch (e) {
@@ -94,6 +97,8 @@ const AdminShareLinkEdit: React.FC = () => {
         description: body.description,
         status: body.status,
         sources: body.sources,
+        promoEnabled: body.promoEnabled,
+        offerSlug: body.offerSlug,
         updatedAt: serverTimestamp(),
       });
 

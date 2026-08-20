@@ -60,6 +60,8 @@ const AdminShareLinkCreate: React.FC = () => {
         description: body.description,
         status: body.status,
         sources: body.sources,
+        promoEnabled: body.promoEnabled,
+        offerSlug: body.offerSlug,
         totalClicks: 0,
         clicksBySource: {},
         clicksByPlatform: {},

@@ -102,7 +102,7 @@ const PartnerLanding: React.FC = () => {
         )}
         <div
           style={{
-            color: "#cbd5e1",
+            color: "#e2e8f0",
             fontSize: 12,
             letterSpacing: 1.4,
             fontWeight: 600,
@@ -125,9 +125,9 @@ const PartnerLanding: React.FC = () => {
         {view.branding.body && (
           <p
             style={{
-              color: "#cbd5e1",
+              color: "#e8eef7",
               fontSize: 16,
-              lineHeight: 1.5,
+              lineHeight: 1.55,
               maxWidth: 520,
               margin: "0 auto",
             }}
@@ -151,11 +151,12 @@ const PartnerLanding: React.FC = () => {
       {view.branding.finePrint && (
         <p
           style={{
-            color: "#64748b",
+            color: "#cbd5e1",
             fontSize: 12,
             textAlign: "center",
             maxWidth: 480,
             margin: "24px auto 0",
+            lineHeight: 1.55,
           }}
         >
           {view.branding.finePrint}
@@ -366,21 +367,32 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, accent, heroImageUrl }) => {
-  const gradient = accent
-    ? `linear-gradient(180deg, ${accent}22 0%, #0B132B 50%, #0B132B 100%)`
-    : "#0B132B";
+  const glow = accent ?? "#A855F7";
+  const pageBackground = heroImageUrl
+    ? `linear-gradient(180deg, rgba(11,19,43,0.92) 0%, #0B132B 100%), url(${heroImageUrl}) center/cover`
+    : `radial-gradient(ellipse 90% 50% at 50% 0%, ${glow}26 0%, #0B132B 55%), #0B132B`;
   return (
     <div
       style={{
         minHeight: "100vh",
-        background: heroImageUrl
-          ? `linear-gradient(180deg, rgba(11,19,43,0.85) 0%, #0B132B 100%), url(${heroImageUrl}) center/cover`
-          : gradient,
+        background: pageBackground,
         color: "#fff",
-        padding: "60px 20px",
+        padding: "72px 20px 48px",
       }}
     >
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>{children}</div>
+      <div
+        style={{
+          maxWidth: 560,
+          margin: "0 auto",
+          background: "rgba(11, 19, 43, 0.88)",
+          border: "1px solid rgba(255,255,255,0.14)",
+          borderRadius: 20,
+          padding: "32px 24px 28px",
+          boxShadow: "0 18px 50px rgba(0,0,0,0.35)",
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };

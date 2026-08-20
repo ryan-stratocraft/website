@@ -20,6 +20,8 @@ interface ShareLinkDoc {
   description: string | null;
   status: string;
   sources: string[];
+  promoEnabled: boolean;
+  offerSlug: string | null;
   totalClicks: number;
   clicksBySource: Record<string, number>;
   clicksByPlatform: Record<string, number>;
@@ -74,6 +76,9 @@ const AdminShareLinkDetail: React.FC = () => {
                   (s): s is string => typeof s === "string",
                 )
               : [],
+            promoEnabled: data.promoEnabled === true,
+            offerSlug:
+              typeof data.offerSlug === "string" ? data.offerSlug : null,
             totalClicks:
               typeof data.totalClicks === "number" ? data.totalClicks : 0,
             clicksBySource: toNumberMap(data.clicksBySource),
@@ -242,6 +247,14 @@ const AdminShareLinkDetail: React.FC = () => {
 
           <Card title="Status">
             <KV label="status" value={link.status} />
+            <KV
+              label="50% promo gate"
+              value={
+                link.promoEnabled && link.offerSlug
+                  ? `on → offer ${link.offerSlug}`
+                  : "off"
+              }
+            />
             <KV
               label="total clicks"
               value={link.totalClicks.toLocaleString()}

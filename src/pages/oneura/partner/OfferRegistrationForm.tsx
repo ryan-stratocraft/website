@@ -71,7 +71,7 @@ const OfferRegistrationForm: React.FC<Props> = ({
     >
       <label
         htmlFor="offer-email"
-        style={{ color: "#cbd5e1", fontSize: 13, fontWeight: 500 }}
+        style={{ color: "#e8eef7", fontSize: 13, fontWeight: 600 }}
       >
         Register for this offer
       </label>
@@ -89,8 +89,8 @@ const OfferRegistrationForm: React.FC<Props> = ({
             flex: "1 1 220px",
             padding: "10px 12px",
             borderRadius: 8,
-            border: "1px solid rgba(255,255,255,0.18)",
-            background: "rgba(11,19,43,0.6)",
+            border: "1px solid rgba(255,255,255,0.28)",
+            background: "rgba(8, 14, 32, 0.92)",
             color: "#fff",
             fontSize: 14,
           }}
@@ -114,10 +114,10 @@ const OfferRegistrationForm: React.FC<Props> = ({
       </div>
       <p
         style={{
-          color: "#94a3b8",
+          color: "#cbd5e1",
           fontSize: 12,
           margin: "4px 0 0",
-          lineHeight: 1.5,
+          lineHeight: 1.55,
         }}
       >
         Use this email when you sign up in the Oneura app - that's how the

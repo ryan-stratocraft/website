@@ -15,6 +15,14 @@ export interface ShareLinkFormValue {
   status: "active" | "paused";
   /** Comma-separated raw text from the input, e.g. "instagram, twitter, tiktok". */
   sourcesStr: string;
+  /**
+   * When true, `/d/:slug` collects an email before the store redirect
+   * and registers against `/campaigns/{offerSlug}` so the app can show
+   * the generic 50% card to matched users only.
+   */
+  promoEnabled: boolean;
+  /** Campaign slug used by registerForOffer. Usually same as share slug. */
+  offerSlug: string;
 }
 
 export const emptyShareLinkFormValue: ShareLinkFormValue = {
@@ -23,6 +31,8 @@ export const emptyShareLinkFormValue: ShareLinkFormValue = {
   description: "",
   status: "active",
   sourcesStr: "",
+  promoEnabled: false,
+  offerSlug: "",
 };
 
 interface Props {
@@ -104,6 +114,45 @@ const ShareLinkFormFields: React.FC<Props> = ({ value, onChange, mode }) => {
             onChange={(e) => onChange({ sourcesStr: e.target.value })}
             placeholder="instagram, twitter, tiktok"
             style={inputStyle}
+          />
+        </Field>
+      </Section>
+
+      <Section
+        title="Social promo (optional)"
+        subtitle="Gate this share link behind email registration. Matched app sign-ups see the generic 50% Oneura Plus card — not a branded partner card. Requires an active Partner offer campaign (visibilityMode always_card) at /admin/offers with the offer slug below."
+      >
+        <Field
+          label="Enable 50% promo on this link"
+          hint="When on, /d/<slug> asks for email before the store redirect."
+        >
+          <label
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              color: "#fff",
+              fontSize: 14,
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={value.promoEnabled}
+              onChange={(e) => onChange({ promoEnabled: e.target.checked })}
+            />
+            Promo email gate enabled
+          </label>
+        </Field>
+        <Field
+          label="Linked offer slug"
+          hint="Must match an active /campaigns/{slug} doc (create under Partner offers with visibilityMode always_card). Defaults to this share link's slug if left blank while promo is on."
+        >
+          <input
+            value={value.offerSlug}
+            onChange={(e) => onChange({ offerSlug: e.target.value })}
+            placeholder={value.slug || "oneura-sleep-app"}
+            disabled={!value.promoEnabled}
+            style={value.promoEnabled ? inputStyle : readOnlyInputStyle}
           />
         </Field>
       </Section>
@@ -197,6 +246,12 @@ export function validateShareLinkForm(
   if (!value.name.trim()) {
     return "Name is required.";
   }
+  if (value.promoEnabled) {
+    const offerSlug = (value.offerSlug.trim() || value.slug).toLowerCase();
+    if (!SLUG_RE.test(offerSlug)) {
+      return "Promo offer slug must be 3–40 chars, lowercase letters / digits / hyphens.";
+    }
+  }
   const sources = parseSources(value.sourcesStr);
   for (const s of sources) {
     if (s.startsWith("_")) {
@@ -242,12 +297,18 @@ export function shareLinkFormToDoc(value: ShareLinkFormValue): {
   description: string | null;
   status: "active" | "paused";
   sources: string[];
+  promoEnabled: boolean;
+  offerSlug: string | null;
 } {
+  const promoEnabled = value.promoEnabled;
+  const offerSlugRaw = value.offerSlug.trim() || value.slug;
   return {
     slug: value.slug,
     name: value.name.trim(),
     description: value.description.trim() || null,
     status: value.status,
     sources: parseSources(value.sourcesStr),
+    promoEnabled,
+    offerSlug: promoEnabled ? offerSlugRaw.toLowerCase() : null,
   };
 }

@@ -271,7 +271,7 @@ const OfferFormFields: React.FC<Props> = ({
             >
               <option value="auto">auto (follow Remote Config toggle)</option>
               <option value="always_card">
-                always_card (force standard card)
+                always_card (generic 50% card for eligible users — social share promos)
               </option>
               <option value="always_hidden">
                 always_hidden (force redeem panel only)

@@ -100,3 +100,34 @@ export async function registerForOffer(
   }
   return data as { ok: true; id: string };
 }
+
+/**
+ * Client-safe share-link view. Used by `/d/:slug` to decide whether to
+ * gate the store redirect behind an email registration for a linked
+ * promo campaign (`offerSlug` → `/campaigns/{offerSlug}`).
+ */
+export interface PublicShareLinkView {
+  slug: string;
+  status: string;
+  name: string;
+  promoEnabled: boolean;
+  offerSlug: string | null;
+}
+
+/**
+ * Fetch public share-link config. Returns `null` on 404 (unknown /
+ * paused slug).
+ */
+export async function getShareLink(
+  slug: string,
+): Promise<PublicShareLinkView | null> {
+  const qs = new URLSearchParams({ slug });
+  const res = await fetch(`${FUNCTIONS_BASE}/getShareLink?${qs.toString()}`, {
+    method: 'GET',
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    throw new Error(`getShareLink failed: ${res.status}`);
+  }
+  return (await res.json()) as PublicShareLinkView;
+}

@@ -3,22 +3,27 @@ import { useParams, useSearchParams } from "react-router-dom";
 import googlePlay from "../../../assets/images/google-play.png";
 import appStore from "../../../assets/images/app-store.png";
 import oneuraLogo from "../../../assets/images/oneura/logo-color.png";
+import {
+  getShareLink,
+  type PublicShareLinkView,
+} from "../../../firebase/oneuraFunctions";
+import OfferRegistrationForm from "../partner/OfferRegistrationForm";
 
 /**
  * `/d/:slug` - share / acquisition redirect page. Sibling of the
- * partner-offer landing (`/c/:slug`), but stripped down: no Firestore
- * read, no branding payload, no email form. The page:
+ * partner-offer landing (`/c/:slug`).
  *
- *   1. Renders a navy Oneura splash immediately (no flash of white).
- *   2. Fires `navigator.sendBeacon` (fallback `fetch(..., keepalive)`)
- *      to the `recordShareClick` Cloud Function with the slug, the
- *      `?src=` value, and a UA-derived platform bucket.
- *   3. Redirects to the App Store (iOS), Play Store (Android), or
- *      shows both store buttons (desktop).
+ * Flow:
+ *   1. Render a navy Oneura splash immediately (no flash of white).
+ *   2. Fire `recordShareClick` (beacon) with slug / `?src=` / platform.
+ *   3. Load public share-link config via `getShareLink`.
+ *   4. If `promoEnabled` + `offerSlug`: collect email via the same
+ *      `registerForOffer` path as partner offers, then show store CTAs.
+ *   5. Otherwise (plain acquisition link): redirect to App Store /
+ *      Play Store, or show both buttons on desktop.
  *
  * Universal Links / App Links intercept this URL on installed devices
- * and route to the in-app DeepLinkService instead - that's the
- * acquisition / re-engagement loop we're tracking.
+ * and route to the in-app DeepLinkService instead.
  */
 const APP_STORE_URL = "https://apps.apple.com/app/oneura/id6754253306";
 const PLAY_STORE_URL =
@@ -34,113 +39,218 @@ const ShareLinkRedirect: React.FC = () => {
   const source = searchParams.get("src");
 
   const [{ url, platform }] = useState(() => detectStoreUrl());
+  const [link, setLink] = useState<
+    PublicShareLinkView | null | "loading" | "error"
+  >("loading");
+  const [registered, setRegistered] = useState(false);
 
   useEffect(() => {
-    if (!slug) return;
+    if (!slug) {
+      setLink("error");
+      return;
+    }
     recordClick({ slug, source, platform });
 
-    // Tiny delay so the splash + logo are visibly painted before the
-    // browser swaps to the store URL. Desktop visitors stay on the
-    // page (no redirect target) and tap a button instead.
+    let cancelled = false;
+    (async () => {
+      try {
+        const view = await getShareLink(slug);
+        if (!cancelled) setLink(view);
+      } catch {
+        if (!cancelled) setLink("error");
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, source, platform]);
+
+  const promoActive =
+    typeof link === "object" &&
+    link !== null &&
+    link.promoEnabled &&
+    !!link.offerSlug;
+
+  // Plain share links (no promo): keep the original fast store bounce.
+  useEffect(() => {
+    if (link === "loading" || link === "error" || link === null) return;
+    if (promoActive) return;
     if (!url) return;
     const t = window.setTimeout(() => {
       window.location.replace(url);
     }, 600);
     return () => window.clearTimeout(t);
-  }, [slug, source, platform, url]);
+  }, [link, promoActive, url]);
 
-  return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "#0B132B",
-        color: "#fff",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 24,
-      }}
-    >
-      <div style={{ textAlign: "center", maxWidth: 420 }}>
-        <img
-          src={oneuraLogo}
-          alt="Oneura"
-          style={{
-            width: 96,
-            height: 96,
-            marginBottom: 24,
-            filter: "drop-shadow(0 0 24px rgba(168, 85, 247, 0.28))",
-          }}
-        />
-        <h1
-          style={{
-            color: "#fff",
-            fontSize: 22,
-            margin: "0 0 8px",
-            fontWeight: 600,
-            letterSpacing: 0.2,
-          }}
-        >
-          {url ? "Opening Oneura…" : "Get Oneura"}
-        </h1>
-        <p
-          style={{
-            color: "#cbd5e1",
-            fontSize: 14,
-            margin: "0 0 24px",
-            lineHeight: 1.5,
-          }}
-        >
-          {url
-            ? "Taking you to the store so you can install the app."
-            : "Calm sounds, sleep stories, and gentle wind-downs. Available on iOS and Android."}
+  // After promo email registration on mobile, bounce to the store.
+  useEffect(() => {
+    if (!registered || !promoActive || !url) return;
+    const t = window.setTimeout(() => {
+      window.location.replace(url);
+    }, 900);
+    return () => window.clearTimeout(t);
+  }, [registered, promoActive, url]);
+
+  if (!slug || link === "error" || link === null) {
+    return (
+      <Shell>
+        <h1 style={titleStyle}>Link unavailable</h1>
+        <p style={bodyStyle}>
+          This share link is paused or couldn&apos;t be recognised. Try the
+          original QR or post from Oneura socials.
         </p>
-        <div
-          style={{
-            display: "flex",
-            gap: 12,
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block" }}
-          >
-            <img
-              src={appStore}
-              alt="Download Oneura on the App Store"
-              style={{ height: 48 }}
-            />
-          </a>
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: "inline-block" }}
-          >
-            <img
-              src={googlePlay}
-              alt="Get Oneura on Google Play"
-              style={{ height: 48 }}
-            />
-          </a>
+        <StoreButtons />
+      </Shell>
+    );
+  }
+
+  if (link === "loading") {
+    return (
+      <Shell>
+        <h1 style={titleStyle}>Opening Oneura…</h1>
+        <p style={bodyStyle}>Just a moment.</p>
+      </Shell>
+    );
+  }
+
+  if (promoActive && !registered) {
+    return (
+      <Shell>
+        <h1 style={titleStyle}>50% off Oneura Plus</h1>
+        <p style={bodyStyle}>
+          Enter the email you&apos;ll use when you sign up in the app. We&apos;ll
+          unlock the half-price offer on your subscriptions page after you
+          install.
+        </p>
+        <div style={{ textAlign: "left", marginBottom: 20 }}>
+          <OfferRegistrationForm
+            offerSlug={link.offerSlug!}
+            primaryColorHex="#A855F7"
+            source={source}
+            onRegistered={() => setRegistered(true)}
+          />
         </div>
-      </div>
-    </div>
+        <p style={{ ...bodyStyle, marginBottom: 0, fontSize: 12 }}>
+          Already registered? Install below and sign up with the same email.
+        </p>
+        <div style={{ marginTop: 16 }}>
+          <StoreButtons />
+        </div>
+      </Shell>
+    );
+  }
+
+  if (promoActive && registered) {
+    return (
+      <Shell>
+        <h1 style={titleStyle}>
+          {url ? "You're registered — opening the store…" : "You're registered"}
+        </h1>
+        <p style={bodyStyle}>
+          Install Oneura, then sign up with the <strong>same email</strong>.
+          Open Profile → Membership to claim 50% off Plus.
+        </p>
+        <StoreButtons />
+      </Shell>
+    );
+  }
+
+  // Plain acquisition (no promo)
+  return (
+    <Shell>
+      <h1 style={titleStyle}>
+        {url ? "Opening Oneura…" : "Get Oneura"}
+      </h1>
+      <p style={bodyStyle}>
+        {url
+          ? "Taking you to the store so you can install the app."
+          : "Calm sounds, sleep stories, and gentle wind-downs. Available on iOS and Android."}
+      </p>
+      <StoreButtons />
+    </Shell>
   );
 };
 
-/**
- * Best-effort UA sniff. Mirrors the buckets the recordShareClick
- * Cloud Function accepts (ios / android / desktop / other). Falls
- * back to desktop on weird/missing UAs - these users still see the
- * page and can tap a store button manually, so the analytics bucket
- * for them is harmless.
- */
+const Shell: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div
+    style={{
+      position: "fixed",
+      inset: 0,
+      background: "#0B132B",
+      color: "#fff",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 24,
+    }}
+  >
+    <div style={{ textAlign: "center", maxWidth: 420 }}>
+      <img
+        src={oneuraLogo}
+        alt="Oneura"
+        style={{
+          width: 96,
+          height: 96,
+          marginBottom: 24,
+          filter: "drop-shadow(0 0 24px rgba(168, 85, 247, 0.28))",
+        }}
+      />
+      {children}
+    </div>
+  </div>
+);
+
+const StoreButtons: React.FC = () => (
+  <div
+    style={{
+      display: "flex",
+      gap: 12,
+      justifyContent: "center",
+      flexWrap: "wrap",
+    }}
+  >
+    <a
+      href={APP_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ display: "inline-block" }}
+    >
+      <img
+        src={appStore}
+        alt="Download Oneura on the App Store"
+        style={{ height: 48 }}
+      />
+    </a>
+    <a
+      href={PLAY_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ display: "inline-block" }}
+    >
+      <img
+        src={googlePlay}
+        alt="Get Oneura on Google Play"
+        style={{ height: 48 }}
+      />
+    </a>
+  </div>
+);
+
+const titleStyle: React.CSSProperties = {
+  color: "#fff",
+  fontSize: 22,
+  margin: "0 0 8px",
+  fontWeight: 600,
+  letterSpacing: 0.2,
+};
+
+const bodyStyle: React.CSSProperties = {
+  color: "#e8eef7",
+  fontSize: 14,
+  margin: "0 0 24px",
+  lineHeight: 1.55,
+};
+
 function detectStoreUrl(): {
   url: string | null;
   platform: "ios" | "android" | "desktop";
@@ -156,13 +266,6 @@ function detectStoreUrl(): {
   return { url: null, platform: "desktop" };
 }
 
-/**
- * Fire-and-forget click record. Uses `sendBeacon` when available so
- * the request survives an immediate window.location.replace, falls
- * back to a `fetch(..., keepalive: true)` for browsers without it.
- * Always swallows errors - the user's redirect must never block on
- * an analytics path.
- */
 function recordClick({
   slug,
   source,
@@ -180,16 +283,11 @@ function recordClick({
   });
 
   try {
-    // Browsers ignore Content-Type on Blob beacons (always treats as
-    // CORS-safelisted). The Cloud Function parses string bodies as
-    // JSON regardless of header, so this matches what the in-app
-    // http.post sends.
     if (typeof navigator.sendBeacon === "function") {
       const blob = new Blob([payload], { type: "text/plain;charset=UTF-8" });
       const ok = navigator.sendBeacon(RECORD_URL, blob);
       if (ok) return;
     }
-    // Fallback path - keepalive lets fetch outlive the page navigation.
     void fetch(RECORD_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
