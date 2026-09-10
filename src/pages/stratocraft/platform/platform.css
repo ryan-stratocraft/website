@@ -1,0 +1,68 @@
+.platform-page {
+  background: #0b132b;
+  color: #e8eefc;
+  min-height: 100vh;
+  padding: 40px 20px 80px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.platform-hero,
+.platform-section {
+  max-width: 920px;
+  margin: 0 auto 48px;
+}
+
+.platform-hero h1,
+.platform-section h1,
+.platform-section h2 {
+  margin-bottom: 12px;
+}
+
+.platform-hero p,
+.platform-section p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 920px;
+  margin: 0 auto 48px;
+}
+
+.platform-card {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  color: inherit;
+  text-decoration: none;
+}
+
+a.platform-card:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+.platform-card h3 {
+  margin-top: 0;
+}
+
+.platform-cta {
+  display: inline-block;
+  margin-top: 16px;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+.platform-note {
+  max-width: 920px;
+  margin: 0 auto;
+  color: #94a3b8;
+  font-size: 14px;
+}

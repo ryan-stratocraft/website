@@ -43,6 +43,57 @@ export const STRATO_ROUTES = [
     ],
   },
   {
+    path: '/platform',
+    priority: '0.8',
+    changefreq: 'monthly',
+    title: 'Strato-Craft Platform | Licensed Branded Wellness Apps',
+    description:
+      'License the Strato-Craft wellness operating model as your own branded app. You own the store listing, content and memberships. We operate the platform.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Platform', path: '/platform' },
+    ],
+  },
+  {
+    path: '/platform/capabilities',
+    priority: '0.6',
+    changefreq: 'monthly',
+    title: 'Platform Capabilities | Strato-Craft Licensed Modules',
+    description:
+      'See which wellness capabilities are platform-core, licensable, or reserved for Oneura.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Platform', path: '/platform' },
+      { name: 'Capabilities', path: '/platform/capabilities' },
+    ],
+  },
+  {
+    path: '/platform/content',
+    priority: '0.6',
+    changefreq: 'monthly',
+    title: 'Platform Content Catalogue | Licensed Sounds and Stories',
+    description:
+      'Launch with licensed sleep sounds and stories, add your own content, or keep Oneura-exclusive media off the catalogue.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Platform', path: '/platform' },
+      { name: 'Content', path: '/platform/content' },
+    ],
+  },
+  {
+    path: '/platform/how-it-works',
+    priority: '0.6',
+    changefreq: 'monthly',
+    title: 'How the Strato-Craft Platform Works | App Studio and Managed Ops',
+    description:
+      'A licensed app is a branded shell on shared packages. Marketing uses App Studio. Strato-Craft operates infrastructure and releases.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Platform', path: '/platform' },
+      { name: 'How it works', path: '/platform/how-it-works' },
+    ],
+  },
+  {
     path: '/oh-i',
     priority: '0.8',
     changefreq: 'monthly',

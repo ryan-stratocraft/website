@@ -27,6 +27,7 @@ const Navbar: React.FC = () => {
       <ul>
         <li><Link to="/" aria-current={isActive("/") ? "page" : undefined}>Home</Link></li>
         <li><Link to="/about" aria-current={isActive("/about") ? "page" : undefined}>About</Link></li>
+        <li><Link to="/platform" aria-current={isActive("/platform") ? "page" : undefined}>Platform</Link></li>
         <li><Link to="/support" aria-current={isActive("/support") ? "page" : undefined}>Support</Link></li>
 
         {/* Dropdown Menu for Apps */}

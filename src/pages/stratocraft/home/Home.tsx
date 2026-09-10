@@ -32,6 +32,17 @@ const Home: React.FC = () => {
           We’re not a consultancy. At Strato-Craft, we build and maintain our own products designed for public use - focusing on AI-powered experiences that are meaningful, accessible, and future-ready.
         </p>
 
+        <div className="product-card">
+          <img src={stratocraftLogo} alt="Strato-Craft Platform" className="product-image" />
+          <div className="product-info">
+            <h3>Strato-Craft Platform</h3>
+            <p>License the wellness operating model as your own branded app, with App Studio for marketing control.</p>
+            <Link to="/platform" className="app-button">
+              View Platform
+            </Link>
+          </div>
+        </div>
+
         {/* Product Cards */}
         <div className="product-card">
           <img src={oneuraPreview} alt="Oneura - Sleep and Relaxation App for Android and iOS" className="product-image" />

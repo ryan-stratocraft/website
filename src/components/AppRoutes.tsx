@@ -4,6 +4,11 @@ import Home from "../pages/stratocraft/home/Home";
 import About from "../pages/stratocraft/about/About";
 import Support from "../pages/stratocraft/support/Support";
 import SignatureGenerator from "../pages/stratocraft/signature/SignatureGenerator";
+import Platform from "../pages/stratocraft/platform/Platform";
+import PlatformCapabilities from "../pages/stratocraft/platform/PlatformCapabilities";
+import PlatformContent from "../pages/stratocraft/platform/PlatformContent";
+import PlatformHowItWorks from "../pages/stratocraft/platform/PlatformHowItWorks";
+import PlatformContact from "../pages/stratocraft/platform/PlatformContact";
 import NotFound from "../pages/NotFound";
 
 import OhIHome from "../pages/oh-i/home/OhIHome";
@@ -73,6 +78,11 @@ export const StratoSiteRoutes: React.FC = () => (
     <Route path="/about" element={<About />} />
     <Route path="/support" element={<Support />} />
     <Route path="/signature" element={<SignatureGenerator />} />
+    <Route path="/platform" element={<Platform />} />
+    <Route path="/platform/capabilities" element={<PlatformCapabilities />} />
+    <Route path="/platform/content" element={<PlatformContent />} />
+    <Route path="/platform/how-it-works" element={<PlatformHowItWorks />} />
+    <Route path="/platform/contact" element={<PlatformContact />} />
 
     <Route path="/oh-i" element={<OhIHome />} />
     <Route path="/oh-i/about" element={<OhIAbout />} />

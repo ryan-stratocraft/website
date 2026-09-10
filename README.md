@@ -2,6 +2,8 @@
 
 Ops and migration checklist (org project, `oneura.app`, email signature MVP): [`docs/STRATO_PLATFORM_MIGRATION_AND_SIGNATURE_MVP.md`](./docs/STRATO_PLATFORM_MIGRATION_AND_SIGNATURE_MVP.md).
 
+Platform licensing status (Oneura tenant zero + public `/platform` pages): [`docs/PLATFORM_LICENSING_STATUS.md`](./docs/PLATFORM_LICENSING_STATUS.md).
+
 ---
 
 ## React + TypeScript + Vite

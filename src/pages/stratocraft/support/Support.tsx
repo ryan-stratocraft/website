@@ -21,6 +21,7 @@ const Support: React.FC = () => {
     "Data Deletion Request",
     "App Feedback",
     "Partnership Inquiry",
+    "Platform licensing",
     "Press / Media",
     "Other",
   ];
