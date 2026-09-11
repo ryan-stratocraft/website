@@ -1,9 +1,12 @@
 # Platform licensing — status and next steps
 
-**Date:** 10 September 2026  
-**Website branch:** `feat/platform-licensing` (this repo: `D:\Strato-Craft\website`)  
-**App branch:** `feat/platform-licensing` in `c:\Users\fazza\StudioProjects\onuera` (commit `afd93d8`)  
-**Do not treat `C:\Users\fazza\website` as current.** That clone is unused.
+**Date:** 11 September 2026  
+**Branch (both repos):** `feat/platform-licensing` -- pushed to origin, clean, not merged to `main`  
+**App commit:** `afd93d8` | **Website commit:** `400f5d6`
+
+Work moves between two machines. Clone paths differ; the branch names and the
+remotes do not. See "Repos and branches" at the foot of this note before
+assuming a path is stale.
 
 This is a working status note for the Strato-Craft platform licence (white-label wellness apps). Oneura stays the neurodivergent product. Skip is a possible first commercial client later, not this build.
 
@@ -78,8 +81,15 @@ Copy does not name Skip or imply a live licensee.
 
 ## Repos and branches
 
-| Work | Repo | Branch |
-| --- | --- | --- |
-| Flutter app, packages, functions, App Studio | `StudioProjects/onuera` | `feat/platform-licensing` |
-| Public `/platform` pages | `D:\Strato-Craft\website` | `feat/platform-licensing` |
-| Unused old clone | `C:\Users\fazza\website` | ignore |
+Both repos live on `feat/platform-licensing` on every machine. Origin is the
+source of truth; the local paths below are just where each clone happens to sit.
+
+| Work | Repo | Desktop path | Laptop path |
+| --- | --- | --- | --- |
+| Flutter app, packages, functions, App Studio | `onuera` | `C:\Users\fazza\StudioProjects\onuera` | `C:\Users\ryan.farrington\SC Repo\onuera_app` |
+| Public `/platform` pages | `website` | `D:\Strato-Craft\website` | `C:\Users\ryan.farrington\SC Repo\website\website` |
+
+**Dead clone:** `C:\Users\fazza\website` on the desktop. Unused -- do not open it.
+
+Before starting on either machine, `git fetch` and confirm the branch is level
+with origin. A path that looks wrong is probably just the other machine.
