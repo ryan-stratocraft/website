@@ -77,13 +77,33 @@
       ],
       "redirects": [
         {
+          "source": "/oneura/privacy-policy",
+          "destination": "https://oneura.app/privacy-policy",
+          "type": 301
+        },
+        {
+          "source": "/oneura/terms-and-conditions",
+          "destination": "https://oneura.app/terms-and-conditions",
+          "type": 301
+        },
+        {
+          "source": "/oneura/cookie-policy",
+          "destination": "https://oneura.app/cookie-policy",
+          "type": 301
+        },
+        {
+          "source": "/oneura/refund-policy",
+          "destination": "https://oneura.app/refund-policy",
+          "type": 301
+        },
+        {
           "source": "/oneura",
           "destination": "https://oneura.app/",
           "type": 301
         },
         {
-          "regex": "^/oneura/(?P<rest>.*)$",
-          "destination": "https://oneura.app/:rest",
+          "source": "/oneura/**",
+          "destination": "https://oneura.app/:splat",
           "type": 301
         }
       ],

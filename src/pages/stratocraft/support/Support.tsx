@@ -243,14 +243,31 @@ ${formData.message}
             <p>
               Subscriptions are managed through the App Store (iOS) or Play Store (Android).
               Go to your device's subscription settings to cancel or manage your subscription.
+              For Oneura cancellation instructions, see our{" "}
+              <a
+                href="https://oneura.app/refund-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Refunds &amp; Billing
+              </a>{" "}
+              page.
             </p>
           </div>
 
           <div className="faq-item">
             <h4>How do I request a refund?</h4>
             <p>
-              If Applicable Refunds are processed by Apple or Google. Contact their support directly
-              through your app store account to request a refund. Please not that refunds are not available as standard policy, but may be available in certain cases.
+              Refunds are processed by Apple or Google through your app store account.
+              For Oneura, see our detailed{" "}
+              <a
+                href="https://oneura.app/refund-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Refunds &amp; Billing
+              </a>{" "}
+              page for step-by-step instructions on how to request refunds and cancel subscriptions.
             </p>
           </div>
 
