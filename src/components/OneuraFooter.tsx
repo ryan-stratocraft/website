@@ -79,6 +79,9 @@ const OneuraFooter: React.FC = () => {
           <Link to={pagePath("cookie-policy")}>Cookie Policy</Link>
         </li>
         <li>
+          <Link to={pagePath("refund-policy")}>Refunds &amp; Billing</Link>
+        </li>
+        <li>
           <a
             href={STRATO_CRAFT_SUPPORT_URL}
             target="_blank"

@@ -10,6 +10,7 @@ export type OneuraPageSlug =
   | "terms-and-conditions"
   | "cookie-policy"
   | "delete-data"
+  | "refund-policy"
   | "sleep-sounds-white-noise"
   | "sensory-relaxation-app"
   | "sleep-app-for-busy-minds"

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import OneuraNavbar from "./components/OneuraNavbar";
 import OneuraFooter from "./components/OneuraFooter";
+import StratoFooter from "./components/StratoFooter";
 import {
   OneuraProductSiteRoutes,
   StratoSiteRoutes,
@@ -84,6 +85,7 @@ const App: React.FC = () => {
       </div>
 
       {onOneuraProductSite && !onAdminRoute ? <OneuraFooter /> : null}
+      {!onOneuraProductSite && !onAdminRoute ? <StratoFooter /> : null}
       {onOneuraProductSite && !onAdminRoute ? <CookieConsent /> : null}
     </div>
   );

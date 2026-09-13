@@ -1,0 +1,104 @@
+/* Strato-Craft Footer Styles */
+.strato-footer {
+  background: linear-gradient(180deg, #0B132B 0%, #1E293B 100%);
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 40px 20px;
+  margin-top: auto;
+}
+
+.strato-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.strato-footer-company {
+  text-align: center;
+}
+
+.strato-footer-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 5px 0;
+}
+
+.strato-footer-reg {
+  font-size: 0.9rem;
+  color: #94A3B8;
+  margin: 0 0 5px 0;
+}
+
+.strato-footer-address {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin: 0;
+  max-width: 400px;
+}
+
+.strato-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.strato-footer-links li {
+  margin: 0;
+}
+
+.strato-footer-links a {
+  color: #94A3B8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.strato-footer-links a:hover {
+  color: #6366F1;
+}
+
+.strato-footer-copyright {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .strato-footer {
+    padding: 30px 15px;
+  }
+
+  .strato-footer-content {
+    gap: 20px;
+  }
+
+  .strato-footer-links {
+    gap: 8px 20px;
+  }
+
+  .strato-footer-links a {
+    font-size: 0.9rem;
+  }
+
+  .strato-footer-address {
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .strato-footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}

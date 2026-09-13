@@ -4,6 +4,8 @@ import Home from "../pages/stratocraft/home/Home";
 import About from "../pages/stratocraft/about/About";
 import Support from "../pages/stratocraft/support/Support";
 import SignatureGenerator from "../pages/stratocraft/signature/SignatureGenerator";
+import StratoTermsAndConditions from "../pages/stratocraft/terms/TermsAndConditions";
+import StratoPrivacyPolicy from "../pages/stratocraft/privacy/PrivacyPolicy";
 import NotFound from "../pages/NotFound";
 
 import OhIHome from "../pages/oh-i/home/OhIHome";
@@ -27,6 +29,7 @@ import OneuraPrivacyPolicy from "../pages/oneura/privacy/PrivacyPolicy";
 import OneuraDeleteData from "../pages/oneura/delete/DeleteData";
 import OneuraSubscription from "../pages/oneura/subscription/Subscription";
 import OneuraTermsAndConditions from "../pages/oneura/terms/TermsAndConditions";
+import OneuraRefundPolicy from "../pages/oneura/refunds/RefundPolicy";
 import OneuraFaqPage from "../pages/oneura/faq/FaqPage";
 import {
   BestFreeSleepSoundsAppPage,
@@ -73,6 +76,8 @@ export const StratoSiteRoutes: React.FC = () => (
     <Route path="/about" element={<About />} />
     <Route path="/support" element={<Support />} />
     <Route path="/signature" element={<SignatureGenerator />} />
+    <Route path="/terms" element={<StratoTermsAndConditions />} />
+    <Route path="/privacy" element={<StratoPrivacyPolicy />} />
 
     <Route path="/oh-i" element={<OhIHome />} />
     <Route path="/oh-i/about" element={<OhIAbout />} />
@@ -177,6 +182,7 @@ const ONEURA_PUBLIC_PAGES: Array<{
   { path: "/terms-and-conditions", Component: OneuraTermsAndConditions },
   { path: "/cookie-policy", Component: OneuraCookiePolicy },
   { path: "/delete-data", Component: OneuraDeleteData },
+  { path: "/refund-policy", Component: OneuraRefundPolicy },
   { path: "/sleep-sounds-white-noise", Component: SleepSoundsWhiteNoisePage },
   { path: "/sensory-relaxation-app", Component: SensoryRelaxationAppPage },
   { path: "/sleep-app-for-busy-minds", Component: SleepAppForBusyMindsPage },

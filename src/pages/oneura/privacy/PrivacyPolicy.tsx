@@ -394,7 +394,11 @@ const OneuraPrivacyPolicy: React.FC = () => {
               <strong>Data controller:</strong> Strato-Craft Ltd
             </p>
             <p>
-              <strong>Location:</strong> United Kingdom
+              <strong>Company Number:</strong> 15619171
+            </p>
+            <p>
+              <strong>Registered Office:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire,
+              LS18 5DS, United Kingdom
             </p>
           </div>
         </section>

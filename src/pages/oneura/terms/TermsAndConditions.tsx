@@ -7,6 +7,7 @@ const OneuraTermsAndConditions: React.FC = () => {
   const privacyHref = oneuraPagePath("privacy-policy");
   const cookieHref = oneuraPagePath("cookie-policy");
   const deleteDataHref = oneuraPagePath("delete-data");
+  const refundHref = oneuraPagePath("refund-policy");
 
   return (
     <div className="policy-container">
@@ -102,7 +103,9 @@ const OneuraTermsAndConditions: React.FC = () => {
           <p>
             Parts of the Service are free; premium features may require payment. Fees, billing cycles, and taxes
             are shown before you confirm a purchase where the applicable app store or payment flow requires
-            disclosure. Unless otherwise stated at purchase or required by law, fees are non-refundable.
+            disclosure. Unless otherwise stated at purchase or required by law, fees are non-refundable. For
+            details on refunds and how to request one, see our{" "}
+            <Link to={refundHref}>Refunds &amp; Billing</Link> page.
           </p>
 
           <h3>4.2 Payment processing</h3>
@@ -133,8 +136,9 @@ const OneuraTermsAndConditions: React.FC = () => {
           <p>
             You may cancel a subscription through your app store account. Cancelling the Service or deleting your
             account may <strong>not</strong> automatically stop a recurring subscription; you must cancel the
-            subscription with the store. See <Link to={deleteDataHref}>Delete My Data</Link> for account deletion
-            information.
+            subscription with the store. See our <Link to={refundHref}>Refunds &amp; Billing</Link> page for
+            step-by-step cancellation instructions and <Link to={deleteDataHref}>Delete My Data</Link> for account
+            deletion information.
           </p>
         </section>
 
@@ -532,7 +536,11 @@ const OneuraTermsAndConditions: React.FC = () => {
               <strong>Company:</strong> Strato-Craft Ltd
             </p>
             <p>
-              <strong>Location:</strong> United Kingdom
+              <strong>Company Number:</strong> 15619171
+            </p>
+            <p>
+              <strong>Registered Office:</strong> 1 Springfield Rise, Horsforth, Leeds, West
+              Yorkshire, LS18 5DS, United Kingdom
             </p>
           </div>
           <p>

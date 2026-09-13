@@ -1,0 +1,199 @@
+/* Strato-Craft Policy Pages Shared Styles */
+.strato-policy-container {
+  background: #0B132B;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.strato-policy-hero {
+  background: linear-gradient(135deg, #1E293B 0%, #6366F1 50%, #8B5CF6 100%);
+  padding: 80px 20px 60px;
+  text-align: center;
+  position: relative;
+}
+
+.strato-policy-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 40%, rgba(139, 92, 246, 0.2), transparent 60%);
+  pointer-events: none;
+}
+
+.strato-policy-hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: relative;
+}
+
+.strato-policy-hero .last-updated {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  z-index: 1;
+  position: relative;
+}
+
+/* Policy Content */
+.strato-policy-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.strato-policy-section {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: #1E293B;
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.strato-policy-section h2 {
+  font-size: 2rem;
+  color: #6366F1;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.3);
+}
+
+.strato-policy-section h3 {
+  font-size: 1.5rem;
+  color: #8B5CF6;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.strato-policy-section h4 {
+  font-size: 1.2rem;
+  color: #94A3B8;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.strato-policy-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #94A3B8;
+  margin-bottom: 15px;
+}
+
+.strato-policy-section ul,
+.strato-policy-section ol {
+  margin: 15px 0;
+  padding-left: 25px;
+  color: #94A3B8;
+}
+
+.strato-policy-section li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.strato-policy-section a {
+  color: #6366F1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.strato-policy-section a:hover {
+  color: #8B5CF6;
+  text-decoration: underline;
+}
+
+.strato-policy-section strong {
+  color: white;
+  font-weight: 600;
+}
+
+/* Highlight Box */
+.strato-policy-section .highlight {
+  background: rgba(99, 102, 241, 0.1);
+  padding: 15px 20px;
+  border-left: 4px solid #6366F1;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Contact Section */
+.strato-policy-section.contact-section {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  border: 2px solid rgba(99, 102, 241, 0.3);
+}
+
+.strato-contact-box {
+  background: #0B132B;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  margin-top: 20px;
+}
+
+.strato-contact-box p {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .strato-policy-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .strato-policy-hero .last-updated {
+    font-size: 0.9rem;
+  }
+
+  .strato-policy-content {
+    padding: 40px 15px;
+  }
+
+  .strato-policy-section {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .strato-policy-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .strato-policy-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .strato-policy-section p,
+  .strato-policy-section li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .strato-policy-hero {
+    padding: 60px 15px 40px;
+  }
+
+  .strato-policy-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .strato-policy-section {
+    padding: 15px;
+  }
+
+  .strato-policy-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .strato-contact-box {
+    padding: 20px;
+  }
+}

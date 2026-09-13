@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./support.css";
 
 const Support: React.FC = () => {
@@ -225,7 +226,7 @@ ${formData.message}
             <h3>🔒 Data Deletion</h3>
             <p>
               Need to delete your account data? Select "Data Deletion Request"
-              above, or visit our <a href="/privacy">Privacy Policy</a> for more
+              above, or visit our <Link to="/privacy">Privacy Policy</Link> for more
               information.
             </p>
           </div>
@@ -281,8 +282,8 @@ ${formData.message}
             <h4>Are my data and privacy protected?</h4>
             <p>
               Yes! We take your privacy seriously. Read our full{" "}
-              <a href="/privacy">Privacy Policy</a> and{" "}
-              <a href="/terms">Terms & Conditions</a> for details.
+              <Link to="/privacy">Privacy Policy</Link> and{" "}
+              <Link to="/terms">Terms &amp; Conditions</Link> for details.
             </p>
           </div>
         </div>
