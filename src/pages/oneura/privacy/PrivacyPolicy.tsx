@@ -23,8 +23,8 @@ const OneuraPrivacyPolicy: React.FC = () => {
             connection with Oneura (collectively, the &quot;Services&quot;).
           </p>
           <p>
-            By using the Services, you agree to the collection, use, and disclosure practices described in this
-            Privacy Policy. Your use of the Services is also subject to our Terms &amp; Conditions.
+            Please read this policy to understand how we handle your information. Your use of the Services is
+            also subject to our Terms &amp; Conditions.
           </p>
           <p>
             Where the UK GDPR, EU GDPR, or other applicable laws grant you rights, we honor those rights as
@@ -83,14 +83,17 @@ const OneuraPrivacyPolicy: React.FC = () => {
               <strong>Microphone and Sleep Recorder:</strong> If you choose to use Sleep Recorder, Oneura asks
               for microphone access so it can record sounds while you sleep, including while the app is in the
               background or your screen is off. It keeps short clips of sounds such as snoring, talking, coughs,
-              sneezes, and yawns. Other people nearby may be captured. Clips are stored on your device. They are
-              uploaded to our servers only if you choose to send a night for a written report, and only the clips
-              you include in that send. The written report is generated from a text summary of detected sounds
-              (such as labels, counts, and times). The audio itself is not sent to the model that writes the
-              report. Uploaded clips and the report are stored so you can play them back and read the report in
-              the app. If you use optional voice training, those samples stay on your device and are used only to
-              help tell your sounds from other people. You can delete recordings in the app at any time and turn
-              off microphone access in your device settings. Some breathing exercises may listen to the
+              sneezes, and yawns. Other people nearby may be captured. Sleep Recorder only runs after you start a
+              session. On Android, your device shows a notification while it is recording. Please let anyone who
+              shares your room know before you use it, including children. Clips are stored on your device. They
+              are uploaded to our servers only if you choose to send a night for a written report, and only the
+              clips you include in that send. The written report is generated from a text summary of detected
+              sounds (such as labels, counts, and times). The audio itself is not sent to the model that writes
+              the report. Uploaded clips and the report are stored so you can play them back and read the report
+              in the app. If you use optional voice training, those samples stay on your device, are never sent
+              to us, and are used only to help tell your sounds from other people&apos;s. You can delete a night
+              in the app at any time. Deleting it also deletes its clips and written report from our servers
+              straight away. You can also turn off microphone access in your device settings. Some breathing exercises may listen to the
               microphone only to follow your breath in the moment. That audio is not saved or uploaded.
             </li>
             <li>
@@ -164,6 +167,20 @@ const OneuraPrivacyPolicy: React.FC = () => {
         </section>
 
         <section className="policy-section">
+          <h2>Why We Process Your Information</h2>
+          <p>
+            We process account, subscription and core app data to provide the service you signed up for. We use
+            analytics and security data in our legitimate interest in running and improving Oneura. Sleep Recorder
+            clips and reports, voice training, and connected health data rely on your explicit consent, which you
+            give in the app before first use. You can withdraw it at any time by turning the feature off or
+            deleting your data. Sounds from other people in a recording are processed in our legitimate interest
+            in providing Sleep Recorder. We limit this by keeping only short clips, keeping them on your device
+            unless you send them, and deleting sent clips after 90 days unless you pin them. We also process
+            information where the law requires it.
+          </p>
+        </section>
+
+        <section className="policy-section">
           <h2>How We Share Information</h2>
           <p>
             We do <strong>not</strong> sell, rent, or lease your personal information to data brokers, and we do
@@ -178,9 +195,10 @@ const OneuraPrivacyPolicy: React.FC = () => {
               business. Examples include Google Firebase (backend, analytics, storage, and related services),
               Apple and Google app distribution and in-app purchase infrastructure, and subscription management
               providers such as RevenueCat. If you send a Sleep Recorder night for a written report, the clips
-              you include are stored in Firebase Storage, and Google processes the text summary of that night on
-              our behalf to write the report. The audio recording is not sent to that model. These providers
-              process information on our behalf under appropriate agreements.
+              you include are stored in Firebase Storage. A text summary of that night (sound labels, counts and
+              times) is sent to Google&apos;s Gemini API to write your report. The audio is not sent to the
+              model. We use the paid Gemini API. Google does not use those prompts or responses to train its
+              models. Google may log them for a limited time solely to detect abuse. These providers process information on our behalf under appropriate agreements.
             </li>
             <li>
               <strong>Analytics partners:</strong> Analytics services may collect or receive information about
@@ -224,7 +242,8 @@ const OneuraPrivacyPolicy: React.FC = () => {
             </li>
             <li>
               <strong>Microphone and Sleep Recorder:</strong> Sleep Recorder is optional. You can stop it in the
-              app, delete clips and reports there, and turn off microphone access in your device settings.
+              app, delete a night there (including its uploaded clips and written report), and turn off
+              microphone access in your device settings.
             </li>
             <li>
               <strong>Marketing:</strong> If we send optional promotional communications where permitted, you may

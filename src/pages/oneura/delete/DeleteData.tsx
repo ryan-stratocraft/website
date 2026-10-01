@@ -73,16 +73,16 @@ const OneuraDeleteData: React.FC = () => {
             <li>Your email address and profile information</li>
             <li>Listening history and playlists</li>
             <li>Mood tracking entries and reflections</li>
-            <li>
-              Sleep Recorder clips and written reports stored with your account. Clips that never left your phone
-              are stored only on the device and are removed when you delete them in the app or remove the app
-            </li>
             <li>App preferences and settings</li>
             <li>Any other personal data associated with your account</li>
           </ul>
           <p>
-            All data is deleted within <strong>30 days</strong> of your deletion request. Some anonymized usage 
+            All data is deleted within <strong>30 days</strong> of your deletion request. Some anonymized usage
             statistics may be retained for analytics purposes, but these cannot be linked back to you.
+          </p>
+          <p>
+            Deleting a Sleep Recorder night in the app removes its clips and written report from your phone and
+            from our servers straight away. A report you do not delete expires after 90 days unless you pin it.
           </p>
         </section>
 
@@ -142,8 +142,9 @@ const OneuraDeleteData: React.FC = () => {
             <li><strong>Playlists:</strong> Delete unwanted playlists in your library</li>
             <li><strong>Listening history:</strong> Contact support to clear your history</li>
             <li>
-              <strong>Sleep recordings:</strong> Delete individual clips and reports in the app. Turning off
-              microphone access in your device settings stops new recordings
+              <strong>Sleep recordings:</strong> Delete a night in the app. That removes the clips on your phone
+              and, if you sent the night, the clips and written report on our servers. Turning off microphone
+              access in your device settings stops new recordings
             </li>
           </ul>
           <p>
