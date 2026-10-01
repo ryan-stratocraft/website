@@ -73,6 +73,10 @@ const OneuraDeleteData: React.FC = () => {
             <li>Your email address and profile information</li>
             <li>Listening history and playlists</li>
             <li>Mood tracking entries and reflections</li>
+            <li>
+              Sleep Recorder clips and written reports stored with your account. Clips that never left your phone
+              are stored only on the device and are removed when you delete them in the app or remove the app
+            </li>
             <li>App preferences and settings</li>
             <li>Any other personal data associated with your account</li>
           </ul>
@@ -137,6 +141,10 @@ const OneuraDeleteData: React.FC = () => {
             <li><strong>Mood entries:</strong> Delete individual entries within the app</li>
             <li><strong>Playlists:</strong> Delete unwanted playlists in your library</li>
             <li><strong>Listening history:</strong> Contact support to clear your history</li>
+            <li>
+              <strong>Sleep recordings:</strong> Delete individual clips and reports in the app. Turning off
+              microphone access in your device settings stops new recordings
+            </li>
           </ul>
           <p>
             Email us at <a href="mailto:support@strato-craft.com">support@strato-craft.com</a> if you need 

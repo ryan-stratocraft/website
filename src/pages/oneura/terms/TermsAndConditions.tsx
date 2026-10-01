@@ -13,7 +13,7 @@ const OneuraTermsAndConditions: React.FC = () => {
     <div className="policy-container">
       <div className="policy-hero">
         <h1>Terms &amp; Conditions</h1>
-        <p className="last-updated">Last Updated: May 7, 2026</p>
+        <p className="last-updated">Last Updated: October 1, 2026</p>
       </div>
 
       <div className="policy-content">
@@ -47,10 +47,11 @@ const OneuraTermsAndConditions: React.FC = () => {
           <h2>1. Service overview</h2>
           <p>
             Oneura is a consumer wellness and lifestyle application that offers ambient audio, routines,
-            stories, mood and reflection tools, optional insights, and related features intended to support
-            relaxation, focus, and personal wellbeing. The Service may also allow you to connect optional device
-            or platform integrations - for example, optional health or wearable data where you grant permission
-            - solely to display information and correlations within the app as described in our{" "}
+            stories, mood and reflection tools, optional insights, optional Sleep Recorder, and related features
+            intended to support relaxation, focus, and personal wellbeing. The Service may also allow you to
+            connect optional device or platform integrations - for example, optional health or wearable data
+            where you grant permission - solely to display information and correlations within the app as
+            described in our{" "}
             <Link to={privacyHref}>Privacy Policy</Link>.
           </p>
           <p className="highlight">
@@ -163,7 +164,22 @@ const OneuraTermsAndConditions: React.FC = () => {
             <Link to={privacyHref}>Privacy Policy (United States Residents)</Link> for additional context.
           </p>
 
-          <h3>5.3 No guarantee of results</h3>
+          <h3>5.3 Sleep Recorder</h3>
+          <p>
+            Sleep Recorder is an optional feature. If you start it, the app uses your device microphone to save
+            short clips of night sounds, including while the app is in the background or the screen is off. It
+            is a wellness pattern, not a medical device, sleep study, or diagnosis of any condition, including
+            sleep apnea. A written report, where available, is informational only.
+          </p>
+          <p>
+            You are responsible for using Sleep Recorder lawfully. Other people nearby may be captured. Do not
+            record someone unless you have a lawful basis to do so, including any consent your local law
+            requires. Clips stay on your device until you choose to send a night for a report, as described in
+            our <Link to={privacyHref}>Privacy Policy</Link>. You can delete recordings in the app and turn off
+            microphone access in your device settings.
+          </p>
+
+          <h3>5.4 No guarantee of results</h3>
           <p>
             We do not guarantee any specific health, sleep, mood, or wellness outcome. Individual experiences
             vary.
@@ -225,7 +241,8 @@ const OneuraTermsAndConditions: React.FC = () => {
           <h3>9.1 Your content</h3>
           <p>
             The Service may allow you to enter material such as notes, mood check-ins, favorites, or similar
-            (&quot;User Content&quot;). You retain ownership of your User Content subject to the licences below
+            content, and, if you use Sleep Recorder, audio clips and related reports (&quot;User Content&quot;).
+            You retain ownership of your User Content subject to the licences below
             and our{' '} <Link to={privacyHref}>Privacy Policy</Link>.
           </p>
 
@@ -239,7 +256,8 @@ const OneuraTermsAndConditions: React.FC = () => {
           <h3>9.3 Your responsibilities</h3>
           <p>You represent that you have the rights to your User Content and that it does not violate law or
             third-party rights. Do not submit content that is unlawful, abusive, hateful, harassing, or that
-            infringes intellectual property or privacy rights of others.</p>
+            infringes intellectual property or privacy rights of others. If you use Sleep Recorder, you are
+            responsible for recordings that capture other people, as described in Section 5.3.</p>
 
           <h3>9.4 Monitoring and removal</h3>
           <p>
@@ -250,7 +268,8 @@ const OneuraTermsAndConditions: React.FC = () => {
           <h3>9.5 Automated and AI-assisted features</h3>
           <p>
             Some features may use automation or machine learning (for example, insight or analysis features).
-            Outputs may be inaccurate or unsuitable. Outputs are not professional advice. You are responsible for
+            Outputs may be inaccurate or unsuitable. Outputs are not professional advice, and a Sleep Recorder
+            report is not a diagnosis. You are responsible for
             how you interpret or act on them. You must not submit inputs that unlawfully include third-party
             personal data you are not authorised to share, or that you intend to use to violate law.
           </p>

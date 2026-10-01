@@ -6,7 +6,7 @@ const OneuraPrivacyPolicy: React.FC = () => {
     <div className="policy-container">
       <div className="policy-hero">
         <h1>Privacy Policy</h1>
-        <p className="last-updated">Last Updated: May 7, 2026 (includes U.S. disclosures)</p>
+        <p className="last-updated">Last Updated: October 1, 2026 (includes Sleep Recorder and U.S. disclosures)</p>
       </div>
 
       <div className="policy-content">
@@ -80,6 +80,20 @@ const OneuraPrivacyPolicy: React.FC = () => {
               support those features.
             </li>
             <li>
+              <strong>Microphone and Sleep Recorder:</strong> If you choose to use Sleep Recorder, Oneura asks
+              for microphone access so it can record sounds while you sleep, including while the app is in the
+              background or your screen is off. It keeps short clips of sounds such as snoring, talking, coughs,
+              sneezes, and yawns. Other people nearby may be captured. Clips are stored on your device. They are
+              uploaded to our servers only if you choose to send a night for a written report, and only the clips
+              you include in that send. The written report is generated from a text summary of detected sounds
+              (such as labels, counts, and times). The audio itself is not sent to the model that writes the
+              report. Uploaded clips and the report are stored so you can play them back and read the report in
+              the app. If you use optional voice training, those samples stay on your device and are used only to
+              help tell your sounds from other people. You can delete recordings in the app at any time and turn
+              off microphone access in your device settings. Some breathing exercises may listen to the
+              microphone only to follow your breath in the moment. That audio is not saved or uploaded.
+            </li>
+            <li>
               <strong>Optional health and wearable data:</strong> If you choose to connect Apple Health, Health
               Connect, or similar integrations supported on your device, we may sync and store certain
               health-related metrics and sleep-related records you authorize for use within Oneura (such as
@@ -126,6 +140,10 @@ const OneuraPrivacyPolicy: React.FC = () => {
           <p>We use information for purposes including:</p>
           <ul>
             <li>To provide, maintain, secure, and operate the Services</li>
+            <li>
+              To run optional Sleep Recorder, including storing clips you choose to send and generating a written
+              sleep report from a text summary of those sounds
+            </li>
             <li>To personalize your experience within the Services (for example, preferences and relevant in-app content)</li>
             <li>To understand how the Services are used and to develop new features and improvements</li>
             <li>
@@ -157,9 +175,12 @@ const OneuraPrivacyPolicy: React.FC = () => {
             <li>
               <strong>Service providers and processors:</strong> We use providers to host data, run
               infrastructure, provide analytics, deliver notifications, process subscriptions, and operate our
-              business. Examples include Google Firebase (backend, analytics, and related services), Apple and
-              Google app distribution and in-app purchase infrastructure, and subscription management providers
-              such as RevenueCat. These providers process information on our behalf under appropriate agreements.
+              business. Examples include Google Firebase (backend, analytics, storage, and related services),
+              Apple and Google app distribution and in-app purchase infrastructure, and subscription management
+              providers such as RevenueCat. If you send a Sleep Recorder night for a written report, the clips
+              you include are stored in Firebase Storage, and Google processes the text summary of that night on
+              our behalf to write the report. The audio recording is not sent to that model. These providers
+              process information on our behalf under appropriate agreements.
             </li>
             <li>
               <strong>Analytics partners:</strong> Analytics services may collect or receive information about
@@ -200,6 +221,10 @@ const OneuraPrivacyPolicy: React.FC = () => {
             <li>
               <strong>Optional features:</strong> You can disconnect optional integrations (such as health or
               wearable connections) using your device settings and in-app controls where provided.
+            </li>
+            <li>
+              <strong>Microphone and Sleep Recorder:</strong> Sleep Recorder is optional. You can stop it in the
+              app, delete clips and reports there, and turn off microphone access in your device settings.
             </li>
             <li>
               <strong>Marketing:</strong> If we send optional promotional communications where permitted, you may
@@ -254,6 +279,12 @@ const OneuraPrivacyPolicy: React.FC = () => {
           <ul>
             <li>While your account is active and for a short period afterward as needed for recovery, legal, or security reasons</li>
             <li>As required to comply with legal obligations, resolve disputes, and enforce agreements</li>
+            <li>
+              Sleep Recorder clips that stay only on your device are under your control. The app offers to delete
+              unsent clips older than 20 days. If you send a night for a report, unpinned reports and the clips
+              stored with them are deleted after 90 days. Reports you pin are kept until you unpin or delete them,
+              or until you delete your account.
+            </li>
           </ul>
           <p>
             When you delete your account (subject to our deletion process), we work to delete or anonymize
@@ -328,13 +359,15 @@ const OneuraPrivacyPolicy: React.FC = () => {
             <li>
               <strong>Categories collected:</strong> In the preceding 12 months, we may have collected the
               categories described in this Privacy Policy (such as identifiers, commercial information related
-              to subscriptions, internet or network activity, geolocation at a coarse level, and, if you use
-              optional features, health-adjacent information you choose to connect).
+              to subscriptions, internet or network activity, geolocation at a coarse level, audio information
+              if you send Sleep Recorder clips for a report, and, if you use optional features, health-adjacent
+              information you choose to connect).
             </li>
             <li>
               <strong>Sensitive personal information:</strong> Where California law classifies certain data you
-              optionally provide or sync (such as some wellness or health-related metrics) as sensitive personal
-              information, we use it only for the purposes disclosed in this policy and as permitted by law.
+              optionally provide or sync (such as some wellness or health-related metrics, or audio you choose to
+              send with a Sleep Recorder report) as sensitive personal information, we use it only for the
+              purposes disclosed in this policy and as permitted by law.
             </li>
             <li>
               <strong>No sale / sharing for cross-context behavioral advertising:</strong> We do not sell your
