@@ -89,7 +89,7 @@ const PrivacyPolicy: React.FC = () => {
 
       <h2>11. Contact Information</h2>
       <p><strong>Email:</strong> <a href="mailto:support@strato-craft.com">support@strato-craft.com</a></p>
-      <p><strong>Address:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS</p>
+      <p><strong>Address:</strong> 3 Tildesley Drive, Willenhall, WV12 4JD, England</p>
     </div>
   );
 };
