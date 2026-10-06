@@ -19,7 +19,7 @@ const TermsAndConditions: React.FC = () => {
       <ul>
         <li><strong>Company Name:</strong> Strato-Craft Ltd</li>
         <li><strong>Company Number:</strong> 15619171</li>
-        <li><strong>Registered Address:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS</li>
+        <li><strong>Registered Address:</strong> 3 Tildesley Drive, Willenhall, WV12 4JD, England</li>
         <li><strong>Contact Email:</strong> <a href="mailto:support@strato-craft.com">support@strato-craft.com</a></li>
       </ul>
 
@@ -131,7 +131,7 @@ const TermsAndConditions: React.FC = () => {
       <h2>16. Contact Information</h2>
       <p>
         <strong>Email:</strong> <a href="mailto:support@strato-craft.com">support@strato-craft.com</a><br />
-        <strong>Address:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS
+        <strong>Address:</strong> 3 Tildesley Drive, Willenhall, WV12 4JD, England
       </p>
     </div>
   );

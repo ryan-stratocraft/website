@@ -250,8 +250,7 @@ const StratoTermsAndConditions: React.FC = () => {
               <strong>Company Number:</strong> 15619171
             </p>
             <p>
-              <strong>Registered Office:</strong> 1 Springfield Rise, Horsforth, Leeds, West
-              Yorkshire, LS18 5DS, United Kingdom
+              <strong>Registered Office:</strong> 3 Tildesley Drive, Willenhall, WV12 4JD, England
             </p>
           </div>
           <p>

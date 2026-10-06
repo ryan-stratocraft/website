@@ -12,7 +12,7 @@ const StratoFooter: React.FC = () => {
           <p className="strato-footer-name">Strato-Craft Ltd</p>
           <p className="strato-footer-reg">Company No. 15619171</p>
           <p className="strato-footer-address">
-            1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS, UK
+            3 Tildesley Drive, Willenhall, WV12 4JD, England
           </p>
         </div>
 

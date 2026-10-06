@@ -60,7 +60,7 @@ const ChildSafetyPolicy: React.FC = () => {
       </p>
       <p>
         <strong>Email:</strong> <a href="mailto:support@strato-craft.com">support@strato-craft.com</a><br />
-        <strong>Address:</strong> 1 Springfield Rise, Horsforth, Leeds, West Yorkshire, LS18 5DS
+        <strong>Address:</strong> 3 Tildesley Drive, Willenhall, WV12 4JD, England
       </p>
       <p>We will act swiftly and responsibly.</p>
     </div>
