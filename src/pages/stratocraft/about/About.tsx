@@ -49,23 +49,12 @@ const About: React.FC = () => {
             <h3>Oneura - Relax, Sleep & Focus</h3>
             <p>
               Your all-in-one app for better sleep, stress relief, and relaxation through immersive 
-              soundscapes. Available now on Google Play.
+              soundscapes. Available now on Google Play and the App Store.
             </p>
             <p>
               <a href={ONEURA_APP_ORIGIN} rel="noopener noreferrer">
                 Visit oneura.app - Oneura product site
               </a>
-            </p>
-          </div>
-        </div>
-
-        <div className="product-highlight">
-          <div className="product-icon">❤️</div>
-          <div className="product-content">
-            <h3>Oh-i - Dating Reimagined</h3>
-            <p>
-              Our first product is a personality- and place-based dating app that reimagines how people 
-              match and connect. It's just the beginning.
             </p>
           </div>
         </div>

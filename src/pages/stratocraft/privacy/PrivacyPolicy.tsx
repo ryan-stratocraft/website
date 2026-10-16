@@ -28,8 +28,8 @@ const StratoPrivacyPolicy: React.FC = () => {
             <Link to="/terms">Terms &amp; Conditions</Link>.
           </p>
           <p>
-            <strong>Product-specific privacy.</strong> Our individual products (such as Oneura,
-            Oh-i, and IAC VR) have their own privacy policies that apply when you use those
+            <strong>Product-specific privacy.</strong> Our individual products (such as Oneura
+            and IAC VR) have their own privacy policies that apply when you use those
             products. Please refer to each product&apos;s privacy documentation for details on how
             personal data is handled within those services.
           </p>

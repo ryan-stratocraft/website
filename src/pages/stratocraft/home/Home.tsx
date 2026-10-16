@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
 import { ONEURA_APP_ORIGIN } from "../../../constants/origins";
-import ohiPreview from "../../../assets/images/ohilogo.jpg"; 
 import iacPreview from "../../../assets/images/iac-preview.jpg";
 import oneuraPreview from "../../../assets/images/oneura/logo-color.png";
 import stratocraftLogo from "../../../assets/images/strato-craft/stratocraftlogo.jpg";
@@ -14,8 +13,8 @@ const Home: React.FC = () => {
       {/* SEO Hidden Content for Search Engines */}
       <div className="seo-hidden" aria-hidden="false" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
         <h2>Strato-Craft - UK Mobile App Development Company</h2>
-        <p>Strato-Craft Ltd is a UK-based mobile app development company specializing in AI-powered applications. Our portfolio includes Oneura (sleep and relaxation app), Oh-i (personality-based dating app), and IAC VR (cloud infrastructure visualization platform). We create innovative mobile experiences for iOS and Android using cutting-edge technology including artificial intelligence, machine learning, and virtual reality.</p>
-        <p>Keywords: mobile app development, UK app developer, AI apps, machine learning apps, sleep app, dating app, cloud infrastructure, VR platform, iOS development, Android development, Flutter apps, innovative mobile apps, app development company UK</p>
+        <p>Strato-Craft Ltd is a UK-based mobile app development company specialising in AI-powered applications. Our portfolio includes Oneura (sleep and relaxation app) and IAC VR (cloud infrastructure visualisation platform). We create innovative mobile experiences for iOS and Android using cutting-edge technology including artificial intelligence, machine learning, and virtual reality.</p>
+        <p>Keywords: mobile app development, UK app developer, AI apps, machine learning apps, sleep app, cloud infrastructure, VR platform, iOS development, Android development, Flutter apps, innovative mobile apps, app development company UK</p>
       </div>
       
       {/* Hero Section */}
@@ -41,17 +40,6 @@ const Home: React.FC = () => {
             <a href={ONEURA_APP_ORIGIN} className="app-button">
               View App
             </a>
-          </div>
-        </div>
-
-        <div className="product-card">
-          <img src={ohiPreview} alt="Oh-i - Personality-Based Dating App with Location Matching" className="product-image" />
-          <div className="product-info">
-            <h3>Oh-i</h3>
-            <p>A next-gen dating app based on personality and location data.</p>
-            <Link to="/oh-i" className="app-button">
-              View App
-            </Link>
           </div>
         </div>
 

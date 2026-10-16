@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import stratocraftLogo from "../assets/images/strato-craft/stratocraftlogo.jpg";
 import oneuraLogo from "../assets/images/oneura/splashlogocolor.png";
-import ohiLogo from "../assets/images/ohilogo.jpg";
 import { ONEURA_APP_ORIGIN } from "../constants/origins";
 
 const Navbar: React.FC = () => {
@@ -47,16 +46,6 @@ const Navbar: React.FC = () => {
                   <img src={oneuraLogo} alt="Oneura" className="dropdown-icon" />
                   <span>Oneura</span>
                 </a>
-              </li>
-              <li>
-                <Link 
-                  to="/oh-i" 
-                  className={`dropdown-item-with-icon ${isActive("/oh-i") ? "active" : ""}`}
-                  aria-current={isActive("/oh-i") ? "page" : undefined}
-                >
-                  <img src={ohiLogo} alt="Oh-i" className="dropdown-icon" />
-                  <span>Oh - i</span>
-                </Link>
               </li>
               <li>
                 <Link 

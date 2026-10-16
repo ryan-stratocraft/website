@@ -148,7 +148,7 @@ function writeLlmsTxt() {
 - Official website: ${STRATO_ORIGIN}/
 - Type: UK mobile app development studio (builds its own products, not a consultancy)
 - Flagship product: Oneura (sleep sounds and sensory relaxation app) - ${ONEURA_ORIGIN}/
-- Other products: Oh-i (personality- and location-based dating app); IAC Platform (cloud infrastructure visualisation, coming soon)
+- Other products: IAC Platform (cloud infrastructure visualisation, coming soon)
 - Platforms: iOS and Android
 
 ## Important pages
@@ -158,7 +158,6 @@ ${pages}
 ## Products
 
 - Oneura (sleep, relaxation, focus): ${ONEURA_ORIGIN}/
-- Oh-i (dating): ${STRATO_ORIGIN}/oh-i
 - IAC Platform (cloud infrastructure in VR): ${STRATO_ORIGIN}/iac-vr
 `;
 
@@ -191,7 +190,7 @@ async function writeStratoOgImage() {
       <text x="232" y="198" fill="#7DD3FC" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">UK mobile app studio</text>
       <text x="96" y="332" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800">We build and ship our own</text>
       <text x="96" y="398" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800">AI-powered mobile products.</text>
-      <text x="96" y="476" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="28">Makers of Oneura and Oh-i, for iOS and Android.</text>
+      <text x="96" y="476" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="28">Makers of Oneura, for iOS and Android.</text>
       <text x="96" y="526" fill="#F8D27A" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">strato-craft.com</text>
     </svg>
   `);

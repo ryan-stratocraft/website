@@ -28,7 +28,6 @@ const Support: React.FC = () => {
 
   const apps = [
     "Oneura - Relax, Sleep & Focus",
-    "Oh-i - Dating App",
     "IAC VR Platform",
     "General / All Apps",
   ];
