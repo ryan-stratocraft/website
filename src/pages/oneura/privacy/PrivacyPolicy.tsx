@@ -315,9 +315,13 @@ const OneuraPrivacyPolicy: React.FC = () => {
         <section className="policy-section">
           <h2>Children&apos;s Privacy</h2>
           <p>
-            The Services are not directed to children under 13 (or 16 where higher age thresholds apply in the
-            EU). We do not knowingly collect personal information from children in that age group. If you believe
-            we have collected information from a child, please contact us and we will take appropriate steps.
+            Oneura is for people aged 13 and over. We do not knowingly collect personal information from children
+            under 13. If you live in an EU country where the law sets a higher age for consenting to online
+            services (up to 16), you need your parent&apos;s or guardian&apos;s permission to use Oneura until you
+            reach that age. If you are 13 to 17, we only use health, sleep or mood information if you choose to
+            let us, and you can change your mind at any time. If you think someone under 13 is using Oneura,
+            contact <a href="mailto:support@strato-craft.com">support@strato-craft.com</a> and we will delete
+            their account and data.
           </p>
         </section>
 

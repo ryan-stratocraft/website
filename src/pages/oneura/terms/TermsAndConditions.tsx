@@ -73,16 +73,13 @@ const OneuraTermsAndConditions: React.FC = () => {
         <section className="policy-section">
           <h2>2. Eligibility</h2>
           <p>
-            You may use the Service only if you can form a binding contract with us and meet the minimum age
-            required in your region (typically at least <strong>13 years</strong> old, or older where the law
-            requires a higher age for valid consent to online services or data processing). If you are not of legal
-            age to consent on your own behalf, your parent or legal guardian must read and accept these Terms on
-            your behalf and is responsible for your use of the Service.
-          </p>
-          <p>
-            The Service is not directed to children under 13 (or under 16 where a higher threshold applies under
-            local law), as further described in our <Link to={privacyHref}>Privacy Policy</Link>. Do not use the
-            Service if you are prohibited from doing so under applicable law.
+            You must be 13 or over to use the Service. If you are under 18, please read these Terms with a parent
+            or guardian; by using the Service you confirm they agree to you using it, and they are responsible for
+            any purchases you make. If you live in an EU country where the law sets a higher age for consenting to
+            online services (up to 16), you need your parent&apos;s or guardian&apos;s permission to use Oneura
+            until you reach that age. The Service is not available to children under 13, as explained in
+            our <Link to={privacyHref}>Privacy Policy</Link>. Do not use the Service if you are prohibited from
+            doing so under applicable law.
           </p>
         </section>
 
