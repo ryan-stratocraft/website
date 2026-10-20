@@ -3,8 +3,8 @@ import React from "react";
 const IacVrAbout: React.FC = () => {
   return (
     <div>
-      <h1>About Oh-i</h1>
-      <p>Oh-i is a dating app that focuses on personality-based and place-based matching.</p>
+      <h1>About IAC Platform</h1>
+      <p>IAC Platform is a visual, intuitive way to understand cloud infrastructure — ideal for developers, teams, and curious learners.</p>
     </div>
   );
 };

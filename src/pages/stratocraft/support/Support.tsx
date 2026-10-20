@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./support.css";
+import { SHOW_OHI } from "../../../config/siteFlags";
 
 const Support: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ const Support: React.FC = () => {
 
   const apps = [
     "Oneura - Relax, Sleep & Focus",
-    "Oh-i - Dating App",
+    ...(SHOW_OHI ? ["Oh-i - Dating App"] : []),
     "IAC VR Platform",
     "General / All Apps",
   ];

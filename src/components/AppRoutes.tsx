@@ -59,6 +59,7 @@ import AdminShareLinkCreate from "../pages/oneura/admin/AdminShareLinkCreate";
 import AdminShareLinkDetail from "../pages/oneura/admin/AdminShareLinkDetail";
 import AdminShareLinkEdit from "../pages/oneura/admin/AdminShareLinkEdit";
 import { ONEURA_LOCALES } from "../i18n/localeConfig";
+import { SHOW_OHI } from "../config/siteFlags";
 
 /** Wraps the admin section so children render only for the operator. */
 const AdminSection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -79,16 +80,20 @@ export const StratoSiteRoutes: React.FC = () => (
     <Route path="/terms" element={<StratoTermsAndConditions />} />
     <Route path="/privacy" element={<StratoPrivacyPolicy />} />
 
-    <Route path="/oh-i" element={<OhIHome />} />
-    <Route path="/oh-i/about" element={<OhIAbout />} />
-    <Route path="/oh-i/cookie-policy" element={<CookiePolicy />} />
-    <Route path="/oh-i/privacy-policy" element={<PrivacyPolicy />} />
-    <Route path="/oh-i/delete-data" element={<DeleteData />} />
-    <Route path="/oh-i/subscription" element={<Subscription />} />
-    <Route path="/oh-i/personality-quiz" element={<PersonalityQuiz />} />
-    <Route path="/oh-i/terms-and-conditions" element={<TermsAndConditions />} />
-    <Route path="/oh-i/verify-business" element={<VerifyBusiness />} />
-    <Route path="/oh-i/child-safety" element={<ChildSafetyPolicy />} />
+    {SHOW_OHI && (
+      <>
+        <Route path="/oh-i" element={<OhIHome />} />
+        <Route path="/oh-i/about" element={<OhIAbout />} />
+        <Route path="/oh-i/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/oh-i/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/oh-i/delete-data" element={<DeleteData />} />
+        <Route path="/oh-i/subscription" element={<Subscription />} />
+        <Route path="/oh-i/personality-quiz" element={<PersonalityQuiz />} />
+        <Route path="/oh-i/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/oh-i/verify-business" element={<VerifyBusiness />} />
+        <Route path="/oh-i/child-safety" element={<ChildSafetyPolicy />} />
+      </>
+    )}
 
     <Route path="/iac-vr" element={<IacVrHome />} />
     <Route path="/iac-vr/about" element={<IacVrAbout />} />

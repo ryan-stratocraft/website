@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/PolicyPages.css";
+import { SHOW_OHI } from "../../../config/siteFlags";
 
 const StratoPrivacyPolicy: React.FC = () => {
   return (
@@ -28,8 +29,7 @@ const StratoPrivacyPolicy: React.FC = () => {
             <Link to="/terms">Terms &amp; Conditions</Link>.
           </p>
           <p>
-            <strong>Product-specific privacy.</strong> Our individual products (such as Oneura,
-            Oh-i, and IAC VR) have their own privacy policies that apply when you use those
+            <strong>Product-specific privacy.</strong> Our individual products (such as Oneura{SHOW_OHI ? ", Oh-i," : ""} and IAC VR) have their own privacy policies that apply when you use those
             products. Please refer to each product&apos;s privacy documentation for details on how
             personal data is handled within those services.
           </p>

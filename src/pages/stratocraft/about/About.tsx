@@ -1,6 +1,7 @@
 import React from "react";
 import "./about.css";
 import { ONEURA_APP_ORIGIN } from "../../../constants/origins";
+import { SHOW_OHI } from "../../../config/siteFlags";
 
 const About: React.FC = () => {
   return (
@@ -49,7 +50,7 @@ const About: React.FC = () => {
             <h3>Oneura - Relax, Sleep & Focus</h3>
             <p>
               Your all-in-one app for better sleep, stress relief, and relaxation through immersive 
-              soundscapes. Available now on Google Play.
+              soundscapes. Available now on Google Play and the App Store.
             </p>
             <p>
               <a href={ONEURA_APP_ORIGIN} rel="noopener noreferrer">
@@ -59,16 +60,18 @@ const About: React.FC = () => {
           </div>
         </div>
 
+        {SHOW_OHI && (
         <div className="product-highlight">
           <div className="product-icon">❤️</div>
           <div className="product-content">
             <h3>Oh-i - Dating Reimagined</h3>
             <p>
-              Our first product is a personality- and place-based dating app that reimagines how people 
-              match and connect. It's just the beginning.
+              Our first product is a personality- and place-based dating app that reimagines how people
+              match and connect. It&apos;s just the beginning.
             </p>
           </div>
         </div>
+        )}
 
         <div className="product-highlight">
           <div className="product-icon">🔧</div>

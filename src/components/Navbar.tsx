@@ -4,6 +4,7 @@ import stratocraftLogo from "../assets/images/strato-craft/stratocraftlogo.jpg";
 import oneuraLogo from "../assets/images/oneura/splashlogocolor.png";
 import ohiLogo from "../assets/images/ohilogo.jpg";
 import { ONEURA_APP_ORIGIN } from "../constants/origins";
+import { SHOW_OHI } from "../config/siteFlags";
 
 const Navbar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -48,9 +49,10 @@ const Navbar: React.FC = () => {
                   <span>Oneura</span>
                 </a>
               </li>
+              {SHOW_OHI && (
               <li>
-                <Link 
-                  to="/oh-i" 
+                <Link
+                  to="/oh-i"
                   className={`dropdown-item-with-icon ${isActive("/oh-i") ? "active" : ""}`}
                   aria-current={isActive("/oh-i") ? "page" : undefined}
                 >
@@ -58,6 +60,7 @@ const Navbar: React.FC = () => {
                   <span>Oh - i</span>
                 </Link>
               </li>
+              )}
               <li>
                 <Link 
                   to="/iac-vr" 

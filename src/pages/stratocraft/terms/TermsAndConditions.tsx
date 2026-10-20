@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/PolicyPages.css";
+import { SHOW_OHI } from "../../../config/siteFlags";
 
 const StratoTermsAndConditions: React.FC = () => {
   return (
@@ -29,8 +30,7 @@ const StratoTermsAndConditions: React.FC = () => {
             do not agree, do not use the Website.
           </p>
           <p>
-            <strong>Product-specific terms.</strong> Our individual products (such as Oneura, Oh-i,
-            and IAC VR) have their own terms of service and privacy policies that apply when you use
+            <strong>Product-specific terms.</strong> Our individual products (such as Oneura{SHOW_OHI ? ", Oh-i," : ""} and IAC VR) have their own terms of service and privacy policies that apply when you use
             those products. Please refer to the relevant product documentation for details.
           </p>
         </section>
@@ -40,9 +40,7 @@ const StratoTermsAndConditions: React.FC = () => {
           <p>
             Strato-Craft Ltd is a digital product company registered in England and Wales. We
             design, develop, and operate consumer applications focused on wellness, lifestyle, and
-            productivity. Our current portfolio includes Oneura (a sleep and relaxation app), Oh-i
-            (a personality-based dating app), and IAC VR (a cloud infrastructure visualisation
-            platform).
+            productivity. Our current portfolio includes Oneura (a sleep and relaxation app){SHOW_OHI ? ", Oh-i (a personality-based dating app)," : ""} and IAC VR (a cloud infrastructure visualisation platform).
           </p>
           <p>
             This Website serves as the company portfolio site, providing information about
@@ -99,8 +97,8 @@ const StratoTermsAndConditions: React.FC = () => {
           <p>
             The Website and its contents—including text, graphics, logos, images, software, and
             design elements—are owned by Strato-Craft Ltd or our licensors and are protected by
-            copyright, trademark, and other intellectual property laws. &quot;Strato-Craft,&quot;
-            &quot;Oneura,&quot; &quot;Oh-i,&quot; and related logos and names are trademarks of
+            copyright, trademark, and other intellectual property laws. &quot;Strato-Craft,&quot;{" "}
+            &quot;Oneura,&quot;{SHOW_OHI ? " &quot;Oh-i,&quot;" : ""} and related logos and names are trademarks of
             Strato-Craft Ltd.
           </p>
 
