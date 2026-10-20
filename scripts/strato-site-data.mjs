@@ -5,8 +5,11 @@
  * own canonical domain (oneura.app). See scripts/prep-strato-dist.mjs.
  */
 
+import { SHOW_OHI } from './site-flags.mjs';
+
 export const STRATO_ORIGIN = 'https://strato-craft.com';
 export const ONEURA_ORIGIN = 'https://oneura.app';
+export { SHOW_OHI };
 
 export const STRATO_PROFILES = [
   'https://play.google.com/store/apps/dev?id=6109497756704463260',
@@ -16,18 +19,79 @@ export const STRATO_PROFILES = [
 export const STRATO_OG_IMAGE = `${STRATO_ORIGIN}/strato-craft-og.png`;
 
 /**
+ * Keywords for the static shell. Prerender overwrites this from the switch
+ * so a flipped SHOW_OHI cannot leave Oh-i in the built homepage meta.
+ */
+export const STRATO_KEYWORDS = SHOW_OHI
+  ? 'Oneura, sleep app, relaxation app, meditation app, Oh-i, mbti, dating app, personality dating, location dating, IAC, cloud infrastructure, VR platform, Strato-Craft, mobile apps, UK app developer'
+  : 'Oneura, sleep app, relaxation app, meditation app, IAC, cloud infrastructure, VR platform, Strato-Craft, mobile apps, UK app developer';
+
+const OHI_ROUTES = [
+  {
+    path: '/oh-i',
+    priority: '0.8',
+    changefreq: 'monthly',
+    title: 'Oh-i | Personality & Location-Based Dating App by Strato-Craft',
+    description:
+      'Oh-i is a next-generation dating app from Strato-Craft that matches people on personality and location rather than swipes alone.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Oh-i', path: '/oh-i' },
+    ],
+    product: {
+      type: 'MobileApplication',
+      name: 'Oh-i',
+      category: 'SocialNetworkingApplication',
+      operatingSystem: 'Android, iOS',
+      description:
+        'A personality- and location-based dating app that reimagines how people match and connect.',
+    },
+  },
+  {
+    path: '/oh-i/about',
+    priority: '0.6',
+    changefreq: 'monthly',
+    title: 'About Oh-i | Personality-Based Dating App',
+    description:
+      'How Oh-i approaches dating through personality and location matching, designed and built by Strato-Craft Ltd.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Oh-i', path: '/oh-i' },
+      { name: 'About', path: '/oh-i/about' },
+    ],
+  },
+  {
+    path: '/oh-i/subscription',
+    priority: '0.5',
+    changefreq: 'monthly',
+    title: 'Oh-i Subscription | Plans & Premium Features',
+    description:
+      'Compare Oh-i free and premium plans, including the features that help you match and connect on personality and location.',
+    breadcrumb: [
+      { name: 'Home', path: '/' },
+      { name: 'Oh-i', path: '/oh-i' },
+      { name: 'Subscription', path: '/oh-i/subscription' },
+    ],
+  },
+];
+
+/**
  * Routes that are prerendered for crawlers/AI. Interactive tool routes
- * (/support, /signature) and boilerplate legal pages are intentionally
- * excluded - they stay client-rendered.
+ * (/support, /signature, and while Oh-i is hidden its quiz and verify pages)
+ * and boilerplate legal pages are intentionally excluded - they stay
+ * client-rendered. Oh-i routes are included only while SHOW_OHI is true.
  */
 export const STRATO_ROUTES = [
   {
     path: '/',
     priority: '1.0',
     changefreq: 'weekly',
-    title: 'Strato-Craft | UK App Studio Behind Oneura',
-    description:
-      'Strato-Craft Ltd is a UK mobile app studio that builds and ships its own AI-powered consumer products, including the Oneura sleep and relaxation app.',
+    title: SHOW_OHI
+      ? 'Strato-Craft | UK App Studio Behind Oneura & Oh-i'
+      : 'Strato-Craft | UK App Studio Behind Oneura',
+    description: SHOW_OHI
+      ? 'Strato-Craft Ltd is a UK mobile app studio that builds and ships its own AI-powered consumer products, including the Oneura sleep and relaxation app and the Oh-i dating app.'
+      : 'Strato-Craft Ltd is a UK mobile app studio that builds and ships its own AI-powered consumer products, including the Oneura sleep and relaxation app.',
     breadcrumb: [{ name: 'Home', path: '/' }],
   },
   {
@@ -35,13 +99,15 @@ export const STRATO_ROUTES = [
     priority: '0.8',
     changefreq: 'monthly',
     title: 'About Strato-Craft | UK Mobile App Development Studio',
-    description:
-      'Learn about Strato-Craft Ltd, a UK studio building its own AI-powered mobile products for sleep, relaxation, and cloud infrastructure visualisation.',
+    description: SHOW_OHI
+      ? 'Learn about Strato-Craft Ltd, a UK studio building its own AI-powered mobile products for sleep, relaxation, dating, and cloud infrastructure visualisation.'
+      : 'Learn about Strato-Craft Ltd, a UK studio building its own AI-powered mobile products for sleep, relaxation, and cloud infrastructure visualisation.',
     breadcrumb: [
       { name: 'Home', path: '/' },
       { name: 'About', path: '/about' },
     ],
   },
+  ...(SHOW_OHI ? OHI_ROUTES : []),
   {
     path: '/iac-vr',
     priority: '0.6',
@@ -88,8 +154,9 @@ function organizationNode() {
     name: 'Strato-Craft Ltd',
     url: STRATO_ORIGIN,
     logo: `${STRATO_ORIGIN}/android-chrome-512x512.png`,
-    description:
-      'UK-based mobile app development company building consumer apps including Oneura.',
+    description: SHOW_OHI
+      ? 'UK-based mobile app development company building consumer apps including Oneura and Oh-i.'
+      : 'UK-based mobile app development company building consumer apps including Oneura.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'GB',

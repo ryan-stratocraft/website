@@ -1,6 +1,7 @@
 import React from "react";
 import "./about.css";
 import { ONEURA_APP_ORIGIN } from "../../../constants/origins";
+import { SHOW_OHI } from "../../../config/siteFlags";
 
 const About: React.FC = () => {
   return (
@@ -58,6 +59,19 @@ const About: React.FC = () => {
             </p>
           </div>
         </div>
+
+        {SHOW_OHI && (
+        <div className="product-highlight">
+          <div className="product-icon">❤️</div>
+          <div className="product-content">
+            <h3>Oh-i - Dating Reimagined</h3>
+            <p>
+              Our first product is a personality- and place-based dating app that reimagines how people
+              match and connect. It&apos;s just the beginning.
+            </p>
+          </div>
+        </div>
+        )}
 
         <div className="product-highlight">
           <div className="product-icon">🔧</div>

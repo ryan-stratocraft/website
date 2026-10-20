@@ -14,7 +14,9 @@ import {
   STRATO_ORIGIN,
   ONEURA_ORIGIN,
   STRATO_OG_IMAGE,
+  STRATO_KEYWORDS,
   STRATO_ROUTES,
+  SHOW_OHI,
   buildStratoSchema,
   routeUrl,
 } from './strato-site-data.mjs';
@@ -120,7 +122,7 @@ async function prerenderStratoRoutes() {
   );
   // Read the pristine shell once so the home injection does not leak into
   // the other routes.
-  const template = fs.readFileSync(indexHtml, 'utf8');
+  const template = applyShellKeywords(fs.readFileSync(indexHtml, 'utf8'));
 
   for (const route of STRATO_ROUTES) {
     const appHtml = renderStratoRoute(route.path);
@@ -132,6 +134,55 @@ async function prerenderStratoRoutes() {
     fs.mkdirSync(path.dirname(outputFile), { recursive: true });
     fs.writeFileSync(outputFile, pageHtml);
   }
+}
+
+function applyShellKeywords(html) {
+  const keywords = escapeHtmlAttribute(STRATO_KEYWORDS);
+  return html.replace(
+    /<meta\s+name="keywords"\s+content="[^"]*"\s*\/>/,
+    `<meta name="keywords" content="${keywords}" />`,
+  );
+}
+
+/**
+ * public/sitemap.xml is the Oh-i-hidden copy. The production build rewrites
+ * dist/sitemap.xml from SHOW_OHI so flipping the switch and rebuilding is enough.
+ */
+function syncSitemap() {
+  const sitemapPath = path.join(dist, 'sitemap.xml');
+  if (!fs.existsSync(sitemapPath)) return;
+
+  let xml = fs.readFileSync(sitemapPath, 'utf8');
+  xml = xml.replace(
+    /\s*<!-- Oh-i Pages -->[\s\S]*?(?=\s*<!-- |\s*<\/urlset>)/,
+    '\n',
+  );
+  xml = xml.replace(
+    /\s*<url>\s*<loc>https:\/\/strato-craft\.com\/oh-i[^<]*<\/loc>[\s\S]*?<\/url>/g,
+    '',
+  );
+
+  if (SHOW_OHI) {
+    const lastmod = '2026-10-20';
+    const blocks = STRATO_ROUTES.filter((route) => route.path.startsWith('/oh-i'))
+      .map(
+        (route) => `  <url>
+    <loc>${routeUrl(route.path)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
+  </url>`,
+      )
+      .join('\n');
+    const section = `  <!-- Oh-i Pages -->\n${blocks}\n`;
+    if (xml.includes('<!-- IAC VR Pages -->')) {
+      xml = xml.replace('  <!-- IAC VR Pages -->', `${section}\n  <!-- IAC VR Pages -->`);
+    } else {
+      xml = xml.replace('</urlset>', `${section}</urlset>`);
+    }
+  }
+
+  fs.writeFileSync(sitemapPath, xml);
 }
 
 function writeLlmsTxt() {
@@ -148,7 +199,7 @@ function writeLlmsTxt() {
 - Official website: ${STRATO_ORIGIN}/
 - Type: UK mobile app development studio (builds its own products, not a consultancy)
 - Flagship product: Oneura (sleep sounds and sensory relaxation app) - ${ONEURA_ORIGIN}/
-- Other products: IAC Platform (cloud infrastructure visualisation, coming soon)
+- Other products: ${SHOW_OHI ? 'Oh-i (personality- and location-based dating app); ' : ''}IAC Platform (cloud infrastructure visualisation, coming soon)
 - Platforms: iOS and Android
 
 ## Important pages
@@ -158,7 +209,7 @@ ${pages}
 ## Products
 
 - Oneura (sleep, relaxation, focus): ${ONEURA_ORIGIN}/
-- IAC Platform (cloud infrastructure in VR): ${STRATO_ORIGIN}/iac-vr
+${SHOW_OHI ? `- Oh-i (dating): ${STRATO_ORIGIN}/oh-i\n` : ''}- IAC Platform (cloud infrastructure in VR): ${STRATO_ORIGIN}/iac-vr
 `;
 
   fs.writeFileSync(path.join(dist, 'llms.txt'), llms);
@@ -190,7 +241,7 @@ async function writeStratoOgImage() {
       <text x="232" y="198" fill="#7DD3FC" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">UK mobile app studio</text>
       <text x="96" y="332" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800">We build and ship our own</text>
       <text x="96" y="398" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800">AI-powered mobile products.</text>
-      <text x="96" y="476" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="28">Makers of Oneura, for iOS and Android.</text>
+      <text x="96" y="476" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="28">${SHOW_OHI ? 'Makers of Oneura and Oh-i, for iOS and Android.' : 'Makers of Oneura, for iOS and Android.'}</text>
       <text x="96" y="526" fill="#F8D27A" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">strato-craft.com</text>
     </svg>
   `);
@@ -206,6 +257,7 @@ async function writeStratoOgImage() {
 await writeStratoOgImage();
 await prerenderStratoRoutes();
 writeLlmsTxt();
+syncSitemap();
 
 console.log(
   `prep-strato-dist: prerendered ${STRATO_ROUTES.length} Strato routes, wrote llms.txt and ${path.basename(STRATO_OG_IMAGE)}`,
